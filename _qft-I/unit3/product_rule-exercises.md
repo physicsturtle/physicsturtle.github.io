@@ -1,0 +1,50 @@
+---
+layout: exercises
+title: Product Rule - Exercises
+dept: math
+course: calculus-I
+unit: unit3
+deptDisplay: Math
+courseDisplay: Calculus I
+unitDisplay: Unit 3
+---
+
+<ol>
+<li> <div class="exercise" > Let $z = x(t)y(t)$, and suppose that $x(3) = 2$, $x'(3) = 8$, $y(3) = 0$, and $y'(3) = -4$. What is $z'(3)$?
+
+<div class="answerBox">
+<button onclick="myFunction('answer1')" class="answerButton">Show Answer</button>
+<div  id="answer1" class="answer" >
+answer here
+</div>
+</div>
+</div>
+</li>
+
+<br>
+
+<li> <div class="exercise"> Let $f(x) = g_1(x)g_2(x)g_3(x)$. Find $f'$ in terms of $g_1,g_2,g_3$ and their derivatives.
+
+<div class="answerBox">
+<button onclick="myFunction('answer2')" class="answerButton">Show Answer</button>
+<div  id="answer2" class="answer" >
+answer here
+</div>
+</div>
+</div>
+</li>
+
+<li> <div class="exercise"> Suppose $g(-1) = -1$ and $g'(-1) = 2$. Evaluate the limit 
+$$\lim_{x\to -1} \frac{\frac{g(x)}{x^5} + g(-1)}{x+1}$$
+
+
+<div class="answerBox">
+<button onclick="myFunction('answer3')" class="answerButton">Show Answer</button>
+<div  id="answer3" class="answer" >
+answer here
+</div>
+</div>
+</div>
+</li>
+
+</ol>

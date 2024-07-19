@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Dirac Delta Function</title>
+  <meta name="description" content="The Dirac delta function \(\delta(x)\) is a function which is extremely sharply peaked at \(x = 0\). Strictly speaking, it is not a function at all, but rath...">
+    
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+</script>
+<!---
+<script type="text/x-mathjax-config">
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$']],
+      inlineMath: [['$', '$']],
+    },
+  };
+</script>
+--->
+<script>
+    window.MathJax = {
+      tex: {
+        packages: ['base', 'ams', 'amscd', 'mathrsfs', 'upgreek'],
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      tags: 'all'  // Enable automatic numbering for all displayed equations
+    }
+  };
+</script>
+    
+
+
+<div style="display:none">
+\(
+%Residues
+\let\Res\relax
+\DeclareMathOperator*{\Res}{Res}
+
+%Allow us to write angstroms
+\let\ring\r
+\renewcommand{\r}{\textbf{r}}
+\let\Oersted\O
+\let\O\relax
+\DeclareMathOperator{\O}{O}
+
+%Define useful symbols for commonly used sets in mathematics
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}} 
+%\newcommand{\H}{\mathbb{H}}
+
+%Useful symbols for differential geometry
+\newcommand{\M}{\mathcal{M}}
+\renewcommand{\d}{\text{d}}
+\newcommand{\Sphere}{\mathbb{S}}
+\newcommand{\Torus}{\mathbb{T}}
+
+%Useful notations for electromagnetism
+\newcommand{\E}{\textbf{E}}
+\newcommand{\B}{\textbf{B}}
+\newcommand{\A}{\textbf{A}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\J}{\textbf{J}}
+
+%Useful symbols for vector notation
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\y}{\boldsymbol{y}}
+\newcommand{\z}{\boldsymbol{z}}
+\newcommand{\p}{\boldsymbol{p}}
+\newcommand{\q}{\boldsymbol{q}}
+\newcommand{\w}{\boldsymbol{w}}
+\renewcommand{\k}{\boldsymbol{k}}
+\newcommand{\K}{\boldsymbol{K}}
+\newcommand{\Q}{\boldsymbol{Q}}
+\renewcommand{\r}{\boldsymbol{r}}
+
+%Useful symbols for physics
+\newcommand{\hc}{\text{H.c.}}
+\newcommand{\Hc}{\text{H.c.}}
+\newcommand{\BZ}{\text{BZ}}
+\newcommand{\Kn}{\text{Kn}}
+\newcommand{\g}{\mathfrak{g}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{i}}
+\newcommand{\jhat}{\hat{j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\lhat}{\hat{l}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\varphihat}{\hat{\varphi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\V}{\mathcal{V}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\D}{\mathcal{D}}
+
+\newcommand{\id}{\text{id}}
+
+
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\preim}{preim}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ver}{ver}
+\DeclareMathOperator{\hor}{hor}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Cl}{C\ell}
+\DeclareMathOperator{\conf}{conf}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\algsl}{\mathfrak{sl}}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\algsu}{\mathfrak{su}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Unit}{U}
+\DeclareMathOperator{\algu}{\mathfrak{u}}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\algso}{\mathfrak{so}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Witt}{Witt}
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\vecspan}{span}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\1}{\mathbb{1}}
+
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Bi}{Bi}
+
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+%Useful notations for thermodynamics
+\newcommand{\dbar}}
+    
+\)
+</div>
+
+<div style="display:none">
+    \(\require{cancel}\)
+    \(\require{physics}\)
+</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+                                                  google_ad_client: "ca-pub-7447253757666293",
+                                                  enable_page_level_ads: true
+                                                  });
+    </script>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="http://localhost:4000/green_functions/unit1/DiracDeltaFunction.html">
+  <link rel="alternate" type="application/rss+xml" title="Physicsturtle" href="http://localhost:4000/feed.xml">
+      <script>
+          function myFunction(name) {
+              var x = document.getElementById(name);
+              if (x.style.display === "block") {
+                  x.style.display = "none";
+              } else {
+                  x.style.display = "block";
+              }
+          }
+      </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header" style="background-color:#9ED54C">
+
+  <div class="wrapper" >
+
+    <a class="site-title" href="/">Physicsturtle</a>
+
+    <nav class="site-nav" >
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <!--hide the physics content for now... my_page.title == "Physics" or -->
+      <div class="trigger" >
+          
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/physics">Physics</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/math">Math</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/guides">Guides</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/about">About</a>
+          
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+      
+      
+      
+      
+      
+      <div> <a href="http://localhost:4000/math">Math</a> > <a href="http://localhost:4000/green_functions">Green functions</a> > <a href="http://localhost:4000/green_functions/unit1">Unit 1</a> > <a href="/green_functions/unit1/DiracDeltaFunction.html">Dirac Delta Function</a> > <a href="/green_functions/unit1/DiracDeltaFunction-exercises.html"> Exercises </a> </div> <br>
+    <h1 class="post-title">Dirac Delta Function</h1>
+  </header>
+  
+  <div class="post-content">
+    <p>The Dirac delta function \(\delta(x)\) is a function which is extremely sharply peaked at \(x = 0\). Strictly speaking, it is not a function at all, but rather a distribution. We will not delve into the theory of distributions in these notes, but rather treat it as a function that has some unusual properties.</p>
+
+<div class="definition">
+<b>Definition:</b>
+The <i>Dirac delta function</i> is defined to satisfy the following properties:
+
+<ol>
+<li> The area under \(\delta(x)\) is 1: 
+$$\begin{equation}
+\int_{-\infty}^\infty \delta(x) \d x = 1
+\end{equation}$$ \\
+</li>
+<li> The delta function is zero everywhere except at \(x = 0\): 
+$$\begin{equation}
+\delta(x)  = \begin{cases}
+0, &amp; x \neq 0\\
+\text{undefined} &amp; x = 0
+\end{cases}
+\end{equation}$$
+</li></ol>
+
+</div>
+
+<p>There are other properties of the delta function that we will find useful.</p>
+
+<p><u>Sifting Property</u>
+If \(f(x)\) is a continuous function for \(x \in[x_1,x_2]\), and if \(x_0\in(x_1,x_2)\), then</p>
+
+\[\begin{equation}
+\int_{x_1}^{x_2}f(x)\delta(x-x_0) \d x = f(x_0).
+\end{equation}\]
+
+<p>There is another definition of the Dirac delta function.</p>
+
+<div class="definition">
+<b>Definition:</b>
+Consider a sequence of functions \(\{f_k(x)\}\), which satisfy the properties
+
+$$\begin{equation}
+\lim_{k\to\infty}\int_{-\infty}^\infty f_k(x) \d x = 1
+\end{equation}$$
+
+and 
+
+$$\begin{equation}
+\lim_{k\to\infty,x\not= 0} f_k(x) = 0
+\end{equation}$$
+
+If the above two properties hold, then \(\{f_k(x)\}\) is called a delta sequence. 
+
+</div>
+
+<p>A delta sequence looks like in the following plot:</p>
+
+<figure class="center">
+<p><img src="figures/gaussian_delta_sequence.pdf" alt="Function" class="center" style="width:125.64px;height:114.149px;" /> </p><figcaption class="center">A delta sequence constructed out of Gaussian functions, \(f_k = \sqrt{\frac{k</figcaption>{\pi&lt;/figcaption&gt;&lt;/figcaption&gt;e^{-kx^2&lt;/figcaption&gt;\), where we have plotted \(k=1,2,3,4,5\).&lt;/figcaption&gt;
+</figure>
+
+<p>There are many examples of delta sequences.</p>
+
+<div class="example">
+<b>Example:</b>
+The following sequences of functions are \(\delta\) sequences as \(k\to\infty\).
+
+<ul>
+<li> The box function sequence:
+
+$$\begin{equation}
+f_k(x) = \begin{cases}
+k &amp; |x| &lt; 1/2k \\ 
+0 &amp; |x| \geq 1/2k
+\end{cases}
+\end{equation}$$
+
+</li>
+<li> The tent function sequence: 
+
+$$\begin{equation}
+f_k(x) = \begin{cases}
+A - k|x| &amp; |x| &lt; 1/k \\
+0 &amp; |x| &gt; 1/k
+\end{cases}
+\end{equation}$$
+
+</li>
+<li> Gaussian function sequence:
+
+$$\begin{equation}
+f_k(x) = \sqrt{\frac{k}{\pi}}e^{-kx^2}
+\end{equation}$$
+
+</li>
+<li> Lorentzian function sequence:
+
+$$\begin{equation}
+f_k(x) = \frac{1}{\pi}\frac{k}{1+k^2x^2}
+\end{equation}$$
+</li></ul>
+
+</div>
+
+<div class="example">
+<b>Example:</b>
+Find \(M\) such that the following sequence of functions is a delta sequence as \(\epsilon\to 0\).
+$$\begin{equation}
+f_k(x) = \frac{M}{\epsilon}\sech^2\frac{x}{\epsilon}
+\end{equation}$$
+
+<b>Solution:</b>
+
+(\(M = 1/2\)).
+
+
+</div>
+
+<p>We are able to give meaning to certain expressions involving delta functions. Examples are \(x\delta(x)\), \(f(x)\delta’(x)\), and \(\delta(f(x))\).</p>
+
+<p>The rigorous approach was due to Laurent Schwartz.</p>
+
+<div class="definition">
+<b>Definition:</b>
+A function \(\phi(x)\) is called a test function if \(\phi(x)\) is infinitely differentiable and vanishes outside some finite interval. (i.e., it has compact support)
+
+</div>
+
+<div class="example">
+<b>Example:</b>
+An example of a test function is 
+
+$$\begin{equation}
+\phi(x) = \begin{cases}
+	\exp\left(-\frac{a^2}{a^2-x^2}\right) &amp; |x| &lt; a\\ 0 &amp; |x| \geq a
+\end{cases}
+\end{equation}$$
+
+</div>
+
+<p>We will look at generalized functions \(f(x)\) (such as expressions involving delta functions) only through their actions on test functions \(\phi(x)\) via the functional</p>
+
+\[\begin{equation}
+\left&lt; f,\phi\right&gt; = \int_{-\infty}^\infty f(x)\phi(x) \d x
+\end{equation}\]
+
+<p>The delta function \(f(x) = \delta(x)\) is defined by the sifting property such that</p>
+
+\[\begin{equation}
+\int_{-\infty}^\infty f(x)\phi(x) \d x = \phi(0)
+\end{equation}\]
+
+<p>for any test function \(\phi(x)\).</p>
+
+<p>Note: Defining \(\delta(x)\) by the above equation allows us to show that Dirac’s formal definition that \(\delta(x) = 0\) for \(x\not=0\) and \(\int_{-\infty}^\infty \delta(x) \d x = 1\) holds.</p>
+
+<p>Claim 1: If this holds for all \(\phi(x)\) test functions, then \(f(x) = 0\) for \(x\not = 0\).</p>
+
+<p>The idea of the proof is, suppose that \(f(x_0) \not=0\) for \(x_0\not=0\); without loss of generality set \(x_0 &gt; 0\). Thus,</p>
+
+\[\begin{equation}
+\phi(0) = 0 \not= \int \phi f
+\end{equation}\]
+
+<p>so it cannot hold.</p>
+
+<p>Claim 2: \(\int_{-\infty}^\infty f(x) \d x = 1\) if \(f(x) = 0\) for \(x\not=0\).</p>
+
+<p>Thus</p>
+
+\[\begin{equation}
+\int_{-\infty}^\infty f(x)\phi(x) \d x = \phi(0) \int_{-\infty}^\infty f(x) \d x
+\end{equation}\]
+
+<p>holds if \(\int_{-\infty}^\infty f(x) \d x = 1\).</p>
+
+<div class="definition">
+<b>Definition:</b>
+Let \(f_k(x)\) be a sequence of functions (possibly a delta sequence). We say that \(f_k(x)\to f(x)\) as \(k\to\infty\) <i>weakly</i> if 
+
+$$\begin{equation}
+\lim_{k\to\infty}(f_k,\phi) = \left&lt;f,\phi\right&gt;
+\end{equation}$$
+
+for any test function \(\phi(x)\).
+
+</div>
+
+<p>Recall that we defined test functions \(\phi(x)\) as infinitely smooth (\(C^\infty\)), with compact support (vanish outside some finite interval).</p>
+
+<p>Recall that we defined \(\delta(x-x_0)\) via the sifting property,</p>
+
+\[\begin{equation}
+\inf_{-\infty}^\infty \delta(x-x_0) \phi(x) \d x = \phi(x_0).
+\end{equation}\]
+
+<div class="definition">
+<b>Definition:</b>
+Let \(f_k(x)\) be a sequence of generalized functions. We say that 
+
+$$\begin{equation}
+f_k(x)\to f(x),\text{as} k\to\infty
+\end{equation}$$
+
+weakly, if 
+
+$$\begin{equation}
+\lim_{k\to\infty}(f_k,\phi) = (f,\phi)
+\end{equation}$$
+
+for all \(\phi\)
+
+
+</div>
+
+<div class="example">
+<b>Example:</b>
+Illustration of weak convergence for a delta sequence. Let 
+
+$$\begin{equation}
+f_k(x) = \begin{cases}
+	k &amp; |x| &lt; 1/2k \\ 0 &amp; |x| \geq 1/2k
+\end{cases}
+\end{equation}$$
+
+Non rigorously, last class, we wrote \(\lim_{k\to\infty}f_k(x) = \delta(x)\).
+
+A better way is via weak convergence. Let \(\phi(x)\) be any test function. Then, 
+
+$$\begin{equation}
+\left&lt; f_k,\phi\right&gt; = \int_{-\infty}^\infty f_k(x)\phi(x) \d x = k\int_{-1/2k}^{1/2k}\phi(x) \d x 
+\end{equation}$$
+
+By the mean value theory for integrals, we can rewrite this as
+
+$$\begin{equation}
+\left&lt;f_k,\phi \right&gt; = k\phi(\bar{x})\left(\frac{1}{2k} - \frac{-1}{2k}\right) = \phi(\bar{x})
+\end{equation}$$
+
+Let \(k\to\infty\), and \(\bar{x}\), so that
+
+$$\begin{equation}
+\lim_{k\to\infty} \left&lt; f_k,\phi \right&gt; = \phi(0) = \int_{-\infty}^\infty \phi(x) \delta(x) \d x
+\end{equation}$$
+
+so \(f_k\to\delta\) weakly. 
+
+</div>
+
+<p>We can this derive the following identities using the test function idea</p>
+
+<ol>
+<li> 
+$$\begin{equation}
+\delta(cx) = \frac{1}{|c|}\delta(x)
+\end{equation}$$
+	
+</li>
+<li> \(\delta(x) = H'(x)\) where \(H\) is the Heaviside function.
+
+</li>
+<li> 
+$$\begin{equation}
+\delta(f(x)) = \sum_{k=1}^n \frac{\delta(x-x_k)}{|f'(x_k)|}
+\end{equation}$$
+where \(f(x_k) = 0\) for \(k = 1,\dots, n\), and \(f'(x_k)\not=0\). Note that we can only have simple zeros.
+</li>
+<li> \(\delta\left(\sin\frac{\pi x}{a}\right) = \frac{|a|}{\pi}\sum_{k=-\infty}^\infty \delta(x-ka)\)
+</li></ol>
+
+<p>The derivations of these are the following.</p>
+
+<ol>
+	<li> $$\begin{equation}
+	(\delta(cx),\phi(x)) = \int_{-\infty}^\infty \delta(cx)\phi(x) \d x
+	\end{equation}$$
+	let \(y = cx\) so that \(\d x = dy/c\). If \(c &gt; 0\), we don't have to swap the integral bounds, and if \(c &lt; 0\) we do. We can capture both cases by introducing an absolute value. 
+	$$\begin{equation}
+	\int_{-\infty}^\infty \frac{1}{|c|}\delta(y)\phi\left(\frac{y}{c}\right) dy = \frac{1}{|c|}\phi(0) = \left(\frac{1}{|c|}\delta(x),\phi(x)\right)
+	\end{equation}$$
+	
+	thus, \(\delta(cx) = \frac{\delta(x)}{|c|}\).
+</li>
+<li> For the second identity, we consider 
+$$\begin{equation}H(x) = \begin{cases}
+0 &amp; x &lt; 0 \\ 
+1 &amp; x \geq 0
+\end{cases}
+\end{equation}$$
+	Then, 
+	
+$$\begin{equation}
+\int_{-\infty}^\infty H'(x) \phi(x) = -\int_{-\infty}^\infty H(x) \phi'(x) = -\int_0^\infty \phi'(x) \d x = \phi(0)
+\end{equation}$$
+	
+Thus, 
+	
+$$\begin{equation}
+\int_{-\infty}^\infty H'(x) \phi(x) \d x = \int_{-\infty}^\infty \delta(x) \phi(x) \d x
+\end{equation}$$
+
+</li>
+<li> For this one, we let \(f(x_k) = 0\), for \(k = 1,\dots,n\), and \(f'(x_k)\not=0\). Choose \(a_k,b_k\) such that \(a_k &lt; x_k &lt; b_k\), and \(f(x)\) is monotonic on \([a_k,b_k]\). Then, 
+$$\begin{equation}
+(\delta(f(x)),\phi(x)) = \sum_{k=1}^n \int_{a_k}^{b_k}\delta(f(x))\phi(x) \d x
+\end{equation}$$
+	
+On each subinterval, since monotonicity holds, let \(\sigma = f(x)\) so that
+	
+$$\begin{equation}
+\frac{\d x}{d\sigma} = \frac{1}{f'(x)}
+\end{equation}$$
+	
+Thus, when \(\sigma = 0\), \(x = x_k\). Thus, 
+	
+$$\begin{align}
+\left&lt;\phi(x),\delta(f(x))\right&gt; ={}&amp; \sum_{k=1}^n \int_{f(a_k)}^{f(b_k)} \frac{\phi(x(\sigma))}{f'(x(\sigma))}\delta(\sigma) d\sigma \\
+={}&amp; \sum_{k=1}^n \frac{\phi(x(0))}{|f'(x(0))|} \\
+={}&amp; \sum_{k=1}^n \frac{\phi(x_k)}{|f'(x_k)|} \\
+={}&amp; \int_{-\infty}^\infty \sum_{k=1}^n \frac{\delta(x-x_k)}{|f'(x_k)|}\phi(x) \d x
+\end{align}$$
+	</li>
+<li> Lastly, let's prove the expansion of the sine identity. For thiso one, we apply the previous result with \(f(x) = \sin(\pi x/a)\). Thus \(f(x_k) = 0\) for \(x_k = ak\), where \(k\in \ZZ\). Thus \(f'(x_k) = \frac{\pi}{a}\cos\left(\frac{\pi x_k}{a}\right) = (-1)^k\frac{\pi}{a}\). Using the previous result, we find that
+	$$\begin{equation}
+	\delta\left(\sin\frac{\pi x}{a}\right) = \frac{|a|}{\pi}\sum_{k=-\infty}^\infty \delta(x-ak)
+	\end{equation}$$
+</li></ol>
+
+
+  </div>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Footer -->
+<ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-7447253757666293"
+    data-ad-slot="6075791093"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer" >
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Physicsturtle</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physicsturtle</li>
+          <li><a href="mailto:nanoturtle2@gmail.com">nanoturtle2@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/physicsturtle"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">physicsturtle</span></a>
+
+          </li>
+          
+          
+           
+           
+           <li>
+               This site updated 2024-07-18 21:16
+           </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Welcome to Physicsturtle! Please use the e-mail contact to let me know if you find any mistakes or omissions, you feel an explanation could be improved, or you have a suggestion for content. 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

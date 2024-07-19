@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<article class="post">
+
+  <header class="post-header">
+      {% assign deptURL = site.url | append: "/" | append: page.dept %}
+      {% assign courseURL = site.url | append: "/" | append: page.course %}
+      {% assign unitURL = courseURL | append: "/" | append: page.unit %}
+      {% assign pageURL = page.url %}
+      {% assign exercisesURL = pageURL | remove: ".html" | append: "-exercises.html" %}
+      <div> <a href="{{ deptURL }}">{{ page.deptDisplay }}</a> > <a href="{{ courseURL }}">{{ page.courseDisplay }}</a> > <a href="{{ unitURL }}">{{ page.unitDisplay }}</a> > <a href="{{ pageURL }}">{{ page.title }}</a> > <a href="{{ exercisesURL }}"> Exercises </a> </div> <br>
+    <h1 class="post-title">{{ page.title }}</h1>
+  </header>
+  
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  {% include advertisements.html %}
+
+</article>

@@ -1,0 +1,32 @@
+---
+layout: lesson
+title: Spherically Symmetric Problems
+dept: physics
+course: qm-I
+unit: unit2
+deptDisplay: Physics
+courseDisplay: Quantum Mechanics I
+unitDisplay: Unit 2
+---
+
+In this section, we explore spherically symmetric problems. To do this, we will write the time independent Schrödinger equation in spherical coordinates. 
+
+$$-\frac{\hbar^2}{2m}\left[\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial\psi}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial\psi}{\partial\theta}\right) + \frac{1}{r^2\sin^2\theta}\frac{\partial^2\psi}{\partial\varphi^2}\right] + V(\x)\psi = E\psi$$
+
+In the case of a spherically symmetric problem, $V(\x) = V(r)$, where $r$ is the radial coordinate; $V$ is independent of $\theta$ and $\varphi$. We can then apply separation of variables to separate this equation into a radial part and an angular part. We write the wavefunction as 
+
+$$\psi(r,\theta,\varphi) = R(r)Y(\theta,\varphi)$$
+
+This allows us to separate into two equations by picking a separation constant. We call the separation constant $\ell(\ell+1)$. The radial equation, 
+
+$$-\frac{\hbar^2}{2m r^2 }\frac{\partial}{\partial r}\left(r^2\frac{\partial\psi}{\partial r}\right) + V(r)\psi + \frac{\ell(\ell+1)}{r^2}\psi = E\psi$$
+
+and the angular equation is 
+
+$$\frac{1}{\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial Y}{\partial\theta}\right) + \frac{1}{\sin^2\theta}\frac{\partial^2 Y}{\partial\varphi^2} = -\ell(\ell+1) Y.$$
+
+Common to all spherically symmetric problems is the angular equation, whose solutions are the spherical harmonics. The detailed derivation of the spherical harmonics can be found in the PDE course (link here). Individual to each problem is the spherically symmetric potential $V(r)$. 
+
+
+
+

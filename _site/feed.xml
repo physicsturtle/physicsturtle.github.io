@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Physicsturtle</title>
+    <description>Welcome to Physicsturtle! Please use the e-mail contact to let me know if you find any mistakes or omissions, you feel an explanation could be improved, or you have a suggestion for content. 
+</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 18 Jul 2024 21:16:02 -0700</pubDate>
+    <lastBuildDate>Thu, 18 Jul 2024 21:16:02 -0700</lastBuildDate>
+    <generator>Jekyll v4.2.2</generator>
+    
+      <item>
+        <title>Zestymath is Born</title>
+        <description>&lt;p&gt;Today I am creating Zestymath, a website which I envision to encompass all of undergraduate physics and some undergraduate mathematics.&lt;/p&gt;
+</description>
+        <pubDate>Wed, 13 Jun 2018 15:37:28 -0700</pubDate>
+        <link>http://localhost:4000/jekyll/update/2018/06/13/zestymath-is-born.html</link>
+        <guid isPermaLink="true">http://localhost:4000/jekyll/update/2018/06/13/zestymath-is-born.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
+        
+      </item>
+    
+  </channel>
+</rss>

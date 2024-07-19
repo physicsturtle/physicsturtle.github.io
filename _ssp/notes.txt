@@ -1,0 +1,48 @@
+Introduction: Solids as interacting quantum many-body systems
+Basic Hamiltonian, CM `theory of everything'
+"More is different" as a basic philosophy
+
+Crystal structure
+Bravais lattice, lattice with a basis, crystal plane
+Wave diffraction and reciprocal lattice, Brillouin zones, form factor
+Crystal binding and elastic constants
+
+Lattice vibrations
+Classical theory of vibration, phonons
+Thermal properties of phonons: specific heat, thermal conductivity, expansion
+
+Free electron theory
+Free electron gas model, Jellium
+Electrical conductivity, Ohm's law, Hall effect
+Thermal conductivity of electrons
+
+Electrons in a periodic potential
+Bloch theorem
+Energy bands
+Nearly-free electron approximation
+Kronig Penney Model & Dirac Comb
+Tight Binding Model
+Semiconductors: origin of the energy gap, doping
+Intrinsic vs extrinsic semiconductors, holes, effective mass
+Acceptors, donors, impurity conductivity
+
+
+Metals
+Fermi surfaces: construction and significance
+Experimental methods
+
+Superconductivity
+Origin of attractive interaction between electrons
+London equation, BCS theory, pairing instability, Cooper pairs
+Transition temperature, energy gap, ground state wavefunction
+Meissner effect, tunneling experiments, flux quantization and the Josephson effect
+
+
+
+
+Why is the band structure important? What can be concluded by looking at the band structure? For example, insulator, conductor, semiconductor. 
+
+Note that one gets a Fermi surface for each band which crosses the Fermi energy.
+
+Question: Does the band structure change when temperature is changed?
+Answer: No! The bands that are occupied might change, but the band structure itself should stay constant. 

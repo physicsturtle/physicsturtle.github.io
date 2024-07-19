@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Wick&#39;s Theorem  - Exercises</title>
+  <meta name="description" content="   In this problem, we will derive the generating function for a complex field. Consider the integral">
+    
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+</script>
+<!---
+<script type="text/x-mathjax-config">
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$']],
+      inlineMath: [['$', '$']],
+    },
+  };
+</script>
+--->
+<script>
+    window.MathJax = {
+      tex: {
+        packages: ['base', 'ams', 'amscd', 'mathrsfs', 'upgreek'],
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      tags: 'all'  // Enable automatic numbering for all displayed equations
+    }
+  };
+</script>
+    
+
+
+<div style="display:none">
+\(
+%Residues
+\let\Res\relax
+\DeclareMathOperator*{\Res}{Res}
+
+%Allow us to write angstroms
+\let\ring\r
+\renewcommand{\r}{\textbf{r}}
+\let\Oersted\O
+\let\O\relax
+\DeclareMathOperator{\O}{O}
+
+%Define useful symbols for commonly used sets in mathematics
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}} 
+%\newcommand{\H}{\mathbb{H}}
+
+%Useful symbols for differential geometry
+\newcommand{\M}{\mathcal{M}}
+\renewcommand{\d}{\text{d}}
+\newcommand{\Sphere}{\mathbb{S}}
+\newcommand{\Torus}{\mathbb{T}}
+
+%Useful notations for electromagnetism
+\newcommand{\E}{\textbf{E}}
+\newcommand{\B}{\textbf{B}}
+\newcommand{\A}{\textbf{A}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\J}{\textbf{J}}
+
+%Useful symbols for vector notation
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\y}{\boldsymbol{y}}
+\newcommand{\z}{\boldsymbol{z}}
+\newcommand{\p}{\boldsymbol{p}}
+\newcommand{\q}{\boldsymbol{q}}
+\newcommand{\w}{\boldsymbol{w}}
+\renewcommand{\k}{\boldsymbol{k}}
+\newcommand{\K}{\boldsymbol{K}}
+\newcommand{\Q}{\boldsymbol{Q}}
+\renewcommand{\r}{\boldsymbol{r}}
+
+%Useful symbols for physics
+\newcommand{\hc}{\text{H.c.}}
+\newcommand{\Hc}{\text{H.c.}}
+\newcommand{\BZ}{\text{BZ}}
+\newcommand{\Kn}{\text{Kn}}
+\newcommand{\g}{\mathfrak{g}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{i}}
+\newcommand{\jhat}{\hat{j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\lhat}{\hat{l}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\varphihat}{\hat{\varphi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\V}{\mathcal{V}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\D}{\mathcal{D}}
+
+\newcommand{\id}{\text{id}}
+
+
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\preim}{preim}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ver}{ver}
+\DeclareMathOperator{\hor}{hor}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Cl}{C\ell}
+\DeclareMathOperator{\conf}{conf}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\algsl}{\mathfrak{sl}}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\algsu}{\mathfrak{su}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Unit}{U}
+\DeclareMathOperator{\algu}{\mathfrak{u}}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\algso}{\mathfrak{so}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Witt}{Witt}
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\vecspan}{span}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\1}{\mathbb{1}}
+
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Bi}{Bi}
+
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+%Useful notations for thermodynamics
+\newcommand{\dbar}}
+    
+\)
+</div>
+
+<div style="display:none">
+    \(\require{cancel}\)
+    \(\require{physics}\)
+</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+                                                  google_ad_client: "ca-pub-7447253757666293",
+                                                  enable_page_level_ads: true
+                                                  });
+    </script>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="http://localhost:4000/sft-I/unit5/Wick'sTheorem-exercises.html">
+  <link rel="alternate" type="application/rss+xml" title="Physicsturtle" href="http://localhost:4000/feed.xml">
+      <script>
+          function myFunction(name) {
+              var x = document.getElementById(name);
+              if (x.style.display === "block") {
+                  x.style.display = "none";
+              } else {
+                  x.style.display = "block";
+              }
+          }
+      </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header" style="background-color:#9ED54C">
+
+  <div class="wrapper" >
+
+    <a class="site-title" href="/">Physicsturtle</a>
+
+    <nav class="site-nav" >
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <!--hide the physics content for now... my_page.title == "Physics" or -->
+      <div class="trigger" >
+          
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/physics">Physics</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/math">Math</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/guides">Guides</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/about">About</a>
+          
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+      
+      
+      
+      
+      
+      
+      <div> <a href="http://localhost:4000/physics">Physics</a> > <a href="http://localhost:4000/sft-I">Statistical Field Theory I</a> > <a href="http://localhost:4000/sft-I/unit5">Unit 5</a> > <a href="/sft-I/unit5/Wick'sTheorem.html">Wick's Theorem </a> > <a href="/sft-I/unit5/Wick'sTheorem-exercises.html"> Exercises </a> </div>
+    <h1 class="post-title">Wick's Theorem  - Exercises</h1>
+  </header>
+  
+  <div class="post-content">
+    <ol>
+<li> <div class="exercise">  In this problem, we will derive the generating function for a complex field. Consider the integral
+
+$$\begin{align}
+Z[\mathbf{J},\mathbf{J}^\dagger] = \int \exp\left(-\x^\dagger A \x - \mathbf{J}^\dagger\x - \x^\dagger \mathbf{J}\right) \d^d\z^\dagger\d^d\z
+\end{align}$$
+
+where the notation \(\d^d\x^\dagger \d^d\x = \d^d\Re\x \d^d\Im\x\). Compute this integral.
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer9')" class="answerButton">Show Answer</button> 
+ <div id="answer9" class="answer">
+First, we diagonalize and write \(A = U^\dagger \Lambda U\), so we get 
+
+\(\)Z[\mathbf{J},\mathbf{J}^\dagger] = \int \exp\left(-\x^\dagger U^\dagger \Lambda U \x - \mathbf{J}^\dagger\x - \x^\dagger \mathbf{J}\right) \d^d\x^\dagger\d^d\x\(\)
+
+where \(U\) is a unitary matrix. Now, we make the substitution \(\y = U\x\):
+
+\(\)Z[\mathbf{J},\mathbf{J}^\dagger] = \int \exp\left(-\y^\dagger\Lambda\y- \mathbf{J}^\dagger U^\dagger\y - \y^\dagger U\mathbf{J}\right) \d^d\y^\dagger\d^d\y\(\)
+
+which leads us to define \(<b>K</b> = U\mathbf{J}\), and we get 
+
+\(\)Z[\mathbf{J},\mathbf{J}^\dagger] = \int \exp\left(-\y^\dagger\Lambda\y- <b>K</b>^\dagger \y - \y^\dagger <b>K</b>\right) \d^d\y^\dagger\d^d\y\(\)
+
+Now, we change to index notation:
+
+$$\begin{align}
+Z[\mathbf{J},\mathbf{J}^\dagger] ={}&amp; \int \exp\left(-\sum_{i=1}^d (y_i^* y_i \lambda_i + K_i^* y_i + y_i^* K_i) \right) \d^d\y^\dagger\d^d\y \\
+={}&amp; \int \exp\left(-\sum_{i=1}^d \lambda_i \left(y_i^* y_i + \frac{K_i^* y_i}{\lambda_i} + \frac{y_i^* K_i}{\lambda_i} \right) \right) \d^d\y^\dagger\d^d\y \\
+={}&amp; \int \exp\left(-\sum_{i=1}^d \lambda_i \left(y_i^* y_i + \frac{K_i^* y_i}{\lambda_i} + \frac{y_i^* K_i}{\lambda_i} + \frac{K_i^* K_i}{\lambda_i^2} - \frac{K_i^* K_i}{\lambda_i^2} \right) \right) \d^d\y^\dagger\d^d\y \\
+={}&amp; \int \exp\left(-\sum_{i=1}^d \lambda_i \left(y_i^* + \frac{K_i^*}{\lambda_i} \right)\left( y_i + \frac{K_i}{\lambda_i}\right) + \sum_i \frac{K_i^* K_i}{\lambda_i} \right) \d^d\y^\dagger\d^d\y
+\end{align}$$
+
+We now shift the integration variable to get 
+
+$$\begin{align}
+Z[\mathbf{J},\mathbf{J}^\dagger] ={}&amp; \exp\left( \sum_i \frac{K_i^* K_i}{\lambda_i} \right) \int \exp\left(-\sum_{i=1}^d \lambda_iy_i^*y_i\right) \d^d\y^\dagger\d^d\y \\
+={}&amp; e^{<b>K</b>^\dagger\Lambda^{-1} <b>K</b>} \prod_{i=1}^d \int e^{-\lambda_i y_i^* y_i} \d y_i^* \d y_i \\
+={}&amp; e^{\mathbf{J}^\dagger U^\dagger \Lambda^{-1} U \mathbf{J}} \prod_{i=1}^d \int e^{-\lambda_i \Re(y_i)^2 - \lambda_i \Im(y_i)^2 } \d \Re(y_i) \d \Im(y_i)
+\end{align}$$
+
+Since \(A^{-1} = U^\dagger\Lambda^{-1} U\), we get 
+
+$$\begin{align}
+Z[\mathbf{J},\mathbf{J}^\dagger] ={}&amp; e^{\mathbf{J}^\dagger A^{-1} \mathbf{J}} \prod_{i=1}^d \frac{\pi}{\lambda_i} \\
+={}&amp; e^{\mathbf{J}^\dagger A^{-1} \mathbf{J}} \frac{\pi^d}{\det(A)}
+\end{align}$$
+
+</div> 
+ </div>
+
+
+</div> </li>
+<li> <div class="exercise">  In this problem, we will perform a simple generalization of Wick's theorem to a complex vector variable.
+<ol type="a">
+<li> Generalize the proof above to prove Wick's theorem for a complex vector \(\x \in \CC^d\). Consider a Hermitian matrix \(A\). 
+</li>
+<li> Write the four-point correlation function as a sum of two point generating functions. Use the generating function
+</li></ol>
+
+$$\begin{equation}
+Z[\mathbf{J}, \mathbf{J}^\dagger] = \int \exp\left(-\frac{1}{2}\x^\dagger A\x + \mathbf{J}^\dagger \x + \x^\dagger \mathbf{J}\right) \d^d\x^* \d^d\x
+\end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer59')" class="answerButton">Show Answer</button> 
+ <div id="answer59" class="answer">
+Coming
+</div> 
+ </div>
+
+</div> </li>
+<li> <div class="exercise">  Generalization of Wick's theorem. We want to prove that, if \(V_{i_1 i_2 i_3 i_4} = x^*_{i_1} x^*_{i_2}  x_{i_3}  x_{i_4} \), we can use Wick's theorem on the 16-point function \(A = \left&lt;V_{i_1i_2i_3i_4} V_{j_1j_2j_3j_4} V_{k_1k_2k_3k_4} V_{\ell_1\ell_2\ell_3\ell_4} \right&gt;\) which we have disguised as a 4-point function. 
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer65')" class="answerButton">Show Answer</button> 
+ <div id="answer65" class="answer"> 
+Let's define 
+
+\(\)\partial_I = \frac{\partial}{\partial J_{i_1}} \frac{\partial}{\partial J_{i_2}} \frac{\partial}{\partial J^*_{i_3}} \frac{\partial}{\partial J^*_{i_4}} \(\)
+
+and similarly for the \(j\), \(k\), and \(\ell\) indices. Thus, we can write the 16-point function as
+
+\(\)A =  \left(\partial_I \partial_J \partial_K \partial_L \right) Z[\mathbf{J}]\bigg|_{\mathbf{J} = 0}\(\)
+
+Letting a single derivative operator act, we get
+
+</div> 
+ </div>
+
+</div> </li>
+<li> <div class="exercise">  In this problem, we will derive the generating function for the real vector but in Fourier space. We define 
+
+$$\begin{equation}
+x_n = \frac{1}{d} \sum_{m=1}^d e^{inq_m}x(q_m),\qquad x(q_m) = \sum_{n=1}^d e^{-inq_m}x_n
+\end{equation}$$
+
+where \(q_m = 2\pi m/d\), and both \(n,m\) run from \(1\) to \(d\), inclusive. We consider the same generating function, but after transforming to Fourier space, we will be able to generate correlation functions in momentum space by differentiating our new generating function. It is easiest to write the Fourier transform as a matrix equation. This is done like
+
+$$\begin{equation}
+\x = F\tilde{\x} \qquad \tilde{\x} = F^{-1}\x
+\end{equation}$$
+
+where \(F\) is the \(d\times d\) matrix with entries \(F_{nm} = \frac{1}{d}e^{inq_m}\). 
+
+
+Plugging our expressions into the 
+
+$$\begin{align}
+-\frac{1}{2}\sum_{i,j} x_i A_{ij} x_j + \sum_i J_i x_i ={}&amp; -\frac{1}{2}\left(\x^\dagger A \x - 2\mathbf{J}^\dagger\x \right) \\
+={}&amp; -\frac{1}{2}\left(\tilde{\x}^\dagger F^\dagger A F \tilde{\x} - 2\tilde{\mathbf{J}}^\dagger F^\dagger F\tilde{\x} \right)
+\end{align}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer100')" class="answerButton">Show Answer</button> 
+ <div id="answer100" class="answer">
+Coming
+</div> 
+ </div>
+
+</div> </li></ol>
+
+
+  </div>
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Footer -->
+<ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-7447253757666293"
+    data-ad-slot="6075791093"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer" >
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Physicsturtle</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physicsturtle</li>
+          <li><a href="mailto:nanoturtle2@gmail.com">nanoturtle2@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/physicsturtle"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">physicsturtle</span></a>
+
+          </li>
+          
+          
+           
+           
+           <li>
+               This site updated 2024-07-18 21:16
+           </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Welcome to Physicsturtle! Please use the e-mail contact to let me know if you find any mistakes or omissions, you feel an explanation could be improved, or you have a suggestion for content. 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

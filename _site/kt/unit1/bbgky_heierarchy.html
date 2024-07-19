@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Boltzmann Equation</title>
+  <meta name="description" content="BBGKY Heierarchy">
+    
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+</script>
+<!---
+<script type="text/x-mathjax-config">
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$']],
+      inlineMath: [['$', '$']],
+    },
+  };
+</script>
+--->
+<script>
+    window.MathJax = {
+      tex: {
+        packages: ['base', 'ams', 'amscd', 'mathrsfs', 'upgreek'],
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      tags: 'all'  // Enable automatic numbering for all displayed equations
+    }
+  };
+</script>
+    
+
+
+<div style="display:none">
+\(
+%Residues
+\let\Res\relax
+\DeclareMathOperator*{\Res}{Res}
+
+%Allow us to write angstroms
+\let\ring\r
+\renewcommand{\r}{\textbf{r}}
+\let\Oersted\O
+\let\O\relax
+\DeclareMathOperator{\O}{O}
+
+%Define useful symbols for commonly used sets in mathematics
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}} 
+%\newcommand{\H}{\mathbb{H}}
+
+%Useful symbols for differential geometry
+\newcommand{\M}{\mathcal{M}}
+\renewcommand{\d}{\text{d}}
+\newcommand{\Sphere}{\mathbb{S}}
+\newcommand{\Torus}{\mathbb{T}}
+
+%Useful notations for electromagnetism
+\newcommand{\E}{\textbf{E}}
+\newcommand{\B}{\textbf{B}}
+\newcommand{\A}{\textbf{A}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\J}{\textbf{J}}
+
+%Useful symbols for vector notation
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\y}{\boldsymbol{y}}
+\newcommand{\z}{\boldsymbol{z}}
+\newcommand{\p}{\boldsymbol{p}}
+\newcommand{\q}{\boldsymbol{q}}
+\newcommand{\w}{\boldsymbol{w}}
+\renewcommand{\k}{\boldsymbol{k}}
+\newcommand{\K}{\boldsymbol{K}}
+\newcommand{\Q}{\boldsymbol{Q}}
+\renewcommand{\r}{\boldsymbol{r}}
+
+%Useful symbols for physics
+\newcommand{\hc}{\text{H.c.}}
+\newcommand{\Hc}{\text{H.c.}}
+\newcommand{\BZ}{\text{BZ}}
+\newcommand{\Kn}{\text{Kn}}
+\newcommand{\g}{\mathfrak{g}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{i}}
+\newcommand{\jhat}{\hat{j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\lhat}{\hat{l}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\varphihat}{\hat{\varphi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\V}{\mathcal{V}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\D}{\mathcal{D}}
+
+\newcommand{\id}{\text{id}}
+
+
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\preim}{preim}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ver}{ver}
+\DeclareMathOperator{\hor}{hor}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Cl}{C\ell}
+\DeclareMathOperator{\conf}{conf}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\algsl}{\mathfrak{sl}}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\algsu}{\mathfrak{su}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Unit}{U}
+\DeclareMathOperator{\algu}{\mathfrak{u}}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\algso}{\mathfrak{so}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Witt}{Witt}
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\vecspan}{span}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\1}{\mathbb{1}}
+
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Bi}{Bi}
+
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+%Useful notations for thermodynamics
+\newcommand{\dbar}}
+    
+\)
+</div>
+
+<div style="display:none">
+    \(\require{cancel}\)
+    \(\require{physics}\)
+</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+                                                  google_ad_client: "ca-pub-7447253757666293",
+                                                  enable_page_level_ads: true
+                                                  });
+    </script>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="http://localhost:4000/kt/unit1/bbgky_heierarchy.html">
+  <link rel="alternate" type="application/rss+xml" title="Physicsturtle" href="http://localhost:4000/feed.xml">
+      <script>
+          function myFunction(name) {
+              var x = document.getElementById(name);
+              if (x.style.display === "block") {
+                  x.style.display = "none";
+              } else {
+                  x.style.display = "block";
+              }
+          }
+      </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header" style="background-color:#9ED54C">
+
+  <div class="wrapper" >
+
+    <a class="site-title" href="/">Physicsturtle</a>
+
+    <nav class="site-nav" >
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <!--hide the physics content for now... my_page.title == "Physics" or -->
+      <div class="trigger" >
+          
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/physics">Physics</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/math">Math</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/guides">Guides</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/about">About</a>
+          
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+      
+      
+      
+      
+      
+      <div> <a href="http://localhost:4000/physics">Physics</a> > <a href="http://localhost:4000/kt">Kinetic Theory</a> > <a href="http://localhost:4000/kt/unit1">Unit 1</a> > <a href="/kt/unit1/bbgky_heierarchy.html">Boltzmann Equation</a> > <a href="/kt/unit1/bbgky_heierarchy-exercises.html"> Exercises </a> </div> <br>
+    <h1 class="post-title">Boltzmann Equation</h1>
+  </header>
+  
+  <div class="post-content">
+    <h3 id="bbgky-heierarchy">BBGKY Heierarchy</h3>
+
+<p>In kinetic theory, we define a distribution function $\rho(\textbf{q},\textbf{p},t)$ for $N$ particles. This distribution function has units</p>
+
+\[[\rho] = \frac{1}{[\text{momentum}]^{3N}[\text{position}]^{3N}}\]
+
+<p>and has the interpretation that the quantity (where $d\textbf{q}$ is a $3N$ dimensional element, and $d\textbf{q}$ is also a $3N$ dimensional element)</p>
+
+\[\rho(\textbf{q},\textbf{p},t) d \textbf{q} d\textbf{p}\]
+
+<p>is the probability that particle 1 is in $[\textbf{q}_1, \textbf{q}_1 + d\textbf{q}_1]$ with momentum $[\textbf{p}_1,\textbf{p}_1 + d\textbf{p}_1]$,  particle 2 is in $[\textbf{q}_2, \textbf{q}_2 + d\textbf{q}_2]$ with momentum $[\textbf{p}_2,\textbf{p}_2 + d\textbf{p}_2]\dots$  particle $N$ is in $[\textbf{q}_N, \textbf{q}_N + d\textbf{q}_N]$ with momentum $[\textbf{p}_N,\textbf{p}_N + d\textbf{p}_N]$, all at time $t$.</p>
+
+<p>This distribution function is very complicated! It is a function of $6N$ variables (not including time) and $N$ is normally on the order of Avogadro’s number. It is made simpler if we define a 1-particle distribution function $f_1(\textbf{q},\textbf{p},t)$ as the following:</p>
+
+\[\begin{align*}
+f_1(\textbf{q},\textbf{p},t) =&amp; \left&lt;\sum_{i=1}^N\delta^{(3)}(\textbf{q}-\textbf{q}_i)\delta^{(3)}(\textbf{p}-\textbf{p}_i) \right&gt;\\
+=&amp; \int \sum_{i=1}^N\delta^{(3)}(\textbf{q}-\textbf{q}_i)\delta^{(3)}(\textbf{p}-\textbf{p}_i) \rho(\textbf{q},\textbf{p},t) d\textbf{q}d\textbf{p}\\
+=&amp; \sum_{i=1}^N\int \delta^{(3)}(\textbf{q}-\textbf{q}_i)\delta^{(3)}(\textbf{p}-\textbf{p}_i) \rho(\textbf{q},\textbf{p},t) d\textbf{q}d\textbf{p}\\
+=&amp; \sum_{i=1}^N\int \rho(\textbf{q}_1,..,\textbf{q}_{i-1},\textbf{q},\textbf{q}_{i+1},..,\textbf{q}_N,\textbf{p}_1, \dots \textbf{p}_i = \textbf{p},\dots,\textbf{p}_N,t) \prod_{\substack{j=1\\ j\neq i}}^N d\textbf{q}_j d\textbf{p}_j
+\end{align*}\]
+
+<p>I claim that all of the integrals in this sum (there are $N$ integrals) will be the same. We assume that the distribution $\rho$ is symmetric upon permuting different particles’ positions and momenta. Thus, this simplifies to (arbitrarily picking $1$ as the argument which we set to $\textbf{q}$,$\textbf{p}$.)</p>
+
+\[\begin{align*}
+f_1(\textbf{q},\textbf{p},t) =&amp; N\int \rho(\textbf{q}_1 = \textbf{q},\textbf{q}_2\dots \textbf{q}_N,\textbf{p}_1 = \textbf{p},\textbf{p}_2,\dots,\textbf{p}_N,t) \prod_{i=2}^N d\textbf{q}_i d\textbf{p}_i 
+\end{align*}\]
+
+<p>We can similarly define a 2-particle density</p>
+
+\[\begin{align*}
+f_2(\textbf{q}_1,\textbf{p}_1,\textbf{q}_2,\textbf{p}_2,t) =&amp; N(N-1)\int \rho(\textbf{q}_1, \textbf{q}_2\dots \textbf{q}_N,\textbf{p}_1, \textbf{p}_2,\dots,\textbf{p}_N,t) \prod_{i=3}^N d\textbf{q}_i d\textbf{p}_i 
+\end{align*}\]
+
+<p>which suggests the form for an $s$-particle density</p>
+
+\[f_s(\textbf{q}_1,\dots,\textbf{q}_s,\textbf{p}_1,\dots,\textbf{p}_s,t) = \frac{N!}{(N-s)!}\int \rho(\textbf{q}_1,\dots,\textbf{q}_s,\dots\textbf{q}_N,\textbf{p}_1,\dots,\textbf{p}_s,\dots,\textbf{p}_N,t)  \prod_{i=s+1}^N d\textbf{q}_i d\textbf{p}_i\]
+
+<p>and note that</p>
+
+\[f_N(\textbf{q},\textbf{p},t) = N!\rho(\textbf{q},\textbf{p},t).\]
+
+<p>We further define $\rho_s$ by</p>
+
+\[f_s = \frac{N!}{(N-s)!} \rho_s.\]
+
+<p>We can then ask, how does the $s$-particle density evolve through time at a fixed point in space (we want to know the partial derivative of $\rho_s$ with respect to time, not the total derivative)? We already know that the time evolution of an observable $\mathcal{O}$ of all the $\textbf{q}$’s and $\textbf{p}$’s evolves according to</p>
+
+\[\frac{d\mathcal{O}}{dt} = \frac{\partial \mathcal{O}}{\partial t} + \left\{\mathcal{O}, \mathcal{H}\right\}.\]
+
+<p>The form of the Hamiltonian clearly plays an important role in how the distribution evolves! We will use the simplest Hamiltonian including a two-body interaction. This two body interaction could be a Coulomb interaction, Lennard-Jones potential, or something else. The point is that we don’t consider three or four body interactions. The Hamiltonian describing this is</p>
+
+\[\mathcal{H} = \sum_{i=1}^N\left[\frac{\textbf{p}_i^2}{2m} + U(\textbf{q}_i)\right] + \frac{1}{2}\sum_{i,j = 1}^N V(\textbf{q}_i - \textbf{q}_j)\]
+
+<p>where the sum over $i,j$ omits term where $i=j$; the particles don’t interact with themselves.</p>
+
+<p>Consider now</p>
+
+\[\begin{align*}
+\frac{d\rho_s}{dt} =&amp; \frac{d}{dt}\int\rho(\textbf{q},\textbf{p},t)  \prod_{i=s+1}^N d\textbf{q}_i d\textbf{p}_i \\
+=&amp; \int  \frac{d}{dt}\rho(\textbf{q},\textbf{p},t)  \prod_{i=s+1}^N d\textbf{q}_i d\textbf{p}_i \\
+=&amp; 0
+\end{align*}\]
+
+<p>This tells us that $d\rho_s/dt = 0$ too! Thus, it is possible to represent</p>
+
+\[\begin{align*}
+\frac{\partial\rho_s}{\partial t} = \frac{\partial}{\partial t} \int\rho(\textbf{q},\textbf{p},t)  \prod_{i=s+1}^N d\textbf{q}_i d\textbf{p}_i \\
+=&amp; \int   \frac{\partial}{\partial t}\rho(\textbf{q},\textbf{p},t)  \prod_{i=s+1}^N d\textbf{q}_i d\textbf{p}_i 
+\end{align*}\]
+
+<p>We can thus use the fact that</p>
+
+\[\frac{\partial\rho}{\partial t} + \{\rho,H\} = 0\]
+
+<p>to get</p>
+
+\[\begin{align*}
+\frac{\partial\rho_s}{\partial t} =&amp; - \int \{\rho,\mathcal{H}\}  \prod_{i=s+1}^N d\textbf{q}_i d\textbf{p}_i
+\end{align*}\]
+
+<p>We thus split up $\mathcal{H}$ into three parts:</p>
+
+\[\mathcal{H} = \mathcal{H}_s + \mathcal{H}_{N-s} + \tilde{\mathcal{H}}\]
+
+<p>whereby</p>
+
+\[\mathcal{H}_s = \sum_{i=1}^s \left[\frac{\textbf{p}_i^2}{2m} + U_i(\textbf{q})\right] + \frac{1}{2}\sum_{i,j=1}^s V(\textbf{q}_i - \textbf{q}_j)\]
+
+\[\mathcal{H}_{N-s} = \sum_{i=s+1}^N \left[\frac{\textbf{p}_i^2}{2m} + U_i(\textbf{q})\right] + \frac{1}{2}\sum_{i,j=s+1}^N V(\textbf{q}_i - \textbf{q}_j)\]
+
+\[\tilde{\mathcal{H}}= \sum_{i=1}^s\sum_{j=s+1}^N V(\textbf{q}_i - \textbf{q}_j)\]
+
+<p>so,</p>
+
+<ul>
+  <li>$\mathcal{H}_s$ contains only energies of the first $s$ particles and their interactions with one another</li>
+  <li>$\mathcal{H}_{N-s}$ contains only energies of the last $N-s$ particles and their interactions with one another</li>
+  <li>$\tilde{\mathcal{H}}$ contains the interactions between the first $s$ particles and the last $N-s$ particles.</li>
+</ul>
+
+<p>We substitute these expressions in and note that we have three separate integrals to evaluate.</p>
+
+\[\begin{align*}
+\frac{\partial\rho_s}{\partial t} =&amp; - \int \{\rho,\mathcal{H}_s + \mathcal{H}_{N-s} + \tilde{\mathcal{H}}\}  \prod_{i=s+1}^N d\textbf{q}_i d\textbf{p}_i
+\end{align*}\]
+
+<p>Looking at the first Poisson bracket, we want to evaluate</p>
+
+\[\int\{\rho,\mathcal{H}_s\}  \prod_{i=s+1}^N d\textbf{q}_i d\textbf{p}_i,\]
+
+<p>but immediately notice that the (surviving) differentiations are all with respect to $\q_1,\dots,\q_s$, and $\p_1,\dots,\p_s$ because $\H_s$ is independent of the variables $\textbf{q}_{s+1},\dots,\textbf{q}_N$ and $\textbf{p}_s,\dots,\textbf{p}_N$. This means that we can interchange the order of differentiation and integration:</p>
+
+\[\begin{align*}
+\int\{\rho,\H_s\}  \prod_{i=s+1}^N d\textbf{q}_i d\textbf{p}_i =&amp; \left\{\int\rho \prod_{i=s+1}^N d\textbf{q}_i d\textbf{p}_i,\H_s\right\}\\
+=&amp; \{\rho_s,\H_s\}\end{align*}\]
+
+<p>That wasn’t so bad! Now, let’s move on to the next Poisson bracket.</p>
+
+\[\begin{align*}
+\int\{\rho,\H_{N-s}\} \prod_{i=s+1}^N d\q_i d\p_i =&amp; \int \sum_{j=1}^N \left( \frac{\partial\rho}{\partial\q_j}\frac{\partial \H_{N-s}}{\partial \p_j} - \frac{\partial\rho }{\partial\p_j}\frac{\partial H_{N-s}}{\partial \q_j}\right)\prod_{i=s+1}^N d\q_i d\p_i\\
+=&amp; \int \sum_{j=s+1}^N \left( \frac{\partial\rho}{\partial\q_j}\frac{\partial \H_{N-s}}{\partial \p_j} - \frac{\partial\rho }{\partial\p_j}\frac{\partial H_{N-s}}{\partial \q_j}\right)\prod_{i=s+1}^N d\q_i d\p_i
+\end{align*}\]
+
+<p>where we used the fact that $\H_{N-s}$ is independent of $\q_1,\dots \q_s$ and $\p_1,\dots \p_s$ to go from the first line to the second line. Now, we plug in our actual Hamiltonian $\H_{N-s}$. The actual form of the Hamiltonian does not matter at this point, but what does matter is that the derivatives</p>
+
+\[\frac{\partial \H_{N-s}}{\partial \q_j}\]
+
+<p>are all independent of momenta $\p_i$, and that</p>
+
+\[\frac{\partial \H_{N-s}}{\partial \p_j}\]
+
+<p>are all independent of positions $\q_i$.</p>
+
+<p>Plugging these in, making sure to note all dependencies now,</p>
+
+\[\begin{align*}
+\int\{\rho,\H_{N-s}\} \prod_{i=s+1}^N d\q_i d\p_i =&amp; \int \sum_{j=s+1}^N \left( \frac{\partial\rho(\q,\p,t)}{\partial\q_j}\frac{\partial \H_{N-s}}{\partial \p_j}(\p) - \frac{\partial\rho(\q,\p,t) }{\partial\p_j}\frac{\partial H_{N-s}}{\partial \q_j}(\q) \right)\prod_{i=s+1}^N d\q_i d\p_i
+\end{align*}\]
+
+<p>We can split this up into two integrals, and also rearrange some brackets with the derivatives. This is where the derivatives of the Hamiltonian with respect to $\q$ and $\p$ being independent of $\p$ and $\q$ respectively comes in useful.</p>
+
+\[\begin{align*}
+\int\{\rho,\H_{N-s}\} \prod_{i=s+1}^N d\q_i d\p_i =&amp; \int \sum_{j=s+1}^N \frac{\partial\rho(\q,\p,t)}{\partial\q_j}\frac{\partial \H_{N-s}}{\partial \p_j}(\p) \prod_{i=s+1}^N d\q_i d\p_i-  \int  \frac{\partial\rho(\q,\p,t) }{\partial\p_j}\frac{\partial H_{N-s}}{\partial \q_j}(\q) \prod_{i=s+1}^N d\q_i d\p_i \\
+=&amp; \int \sum_{j=s+1}^N \frac{\partial}{\partial\q_j}\left(\rho(\q,\p,t)\frac{\partial \H_{N-s}}{\partial \p_j}(\p)\right) \prod_{i=s+1}^N d\q_i d\p_i - \int  \frac{\partial}{\partial\p_j}\left(\rho(\q,\p,t) \frac{\partial H_{N-s}}{\partial \q_j}(\q)\right) \prod_{i=s+1}^N d\q_i d\p_i
+\end{align*}\]
+
+<p>Now, in the first integral, we perform the $\q$ integration first. This leaves us with a surface term, which gives us zero. In the second integral, we perform the $\p$ integration first. This leaves us again with a surface term, which again gives us zero. Thus</p>
+
+\[\int\{\rho,\H_{N-s}\} \prod_{i=s+1}^N d\q_i d\p_i  = 0\]
+
+<p>Now, we proceed onto the last Poisson bracket.</p>
+
+\[\begin{align*}
+\int\{\rho,\H'\} \prod_{i=s+1}^N d\q_i d\p_i =&amp; \int\sum_{j=1}^N\left(\frac{\partial\rho}{\partial\q_j} \frac{\partial\tilde{\H}}{\partial\p_j} - \frac{\partial\rho}{\partial\p_j} \frac{\partial\tilde{\H}}{\partial\q_j}\right)\prod_{i=s+1}^N d\q_i d\p_i\\
+=&amp; -\int\sum_{j=1}^N\left(\frac{\partial\rho}{\partial\p_j} \frac{\partial\tilde{\H}}{\partial\q_j}\right)\prod_{i=s+1}^N d\q_i d\p_i
+\end{align*}\]
+
+<p>where, because $\tilde{\H}$ is independent of all momenta $\p$, we dropped the first term of the Poisson bracket. Now, we split up the sum over $j$ into two.</p>
+
+\[\begin{align*}
+\int\{\rho,\H'\} \prod_{i=s+1}^N d\q_i d\p_i =&amp; -\int\left(\sum_{j=1}^s \frac{\partial\rho}{\partial\p_j} \frac{\partial\tilde{\H}}{\partial\q_j} + \sum_{j=s+1}^N \frac{\partial\rho}{\partial\p_j} \frac{\partial\tilde{\H}}{\partial\q_j} \right)\prod_{i=s+1}^N d\q_i d\p_i
+\end{align*}\]
+
+<p>This means that we can easily evaluate the derivatives of $\tilde{H}$. If $1 \leq j \leq s$, then</p>
+
+\[\frac{\partial\tilde{\H}}{\partial \q_j} = \sum_{k=s+1}^N \frac{\partial V(\q_k - \q_j)}{\partial \q_j}\]
+
+<p>and if $s+1 \leq j \leq N$, then</p>
+
+\[\frac{\partial\tilde{\H}}{\partial\q_j} = \sum_{k=1}^s \frac{\partial V(\q_k - \q_j)}{\partial \q_j}.\]
+
+<p>Plugging these in, we get</p>
+
+\[\begin{align*}
+\int\{\rho,\H'\} \prod_{i=s+1}^N d\q_i d\p_i =&amp; -\int\left(\sum_{j=1}^s \frac{\partial\rho}{\partial\p_j} \sum_{k=s+1}^N \frac{\partial V(\q_k - \q_j)}{\partial \q_j}+ \sum_{j=s+1}^N \frac{\partial\rho}{\partial\p_j} \sum_{k=1}^s \frac{\partial V(\q_k - \q_j)}{\partial \q_j} \right)\prod_{i=s+1}^N d\q_i d\p_i
+\end{align*}\]
+
+<p>Looking at the second term, we see that the potential has no dependence on any $\p$, so, it evaluates to a surface term over momenta. This is the same logic as we used when we concluded that the integral of the second Poisson bracket was zero.</p>
+
+\[\begin{align*}
+\int\{\rho,\H'\} \prod_{i=s+1}^N d\q_i d\p_i =&amp; -\int\left(\sum_{j=1}^s \frac{\partial\rho}{\partial\p_j} \sum_{k=s+1}^N \frac{\partial V(\q_k - \q_j)}{\partial \q_j} \right)\prod_{i=s+1}^N d\q_i d\p_i
+\end{align*}\]
+
+<p>Now we recognize that the sum over $k$ produces $N-s$ terms. We are integrating over all the positions and momenta of the $j = s+1$ to $j=N$ particles, so when integrating over this sum we get the same for each term in it. Thus, we can simplify this to</p>
+
+\[\begin{align*}
+\int\{\rho,\H'\} \prod_{i=s+1}^N d\q_i d\p_i =&amp; -(N-s) \int\left(\sum_{j=1}^s \frac{\partial\rho}{\partial\p_j} \frac{\partial V(\q_{s+1} - \q_j)}{\partial \q_j} \right)\prod_{i=s+1}^N d\q_i d\p_i
+\end{align*}\]
+
+<p>where we have just substituted $k = s+1$, but we could have substituted any value between $s+1$ and $N$ inclusive. Now, we integrate over $\p_{s+1}$ and $\q_{s+1}$ last, and the remaining coordinates and momenta first. This looks like</p>
+
+\[\begin{align*}
+\int\{\rho,\H'\} \prod_{i=s+1}^N d\q_i d\p_i =&amp; -(N-s) \int \sum_{j=1}^s \left[\int\left(\frac{\partial\rho}{\partial\p_j} \frac{\partial V(\q_{s+1} - \q_j)}{\partial \q_j} \right)\prod_{i=s+2}^N d\q_i d\p_i \right]d\q_{s+1} d\p_{s+1}
+\end{align*}\]
+
+<p>Since the term with $V$ has no dependence on any $\p_j$ and only the $\q_j$ for which $j &lt; s+1$, it can be moved out of the innermost integral. Further, the derivative on $\rho$ with respect to $\p_j$ has $j &lt; s+1$, so it can also be moved out.</p>
+
+\[\begin{align*}
+\int\{\rho,\H'\} \prod_{i=s+1}^N d\q_i d\p_i =&amp; -(N-s) \int \sum_{j=1}^s \frac{\partial V(\q_{s+1} - \q_j)}{\partial \q_j} \frac{\partial}{\partial\p_j} \left[\int \rho \prod_{i=s+2}^N d\q_i d\p_i \right]d\q_{s+1} d\p_{s+1}
+\end{align*}\]
+
+<p>And now we recognize the innermost quantity as $\rho_{s+1}$. Thus,</p>
+
+\[\begin{align*}
+\int\{\rho,\H'\} \prod_{i=s+1}^N d\q_i d\p_i =&amp; -(N-s) \int \sum_{j=1}^s \frac{\partial V(\q_{s+1} - \q_j)}{\partial \q_j} \frac{\partial \rho_{s+1}}{\partial\p_j}d\q_{s+1} d\p_{s+1}
+\end{align*}\]
+
+<p>This is now an integral over only 6 variables! Unfortunately, we can’t make any further simplifications at this point. We are now ready to put the three calculations for these Poisson brackets together. This gives us</p>
+
+\[\frac{\partial\rho_s}{\partial t} = - \{\rho_s,\H_s\} + (N-s) \int \sum_{j=1}^s \frac{\partial V(\q_{s+1} - \q_j)}{\partial \q_j} \frac{\partial \rho_{s+1}}{\partial\p_j}d\q_{s+1} d\p_{s+1}\]
+
+<p>Let’s rearrange this slightly to get</p>
+
+\[\frac{\partial\rho_s}{\partial t} + \{\rho_s,\H_s\} = (N-s) \int \sum_{j=1}^s \frac{\partial V(\q_{s+1} - \q_j)}{\partial \q_j} \frac{\partial \rho_{s+1}}{\partial\p_j}d\q_{s+1} d\p_{s+1}\]
+
+<p>We have now constructed the BBGKY heierarchy. If we want to find $\partial \rho_1/\partial t$, then we already need $\rho_2$. Similarly, if we want to find $\partial\rho_2/\partial t$, then we already need $\rho_3$. This sequence of dependencies is called the BBGKY heierarchy.</p>
+
+<p>Note that it is also possible to write the BBGKY heierarchy in terms of the unnormalized densities $f_s$, which gives us</p>
+
+\[\frac{\partial f_s}{\partial t} + \{f_s,\H_s\} = \int \sum_{j=1}^s \frac{\partial V(\q_{s+1} - \q_j)}{\partial \q_j} \frac{\partial f_{s+1}}{\partial\p_j}d\q_{s+1} d\p_{s+1}\]
+
+
+  </div>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Footer -->
+<ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-7447253757666293"
+    data-ad-slot="6075791093"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer" >
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Physicsturtle</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physicsturtle</li>
+          <li><a href="mailto:nanoturtle2@gmail.com">nanoturtle2@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/physicsturtle"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">physicsturtle</span></a>
+
+          </li>
+          
+          
+           
+           
+           <li>
+               This site updated 2024-07-18 21:16
+           </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Welcome to Physicsturtle! Please use the e-mail contact to let me know if you find any mistakes or omissions, you feel an explanation could be improved, or you have a suggestion for content. 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

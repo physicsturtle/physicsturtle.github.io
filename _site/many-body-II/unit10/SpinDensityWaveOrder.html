@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Spin Density Wave Order</title>
+  <meta name="description" content="In this section, we will use the path integral formalism to study the possibility of spin density waves in the Fermi Hubbard model. We will find for example ...">
+    
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+</script>
+<!---
+<script type="text/x-mathjax-config">
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$']],
+      inlineMath: [['$', '$']],
+    },
+  };
+</script>
+--->
+<script>
+    window.MathJax = {
+      tex: {
+        packages: ['base', 'ams', 'amscd', 'mathrsfs', 'upgreek'],
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      tags: 'all'  // Enable automatic numbering for all displayed equations
+    }
+  };
+</script>
+    
+
+
+<div style="display:none">
+\(
+%Residues
+\let\Res\relax
+\DeclareMathOperator*{\Res}{Res}
+
+%Allow us to write angstroms
+\let\ring\r
+\renewcommand{\r}{\textbf{r}}
+\let\Oersted\O
+\let\O\relax
+\DeclareMathOperator{\O}{O}
+
+%Define useful symbols for commonly used sets in mathematics
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}} 
+%\newcommand{\H}{\mathbb{H}}
+
+%Useful symbols for differential geometry
+\newcommand{\M}{\mathcal{M}}
+\renewcommand{\d}{\text{d}}
+\newcommand{\Sphere}{\mathbb{S}}
+\newcommand{\Torus}{\mathbb{T}}
+
+%Useful notations for electromagnetism
+\newcommand{\E}{\textbf{E}}
+\newcommand{\B}{\textbf{B}}
+\newcommand{\A}{\textbf{A}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\J}{\textbf{J}}
+
+%Useful symbols for vector notation
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\y}{\boldsymbol{y}}
+\newcommand{\z}{\boldsymbol{z}}
+\newcommand{\p}{\boldsymbol{p}}
+\newcommand{\q}{\boldsymbol{q}}
+\newcommand{\w}{\boldsymbol{w}}
+\renewcommand{\k}{\boldsymbol{k}}
+\newcommand{\K}{\boldsymbol{K}}
+\newcommand{\Q}{\boldsymbol{Q}}
+\renewcommand{\r}{\boldsymbol{r}}
+
+%Useful symbols for physics
+\newcommand{\hc}{\text{H.c.}}
+\newcommand{\Hc}{\text{H.c.}}
+\newcommand{\BZ}{\text{BZ}}
+\newcommand{\Kn}{\text{Kn}}
+\newcommand{\g}{\mathfrak{g}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{i}}
+\newcommand{\jhat}{\hat{j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\lhat}{\hat{l}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\varphihat}{\hat{\varphi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\V}{\mathcal{V}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\D}{\mathcal{D}}
+
+\newcommand{\id}{\text{id}}
+
+
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\preim}{preim}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ver}{ver}
+\DeclareMathOperator{\hor}{hor}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Cl}{C\ell}
+\DeclareMathOperator{\conf}{conf}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\algsl}{\mathfrak{sl}}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\algsu}{\mathfrak{su}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Unit}{U}
+\DeclareMathOperator{\algu}{\mathfrak{u}}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\algso}{\mathfrak{so}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Witt}{Witt}
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\vecspan}{span}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\1}{\mathbb{1}}
+
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Bi}{Bi}
+
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+%Useful notations for thermodynamics
+\newcommand{\dbar}}
+    
+\)
+</div>
+
+<div style="display:none">
+    \(\require{cancel}\)
+    \(\require{physics}\)
+</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+                                                  google_ad_client: "ca-pub-7447253757666293",
+                                                  enable_page_level_ads: true
+                                                  });
+    </script>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="http://localhost:4000/many-body-II/unit10/SpinDensityWaveOrder.html">
+  <link rel="alternate" type="application/rss+xml" title="Physicsturtle" href="http://localhost:4000/feed.xml">
+      <script>
+          function myFunction(name) {
+              var x = document.getElementById(name);
+              if (x.style.display === "block") {
+                  x.style.display = "none";
+              } else {
+                  x.style.display = "block";
+              }
+          }
+      </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header" style="background-color:#9ED54C">
+
+  <div class="wrapper" >
+
+    <a class="site-title" href="/">Physicsturtle</a>
+
+    <nav class="site-nav" >
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <!--hide the physics content for now... my_page.title == "Physics" or -->
+      <div class="trigger" >
+          
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/physics">Physics</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/math">Math</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/guides">Guides</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/about">About</a>
+          
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+      
+      
+      
+      
+      
+      <div> <a href="http://localhost:4000/physics">Physics</a> > <a href="http://localhost:4000/many-body-II">Many Body Physics II</a> > <a href="http://localhost:4000/many-body-II/unit10">Unit 10</a> > <a href="/many-body-II/unit10/SpinDensityWaveOrder.html">Spin Density Wave Order</a> > <a href="/many-body-II/unit10/SpinDensityWaveOrder-exercises.html"> Exercises </a> </div> <br>
+    <h1 class="post-title">Spin Density Wave Order</h1>
+  </header>
+  
+  <div class="post-content">
+    <p>In this section, we will use the path integral formalism to study the possibility of spin density waves in the Fermi Hubbard model. We will find for example a spin-density wave with wave vector \((\pi,\pi)\), which corresponds to the special case of antiferromagnetism. The Hubbard-Stratonovich field which we will use in this section is actually a vector field instead of the simpler fields that have been discussed so far. In the next section, where we discuss charge density wave order, there is a single Hubbard-Stratonovich field, but an additional complication arises which is not present in the spin density wave section.</p>
+
+<p>We remind the reader that the Hubbard model in the operator language is given by</p>
+
+\[\begin{equation}
+\Hhat = -t\sum_{\langle i,j\rangle,\sigma}(\chat^\dagger_{i\sigma}\chat_{j\sigma} + \hc) + U\sum_i \chat^\dagger_{i\uparrow}\chat^\dagger_{i\downarrow}\chat_{i\downarrow}\chat_{i\uparrow} - \mu\sum_{i\sigma}\chat^\dagger_{i\sigma}\chat_{i\sigma}.
+\end{equation}\]
+
+<p>We note that this is not the true Hamiltonian; the true Hamiltonian does not include the chemical potential. Since we are however working in the grand canonical ensemble, it is convenient to include the chemical potential at this stage. This indicates that the corresponding effective action for the path integral is</p>
+
+\[\begin{equation}
+S = \int_0^\beta\left[ \sum_{i,\sigma} \bar{c}_{i\tau\sigma}\partial_\tau c_{i\tau\sigma} -t\sum_{\langle i,j\rangle,\sigma}(\bar{c}_{i\tau\sigma}c_{j\tau\sigma} + \bar{c}_{j\tau\sigma}c_{i\tau\sigma}) + U\sum_i \bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow} - \mu\sum_{i\sigma}\bar{c}_{i\tau\sigma}c_{i\tau\sigma}\right] \d\tau
+\end{equation}\]
+
+<p>We split up this action into two parts: a non-interacting part \(S_0\) and an interacting part \(S_{\text{int}}\):</p>
+
+\[\begin{align}
+S_0 ={}&amp; \int_0^\beta\left[ \sum_{i,\sigma} \bar{c}_{i\tau\sigma}\partial_\tau c_{i\tau\sigma} -t\sum_{\langle i,j\rangle,\sigma}(\bar{c}_{i\tau\sigma}c_{j\tau\sigma} + \bar{c}_{j\tau\sigma}c_{i\tau\sigma}) - \mu\sum_{i\sigma}\bar{c}_{i\tau\sigma}c_{i\tau\sigma}\right] \d\tau \\
+S_{\text{int}} ={}&amp; \int_0^\beta U\sum_i \bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow} \d\tau.
+\end{align}\]
+
+<p>The partition function is simply written as</p>
+
+\[\begin{equation}
+Z = \int e^{-S_0 - S_{\text{int}}}\D\bar{c}\D c
+\end{equation}\]
+
+<p>and now we perform a Hubbard-Stratonovich transformation on the interaction. We are looking for spin density wave order, so we want the Hubbard-Stratonovich field to couple to the spin operator</p>
+
+\[\begin{equation}
+\mathbf{S}_{i\tau} = \bar{c}_{i\tau\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{i\tau\beta} = (\bar{c}_{i\tau\alpha}\sigma^x_{\alpha\beta} c_{i\tau\beta}, \bar{c}_{i\tau\alpha}\sigma^y_{\alpha\beta} c_{i\tau\beta}, \bar{c}_{i\tau\alpha}\sigma^z_{\alpha\beta} c_{i\tau\beta})
+\end{equation}\]
+
+<p>We will call the Hubbard-Stratonovich field \(\mathbf{m}\) to signify an (internal) magnetic field. If we then have</p>
+
+\[\int e^{-a\|\mathbf{m}\|^2 - b\mathbf{m}\cdot \mathbf{S}}\d\mathbf{m} \propto e^{b^2\|\mathbf{S}\|^2/4a} = e^{-U\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow}}\]
+
+<p>One can verify that</p>
+
+\[\begin{align}
+(S^x_{i\tau})^2 ={}&amp; (\bar{c}_{i\tau\uparrow}c_{i\tau\downarrow} + \bar{c}_{i\tau\downarrow}c_{i\tau\uparrow})^2 \\
+={}&amp; 2\bar{c}_{i\tau\uparrow}c_{i\tau\downarrow}\bar{c}_{i\tau\downarrow}c_{i\tau\uparrow} \\
+={}&amp; -2\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow}
+\end{align}\]
+
+\[\begin{align}
+(S^y_{i\tau})^2 ={}&amp; (-i\bar{c}_{i\tau\uparrow}c_{i\tau\downarrow} + i\bar{c}_{i\tau\downarrow}c_{i\tau\uparrow})^2 \\
+={}&amp; 2\bar{c}_{i\tau\uparrow}c_{i\tau\downarrow}\bar{c}_{i\tau\downarrow}c_{i\tau\uparrow} \\
+={}&amp; -2\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow}
+\end{align}\]
+
+\[\begin{align}
+(S^z_{i\tau})^2 ={}&amp; (\bar{c}_{i\tau\uparrow}c_{i\tau\uparrow} - \bar{c}_{i\tau\downarrow}c_{i\tau\downarrow})^2 \\
+={}&amp; -2\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow}
+\end{align}\]
+
+<p>which tells us that</p>
+
+\[\begin{equation}
+\|\mathbf{S}_{i\tau}\|^2 = (S_{i\tau}^x)^2 + (S_{i\tau}^y)^2 + (S_{i\tau}^z)^2 = -6\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow}.
+\end{equation}\]
+
+<p>Thus, setting</p>
+
+\[\begin{align}
+-U\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow} ={}&amp; \frac{b^2\|\mathbf{S}\|^2}{4a} \\
+={}&amp; \frac{-6b^2\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow}}{4a}
+\end{align}\]
+
+<p>which means that \(U = 3b^2/2a\). We let \(b=1\) and \(a = 3/2U\). Thus, the interaction term of the effective action becomes</p>
+
+\[S_{\text{int}} = \int_0^\beta \sum_i\left[\frac{3}{2U}\|\mathbf{m}_{i\tau}\|^2 + \sum_{\alpha\beta}\mathbf{m}_{i\tau} \cdot \bar{c}_{i\tau\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{i\tau\beta}\right]\d\tau\]
+
+<p>and we need to remember to integrate over \(\mathbf{h}\). Next, we will Fourier transform all of the fields in spacetime. We will apply the Fourier conventions</p>
+
+\[\begin{equation}
+c_{i\tau\sigma} = \frac{1}{\sqrt{N\beta}}\sum_k e^{-ik_0\tau + i\mathbf{R}_i\cdot\k} c_{k\sigma},\quad \bar{c}_{i\tau\sigma} = \frac{1}{\sqrt{N\beta}}\sum_k e^{ik_0\tau - i\mathbf{R}_i\cdot\k} \bar{c}_{k\sigma}, \quad \mathbf{m}_{i\tau} = \frac{1}{\beta N}\sum_k e^{-ik_0\tau + i\mathbf{R}_i\cdot\k}\mathbf{m}_k 
+\end{equation}\]
+
+<p>which allows us to rewrite the two terms of the action as</p>
+
+\[S_0 = \sum_{k\sigma}\bar{c}_{k\sigma}(-ik_0+\xi_{\k})c_{k\sigma},\quad S_{\text{int}} = \frac{3}{2U\beta N}\sum_k &lt;b&gt;m&lt;/b&gt;_k \cdot&lt;b&gt;m&lt;/b&gt;_{-k} + \frac{1}{\beta N}\sum_{kp\alpha\beta} &lt;b&gt;m&lt;/b&gt;_k\cdot \bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}.\]
+
+<p>If we plug these expressions back in to the path integral representation of the partition function, we find that</p>
+
+\[\begin{equation}
+Z = \int e^{-S_0}\exp\left(-\frac{3}{2U\beta N}\sum_k&lt;b&gt;m&lt;/b&gt;_k\cdot&lt;b&gt;m&lt;/b&gt;_{-k}\right)\exp\left(-\frac{1}{\beta N}\sum_{kp\alpha\beta}&lt;b&gt;m&lt;/b&gt;_{k}\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)\D\bar{c}\D c\D&lt;b&gt;m&lt;/b&gt;
+\end{equation}\]
+
+<p>We now regroup terms in this action to find that</p>
+
+\[\begin{equation}
+Z = \int \exp\left(-\frac{3}{2U\beta N}\sum_k&lt;b&gt;m&lt;/b&gt;_k\cdot&lt;b&gt;m&lt;/b&gt;_{-k}\right)\left[\int e^{-S_0}\exp\left(-\frac{1}{\beta N}\sum_{kp\alpha\beta}&lt;b&gt;m&lt;/b&gt;\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)\D\bar{c}\D c \right]\D&lt;b&gt;m&lt;/b&gt;
+\end{equation}\]
+
+<p>and then rewrite the bracketed term as</p>
+
+\[\begin{equation}
+Z = \int \exp\left(-\frac{3}{2U\beta N}\sum_k&lt;b&gt;m&lt;/b&gt;_k\cdot&lt;b&gt;m&lt;/b&gt;_{-k}\right)Z_0 \left\langle \exp\left(-\frac{1}{\beta N}\sum_{kp\alpha\beta}&lt;b&gt;m&lt;/b&gt;_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)\right\rangle_0 \D&lt;b&gt;m&lt;/b&gt;
+\end{equation}\]
+
+<p>and we now want to write</p>
+
+\[\begin{equation}
+Z = Z_0 \int e^{-S_{\text{eff}}[&lt;b&gt;m&lt;/b&gt;]}\D&lt;b&gt;m&lt;/b&gt;.
+\end{equation}\]
+
+<p>where the effective action is given by</p>
+
+\[\begin{equation}
+S_{\text{eff}}[\mathbf{m}] = \frac{3}{2U\beta N}\sum_k&lt;b&gt;m&lt;/b&gt;_k \cdot&lt;b&gt;m&lt;/b&gt;_{-k} - \log\left\langle\exp\left(-\frac{1}{\beta N}\sum_{kp\alpha\beta}&lt;b&gt;m&lt;/b&gt;_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)\right\rangle_0
+\end{equation}\]
+
+<p>We will evaluate \(S_{\text{eff}}\) perturbatively in powers of \(<b>m</b>\). To do this, we apply the cumulant expansion. We define</p>
+
+\[\begin{equation}
+\Delta S_{\text{eff}} = -\log\left\langle\exp\left(-\frac{1}{\beta N}\sum_{k,p}&lt;b&gt;m&lt;/b&gt;_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta} c_{p\beta}\right)\right\rangle_0
+\end{equation}\]
+
+<p>and the resulting cumulant expansion gives terms at each power of \(<b>m</b>\). The first order term is given by</p>
+
+\[\begin{align}
+\Delta S_{\text{eff}}^{(1)} ={}&amp; \frac{1}{\beta N}\sum_{kp\alpha\beta}&lt;b&gt;m&lt;/b&gt;_k \cdot \langle\bar{c}_{k+p,\alpha} \boldsymbol{\sigma}_{\alpha\beta} c_{p\beta}\rangle_0 
+\end{align}\]
+
+<p>Since we have that \(\langle \bar{c}<em>{k+p,\alpha} c</em>{p\beta}\rangle_0 \propto \delta_{\alpha\beta}\), the sums over \(\alpha,\beta\) will give zero because the Pauli matrices are traceless. Thus \(\Delta S^{(1)}_{\text{eff}} = 0\). The second order contribution is then given by</p>
+
+\[\begin{align}
+\Delta S_{\text{eff}}^{(2)} ={}&amp; -\frac{1}{2}\left[\left\langle\left(-\frac{1}{\beta N}\sum_{kp\alpha\beta}&lt;b&gt;m&lt;/b&gt;_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)^2\right\rangle_0 - \left\langle-\frac{1}{\beta N}\sum_{kp\alpha\beta}&lt;b&gt;m&lt;/b&gt;_k\cdot\bar{c}_{k+p,\alpha}\sigma_{\alpha\beta}c_{p\beta}\right\rangle_0^2\right]
+\end{align}\]
+
+<p>We note that the second term is simply 0, because it is just the first order contribution to the effective action (which was 0). Thus we will focus on the first of the two terms. We will evaluate it in detail.</p>
+
+\[\begin{align}
+\Delta S_{\text{eff}}^{(2)} ={}&amp; -\frac{1}{2}\left\langle\left(-\frac{1}{\beta N}\sum_{kp\alpha\beta}&lt;b&gt;m&lt;/b&gt;_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)^2\right\rangle_0 \\
+={}&amp; -\frac{1}{2(\beta N)^2}\left\langle\left(\sum_{k,p}m^\ell_k \bar{c}_{k+p,\alpha}\sigma^\ell_{\alpha\beta}c_{p\beta}\right)^2\right\rangle_0 \\
+={}&amp; -\frac{1}{2(\beta N)^2}\sum_{\substack{kp\alpha\beta \\ k'p'\alpha'\beta'}} m^\ell_k m^{\ell'}_{k'}\sigma^\ell_{\alpha\beta} \sigma^{\ell'}_{\alpha'\beta'}\langle\bar{c}_{k+p,\alpha}c_{p\beta}\bar{c}_{k'+p',\alpha'}c_{p'\beta'}\rangle_0
+\end{align}\]
+
+<p>We now evaluate the four-point correlation function by using Wick’s theorem. It gives us</p>
+
+\[\begin{align}
+\langle\bar{c}_{k+p,\alpha}c_{p\beta}\bar{c}_{k'+p',\alpha'}c_{p'\beta'}\rangle_0 ={}&amp; \langle\wick{\c1{\bar{c}}_{k+p,\alpha}\c1{c}_{p\beta}\c1{\bar{c}}_{k'+p',\alpha'}\c1{c}_{p'\beta'}} \rangle_0 + \langle\wick{\c2{\bar{c}}_{k+p,\alpha}\c1{c}_{p\beta}\c1{\bar{c}}_{k'+p',\alpha'}\c2{c}_{p'\beta'}}\rangle_0 \\
+={}&amp; \langle\bar{c}_{k+p,\alpha}c_{p\beta}\rangle_0\langle\bar{c}_{k'+p',\alpha'}c_{p'\beta'}\rangle_0 + \langle\bar{c}_{k+p,\alpha}c_{p'\beta'}\rangle_0\langle c_{p,\beta}\bar{c}_{k'+p',\alpha'}\rangle_0 \\
+={}&amp; \mathcal{G}_0(p)\delta_{k,0}\delta_{\alpha\beta}\mathcal{G}_0(p')\delta_{k',0}\delta_{\alpha'\beta'} - \mathcal{G}_0(p')\delta_{k+p,p'}\delta_{\alpha\beta'} \mathcal{G}_0(p)\delta_{p,k'+p'}\delta_{\alpha'\beta}
+\end{align}\]
+
+<p>Plugging this in to our expression for \(\Delta S^{(2)}_{\text{eff}}\), we find that</p>
+
+\[\begin{align}
+\Delta S_{\text{eff}}^{(2)} ={}&amp; -\frac{1}{2(\beta N)^2}\sum_{k,p,k',p'} h^\ell_k h^{\ell'}_{k'}\sigma^\ell_{\alpha\beta} \sigma^{\ell'}_{\alpha'\beta'}\left( \mathcal{G}_0(p)\delta_{k,0}\delta_{\alpha\beta}\mathcal{G}_0(p')\delta_{k',0}\delta_{\alpha'\beta'} - \mathcal{G}_0(p')\delta_{k+p,p'}\delta_{\alpha\beta'} \mathcal{G}_0(p)\delta_{p,k'+p'}\delta_{\alpha'\beta}\right) \\
+={}&amp; -\frac{1}{2(\beta N)^2}\sum_{k,p,k',p'} h^\ell_k h^{\ell'}_{k'}\left( \mathcal{G}_0(p)\delta_{k,0}\mathcal{G}_0(p')\delta_{k',0}\sigma^\ell_{\alpha\alpha}\sigma^{\ell'}_{\alpha'\alpha'} - \mathcal{G}_0(p')\delta_{k+p,p'} \mathcal{G}_0(p)\delta_{p,k'+p'} \sigma^\ell_{\beta'\beta}\sigma^{\ell}_{\beta\beta'} \right)
+\end{align}\]
+
+<p>We can write the remaining sums over Pauli matrices indices as traces:</p>
+
+\[\begin{align}
+\sigma^\ell_{\alpha\alpha} = \tr(\sigma^\ell) = 0\\
+\sigma^\ell_{\alpha'\alpha'} = \tr(\sigma^{\ell'}) = 0\\
+\sigma^\ell_{\beta'\beta}\sigma^{\ell'}_{\beta\beta'} = \tr(\sigma^\ell\sigma^{\ell'}) = 2\delta_{\ell\ell'}
+\end{align}\]
+
+<p>This gives us</p>
+
+\[\begin{align}
+\Delta S_{\text{eff}}^{(2)} ={}&amp; -\frac{1}{2(\beta N)^2}\sum_{k,p,k',p'} h^\ell_k h^{\ell'}_{k'}\left( - \mathcal{G}_0(p')\delta_{k+p,p'} \mathcal{G}_0(p)\delta_{p,k'+p'} 2\delta_{\ell\ell'} \right) \\
+={}&amp; \frac{1}{(\beta N)^2}\sum_{k,p,k',p'} h^\ell_k h^\ell_{k'}\mathcal{G}_0(p')\delta_{k+p,p'} \mathcal{G}_0(p)\delta_{p,k'+p'} \\
+={}&amp; \frac{1}{(\beta N)^2}\sum_{k,p,k'} h^\ell_k h^\ell_{k'}\mathcal{G}_0(k+p)\mathcal{G}_0(p)\delta_{p,k'+k+p}
+\end{align}\]
+
+<p>Since \(\delta_{p,k’+k+p} = \delta_{k+k’,0} = \delta_{k’,-k}\), we can evaluate another sum:</p>
+
+\[\begin{align}
+\Delta S_{\text{eff}}^{(2)} ={}&amp; \frac{1}{(\beta N)^2}\sum_{k,p,k'} h^\ell_k h^\ell_{k'}\mathcal{G}_0(k+p)\mathcal{G}_0(p)\delta_{k',-k} \\
+={}&amp; \frac{1}{(\beta N)^2}\sum_{k,p} h^\ell_k h^\ell_{-k}\mathcal{G}_0(k+p)\mathcal{G}_0(p)\\
+={}&amp; \frac{1}{\beta N}\sum_k&lt;b&gt;h&lt;/b&gt;_k\cdot&lt;b&gt;h&lt;/b&gt;_{-k}\left(\frac{1}{\beta N}\sum_p \mathcal{G}_0(k+p)\mathcal{G}_0(p) \right) \\
+={}&amp; \frac{1}{\beta N}\sum_k&lt;b&gt;h&lt;/b&gt;_k\cdot&lt;b&gt;h&lt;/b&gt;_{-k}\left(\frac{1}{N}\sum_{\p} \frac{n_F(\xi_{\p}) - n_F(\xi_{\p+\k})}{ik_0 + \xi_{\p} - \xi_{\p+\k}}\right) 
+\end{align}\]
+
+<p>Now, we finally write down the whole effective action to \(O(h^2)\). We find that</p>
+
+\[\begin{align}
+S_{\text{eff}} ={}&amp; \frac{3}{2U\beta N} \sum_k&lt;b&gt;h&lt;/b&gt;_k\cdot&lt;b&gt;h&lt;/b&gt;_{-k} + \Delta S^{(2)}_{\text{eff}} \\
+={}&amp; \frac{3}{2U\beta N} \sum_k&lt;b&gt;h&lt;/b&gt;_k\cdot&lt;b&gt;h&lt;/b&gt;_{-k} + \frac{1}{\beta N}\sum_k&lt;b&gt;h&lt;/b&gt;_k\cdot&lt;b&gt;h&lt;/b&gt;_{-k}\left(\frac{1}{N}\sum_{\p} \frac{n_F(\xi_{\p}) - n_F(\xi_{\p+\k})}{ik_0 + \xi_{\p} - \xi_{\p+\k}}\right) \\
+={}&amp; \frac{1}{2\beta N}\sum_k&lt;b&gt;h&lt;/b&gt;_k\cdot&lt;b&gt;h&lt;/b&gt;_{-k}\left[\frac{3}{U} + \frac{2}{N}\sum_{\p}\frac{n_F(\xi_{\p}) - n_F(\xi_{\p+\k})}{ik_0 + \xi_{\p} - \xi_{\p+\k}}\right]
+\end{align}\]
+
+<p>This result for the effective action describes an effective Gaussian theory for \(<b>h</b>\). The theory converges if the factor is positive, whereas it diverges if the factor is negative. Thus, when the factor is zero, this signifies an instability in the theory. This will allow us to find, as a function of frequency \(k_0\) and wave vector \(\k\), the transition temperature for such an ordering by solving the equation</p>
+
+\[\frac{3}{U} + \frac{2}{N}\sum_{\p}\frac{n_F(\xi_{\p}) - n_F(\xi_{\p+\k})}{ik_0 + \xi_{\p} - \xi_{\p+\k}} = 0.\]
+
+<p>We note that temperature enters in through the Fermi-Dirac distribution.</p>
+
+
+  </div>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Footer -->
+<ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-7447253757666293"
+    data-ad-slot="6075791093"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer" >
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Physicsturtle</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physicsturtle</li>
+          <li><a href="mailto:nanoturtle2@gmail.com">nanoturtle2@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/physicsturtle"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">physicsturtle</span></a>
+
+          </li>
+          
+          
+           
+           
+           <li>
+               This site updated 2024-07-18 21:16
+           </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Welcome to Physicsturtle! Please use the e-mail contact to let me know if you find any mistakes or omissions, you feel an explanation could be improved, or you have a suggestion for content. 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

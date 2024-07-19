@@ -1,0 +1,72 @@
+---
+layout: lesson
+title: DETERMINANT AND CROSS PRODUCT
+course: calculus-III
+unit: unit1
+lessonID: determinant-cross-product
+nextID: equations-of-lines
+---
+
+The cross product is one of the two ways of multiplying vectors. It can only be defined between vectors in exactly 3 dimensions. Despite this, there are ways to think about the cross product in 2 dimensions. Additionally, definitions of the cross product can be made in more than 3 dimensions, but that is outside the scope of this course. 
+
+### The Determinant
+
+Let us first define what a determinant is. If you have taken linear algebra already, you will be very familiar with the concept of a determinant: what it means, and how to calculate it. Here is a quick review to refresh your memory. A determinant is a type of function. It takes in vectors as input, and outputs a single scalar. The number of vectors that it takes in depends on the dimension of the vectors. In 2 dimensions, the determinant takes two 2 dimensional vectors. In 3 dimensions, the determinant takes three 3 dimensional vectors, and so on. 
+
+##### Two Dimensions
+If we have a vector \\(\textbf{a} = (a_1,a_2)\\) and another vector \\(\textbf{b} = (b_1,b_2)\\), then the *determinant* of them is defined as 
+
+$$\begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix} = a_1b_2 - a_2b_1$$
+
+Where normally, we can put these vectors into a *matrix*
+
+$$\begin{bmatrix} a_1 & a_2 \\ b_1 & b_2 \end{bmatrix}$$
+
+and then the *determinant* operation is done on the matrix. Since this is not a course on linear algebra, we expect only the bare basics of linear algebra. Now we can define the cross product of two vectors \\(\textbf{a} = (a_1,a_2,a_3)\\) and \\(\textbf{b} = (b_1,b_2,b_3)\\). It is
+
+$$ \textbf{a}\times\textbf{b} = \begin{vmatrix} \hat{\textbf{x}} & \hat{\textbf{y}} & \hat{\textbf{z}} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix}$$
+
+The reason we defined \\(2\times 2\\) determinants above is because this \\(3\times 3\\) determinant is evaluated in terms of them: 
+
+$$\begin{vmatrix} \hat{\textbf{x}} & \hat{\textbf{y}} & \hat{\textbf{z}} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{vmatrix} = \begin{vmatrix} a_2 & a_3 \\ b_2 & b_3 \end{vmatrix} \hat{\textbf{x}} -  \begin{vmatrix} a_1 & a_3 \\ b_1 & b_3 \end{vmatrix} \hat{\textbf{y}} +  \begin{vmatrix} a_1 & a_2 \\ b_1 & b_2 \end{vmatrix} \hat{\textbf{z}} $$
+
+Note that the negative sign in front of the middle term is not a mistake; this is how the \\(3\times 3\\) determinant is defined. There are many tricks for evaluating determinants of special matrices. For example, if a matrix has only elements on its diagonal, then the determinant is the product of those elements. Because this is not a course on linear algebra, we will not be discussing such methods.
+
+### Geometric Definition
+
+The determinant of two vectors can be interpreted geometrically as the area of the parallelogram formed by the them. 
+
+
+
+
+### Abstract Definition
+
+
+### The Cross Product
+The cross product is very closely related to the determinant. 
+
+
+### Exercises
+
+<ol>
+<li> <div> Calculate the following determinants. </div>
+
+<button onclick="myFunction('answer1')" class="answerButton">Show Answer</button>
+<div  id="answer1" class="answer">
+This is a plane that is parallel to the \(xz\) plane. 
+</div> </li>
+
+
+<li> <div> Calculate the cross product between the vectors \(\textbf{a} = (2,1,2)\) and \(\textbf{b} = (-2,3,2)\). </div>
+
+<button onclick="myFunction('answer2')" class="answerButton">Show Answer</button>
+<div  id="answer2" class="answer">
+This is a plane that is parallel to the \(xz\) plane. 
+</div> </li>
+<li> <div> Sketch all of the points such that \(y = 1\). </div>
+
+<button onclick="myFunction('answer3')" class="answerButton">Show Answer</button>
+<div  id="answer3" class="answer">
+This is a plane that is parallel to the \(xz\) plane. 
+</div> </li>
+</ol>

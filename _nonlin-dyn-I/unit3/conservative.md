@@ -1,0 +1,107 @@
+---
+layout: lesson
+title: Conservative Systems
+dept: math
+course: nonlin-dyn-I
+unit: unit3
+deptDisplay: Math
+courseDisplay: Nonlinear Dynamics and Chaos I
+unitDisplay: Unit 3
+---
+
+Consider systems of the form
+$$x'' = F(x)$$
+If we multiply both sides by $x'$, then
+$$x'' x' = x' F(x)$$
+If we define 
+$$V(x) = -\int_{\eta_0}^x F(\eta) d\eta,$$
+
+then we can rewrite this system as 
+
+$$\frac{d}{dt}\left[\frac{1}{2}x^{\prime 2} + V(x)\right] = 0.$$
+
+Since the derivative is zero, we can say that the quantitiy inside the brackets is a constant, and we call this constant $E$, which suggests energy. 
+
+$$\frac{1}{2}x^{\prime 2} + V(x) = E$$
+
+<div class="example">
+If we set $V(x) = \frac{1}{4}(1-x^2)^2$, then plot the functions $V(x)$ vs $x$ and also $x'$ vs $x$. 
+
+</div>
+
+
+<div class="example">
+If we set $V(x) = -\frac{1}{4}(1-x^2)^2$, then plot the functions $V(x)$ vs $x$ and also $x'$ vs $x$. 
+
+</div>
+
+### Equilibria
+Suppose that there is some $x_\*$ such that $V'(x_\*) = 0$. Let's consider the values of $x$ in a small neighbourhood of $x_\*$. To do this, let $x = x_\* + \hat{x}$, where $\hat{x} \ll 1$. Then, putting the differential equation in terms of $\hat{x}$, we get 
+
+$$\hat{x}'' = - \hat{x}V''(x_*)$$
+
+where we had to substitute in the fact that $x_\*$ was a stationary point and thus the derivative of the potential was zero there. Now, substituting in $\hat{x} = e^{\lambda t}$, we find that 
+
+$$\lambda^2 + V''(x_*) = 0.$$
+
+What this tells us is that there are two cases, depending on the sign of $V''$. 
+
+1. If $V''(x_\*) > 0$, then $x_\*$ is a local minima of $V$. This means that $\lambda = \pm i(V''(x_\*))^{1/2}$. Thus, we get sinusoidal solutions 
+$$\hat{x} \sim A\cos(\omega_* t) + V\sin(\omega_* t),$$
+where $\omega_\* = \sqrt{V''(x_\*)}$. We call the equilibrium point $x_\*$ a center. Thus $\hat{x}$ is bounded as $t\to\infty$, so $x_\*$ is said to be neutrally stable.
+
+2. If $V''(x_\*) < 0$, then $x_\*$ is a local maxima of $V$. This means that $\lambda = \pm \sqrt{-V''(x_\*)}$, so we get exponential growth and decay solutions. 
+$$\hat{x} \sim Ae^{\sqrt{-V''(x_*)}t} + Be^{-\sqrt{V''(x_*)}t}$$
+and we call $x_\*$ a saddle point. 
+
+<div class="example">
+The simple pendulum has ODE
+$$\varphi'' + \frac{g}{\ell}\sin\varphi = 0.$$
+1. Plot $V(\varphi)$ vs. $\varphi$, and also $\varphi'$ vs. $\varphi$. 
+2. Suppose that $\varphi(0) = \varphi_0$ and $\varphi'(0) = 0$. Find the period $T$ of oscillation in terms of an integral. 
+3. Expand this integral in terms of a small parameter to find the first leading order approximation and the first correction. 
+
+
+If we put this in the potential form, we find that $V'(\varphi) = \frac{g}{\ell}\sin\varphi$.
+Thus, the original potential is 
+$$V(\varphi) = \frac{g}{\ell}(1-\cos\varphi)$$
+Putting this in energy conservation form, 
+$$\frac{\varphi^{\prime 2}}{2} + \frac{g}{\ell}(-\cos\varphi) = E$$
+
+</div>
+
+<div class="example">
+Consider a particle between two masses, which are at $x = \pm a$. 
+
+
+</div>
+
+
+
+<div class="example">
+Consider a bead on a wire. 
+
+
+</div>
+
+
+
+<div class="example">
+Example (delayed bifurcation) for $k > 0$
+$$x'' + kx' = -x(2x^2- F)$$
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

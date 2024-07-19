@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>LINE INTEGRALS 2D</title>
+  <meta name="description" content="Introduction">
+    
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+</script>
+<!---
+<script type="text/x-mathjax-config">
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$']],
+      inlineMath: [['$', '$']],
+    },
+  };
+</script>
+--->
+<script>
+    window.MathJax = {
+      tex: {
+        packages: ['base', 'ams', 'amscd', 'mathrsfs', 'upgreek'],
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      tags: 'all'  // Enable automatic numbering for all displayed equations
+    }
+  };
+</script>
+    
+
+
+<div style="display:none">
+\(
+%Residues
+\let\Res\relax
+\DeclareMathOperator*{\Res}{Res}
+
+%Allow us to write angstroms
+\let\ring\r
+\renewcommand{\r}{\textbf{r}}
+\let\Oersted\O
+\let\O\relax
+\DeclareMathOperator{\O}{O}
+
+%Define useful symbols for commonly used sets in mathematics
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}} 
+%\newcommand{\H}{\mathbb{H}}
+
+%Useful symbols for differential geometry
+\newcommand{\M}{\mathcal{M}}
+\renewcommand{\d}{\text{d}}
+\newcommand{\Sphere}{\mathbb{S}}
+\newcommand{\Torus}{\mathbb{T}}
+
+%Useful notations for electromagnetism
+\newcommand{\E}{\textbf{E}}
+\newcommand{\B}{\textbf{B}}
+\newcommand{\A}{\textbf{A}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\J}{\textbf{J}}
+
+%Useful symbols for vector notation
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\y}{\boldsymbol{y}}
+\newcommand{\z}{\boldsymbol{z}}
+\newcommand{\p}{\boldsymbol{p}}
+\newcommand{\q}{\boldsymbol{q}}
+\newcommand{\w}{\boldsymbol{w}}
+\renewcommand{\k}{\boldsymbol{k}}
+\newcommand{\K}{\boldsymbol{K}}
+\newcommand{\Q}{\boldsymbol{Q}}
+\renewcommand{\r}{\boldsymbol{r}}
+
+%Useful symbols for physics
+\newcommand{\hc}{\text{H.c.}}
+\newcommand{\Hc}{\text{H.c.}}
+\newcommand{\BZ}{\text{BZ}}
+\newcommand{\Kn}{\text{Kn}}
+\newcommand{\g}{\mathfrak{g}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{i}}
+\newcommand{\jhat}{\hat{j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\lhat}{\hat{l}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\varphihat}{\hat{\varphi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\V}{\mathcal{V}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\D}{\mathcal{D}}
+
+\newcommand{\id}{\text{id}}
+
+
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\preim}{preim}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ver}{ver}
+\DeclareMathOperator{\hor}{hor}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Cl}{C\ell}
+\DeclareMathOperator{\conf}{conf}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\algsl}{\mathfrak{sl}}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\algsu}{\mathfrak{su}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Unit}{U}
+\DeclareMathOperator{\algu}{\mathfrak{u}}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\algso}{\mathfrak{so}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Witt}{Witt}
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\vecspan}{span}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\1}{\mathbb{1}}
+
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Bi}{Bi}
+
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+%Useful notations for thermodynamics
+\newcommand{\dbar}}
+    
+\)
+</div>
+
+<div style="display:none">
+    \(\require{cancel}\)
+    \(\require{physics}\)
+</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+                                                  google_ad_client: "ca-pub-7447253757666293",
+                                                  enable_page_level_ads: true
+                                                  });
+    </script>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="http://localhost:4000/em-III/unit5/line-integrals.html">
+  <link rel="alternate" type="application/rss+xml" title="Physicsturtle" href="http://localhost:4000/feed.xml">
+      <script>
+          function myFunction(name) {
+              var x = document.getElementById(name);
+              if (x.style.display === "block") {
+                  x.style.display = "none";
+              } else {
+                  x.style.display = "block";
+              }
+          }
+      </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header" style="background-color:#9ED54C">
+
+  <div class="wrapper" >
+
+    <a class="site-title" href="/">Physicsturtle</a>
+
+    <nav class="site-nav" >
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <!--hide the physics content for now... my_page.title == "Physics" or -->
+      <div class="trigger" >
+          
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/physics">Physics</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/math">Math</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/guides">Guides</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/about">About</a>
+          
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+      
+      
+      
+      
+      
+      <div> <a href="http://localhost:4000/"></a> > <a href="http://localhost:4000/calculus-III"></a> > <a href="http://localhost:4000/calculus-III/unit5"></a> > <a href="/em-III/unit5/line-integrals.html">LINE INTEGRALS 2D</a> > <a href="/em-III/unit5/line-integrals-exercises.html"> Exercises </a> </div> <br>
+    <h1 class="post-title">LINE INTEGRALS 2D</h1>
+  </header>
+  
+  <div class="post-content">
+    <h3 id="introduction">Introduction</h3>
+
+<p>A line integral allows us to integrate a function along a line in the plane or in space. There are different line integrals that can be set up for any given line, each of which has its own physical interpretation. In order to calculate these quantities, let’s start with the idea of dividing the integral up into tiny pieces and then summing together.</p>
+
+<p>If we have some curve in the plane, $\textbf{r} : \mathbb{R} \to \mathbb{R}^2$, we can integrate any function whose domain is $\mathbb{R}^2$ along this curve. The function could be either a scalar function $f : \mathbb{R}^2 \to \mathbb{R}$, or a vector field $\textbf{F} : \mathbb{R}^2 \to \mathbb{R}^2$. Although there are different integrals that one can set up for these quantities with their own physical interpretations. Luckily, they are all done the same way mathematically. Consider the simplest problem of finding a length of a curve in the plane. To find the length of a curve that is winding through space, we will begin by parameterizing the curve with some variable $t$. Next we consider chopping the curve up into very small sections using our variable $t$. We can consider the length of one of these small sections by taking a snapshot of the curve between $t$ and $t + \Delta t$. In this interval, our parameterization maps out a small section of the curve that almost looks like a straight line and therefore the length of this section can be approximated by the hypotenuse of a triangle with side lengths $\Delta x$ and $\Delta y$. If we call this length $\Delta s$, then \(\Delta s = \sqrt{(\Delta x)^2 + (\Delta y)^2} \approx \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2} \Delta t\) if $\Delta t$ is small enough. From this we can see that the total length of the wire is \(\int_C \, ds = \int_{t_0}^{t_f} \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2} \, dt\)</p>
+
+<p>We are very detailed in this case because many of the harder problems you may face reduce to this problem. For example, a common problem you may see is finding the mass of a wire with a density that varies in space. A common notation for these kind of integrals is \(\int_C \, f(\textbf{r}) \, ds\) but again the procedure is the same, we parametize our path and we can then make $f$ a function of $t$ and compute the integral. \(\int_C \, f(\textbf{r}) \, ds = \int_{t_0}^{t_f} f(x(t), y(t)) \, \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2} \, dt\)
+Finally consider the problem of finding the work done along a curve $C$ in a force field $\textbf{F}$. Then the work is defined by
+\(W = \int_C \textbf{F}\cdot d\textbf{r}.\)
+The question is then how do we integrate this function? If we parametrize our curve by a variable $t$, we can write the integral as
+\(W = \int_C \textbf{F}\cdot d\textbf{r} = \int_a^b \textbf{F}(\textbf{r}(t)) \cdot \frac{d\textbf{r}}{dt} dt.\)</p>
+
+<div class="definition">
+<b> Definition: </b>Suppose $C$ is a plane curve parametrized by $t$, and that its endpoints are $((x(a),y(a))$ and $(x(b),y(b))$, where $t$ ranges from $a$ to $b$. Then the line integral of $f$ along $C$ is:
+    $$\int_C f(x,y) ds = \int_a^b f(x(t),y(t)) \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2} dt.$$
+</div>
+
+<p>Another common problem for line integrals is finding the flux through a curve enclosing a region. If we have a closed curve $C$ and a vector field $\textbf{F}$, then we can find the flux $\Phi$ through the region by the following integral:
+\(\Phi = \int_C  \textbf{F}\cdot \hat{\textbf{n}} ds\)
+where $\hat{\textbf{n}}$ is the outward pointing normal vector of the region. This normal vector can usually be written (unnormalized) as $\hat{\textbf{n}} = \left&lt; \frac{dy}{dt} ,-\frac{dx}{dt} \right&gt; $ This can be computed by again parametrizing the curve in terms of a parameter $t$:
+\(\Phi = \int_C  \textbf{F}\cdot \hat{\textbf{n}} ds= \int_C \textbf{F}(\textbf{r}(t))\cdot \hat{\textbf{n}} \left|\frac{d\textbf{r}}{dt}\right| dt.\)</p>
+
+<p>There are some theorems that are useful for the calculation of line integrals. The following is known as the fundamental theorem for line integrals.
+\begin{theorem} \normalfont
+Suppose $C$ is a smooth curve given by the function $\textbf{r} : [a,b] \to \mathbb{R}^2$ (or $\mathbb{R}^3$), and that $f$ is a differentiable function of two (or three) variables whose gradient vector $\nabla f$ is continuous on $C$. Then
+\(\int_C \nabla f \cdot d\textbf{r} = f(\textbf{r}(b)) - f(\textbf{r}(a)).\)
+\end{theorem}</p>
+
+<p>Let’s start with some examples.</p>
+
+<p>Example: Integrate $f(x,y) = xe^y$ along the curve $y = x^2$, from $(-1,1)$ to $(1,1)$.</p>
+
+<p>&lt;div class=”example&gt;
+<b> Example: </b></p>
+
+<p>Calculate the line integral of the vector field $\textbf{F} = \left&lt;x^2-2xy, y^2-2xy\right&gt;$ , from $(-1,1)$ to $(1,1)$ along the parabola $y = x^2$.</p>
+
+<div class="exampleSolution">
+<b> Solution: </b>
+First, we parametrize the curve that we're integrating along as $x = t$, $y = t^2$. This gives $\textbf{r}(t) = \left&lt; t, t^2\right&gt;$. Then, we plug this in to $\textbf{F}(\textbf{r}(t)) = \left&lt;t^2 - 2t^3,t^4 - 2t^3\right&gt;$ and integrate
+$$\begin{eqnarray*}
+\int_C \textbf{F}\cdot d\textbf{r} &amp;=&amp; \int_{-1}^1 \left&lt;t^2 - 2t^3, t^4 - 2t^3\right&gt;\cdot\left&lt;1,2t\right&gt; dt \\
+&amp;=&amp; \int_{-1}^1 t^2 - 2t^3 + 2t^5 - 4t^4 dt\\
+&amp;=&amp; \frac{2}{3} - \frac{8}{5}\\
+&amp;=&amp; -\frac{14}{15}
+\end{eqnarray*}$$
+</div>
+<p>&lt;/div&gt;</p>
+
+<p>If we have the case of a space curve, then the definition becomes</p>
+
+\[\int_C f(x,y,z) ds = \int_a^b f(x(t),y(t),z(t)) \sqrt{\left(\frac{dx}{dt}\right)^2 + \left(\frac{dy}{dt}\right)^2 + \left(\frac{dz}{dt}\right)^2} dt\]
+
+<ul>
+  <li>Definition of a line integral</li>
+  <li>Work and flux in the plane, line integral of a vector field</li>
+  <li>Line integral of a scalar field</li>
+  <li>Work in space, line integral of a vector field</li>
+  <li>Line integral of a scalar field</li>
+</ul>
+
+<p>Line integrals, not unlike integrals in a single variable, allow us to integrate along a one dimensional path, but this path need not be straight anymore. This means that we can calculate quantities like the work required to move along this path. Line integrals for work can be calculated in both 2 or 3 dimensions, but line integrals for flux are defined only for 2 dimensions.</p>
+
+<h3 id="exercises">Exercises</h3>
+
+<ol>
+<li> <div> Sketch all of the points such that \(y = 1\). </div>
+
+<button onclick="myFunction('answer2')" class="answerButton">Show Answer</button>
+<div id="answer2" class="answer">
+This is a plane that is parallel to the \(xz\) plane.
+</div> </li>
+<li> <div> Sketch all of the points such that \(y = 1\). </div>
+
+<button onclick="myFunction('answer2')" class="answerButton">Show Answer</button>
+<div id="answer2" class="answer">
+This is a plane that is parallel to the \(xz\) plane.
+</div> </li>
+</ol>
+
+  </div>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Footer -->
+<ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-7447253757666293"
+    data-ad-slot="6075791093"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer" >
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Physicsturtle</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physicsturtle</li>
+          <li><a href="mailto:nanoturtle2@gmail.com">nanoturtle2@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/physicsturtle"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">physicsturtle</span></a>
+
+          </li>
+          
+          
+           
+           
+           <li>
+               This site updated 2024-07-18 21:16
+           </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Welcome to Physicsturtle! Please use the e-mail contact to let me know if you find any mistakes or omissions, you feel an explanation could be improved, or you have a suggestion for content. 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

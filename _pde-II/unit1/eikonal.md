@@ -1,0 +1,39 @@
+---
+layout: lesson
+title: Eikonal Equation
+dept: math
+course: pde-II
+unit: unit1
+deptDisplay: Math
+courseDisplay: Partial Differential Equations II
+unitDisplay: Unit 1
+---
+
+### Derivation
+The Eikonal equation is important in geometric optics; its characteristic curves describe the ray propagation of light. To derive the equation, we start with the wave equation
+$$\phi_{tt} = c^2(\phi_{XX} +\phi_{YY})$$
+Let $\phi = e^{-i\omega t}\psi(X,Y)$, so that we get 
+$$\psi_{XX} + \psi_{YY} + k^2\psi = 0$$
+To non-dimensionalise, we set $x = X/L$ and $y = Y/L$, so that we get 
+$$\psi_{xx} + \psi_{yy} + \kappa^2\psi = 0$$
+where $\kappa = Lk$. Assume that $\kappa \gg 1$, which is the case of short wavelength in comparison to the system. Then, let 
+$$\psi(x,y) = A(x,y) e^{i\kappa u(x,y)}$$
+
+where $u$ is the phase and $A$ is the amplitude of the wave. Calculating the derivatives of the quantities, we find that 
+$$\psi_{xx} = (-\kappa^2 u_x^2 + ik u_{xx} A + 2ik u_x A_x + A_{xx})e^{i\kappa u}$$
+and similarly for $y$. Plugging this into the originla equation, we find that 
+$$-\kappa^2 A(u_x^2 + u_y^2) + i\kappa[(u_{xx} + u_{yy})A + 2\nabla u \cdot \nabla A] + (A_{xx} + A_{yy}) + \kappa^2 A = 0$$
+
+If we assume that $k$ is large, then we only need to balance the terms which have the highest power of $k$, namely the first and last. Thus we are left with the eikonal equation
+$$u_x^2 + u_y^2 = 1.$$
+
+
+
+
+
+
+
+
+
+
+

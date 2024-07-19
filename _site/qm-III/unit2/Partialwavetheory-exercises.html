@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Partial wave theory  - Exercises</title>
+  <meta name="description" content="   Define the three-dimensional probability current by">
+    
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+</script>
+<!---
+<script type="text/x-mathjax-config">
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$']],
+      inlineMath: [['$', '$']],
+    },
+  };
+</script>
+--->
+<script>
+    window.MathJax = {
+      tex: {
+        packages: ['base', 'ams', 'amscd', 'mathrsfs', 'upgreek'],
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      tags: 'all'  // Enable automatic numbering for all displayed equations
+    }
+  };
+</script>
+    
+
+
+<div style="display:none">
+\(
+%Residues
+\let\Res\relax
+\DeclareMathOperator*{\Res}{Res}
+
+%Allow us to write angstroms
+\let\ring\r
+\renewcommand{\r}{\textbf{r}}
+\let\Oersted\O
+\let\O\relax
+\DeclareMathOperator{\O}{O}
+
+%Define useful symbols for commonly used sets in mathematics
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}} 
+%\newcommand{\H}{\mathbb{H}}
+
+%Useful symbols for differential geometry
+\newcommand{\M}{\mathcal{M}}
+\renewcommand{\d}{\text{d}}
+\newcommand{\Sphere}{\mathbb{S}}
+\newcommand{\Torus}{\mathbb{T}}
+
+%Useful notations for electromagnetism
+\newcommand{\E}{\textbf{E}}
+\newcommand{\B}{\textbf{B}}
+\newcommand{\A}{\textbf{A}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\J}{\textbf{J}}
+
+%Useful symbols for vector notation
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\y}{\boldsymbol{y}}
+\newcommand{\z}{\boldsymbol{z}}
+\newcommand{\p}{\boldsymbol{p}}
+\newcommand{\q}{\boldsymbol{q}}
+\newcommand{\w}{\boldsymbol{w}}
+\renewcommand{\k}{\boldsymbol{k}}
+\newcommand{\K}{\boldsymbol{K}}
+\newcommand{\Q}{\boldsymbol{Q}}
+\renewcommand{\r}{\boldsymbol{r}}
+
+%Useful symbols for physics
+\newcommand{\hc}{\text{H.c.}}
+\newcommand{\Hc}{\text{H.c.}}
+\newcommand{\BZ}{\text{BZ}}
+\newcommand{\Kn}{\text{Kn}}
+\newcommand{\g}{\mathfrak{g}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{i}}
+\newcommand{\jhat}{\hat{j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\lhat}{\hat{l}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\varphihat}{\hat{\varphi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\V}{\mathcal{V}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\D}{\mathcal{D}}
+
+\newcommand{\id}{\text{id}}
+
+
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\preim}{preim}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ver}{ver}
+\DeclareMathOperator{\hor}{hor}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Cl}{C\ell}
+\DeclareMathOperator{\conf}{conf}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\algsl}{\mathfrak{sl}}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\algsu}{\mathfrak{su}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Unit}{U}
+\DeclareMathOperator{\algu}{\mathfrak{u}}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\algso}{\mathfrak{so}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Witt}{Witt}
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\vecspan}{span}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\1}{\mathbb{1}}
+
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Bi}{Bi}
+
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+%Useful notations for thermodynamics
+\newcommand{\dbar}}
+    
+\)
+</div>
+
+<div style="display:none">
+    \(\require{cancel}\)
+    \(\require{physics}\)
+</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+                                                  google_ad_client: "ca-pub-7447253757666293",
+                                                  enable_page_level_ads: true
+                                                  });
+    </script>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="http://localhost:4000/qm-III/unit2/Partialwavetheory-exercises.html">
+  <link rel="alternate" type="application/rss+xml" title="Physicsturtle" href="http://localhost:4000/feed.xml">
+      <script>
+          function myFunction(name) {
+              var x = document.getElementById(name);
+              if (x.style.display === "block") {
+                  x.style.display = "none";
+              } else {
+                  x.style.display = "block";
+              }
+          }
+      </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header" style="background-color:#9ED54C">
+
+  <div class="wrapper" >
+
+    <a class="site-title" href="/">Physicsturtle</a>
+
+    <nav class="site-nav" >
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <!--hide the physics content for now... my_page.title == "Physics" or -->
+      <div class="trigger" >
+          
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/physics">Physics</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/math">Math</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/guides">Guides</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/about">About</a>
+          
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+      
+      
+      
+      
+      
+      
+      <div> <a href="http://localhost:4000/physics">Physics</a> > <a href="http://localhost:4000/qm-III">Quantum Mechanics III</a> > <a href="http://localhost:4000/qm-III/unit2">Unit 2</a> > <a href="/qm-III/unit2/Partialwavetheory.html">Partial wave theory </a> > <a href="/qm-III/unit2/Partialwavetheory-exercises.html"> Exercises </a> </div>
+    <h1 class="post-title">Partial wave theory  - Exercises</h1>
+  </header>
+  
+  <div class="post-content">
+    <ol>
+<li> <div class="exercise">  Define the three-dimensional probability current by
+
+$$\begin{equation}
+<b>J</b> = \frac{i\hbar}{2m}(\Psi\nabla\Psi^* - \Psi^*\nabla\Psi)
+\end{equation}$$
+
+<ol type="a">
+<li> Show that \(<b>J</b>\) satisfies the continuity equation
+
+$$\begin{equation}
+\nabla\cdot<b>J</b> = -\frac{\partial}{\partial t}|\Psi|^2
+\end{equation}$$
+
+which expresses local conservation of probability. It follows that 
+
+$$\begin{equation}
+\oint_{\partial \V} <b>J</b>\cdot\d<b>A</b> = -\frac{\d}{\d t}\int_{\V} |\Psi|^2 \d^3\x
+\end{equation}$$
+
+where \(\V\) is a (fixed) volume and \(\partial \V\) is its boundary surface. In words: the flow of probability out through the surface is equal to the decrease in probability of finding the particle in the volume. 
+
+</li>
+<li> Find \(<b>J</b>\) for hydrogen in the state \(n=2\), \(\ell = 1\), \(m = 1\). 
+
+</li>
+<li> If we interpret \(m<b>J</b>\) as the flow of mass, the angular momentum is 
+
+$$\begin{equation}
+<b>L</b> = m\int (\r\times<b>J</b>)\d^3\x
+\end{equation}$$
+</li></ol>
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer31')" class="answerButton">Show Answer</button> 
+ <div id="answer31" class="answer">
+<ol type="a">
+<li> The divergence of \(<b>J</b>\) is 
+
+$$\begin{equation}
+\nabla\cdot<b>J</b> = \frac{i\hbar}{2m}(\Psi\nabla^2\Psi^* - \Psi^*\nabla^2\Psi)
+\end{equation}$$
+
+The time derivative of \(|\Psi|^2\) is 
+
+$$\begin{align}
+\frac{\partial}{\partial t}|\Psi|^2 =&amp; \left(\frac{\partial}{\partial t}\Psi\right)\Psi^* + \Psi\frac{\partial}{\partial t}\Psi^* \\
+=&amp; \frac{1}{i\hbar}\left(-\frac{\hbar^2\nabla^2\Psi}{2m} + V\Psi\right)\Psi^* + \Psi\frac{1}{-i\hbar}\left(-\frac{\hbar^2\nabla^2\Psi^*}{2m} + V\Psi^*\right) \\
+=&amp; \frac{i\hbar}{2m} (\nabla^2\Psi)\Psi^* - \frac{i\hbar}{2m}   \Psi(\nabla^2\Psi^*) \\
+=&amp; \frac{i\hbar}{2m}((\nabla^2\Psi)\Psi^* - \Psi(\nabla^2\Psi))
+\end{align}$$
+
+Clearly, this is the negative of \(\nabla\cdot<b>J</b>\). 
+
+</li>
+<li> Let us find the probability current for the state
+
+$$\begin{equation}
+\psi_{211}(\x,t) = -\frac{r\sin\theta}{8\sqrt{\pi a^5}}e^{-r/2a}e^{i\varphi}e^{-iE_2t/\hbar}
+\end{equation}$$
+
+We need the following formula for the gradient in spherical coordinates:
+
+$$\begin{equation}
+\nabla = \ehat_r \frac{\partial}{\partial r} + \ehat_\theta \frac{1}{r} \frac{\partial}{\partial \theta} + \ehat_\varphi \frac{1}{r\sin\theta} \frac{\partial}{\partial \varphi}
+\end{equation}$$
+
+Then, we take the derivative:
+
+$$\begin{align}
+\nabla\psi_{211} =&amp; -\frac{e^{-iE_2t/\hbar}}{8\sqrt{\pi a^5}}\left[\left(e^{-2r/a} - \frac{r}{2a}e^{-2r/a}\right)\sin\theta e^{-i\varphi} \ehat_r + \frac{\cos\theta r}{r} e^{-r/2a} e^{-i\varphi} \ehat_\theta - \frac{ire^{-r/2a}\sin\theta}{r\sin\theta} e^{-i\varphi} \ehat_\varphi\right] \\
+=&amp; -\frac{e^{-iE_2t/\hbar}}{8\sqrt{\pi a^5}}\left[\left(1 - \frac{r}{2a}\right)\sin\theta \ehat_r + \cos\theta \ehat_\theta - i\ehat_\varphi\right] e^{-r/2a}e^{-i\varphi} \\
+\end{align}$$
+
+Thus, the quantities 
+
+$$\begin{align}
+\psi_{211}\nabla\psi_{211}^* =&amp; -\frac{1}{64\pi a^5}\left[\left(1- \frac{r}{2a}\right)\sin\theta \ehat_r + \cos\theta \ehat_\theta - i\ehat_\varphi\right]\left(-r\sin\theta e^{-r/a}\right) \\
+=&amp; \frac{1}{64\pi a^5}\left[\left(1- \frac{r}{2a}\right)\sin\theta \ehat_r + \cos\theta \ehat_\theta - i\ehat_\varphi\right]r\sin\theta e^{-r/a}
+\end{align}$$
+
+Computing the difference \(\psi_{211}\nabla\psi^*_{211} - (\nabla\psi_{211})\psi^*_{211}\) removes the real part, and we get 
+
+$$\begin{align}
+\psi_{211}\nabla\psi^*_{211} - (\nabla\psi_{211})\psi^*_{211} =&amp; \frac{1}{64\pi a^5}\left[ - 2i \ehat_\varphi\right]r\sin\theta e^{-r/a} \\
+=&amp; \frac{-i}{32\pi a^5}r\sin\theta e^{-r/a} \ehat_\varphi 
+\end{align}$$
+
+Finally, we find 
+
+$$\begin{equation}
+<b>J</b> = \frac{\hbar}{64m\pi a^5}r\sin\theta e^{-r/a} \ehat_\varphi
+\end{equation}$$
+
+We interpret this as a current going around the \(z\) axis, which makes since \(L_z = \hbar\) for this state. 
+
+</li>
+<li> The angular momentum is then found by computing 
+
+$$\begin{equation}
+<b>L</b> = m\int(<b>r</b>\times<b>J</b>)\d^3\x
+\end{equation}$$
+
+The position vector is \(<b>r</b> = r\ehat_r\), so computing \(\ehat_r\times\ehat_\varphi = -\ehat_\theta\), so we find (using \(\ehat_\theta = \cos\theta\cos\varphi\ehat_x + \cos\theta\sin\varphi\ehat_y -\sin\theta \ehat_z\))
+
+$$\begin{align}
+<b>L</b> =&amp; -m\int \frac{\hbar}{64m\pi a^5}r^2\sin\theta e^{-r/a} \ehat_\theta \d^3\x \\
+=&amp; \frac{\hbar m}{64m\pi a^5}\int r^2\sin\theta e^{-r/a} \sin\theta \ehat_z \d^3\x \\
+=&amp; \frac{\hbar m}{64m\pi a^5} \int_0^\infty \int_0^\pi \int_0^{2\pi} r^2\sin\theta e^{-r/a} \sin\theta r^2\sin\theta \d\varphi \d\theta \d r \ehat_z\\
+=&amp; \frac{\hbar m}{64m\pi a^5} 2\pi \int_0^\infty r^4e^{-r/a} \d r \int_0^\pi \sin^3\theta \d\theta \ehat_z\\
+=&amp; \frac{\hbar m}{64m\pi a^5} 2\pi a^5 4! \frac{4}{3} \ehat_z\\
+=&amp; \hbar \ehat_z
+\end{align}$$
+
+This makes perfect sense! 
+
+</li></ol>
+</div> 
+ </div>
+
+</div> </li>
+<li> <div class="exercise">  We will often have an incoming particle. In quantum mechanics, an incoming particle is written as a plane wave. When the wave scatters off of some potential (big black dot), then we need to consider the different scattered components in terms of spherical waves. It is very inconvenient to describe the incoming wave in terms of a plane wave, but the outgoing wave in terms of a spherical wave. Thus, we need to <i>express the incoming plane wave in terms of spherical waves</i>. 
+
+<figure class="center">
+<p><img src="figures/incoming_plane_wave.pdf" alt="Function" class="center" style="width:151.42px;height:113.784px;" /> </p><p><img src="figures/outgoing_spherical_wave.pdf" alt="Function" class="center" style="width:142.43px;height:114.382px;" /> </p></figure>
+
+
+Remark: First, what is a <i>spherical wave</i>? Well, we remind ourselves that a <i>plane wave</i> is a solution of the wave equation in Cartesian coordinates. A spherical wave is a solution of the wave equation in spherical coordinates. However, we know that these equations are actually the same, and the only difference is the coordinate system used to represent the solutions. Therefore, there should be a way to convert between the two. That is what we will discuss in this problem. Let us first review a couple things. We recall that:
+
+
+We need to review the spherical harmonics first. 
+
+<ul>
+<li> The spherical harmonics are defined by 
+
+$$\begin{equation}
+Y^m_\ell(\theta,\varphi) = Ne^{im\varphi} P^m_\ell(\cos\theta)
+\end{equation}$$
+
+where \(N\) is a normalization constant and \(P^m_\ell\) are the associated Legendre polynomials. These polynomials are defined by 
+
+$$\begin{equation}
+P^m_\ell(u) = (-1)^m(1-u^2)^{m/2}\frac{\d^m}{\d u^m}P_\ell(u)
+\end{equation}$$
+
+where \(P_\ell(u)\) are the ordinary Legendre polynomials. However, if we are looking for azimuthally symmetric solutions (which we are), then there should be no \(\varphi\) dependence. Thus, \(m = 0\). Thus, we do not need to worry about the associated Legendre polynomials, and we will only consider the ordinary ones. Now let us remind ourselves about the ordinary Legendre polynomials.
+
+</li>
+<li> The Legendre polynomials are a system of complete and orthogonal polynomials on the interval \(x\in [-1,1]\). They are defined by
+
+$$\begin{equation}
+P_\ell(x) = \frac{1}{2^\ell \ell!} \frac{\d^\ell}{\d x^\ell}(x^2-1)^\ell
+\end{equation}$$
+
+They satisfy the following: 
+
+$$\begin{equation}
+\int_{-1}^1 P_m(x) P_n(x) \d x = \frac{2}{2n+1}\delta_{mn}
+\end{equation}$$
+
+Any (sufficiently nice) function \(f(x)\) can be expanded as 
+
+$$\begin{equation}
+f(x) = \sum_{\ell=0}^\infty a_\ell P_\ell(x),\qquad a_\ell = \frac{2\ell+1}{2}\int_{-1}^1 f(x) P_\ell(x) \d x
+\end{equation}$$
+
+Note: to find the coefficients \(a_\ell\), multiply the first equation by \(P_m(x)\) on both sides and then integrate, using the orthogonality relation.
+</li>
+<li> So far, we have just reviewed the angular solutions in spherical coordinates. What about the radial solutions? Well, in 3D, the radial solutions are related to something called ``spherical Bessel functions". The spherical Bessel functions are defined by 
+
+$$\begin{equation}
+j_\ell(x) = (-1)^\ell x^\ell \left(\frac{1}{x}\frac{\d}{\d x}\right)^\ell \frac{\sin x}{x}
+\end{equation}$$
+
+so the first few spherical Bessel functions are given by 
+
+$$\begin{align}
+j_0(x) ={}&amp; \frac{\sin x}{x} \\
+j_1(x) ={}&amp; \frac{\sin x}{x^2} - \frac{\cos x}{x} \\
+j_2(x) ={}&amp; \left(\frac{3}{x^3} - \frac{1}{x}\right)\sin x - \frac{3}{x^2}\cos x
+\end{align}$$
+
+If we want to motivate where these come from, let us also recall that the spherical Bessel functions come from the wave equation (which includes the Laplacian) in 3 dimensions. We recall that the wave equation is 
+
+$$\begin{equation}
+\frac{\partial^2 \psi}{\partial t^2} = c^2 \nabla^2 \psi
+\end{equation}$$
+
+Then, the 
+
+$$\begin{equation}
+\nabla^2 \Psi = \left[\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial}{\partial\theta}\right) + \frac{1}{r^2\sin^2\theta}\frac{\partial}{\partial\varphi^2}\right]\Psi
+\end{equation}$$
+
+To analyze the radial part of this, write that assume that \(\Psi = \psi(r,t)Y^m_\ell(\theta,\varphi)\), and then we have that 
+
+$$\begin{equation}
+Y^m_\ell\frac{\partial^2 \psi}{\partial t^2} = c^2\left[\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial}{\partial r}\right) \psi - \frac{1}{r^2}\ell(\ell+1)\psi\right]Y^m_\ell
+\end{equation}$$
+
+Then letting \(\psi = R(r)T(t)\), we would have 
+
+$$\begin{equation}
+\frac{T"}{T} = \frac{c^2}{r^2R}\frac{\partial}{\partial r}\left(r^2\frac{\partial R}{\partial r}\right) - \frac{\ell(\ell+1)}{r^2} = -\omega^2 = -c^2k^2
+\end{equation}$$
+
+Then, this gives us 
+
+$$\begin{equation}
+\frac{1}{r^2R}\frac{\partial}{\partial r}\left(r^2\frac{\partial R}{\partial r}\right) - \frac{\ell(\ell+1)}{r^2} = -k^2
+\end{equation}$$
+
+Then letting \(\alpha = kr\), this changes to 
+
+$$\begin{equation}
+\frac{1}{\alpha^2 R}\frac{\partial}{\partial \alpha }\left(\alpha^2\frac{\partial R}{\partial \alpha}\right) - \frac{\ell(\ell+1)}{\alpha^2} = -1
+\end{equation}$$
+
+We can rearrange this to 
+
+$$\begin{equation}
+\alpha^2 \frac{\partial^2 R}{\partial\alpha^2} + 2\alpha\frac{\partial R}{\partial \alpha} + (\alpha^2 - \ell(\ell+1))R= 0
+\end{equation}$$
+
+This is the spherical Bessel function, with \(R = j_\ell(\alpha) = j_\ell(kr)\). Now that we know where the spherical Bessel functions came from, and we have some motivation for us to express the plane waves in terms of these radially symmetric functions.
+
+</li></ul>
+
+</div> </li>
+<li> <div class="exercise">  Prove that 
+
+$$\begin{equation}
+e^{ikz} = \sum_{\ell=0}^\infty i^\ell (2\ell+1)j_\ell(kr) P_\ell(\cos\theta)
+\end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer251')" class="answerButton">Show Answer</button> 
+ <div id="answer251" class="answer">
+In order to prove this, we have a function \(e^{ikz} = e^{ikr\cos\theta}\). Defining \(u = \cos\theta\), we want to use the above result to find the coefficients \(a_\ell\) in 
+
+$$\begin{equation}
+e^{ikru} = \sum_{\ell=0}^\infty a_\ell(kr)P_\ell(u)
+\end{equation}$$
+ 
+To find the coefficients, we compute 
+
+$$\begin{equation}
+a_\ell(kr) = \frac{2\ell+1}{2}\int_{-1}^1 e^{ikru}P_\ell(u) \d u
+\end{equation}$$
+
+Now, plugging in the form of \(P_\ell(u)\), we get 
+
+$$\begin{align}
+a_\ell(kr) ={}&amp; \frac{2\ell+1}{2}\int_{-1}^1 e^{ikru} \frac{1}{2^\ell \ell!}\frac{\d^\ell}{\d u^\ell}(u^2-1)^\ell \d u \\
+={}&amp; \frac{2\ell+1}{2^{\ell+1}\ell!}\int_{-1}^1 e^{ikru}\frac{\d^\ell}{\d u^\ell}(u^2-1)^\ell \d u
+\end{align}$$
+
+We need to integrate by parts \(\ell\) times. If we do this, then we get 
+
+$$\begin{align}
+a_\ell(kr) ={}&amp; \frac{2\ell+1}{2^{\ell+1}\ell!}\int_{-1}^1 (-1)^\ell \frac{\d^\ell}{\d u^\ell}(e^{ikru}) (u^2-1)^\ell \d u \\
+={}&amp; \frac{2\ell+1}{2^{\ell+1}\ell!} (-ikr)^\ell \int_{-1}^1 e^{ikru} (u^2-1)^\ell \d u
+\end{align}$$
+
+If we define \(\alpha = kr\), then we want to find the relationship between this integral and the spherical Bessel function
+
+$$\begin{align}
+\int_{-1}^1 e^{i\alpha u} (u^2-1)^n \d u
+\end{align}$$
+
+Well, let's calculate 
+
+$$\begin{align}
+\frac{1}{\alpha}\frac{\partial}{\partial\alpha}\int_{-1}^1 e^{i\alpha u} \d u ={}&amp; \frac{1}{\alpha}\int_{-1}^1 e^{i\alpha u} iu \d u \\
+={}&amp; \frac{1}{2\alpha}\int_{-1}^1 e^{i\alpha u} i (u^2-1)'\d u \\
+={}&amp; \frac{i}{2\alpha}e^{i\alpha u}(u^2-1)\bigg|_{-1}^1 - \frac{i}{2\alpha} \int_{-1}^1 i\alpha e^{i\alpha u}(u^2-1)\d u \\
+={}&amp; \frac{1}{2} \int_{-1}^1 e^{i\alpha u}(u^2-1)\d u
+\end{align}$$
+
+If we generalize this, then we can find that 
+
+$$\begin{align}
+\frac{1}{\alpha}\frac{\partial}{\partial\alpha} \int_{-1}^1 e^{i\alpha u} (u^2-1)^n \d u ={}&amp; \frac{1}{\alpha} \int_{-1}^1 iu e^{i\alpha u} (u^2-1)^n \d u \\
+={}&amp; \frac{1}{2\alpha(n+1)} \int_{-1}^1 ie^{i\alpha u} [(u^2-1)^{n+1}]' \d u \\
+={}&amp; \frac{i}{2\alpha(n+1)} e^{i\alpha u}(u^2-1)^{n+1}\bigg|_{-1}^1 - \frac{i}{2\alpha(n+1)}\int_{-1}^1 i\alpha e^{i\alpha u}(u^2-1)^{n+1} \d u \\
+={}&amp; \frac{1}{2(n+1)}\int_{-1}^1 e^{i\alpha u}(u^2-1)^{n+1} \d u 
+\end{align}$$
+
+We see now that we pick up a factor of \(1/2\) and \(1/(n+1)\) when we differentiate (and also divide by \(\alpha\)) \(\int_{-1}^1 e^{i\alpha u} (u^2-1)^n \d u\). Thus, if we want to differentiate (and divide by \(\alpha\))
+
+\(\)\int_{-1}^1 e^{i\alpha u} \d u\(\)
+
+\(\ell\) times, then we get 
+
+$$\begin{equation}
+\left(\frac{1}{\alpha}\frac{\partial}{\partial\alpha}\right)^\ell \int_{-1}^1 e^{i\alpha u} \d u = \frac{1}{2^\ell\ell!} \int_{-1}^1 e^{i\alpha u}(u^2-1)^\ell \d u
+\end{equation}$$
+
+Thus, we can use 
+
+$$\begin{align}
+a_\ell(kr) ={}&amp; \frac{2\ell+1}{2^{\ell+1}\ell!} (-ikr)^\ell \int_{-1}^1 e^{ikru} (u^2-1)^\ell \d u \\
+={}&amp; \frac{2\ell+1}{2}(-i\alpha)^\ell \left(\frac{1}{\alpha}\frac{\partial}{\partial\alpha}\right)^\ell \int_{-1}^1 e^{i\alpha u} \d u \\
+={}&amp; \frac{2\ell+1}{2}(-i\alpha)^\ell \left(\frac{1}{\alpha}\frac{\partial}{\partial\alpha}\right)^\ell \frac{1}{i\alpha}e^{i\alpha u}\bigg|_{-1}^1 \\
+={}&amp; \frac{2\ell+1}{2}(-i\alpha)^\ell \left(\frac{1}{\alpha}\frac{\partial}{\partial\alpha}\right)^\ell \frac{1}{i\alpha}(e^{i\alpha} - e^{-i\alpha}) \\
+={}&amp; (2\ell+1)(-i\alpha)^\ell \left(\frac{1}{\alpha}\frac{\partial}{\partial\alpha}\right)^\ell \frac{\sin\alpha}{\alpha}\\
+={}&amp; (2\ell+1)i^\ell j_\ell(\alpha)
+\end{align}$$
+
+Finally plugging back in \(\alpha = kr\), we get 
+
+$$\begin{align}
+a_\ell(kr) ={}&amp; (2\ell+1)i^\ell j_\ell(kr)
+\end{align}$$
+
+Thus, we find that 
+
+$$\begin{align}
+e^{ikru} ={}&amp; \sum_{\ell=0}^\infty a_\ell(kr)P_\ell(u) \\
+={}&amp; \sum_{\ell=0}^\infty (2\ell+1)i^\ell j_\ell(\alpha)P_\ell(u) 
+\end{align}$$
+
+and finally substituting back in \(u = \cos\theta\), we get 
+
+$$\begin{align}
+e^{ikz} = e^{ikr\cos\theta} ={}&amp; \sum_{\ell=0}^\infty (2\ell+1)i^\ell j_\ell(\alpha)P_\ell(\cos\theta) 
+\end{align}$$
+
+</div> 
+ </div>
+
+</div> </li></ol>
+
+
+  </div>
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Footer -->
+<ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-7447253757666293"
+    data-ad-slot="6075791093"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer" >
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Physicsturtle</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physicsturtle</li>
+          <li><a href="mailto:nanoturtle2@gmail.com">nanoturtle2@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/physicsturtle"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">physicsturtle</span></a>
+
+          </li>
+          
+          
+           
+           
+           <li>
+               This site updated 2024-07-18 21:16
+           </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Welcome to Physicsturtle! Please use the e-mail contact to let me know if you find any mistakes or omissions, you feel an explanation could be improved, or you have a suggestion for content. 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

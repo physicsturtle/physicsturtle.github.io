@@ -1,0 +1,31 @@
+---
+layout: page
+title: Spin
+dept: physics
+course: quantum-mechanics-I
+unit: unit4
+deptDisplay: Physics
+unitDisplay: Unit 4
+courseDisplay: Quantum Mechanics I
+---
+
+In this section, we begin laying out the theory of spin. Recall that, in the theory of angular momentum, we found the commutation relations
+
+$$\begin{equation} [L_x,L_y] = i\hbar L_z,\qquad [L_y,L_z] = i\hbar L_x,\qquad [L_z,L_x] = i\hbar L_x. \end{equation} \label{ccr} $$
+
+where the angular momentum operators were complicated differential operators. This means that the angular momentum operators were operators on complicated wavefunctions $\psi : \mathbb{R}^3\to \C$. Suppose that I never told you that the $L$'s were differential operators. You may as well have guessed that the $L$'s were matrices, which we consider as operators on $\R^n$. This is the beauty of the theory of angular momentum; the commutation relations can be applied to other systems! In the theory of angular momentum, we said that the commutation relations $\eqref{ccr}$ described the *algebraic theory of angular momentum*. In fact, the theory of spin has an identical algebraic theory! The commutation relations in the theory of spin are
+
+$$ [S_x,S_y] = i\hbar S_z,\qquad [S_y,S_z] = i\hbar S_x,\qquad [S_z,S_x] = i\hbar S_x, $$
+
+but this time, the operators are matrices instead of differential operators. The wave functions that they act on are now vectors in $\R^n$ instead of functions $\psi : \mathbb{R}^3 \to \C$. We call these wave functions the suggestive name of spinors. 
+
+<div class="example">
+<p><b>Example:</b> Determine the eigenvalues and eigenvectors of the Hamiltonian 
+$$H = -\boldsymbol{\mu}\cdot\textbf{B},$$
+where $\boldsymbol{\mu} = \mu_B \textbf{S}$ is the magnetic moment. 
+
+
+</div>
+
+We now consider a composite system of two spins. 
+

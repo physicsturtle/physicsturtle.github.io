@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>DOT PRODUCT</title>
+  <meta name="description" content="The dot product is one of the two ways of multiplying vectors. It can be defined between vectors in 1, 2, 3 or even more dimensions. There are two equivalent...">
+    
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+</script>
+<!---
+<script type="text/x-mathjax-config">
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$']],
+      inlineMath: [['$', '$']],
+    },
+  };
+</script>
+--->
+<script>
+    window.MathJax = {
+      tex: {
+        packages: ['base', 'ams', 'amscd', 'mathrsfs', 'upgreek'],
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      tags: 'all'  // Enable automatic numbering for all displayed equations
+    }
+  };
+</script>
+    
+
+
+<div style="display:none">
+\(
+%Residues
+\let\Res\relax
+\DeclareMathOperator*{\Res}{Res}
+
+%Allow us to write angstroms
+\let\ring\r
+\renewcommand{\r}{\textbf{r}}
+\let\Oersted\O
+\let\O\relax
+\DeclareMathOperator{\O}{O}
+
+%Define useful symbols for commonly used sets in mathematics
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}} 
+%\newcommand{\H}{\mathbb{H}}
+
+%Useful symbols for differential geometry
+\newcommand{\M}{\mathcal{M}}
+\renewcommand{\d}{\text{d}}
+\newcommand{\Sphere}{\mathbb{S}}
+\newcommand{\Torus}{\mathbb{T}}
+
+%Useful notations for electromagnetism
+\newcommand{\E}{\textbf{E}}
+\newcommand{\B}{\textbf{B}}
+\newcommand{\A}{\textbf{A}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\J}{\textbf{J}}
+
+%Useful symbols for vector notation
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\y}{\boldsymbol{y}}
+\newcommand{\z}{\boldsymbol{z}}
+\newcommand{\p}{\boldsymbol{p}}
+\newcommand{\q}{\boldsymbol{q}}
+\newcommand{\w}{\boldsymbol{w}}
+\renewcommand{\k}{\boldsymbol{k}}
+\newcommand{\K}{\boldsymbol{K}}
+\newcommand{\Q}{\boldsymbol{Q}}
+\renewcommand{\r}{\boldsymbol{r}}
+
+%Useful symbols for physics
+\newcommand{\hc}{\text{H.c.}}
+\newcommand{\Hc}{\text{H.c.}}
+\newcommand{\BZ}{\text{BZ}}
+\newcommand{\Kn}{\text{Kn}}
+\newcommand{\g}{\mathfrak{g}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{i}}
+\newcommand{\jhat}{\hat{j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\lhat}{\hat{l}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\varphihat}{\hat{\varphi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\V}{\mathcal{V}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\D}{\mathcal{D}}
+
+\newcommand{\id}{\text{id}}
+
+
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\preim}{preim}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ver}{ver}
+\DeclareMathOperator{\hor}{hor}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Cl}{C\ell}
+\DeclareMathOperator{\conf}{conf}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\algsl}{\mathfrak{sl}}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\algsu}{\mathfrak{su}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Unit}{U}
+\DeclareMathOperator{\algu}{\mathfrak{u}}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\algso}{\mathfrak{so}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Witt}{Witt}
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\vecspan}{span}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\1}{\mathbb{1}}
+
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Bi}{Bi}
+
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+%Useful notations for thermodynamics
+\newcommand{\dbar}}
+    
+\)
+</div>
+
+<div style="display:none">
+    \(\require{cancel}\)
+    \(\require{physics}\)
+</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+                                                  google_ad_client: "ca-pub-7447253757666293",
+                                                  enable_page_level_ads: true
+                                                  });
+    </script>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="http://localhost:4000/em-II/unit1/dot-product.html">
+  <link rel="alternate" type="application/rss+xml" title="Physicsturtle" href="http://localhost:4000/feed.xml">
+      <script>
+          function myFunction(name) {
+              var x = document.getElementById(name);
+              if (x.style.display === "block") {
+                  x.style.display = "none";
+              } else {
+                  x.style.display = "block";
+              }
+          }
+      </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header" style="background-color:#9ED54C">
+
+  <div class="wrapper" >
+
+    <a class="site-title" href="/">Physicsturtle</a>
+
+    <nav class="site-nav" >
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <!--hide the physics content for now... my_page.title == "Physics" or -->
+      <div class="trigger" >
+          
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/physics">Physics</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/math">Math</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/guides">Guides</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/about">About</a>
+          
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+      
+      
+      
+      
+      
+      <div> <a href="http://localhost:4000/"></a> > <a href="http://localhost:4000/calculus-III"></a> > <a href="http://localhost:4000/calculus-III/unit1"></a> > <a href="/em-II/unit1/dot-product.html">DOT PRODUCT</a> > <a href="/em-II/unit1/dot-product-exercises.html"> Exercises </a> </div> <br>
+    <h1 class="post-title">DOT PRODUCT</h1>
+  </header>
+  
+  <div class="post-content">
+    <p>The dot product is one of the two ways of multiplying vectors. It can be defined between vectors in 1, 2, 3 or even more dimensions. There are two equivalent definitions of the dot product. One is very geometric, and helps us to get an intuition of what the dot product means. Unfortunately, it is not very useful when performing complex calculations. For this, the abstract definition will come in handy.</p>
+
+<h3 id="geometric-definition">Geometric Definition</h3>
+<p>Suppose we have two vectors \(\textbf{a}\) and \(\textbf{b}\), in any number of dimensions. Then we define the <em>dot product</em></p>
+
+\[\textbf{a}\cdot\textbf{b} = \|\textbf{a}\|\|\textbf{b}\|\cos\theta\]
+
+<p>where \(\theta\) is the angle between the two vectors. This can be represented graphically by (insert picture here)</p>
+
+<p>This should be thought of as calcaulting the <em>projection</em> of one vector onto the other. But, which vector is being projected onto which? Actually, it doesn’t matter which vector is being projected onto which, because both results turn out to be the exact same!</p>
+
+<p>If we project</p>
+
+<h3 id="abstract-definition">Abstract Definition</h3>
+<p>The more abstract definition of the dot product uses the <em>components</em> of the vector. The dot product between the vectors \(\textbf{a} = (a_1,a_2,a_3)\) and \(\textbf{b} = (b_1,b_2,b_3)\) is</p>
+
+\[\textbf{a}\cdot\textbf{b} = a_1b_1 + a_2b_2 + a_3b_3\]
+
+<p>The definition for vectors in dimensions other than 3 has the same form. For example, in 2 dimensions with vectors \(\textbf{a} = (a_1,a_2)\) and \(\textbf{b} = (b_1,b_2)\), the dot product is</p>
+
+\[\textbf{a}\cdot\textbf{b} = a_1b_1 + a_2b_2\]
+
+<h3 id="properties">Properties</h3>
+
+<p>Some basic facts about the dot product which you should keep in mind are:</p>
+
+<ol>
+  <li>The dot product takes place between two (and only two) <em>vectors</em>, not between scalars.</li>
+  <li>The dot product <em>produces</em> a <em>scalar</em> out of two vectors</li>
+  <li>If the dot product is zero, then that means that the two vectors are <em>perpendicular</em>, or, <em>orthogonal</em>, to one another.</li>
+</ol>
+
+<p>The dot product has a few nice properties which are familiar from multiplication between scalars.</p>
+
+<p>Commutativity:</p>
+
+\[\textbf{a}\cdot\textbf{b} = \textbf{b}\cdot\textbf{a}\]
+
+<p>Distributivity:</p>
+
+\[\textbf{a}\cdot(\textbf{b} + \textbf{c}) = \textbf{a}\cdot\textbf{b} + \textbf{a}\cdot\textbf{c}\]
+
+<h3 id="terminology-and-notation">Terminology and Notation</h3>
+<p>Other terms that are synonymous with <em>dot product</em> are</p>
+
+<ol>
+  <li>Inner product</li>
+  <li>Scalar product</li>
+</ol>
+
+<h3 id="equivalence-of-the-definitions">Equivalence of the Definitions</h3>
+<p>Now we will show that the two definitions of the dot product are actually identical. This will be done by using the cosine law, and the proof applies in either 2 or 3 (or more!) dimensions. Here, we will do it for 2 dimensions, but it can be extended to more dimensions without much effort.</p>
+
+<p>We start with the geometric definition:</p>
+
+\[\textbf{a}\cdot\textbf{b} = \|\textbf{a}\|\|\textbf{b}\|\cos\theta\]
+
+<p>By the cosine law, we know that \(|\textbf{c}|^2 = |\textbf{a}|^2 + |\textbf{b}|^2 - 2|\textbf{a}||\textbf{b}|\cos\theta\). Rearranging this, we get</p>
+
+\[\|\textbf{a}\|\|\textbf{b}\|\cos\theta = \frac{\|\textbf{a}\|^2 + \|\textbf{b}\|^2 - \|\textbf{c}\|^2}{2}\]
+
+<p>so this means that</p>
+
+\[\textbf{a}\cdot\textbf{b} = \frac{\|\textbf{a}\|^2 + \|\textbf{b}\|^2 - \|\textbf{c}\|^2}{2}\]
+
+<p>Since we have that \(\textbf{c} = \textbf{a} - \textbf{b}\), we can substitute this in</p>
+
+\[\textbf{a}\cdot\textbf{b} = \frac{\|\textbf{a}\|^2 + \|\textbf{b}\|^2 - \|\textbf{a} - \textbf{b}\|^2}{2}\]
+
+<p>expanding this out in terms of components, we get</p>
+
+\[\begin{eqnarray}
+\textbf{a}\cdot\textbf{b} &amp;=&amp; \frac{\|\textbf{a}\|^2 + \|\textbf{b}\|^2 - \|\textbf{a} - \textbf{b}\|^2}{2}\\
+&amp;=&amp; \frac{a_1^2 + a_2^2 + b_1^2 + b_2^2 - ((a_1-b_1)^2 + (a_2-b_2)^2))}{2}\\
+&amp;=&amp; \frac{a_1^2 + a_2^2 + b_1^2 + b_2^2 - (a_1^2 - 2a_1b_1 + b_1^2 + a_2^2 - a_2b_2 + b_2^2)}{2}\\
+&amp;=&amp; \frac{2a_1b_1 + 2a_2b_2}{2}\\
+&amp;=&amp; a_1b_1 + a_2b_2
+\end{eqnarray}\]
+
+<p>which is precisely the second definition.</p>
+
+<h3 id="exercises">Exercises</h3>
+
+<ol>
+<li> <div> Calculate the dot product between the vectors \(\textbf{a} = (3,1)\) and \(\textbf{b} = (-2,1)\). </div>
+
+<button onclick="myFunction('answer1')" class="answerButton">Show Answer</button>
+<div id="answer1" class="answer">
+This is a straightforward computation in two dimensions, which gives 
+$$\textbf{a}\cdot\textbf{b} = (3)(-2)+(1)(1) = -6 + 1 = -5$$ 
+</div> </li>
+
+<li> <div> Calculate the dot product between the vectors \(\textbf{x} = (3,1,-5)\) and \(\textbf{y} = (4,-2,1)\) </div>
+
+<button onclick="myFunction('answer2')" class="answerButton">Show Answer</button>
+<div id="answer2" class="answer">
+This is a straightforward computation in three dimensions, which gives
+$$\textbf{x}\cdot\textbf{y} = (3)(4) + (1)(-2) + (-5)(1) = 12 - 2 - 5 = 6$$
+</div> </li>
+
+<li> <div> Calculate the angle between the two vectors \(\textbf{a} = (1,-1,3)\) and \(\textbf{b} = (2,2,3)\)</div>
+
+<button onclick="myFunction('answer3')" class="answerButton">Show Answer</button>
+<div id="answer3" class="answer">
+For this, we can use the two different definitions of the dot product to obtain the formula
+$$\cos\theta = \frac{\textbf{a}\cdot\textbf{b}}{|\textbf{a}||\textbf{b}|}$$
+
+Then we calculate the dot product in terms of the components and the magnitudes of the vectors
+$$\textbf{a}\cdot\textbf{b} = (1)(2) + (-1)(2) + (3)(3) = 2 - 2 + 9 = 9$$ 
+$$|\textbf{a}| = \sqrt{1^2 + (-1)^2 + 3^2} = \sqrt{1+1+9} = \sqrt{11}$$
+$$|\textbf{b}| = \sqrt{2^2+2^2 + 3^2} = \sqrt{4+4+9} = \sqrt{17}$$
+
+Now plugging these in, we get
+
+$$\cos\theta = \frac{9}{\sqrt{11}\sqrt{17}} =  0.65814$$
+
+and then plugging this into a calculator, we get
+
+$$\theta = 0.85244\,\text{rad} =   48.841^\circ$$
+</div> </li>
+
+<li> <div> Find the value(s) of \(a\) such that the two vectors are orthogonal: \(\textbf{p} = (2,1,a)\), \(\textbf{q} = (a,-3,3)\) </div>
+
+<button onclick="myFunction('answer4')" class="answerButton">Show Answer</button>
+<div id="answer4" class="answer">
+Two vectors are orthogonal if their dot product is zero. Thus we compute the dot product and then solve for \(a\).
+
+$$\textbf{p}\cdot\textbf{q} = (2)(a) + (1)(-3) + (a)(3) = 2a - 3 + 3a = 5a - 3$$
+
+This gives \(a = 3/5\).
+</div> </li>
+</ol>
+
+  </div>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Footer -->
+<ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-7447253757666293"
+    data-ad-slot="6075791093"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer" >
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Physicsturtle</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physicsturtle</li>
+          <li><a href="mailto:nanoturtle2@gmail.com">nanoturtle2@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/physicsturtle"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">physicsturtle</span></a>
+
+          </li>
+          
+          
+           
+           
+           <li>
+               This site updated 2024-07-18 21:16
+           </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Welcome to Physicsturtle! Please use the e-mail contact to let me know if you find any mistakes or omissions, you feel an explanation could be improved, or you have a suggestion for content. 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

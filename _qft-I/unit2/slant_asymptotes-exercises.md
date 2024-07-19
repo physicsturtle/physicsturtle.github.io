@@ -1,0 +1,17 @@
+---
+layout: exercises
+title: Slant Aymptote Examples
+dept: math
+course: calculus-I
+unit: unit2
+deptDisplay: Math
+courseDisplay: Calculus I
+unitDisplay: Unit 2
+---
+
+### Exercises
+$$f(x) = \frac{4x^2 + 2x + 3}{3x-1}$$
+$$f(x) = \frac{3x^2 e^x - x3^x}{4xe^x + 1}$$
+$$f(x) = \frac{x\tan(\frac{\pi}{2} e^{-x})+1}{2\tan(\frac{\pi}{2} - e^{-x})+3}$$
+$$f(x) = \frac{|x|x^2 + 7x^2 - 3}{3x^2 + 2x}$$
+$$f(x) = \frac{x\log x - \log x + 1}{7\log x}$$

@@ -1,0 +1,64 @@
+---
+layout: lesson
+title: Relative Coordinates
+dept: physics
+course: cm-III
+unit: unit3
+deptDisplay: Physics
+courseDisplay: Classical Mechanics III
+unitDisplay: Unit 4
+---
+
+In this section, we will construct the Lagrangian for a two body central force problem, and then simplify it by using relative coordinates. The Lagrangian for two particles which interact with such a potential is the following:
+
+$$\L = \frac{1}{2}\dot{\r}_1^2 + \frac{1}{2}\dot{\r}_2^2 - V(|\r_1 - \r_2|)$$
+
+We make the change of coordinates 
+
+$$\r = \r_1 - \r_2,\qquad \textbf{R} = \frac{m_1\r_1 + m_2\r_2}{m_1+m_2},$$
+
+where we call $\r$ the relative distance coordinate and $\R$ the centre of mass coordinate. Define the total mass $M = m_1+m_2$. If we invert this system, we have 
+
+$$\r_1 = \textbf{R} + \frac{m_2}{M}\r,\qquad \r_2 = \textbf{R} - \frac{m_1}{M}\r$$
+
+If we plug $\r_1$ and $\r_2$ into the Lagrangian, 
+
+$$\begin{eqnarray*}
+\L &=& \frac{1}{2}m_1\dot{\r}_1^2 + \frac{1}{2}m_1\dot{\r}_2^2 - V(|\r)\\
+&=& \frac{m_1}{2} \left(\dot{\textbf{R}} + \frac{m_2}{M}\dot{\r}\right)^2 + \frac{m_2}{2} \left(\dot{\textbf{R}} - \frac{m_1}{M}\dot{\r}\right)^2 - V(|\r|) \\
+&=&  \frac{m_1}{2} \left(\dot{\textbf{R}}^2 + \frac{2m_2}{M}\dot{\textbf{R}}\cdot\dot{\r} + \frac{m_2^2}{M^2}\dot{\r}^2\right) + \frac{m_2}{2}\left(\dot{\textbf{R}}^2 - \frac{2m_1}{M}\dot{\textbf{R}}\cdot\dot{\r} + \frac{m_1^2}{M^2}\dot{\r}^2\right) - V(|\r|) \\
+&=& \frac{m_1+m_2}{2}\dot{\textbf{R}}^2 + \frac{m_1m_2}{2M^2}(m_1+m_2)\dot{\r}^2 - V(|\r_1 - \r_2|)\\
+&=& \frac{M}{2}\dot{\textbf{R}}^2 + \frac{\mu}{2}\dot{\r}^2 -  V(|\r|)
+\end{eqnarray*}$$
+
+where we have defined the *reduced mass* $\mu$, 
+
+$$\mu = \frac{m_1m_2}{m_1+m_2}.$$
+
+We identify the two components of the Lagrangian as a centre of mass Lagrangian and a relative Lagrangian. 
+
+$$\L = \underbrace{\frac{M}{2}\dot{\textbf{R}}^2}_{\L_\text{cm}} + \underbrace{\frac{\mu}{2}\dot{\r}^2 -  V(|\r|)}_{\L_\text{rel}}$$
+
+We note that $\textbf{R}$ does not appear explicitly in this Lagrangian. This means that we have a conserved quantity:
+
+$$\frac{\partial\L}{\partial\dot{\textbf{R}}} = \text{constant}$$
+
+which is equivalent to $M\dot{\textbf{R}} = \text{constant}$. This is the conservation of momentum of the centre of mass. This means that we can focus only on the relative coordinate by moving to the centre of mass frame, which is inertial; $\ddot{\textbf{R}} = 0$ and it is not accelerating. 
+
+The equation of motion of the relative coordinate can be found by applying the Euler-Lagrange equation to $\r$:
+
+$$\frac{\partial\L}{\partial\r} = \frac{d}{dt}\frac{\partial\L}{\partial\dot{\r}}$$
+
+The equation of motion turns out to be 
+
+$$\mu\ddot{\r} = -\nabla V(|\r|)$$
+
+
+
+
+
+
+
+
+
+

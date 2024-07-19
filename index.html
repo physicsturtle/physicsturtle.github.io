@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<div class="home">
+<p> Welcome to Zestymath! I write about math and physics topics from a pedagogical perspective, which I hope students will find useful. Some of the pages may be polished, and some may be less so. I will try to continually update by adding both new pages and revising old ones. </p>
+    
+<h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <!--- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> --->
+
+
+  <img src="CuO2.jpg" style="width:50%">
+
+
+</div>

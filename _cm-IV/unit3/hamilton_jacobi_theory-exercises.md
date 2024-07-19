@@ -1,0 +1,24 @@
+---
+layout: exercises
+title: Hamilton Jacobi Theory - Exercises
+dept: physics
+course: cm-IV
+unit: unit1
+deptDisplay: Physics
+courseDisplay: Classical Mechanics IV
+unitDisplay: Unit 1
+---
+
+
+Consider a free particle, whose Lagrangian is 
+
+$$\mathcal{L} = \frac{m}{2}\dot{x}^2.$$
+
+The initial condition is $x(t_0) = x_0$, and the final condition is $x(t) = x$. 
+
+<ol type="a">
+<li> Solve the Euler-Lagrange equation with specified boundary conditions to determine the trajectory of the system. </li>
+<li> Calculate the action $S$ for this trajectory. </li>
+<li> What is the Hamiltonian of this system? </li>
+<li> Solve the Hamilton-Jacobi equation for this system along the curve, with the initial condition $S = 0$ along the line $t = t_0$. </li>
+</ol>

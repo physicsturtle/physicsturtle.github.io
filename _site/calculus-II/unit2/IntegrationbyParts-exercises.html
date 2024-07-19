@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Integration by Parts  - Exercises</title>
+  <meta name="description" content="">
+    
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+</script>
+<!---
+<script type="text/x-mathjax-config">
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$']],
+      inlineMath: [['$', '$']],
+    },
+  };
+</script>
+--->
+<script>
+    window.MathJax = {
+      tex: {
+        packages: ['base', 'ams', 'amscd', 'mathrsfs', 'upgreek'],
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      tags: 'all'  // Enable automatic numbering for all displayed equations
+    }
+  };
+</script>
+    
+
+
+<div style="display:none">
+\(
+%Residues
+\let\Res\relax
+\DeclareMathOperator*{\Res}{Res}
+
+%Allow us to write angstroms
+\let\ring\r
+\renewcommand{\r}{\textbf{r}}
+\let\Oersted\O
+\let\O\relax
+\DeclareMathOperator{\O}{O}
+
+%Define useful symbols for commonly used sets in mathematics
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}} 
+%\newcommand{\H}{\mathbb{H}}
+
+%Useful symbols for differential geometry
+\newcommand{\M}{\mathcal{M}}
+\renewcommand{\d}{\text{d}}
+\newcommand{\Sphere}{\mathbb{S}}
+\newcommand{\Torus}{\mathbb{T}}
+
+%Useful notations for electromagnetism
+\newcommand{\E}{\textbf{E}}
+\newcommand{\B}{\textbf{B}}
+\newcommand{\A}{\textbf{A}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\J}{\textbf{J}}
+
+%Useful symbols for vector notation
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\y}{\boldsymbol{y}}
+\newcommand{\z}{\boldsymbol{z}}
+\newcommand{\p}{\boldsymbol{p}}
+\newcommand{\q}{\boldsymbol{q}}
+\newcommand{\w}{\boldsymbol{w}}
+\renewcommand{\k}{\boldsymbol{k}}
+\newcommand{\K}{\boldsymbol{K}}
+\newcommand{\Q}{\boldsymbol{Q}}
+\renewcommand{\r}{\boldsymbol{r}}
+
+%Useful symbols for physics
+\newcommand{\hc}{\text{H.c.}}
+\newcommand{\Hc}{\text{H.c.}}
+\newcommand{\BZ}{\text{BZ}}
+\newcommand{\Kn}{\text{Kn}}
+\newcommand{\g}{\mathfrak{g}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{i}}
+\newcommand{\jhat}{\hat{j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\lhat}{\hat{l}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\varphihat}{\hat{\varphi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\V}{\mathcal{V}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\D}{\mathcal{D}}
+
+\newcommand{\id}{\text{id}}
+
+
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\preim}{preim}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ver}{ver}
+\DeclareMathOperator{\hor}{hor}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Cl}{C\ell}
+\DeclareMathOperator{\conf}{conf}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\algsl}{\mathfrak{sl}}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\algsu}{\mathfrak{su}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Unit}{U}
+\DeclareMathOperator{\algu}{\mathfrak{u}}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\algso}{\mathfrak{so}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Witt}{Witt}
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\vecspan}{span}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\1}{\mathbb{1}}
+
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Bi}{Bi}
+
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+%Useful notations for thermodynamics
+\newcommand{\dbar}}
+    
+\)
+</div>
+
+<div style="display:none">
+    \(\require{cancel}\)
+    \(\require{physics}\)
+</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+                                                  google_ad_client: "ca-pub-7447253757666293",
+                                                  enable_page_level_ads: true
+                                                  });
+    </script>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="http://localhost:4000/calculus-II/unit2/IntegrationbyParts-exercises.html">
+  <link rel="alternate" type="application/rss+xml" title="Physicsturtle" href="http://localhost:4000/feed.xml">
+      <script>
+          function myFunction(name) {
+              var x = document.getElementById(name);
+              if (x.style.display === "block") {
+                  x.style.display = "none";
+              } else {
+                  x.style.display = "block";
+              }
+          }
+      </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header" style="background-color:#9ED54C">
+
+  <div class="wrapper" >
+
+    <a class="site-title" href="/">Physicsturtle</a>
+
+    <nav class="site-nav" >
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <!--hide the physics content for now... my_page.title == "Physics" or -->
+      <div class="trigger" >
+          
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/physics">Physics</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/math">Math</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/guides">Guides</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/about">About</a>
+          
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+      
+      
+      
+      
+      
+      
+      <div> <a href="http://localhost:4000/math">Math</a> > <a href="http://localhost:4000/calculus-II">Calculus II</a> > <a href="http://localhost:4000/calculus-II/unit2">Unit 2</a> > <a href="/calculus-II/unit2/IntegrationbyParts.html">Integration by Parts </a> > <a href="/calculus-II/unit2/IntegrationbyParts-exercises.html"> Exercises </a> </div>
+    <h1 class="post-title">Integration by Parts  - Exercises</h1>
+  </header>
+  
+  <div class="post-content">
+    <ol>
+
+<li> <div class="exercise">  Evaluate the integral
+$$\begin{equation}\int x^2\sin 3x \d x \end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer5')" class="answerButton">Show Answer</button> 
+ <div id="answer5" class="answer">
+To solve this problem, we note that the function which we want to differentiate is the \(x^2\). The sine does not become more complicated if it's integrated, but the \(x^2\) becomes simpler if differentiated. We will have to integrate by parts twice. Thus, 
+$$\begin{align}
+\int x^2\sin 3x \d x ={}&amp; -x^2\frac{\cos 3x}{3} + \frac{2}{3}\int x\cos 3x \d x \\
+={}&amp; -\frac{x^2}{3}\cos 3x + \frac{2x}{9}\sin 3x - \frac{2}{9}\int \sin 3x \d x \\
+={}&amp; -\frac{x^2}{3}\cos 3x + \frac{2x}{9}\sin 3x + \frac{2}{27}\cos 3x + C
+\end{align}$$
+
+</div> 
+ </div>
+
+</div> </li>
+<li> <div class="exercise">  Evaluate the integral
+$$\begin{equation}\int x^3 e^{-x} \d x \end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer18')" class="answerButton">Show Answer</button> 
+ <div id="answer18" class="answer">
+To solve this problem, we note that the function we want to differentiate is the \(x^2\). The exponential does not become more complicated if it's integrated, but the \(x^3\) becomes simpler if differentiated. We will have to integrate by parts three times. Thus, 
+$$\begin{align}
+\int x^3 e^{-x} \d x ={}&amp; -x^3 e^{-x} + \int 3x^2 e^{-x} \d x \\
+={}&amp; -x^3 e^{-x} - 3x^2 e^{-x} + \int 6x e^{-x} \d x \\
+={}&amp; -x^3 e^{-x} -3x^2 e^{-x} - 6x e^{-x} + \int 6 e^{-x} \d x \\
+={}&amp; -(x^3 + 3x^2 + 6x + 6)e^{-x} + C
+\end{align}$$
+</div> 
+ </div>
+
+
+</div> </li>
+<li> <div class="exercise"> [\(**\)] Evaluate the integral
+$$\begin{equation}\int^\pi_0 e^{\cos t}\sin(2t) \d t\end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer32')" class="answerButton">Show Answer</button> 
+ <div id="answer32" class="answer">
+First we will find the antiderivative. Let \(u = \cos t\), and \(\d u = -\sin t \d t\).
+$$\begin{align}
+\int e^{\cos t}\sin(2t) \d t ={}&amp; \int e^{\cos t} 2\sin t \cos t \d t \\
+={}&amp; -2\int e^u u \d u\\
+={}&amp; -2 (u-1)e^u + C\\
+={}&amp; 2(1-\cos t)e^{\cos t} + C
+\end{align}$$
+Now evaluating at the bounds of integration, we have 
+$$\begin{equation}\int^\pi_0 e^{\cos t}\sin(2t) \d t = 2(1-\cos \pi) e^{\cos \pi} - 0 = \frac{4}{e}\end{equation}$$
+</div> 
+ </div>
+
+
+</div> </li>
+<li> <div class="exercise"> [\(**\)] Evaluate the integral
+$$\begin{equation}\int\cos\left(\sqrt{x}\right) \d x\end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer48')" class="answerButton">Show Answer</button> 
+ <div id="answer48" class="answer">
+First make the substitution \(u = \sqrt{x}\), and \(2u \d u = \d x\):
+$$\begin{equation}\int\cos\left(\sqrt{x}\right) \d x = \int\cos(u) 2u \d u\end{equation}$$
+Now integrating by parts, we have
+$$\begin{equation} \int\cos(u) 2u \d u = 2\left(u\sin u - \int\sin u \d u\right)\end{equation}$$
+Thus the final answer in terms of \(u\) is
+$$\begin{equation}2u\sin u + 2\cos u +C\end{equation}$$
+Then putting back in terms of \(x\),
+$$\begin{equation}\int\cos\left(\sqrt{x}\right) \d x = 2\sqrt{x}\sin\left(\sqrt{x}\right) + 2\cos\left(\sqrt{x}\right) + C\end{equation}$$
+</div> 
+ </div>
+
+
+</div> </li>
+<li> <div class="exercise"> [\(**\)]Evaluate the integral
+$$\begin{equation}\int \cos\left(\log x\right) \d x\end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer63')" class="answerButton">Show Answer</button> 
+ <div id="answer63" class="answer">
+First, let \(\log x = u\). Then \(\d u = \d x/x = e^{-u} \d x\). Thus \(\d x = e^u \d u\). We can then transform the integral as
+$$\begin{equation}\int \cos\left(\log x\right) \d x = \int \cos u e^u \d u\end{equation}$$
+We then integrate by parts twice, both times integrating the exponential, and differentiating the trigonometric function. Note that we would get the same result had we instead differentiated the exponential, and integrated the trigonometric function. 
+$$\begin{equation}\int e^u \cos u \d u = e^u\cos u + e^u \sin u - \int e^u\cos u \d u\end{equation}$$
+Rearranging, we have
+$$\begin{equation}2\int e^u \cos u \d u = e^u(\cos u + \sin u)\end{equation}$$
+Then solving for the integral, we have
+$$\begin{equation}\int e^u\cos u \d u = \frac{e^u}{2}(\cos u + \sin u)\end{equation}$$
+Now plugging back in the original variables, we have
+$$\begin{equation}\int \cos\left(\log x\right) \d x = \frac{x}{2}(\cos(\log x) + \sin(\log x)) + C\end{equation}$$
+
+</div> 
+ </div>
+
+
+</div> </li>
+<li> <div class="exercise"> [\(***\)] Evaluate the integral
+$$\begin{equation}\int x\arctan x \d x \end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer81')" class="answerButton">Show Answer</button> 
+ <div id="answer81" class="answer">
+First we need to compute
+$$\begin{equation}\int\arctan x \d x\end{equation}$$
+The way to do this is to integrate by parts, letting \(u' = 1\), and \(v = \arctan x\). Then we have
+$$\begin{equation}\int\arctan x \d x = x\arctan x - \int\frac{x}{x^2+1}\d x\end{equation}$$
+This then evaluates to 
+$$\begin{equation}\int\arctan x \d x = x\arctan x - \frac{1}{2}\log(1+x^2)\end{equation}$$
+Now we return to the original integral. We will have to integrate by parts. Let \(x = u'\), and \(\arctan x = v\). Then we have
+$$\begin{align}
+\int x\arctan x \d x ={}&amp; \frac{x^2}{2}\arctan x - \frac{1}{2}\int \frac{x^2}{1+x^2}\d x \\
+={}&amp; \frac{x^2}{2}\arctan x - \frac{1}{2}\int\frac{x^2+1}{1+x^2} - \frac{1}{1+x^2} \d x\\
+={}&amp; \frac{x^2}{2}\arctan x - \frac{x}{2} + \frac{\arctan x}{2} + C
+\end{align}$$
+Thus we have
+$$\begin{equation}\int x\arctan x \d x =\frac{x^2}{2}\arctan x - \frac{x}{2} + \frac{\arctan x}{2} + C \end{equation}$$
+</div> 
+ </div>
+
+
+</div> </li>
+<li> <div class="exercise"> [\(**\)] Find the value of the integral. $$\begin{equation}\int^e_1 \log x \d x\end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer101')" class="answerButton">Show Answer</button> 
+ <div id="answer101" class="answer">
+$$\begin{align}
+\int_1^e \log x\d x  ={}&amp; \left. \left( x\log x - x \right) \right|_1^e \\
+={}&amp; e\log e - e - (1\log 1 - 1) \\
+={}&amp; e - e + 1 \\
+={}&amp; 1
+\end{align}$$
+$$\begin{equation}\int_1^e \log x\d x  = 1\end{equation}$$
+
+</div> 
+ </div>
+
+
+</div> </li>
+<li> <div class="exercise"> [\(**\)] Evaluate the integral. $$\begin{equation}\int (\sin x)(\sin 3x) \d x\end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer115')" class="answerButton">Show Answer</button> 
+ <div id="answer115" class="answer">
+We will have to integrate this by parts twice:
+$$\begin{align}
+\int (\sin x)(\sin 3x)\d x ={}&amp;  - \cos x\sin 3x + 3\int \cos x\cos 3x\d x \\
+={}&amp;  - \cos x\sin 3x + 3\left( \sin x\cos 3x + 3\int \sin x\sin 3x\d x \right)\\
+={}&amp;  - \cos x\sin 3x + 3\sin x\cos 3x + 9\int {\sin x\sin 3x\d x} 
+\end{align}$$
+Rearranging:
+$$\begin{equation} - 8\int \sin x\sin 3x\d x =  - \cos x\sin 3x + 3\sin x\cos 3x\end{equation}$$
+$$\begin{equation}\int {\sin x\sin 3x\d x}  = \frac{1}{8}\cos x\sin 3x - \frac{3}{8}\sin x\cos 3x + C\end{equation}$$
+</div> 
+ </div>
+
+
+</div> </li>
+<li> <div class="exercise"> [\(***\)] Evaluate the integral. $$\begin{equation}\int x\arcsin x \d x\end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer130')" class="answerButton">Show Answer</button> 
+ <div id="answer130" class="answer">
+We will need to integrate by parts. Let \(u = x\), and \(v' = \arcsin x\). First we need to find \(v(x)\). For this integral, integrate by parts, with the two functions being \(1\) and \(\arcsin x\). 
+$$\begin{align}
+v(x) = \int \arcsin x\d x  = x\arcsin x + \sqrt{1 - x^2}
+\end{align}$$
+$$\begin{align}
+\int x\arcsin x\d x  ={}&amp; x\left( x\arcsin x + \sqrt{1 - x^2} \right) - \int\left( x\arcsin x + \sqrt{1 -x^2} \right)\d x\\
+={}&amp; x^2\arcsin x + x\sqrt{1 - x^2}  - \int x\arcsin x\d x - \int {\sqrt{1 - x^2} \d x} \\
+\end{align}$$
+Rearranging, 
+$$\begin{equation}
+2\int x\arcsin x\d x = x^2\arcsin x + x\sqrt{1 - x^2}  - \int {\sqrt{1 - x^2} \d x} 
+\end{equation}$$
+Now we need to find the antiderivative of \(\sqrt{1-x^2}\). To do this, let \(x = \sin z\), and \(\d x = \cos z \d z\). 
+$$\begin{align}
+\int \sqrt{1 - x^2} \d x  ={}&amp; \int \cos z^2\d z \\
+={}&amp; \frac{1}{2}\int 1 + \cos 2z\d z \\
+={}&amp; \frac{z}{2} +\frac{\sin 2z}{4} \\
+={}&amp; \frac{z}{2} + \frac{\sin z\cos z}{2}\\
+={}&amp; \frac{\arcsin x}{2} + \frac{x\sqrt{1-x^2}}{2} 
+\end{align}$$
+$$\begin{align}
+2\int {x\arcsin x\d x}  = x^2\arcsin x + x\sqrt{1 - x^2}  -\left(  \frac{\arcsin x}{2} + \frac{x\sqrt{1-x^2}}{2}\right)\\
+2\int {x\arcsin x\d x}  = x^2\arcsin x + \frac{x\sqrt{1 - x^2}}{2} - \frac{\arcsin x}{2} + C
+\end{align}$$
+Thus the final answer is 
+$$\begin{equation}
+\int {x\arcsin x\d x}  = \frac{x^2\arcsin x}{2} + \frac{x\sqrt{1 - x^2}}{4} - \frac{\arcsin x}{4} + C
+\end{equation}$$
+</div> 
+ </div>
+
+
+</div> </li>
+<li> <div class="exercise">  Evaluate the integral.
+$$\begin{equation}\int e^{-3x}\sin (2x) \d x\end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer165')" class="answerButton">Show Answer</button> 
+ <div id="answer165" class="answer">
+In this one, we will need to integrate by parts twice. Let's integrate the exponential and differentiate the sine.
+ 
+$$\begin{equation}\int e^{-3x}\sin (2x) \d x = -\frac{1}{3}e^{-3x}\sin 2x + \frac{2}{3}\int e^{-3x}\cos 2x \d x \end{equation}$$
+
+Applying integration by parts again by differentiating the cosine and integrating the exponential, 
+
+$$\begin{align}
+\int e^{-3x}\sin (2x) \d x ={}&amp; -\frac{1}{3}e^{-3x}\sin 2x + \frac{2}{3}\left(-\frac{1}{3}e^{-3x}\cos 2x - \frac{2}{3}\int e^{-3x}\sin 2x \d x\right)  \\
+={}&amp; -\frac{1}{3}e^{-3x}\sin 2x - \frac{2}{9}e^{-3x}\cos 2x - \frac{4}{9}\int e^{-3x}\sin 2x \d x
+\end{align}$$
+
+Moving both integrals to the same side, 
+
+$$\begin{align}
+\left(1 + \frac{4}{9}\right)\int e^{-3x}\sin 2x \d x ={}&amp; -\frac{1}{3}e^{-3x}\sin 2x - \frac{2}{9}e^{-3x}\cos 2x\\
+\frac{13}{9}\int e^{-3x}\sin 2x \d x ={}&amp; -\frac{1}{9}e^{-3x}(3\sin 2x + 2\cos 2x)
+\end{align}$$
+
+Lastly, isolating the integral, we get 
+$$\begin{equation}\int e^{-3x}\sin 2x \d x = -\frac{1}{13}e^{-3x}(3\sin 2x + 2\cos 2x) + C\end{equation}$$
+</div> 
+ </div>
+
+
+</div> </li>
+<li> <div class="exercise">  Evaluate the integral. 
+$$\begin{equation}\int e^{3x}x^2\sin x \d x\end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer192')" class="answerButton">Show Answer</button> 
+ <div id="answer192" class="answer">
+Let \(e^{3x}\sin x = u'(x)\). We will have to use integration by parts multiple times, first to get rid of the \(x^2\) term, then to integrate the remaining exponential and sine.
+
+Let \(U'(x)  =  u(x).\)
+
+$$\begin{align}
+\int x^2 u' \d x ={}&amp; x^2 u - 2\int xu \d x  \\
+={}&amp; x^2u - 2\left( xU - \int U \d x \right)\\
+\end{align}$$
+
+First, we need to find \(u(x)\), with \(u'(x)\) defined as above. 
+
+$$\begin{align}
+u(x) ={}&amp; \int u'(x) \d x \\
+={}&amp; \int e^{3x}\sin x \d x \\
+={}&amp; \frac{e^{3x}}{3}\sin x - \frac{1}{3}\int e^{3x}\cos x \d x\\
+={}&amp; \frac{e^{3x}}{3}\sin x - \frac{1}{3}\left( \frac{e^{3x}}{3} + \frac{1}{3}\int e^{3x}\sin x \d x \right)
+\end{align}$$
+
+Rearranging, 
+
+$$\begin{equation}\frac{10}{9}\int e^{3x}\sin x \d x = \frac{e^{3x}}{9}\left( 3\sin x - \cos x\right)\end{equation}$$
+
+which tells us that, after a simple rearrangement,
+
+$$\begin{equation}\int e^{3x}\sin x \d x  = \frac{e^{3x}}{10}\left( 3\sin x - \cos x \right).\end{equation}$$
+
+In order to find \(U(x)\), having already found \(u(x)\), we need to perform the same procedure as in the previous integration. This is left to the reader, as it has already been shown once. 
+
+$$\begin{align}
+U(x) ={}&amp; \int u(x) \d x \\
+={}&amp; \frac{e^{3x}}{50}\left( 4\sin x - 3\cos x \right) 
+\end{align}$$
+Lastly, we need the antiderivative of \(U(x)\). That is computed in the same way as the two previous:
+
+$$\begin{equation}\int U(x)\d x = \frac{e^{3x}}{500}(9\sin x - 13\cos x) \end{equation}$$
+
+Plugging back into the original expression yields:
+
+$$\begin{align}
+x^2u - 2\left( xU - \int U\d x \right) ={}&amp; x^2\left( \frac{e^{3x}}{10}\left( 3\sin x - \cos x \right) \right) - 2x\left( \frac{e^{3x}}{50}\left( 4\sin x - 3\cos x \right) \right) + \\
+&amp;+2\left( \frac{e^{3x}}{500}(9\sin x - 13\cos x)\right)\\
+={}&amp; \frac{e^{3x}}{250}\left( {25x^2(3\sin x - \cos x) - 10x(4\sin x - 3\cos x) + 9\sin x - 13\cos x} \right) + C
+\end{align}$$
+
+$$\begin{equation}
+\int e^{3x}x^2\sin x \d x = \frac{e^{3x}}{250}\left( 25x^2(3\sin x - \cos x) - 10x(4\sin x - 3\cos x) + 9\sin x - 13\cos x \right) + C
+\end{equation}$$
+
+</div> 
+ </div>
+
+</div> </li></ol>
+
+
+  </div>
+  
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Footer -->
+<ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-7447253757666293"
+    data-ad-slot="6075791093"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer" >
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Physicsturtle</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physicsturtle</li>
+          <li><a href="mailto:nanoturtle2@gmail.com">nanoturtle2@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/physicsturtle"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">physicsturtle</span></a>
+
+          </li>
+          
+          
+           
+           
+           <li>
+               This site updated 2024-07-18 21:16
+           </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Welcome to Physicsturtle! Please use the e-mail contact to let me know if you find any mistakes or omissions, you feel an explanation could be improved, or you have a suggestion for content. 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

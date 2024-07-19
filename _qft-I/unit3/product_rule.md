@@ -1,0 +1,88 @@
+---
+layout: lesson
+title: The Product Rule
+dept: math
+course: calculus-I
+unit: unit3
+deptDisplay: Math
+courseDisplay: Calculus I
+unitDisplay: Unit 3
+---
+
+### Introduction
+In this section, we will learn how to compute derivatives if there are two functions multiplied together, for example $f(x) = x\sin x$. The product rule is not as simple as the sum rule which we have seen so far, but is intuitive if one thinks about it the right way. We will start simply with what the product rule is, and then have a discussion on the intuition behind it later. 
+
+### Theorem and Derivation
+
+<div class="theorem">
+<b>Theorem:</b> Let $f(x)$ and $g(x)$ each be differentiable functions. Then, the derivative of their product is 
+$$\frac{d}{dx}\left[f(x)g(x)\right] = \frac{df}{dx} g(x) + f(x) \frac{dg}{dx}.$$
+</div>
+
+For the proof, we will use the definition of the derivative. 
+
+<div class="proof">
+<b>Proof:</b> 
+$$\begin{eqnarray*}
+(f(x)g(x))' &=& \lim_{h\to 0} \frac{f(x+h)g(x+h) - f(x)g(x)}{h} \\
+&=& \lim_{h\to 0} \frac{f(x+h)g(x+h) - f(x)g(x+h) + f(x)g(x+h) - f(x)g(x)}{h} \\
+&=& \lim_{h\to 0} \frac{f(x+h)g(x+h) - f(x)g(x+h)}{h}  + \lim_{h\to 0} \frac{f(x)g(x+h) - f(x)g(x)}{h} \\
+&=& \lim_{h\to 0} \frac{g(x+h)[f(x+h) - f(x)]}{h}  + \lim_{h\to 0} \frac{f(x)[g(x+h) - g(x)]}{h} \\
+&=& \lim_{h\to 0}g(x+h) \lim_{h\to 0} \frac{f(x+h) - f(x)}{h}  + f(x) \lim_{h\to 0} \frac{g(x+h) - g(x)}{h} \\
+&=& \frac{df}{dx}g(x) + f(x)\frac{dg}{dx}
+\end{eqnarray*}$$
+</div>
+
+We immediately note that it is *not* true that $\frac{d}{dx}[f(x)g(x)] = \frac{df}{dx}\frac{dg}{dx}$, as one might naïvely guess. 
+
+### Examples
+Now, let's proceed with some examples of the product rule. Note that we don't know how to take derivatives of many kinds of functions yet, only polynomials. Applications of the product rule to more interesting functions will be saved until we have a larger set of derivatives in our toolbox.
+
+<div class="example">
+<p><b>Example:</b> Let $y = f(x)g(x)$, and suppose $f(0) = 3$, $f'(0) = 1$, $g(0) = 2$, and $g'(0) = -1$. Calculate $y'(0)$. </p>
+<b>Solution:</b> We calculate the derivative by using the product rule:
+
+$$y'(x) = f'(x)g(x) + f(x)g'(x).$$
+
+Then, we plug $x = 0$ in to both sides of the equation. This gives us 
+\begin{eqnarray*}
+y'(0) &=& f'(0)g(0) + f(0)g'(0) \\
+&=& (1)(2) + (3)(-1)\\
+&=& -1
+\end{eqnarray*}
+Thus $y'(0) = -1$. 
+</div> <br>
+
+<div class="example">
+<p><b>Example:</b> The function $f(x) = x^2$ can be thought of as "$x$ squared", or as "$x$ times $x$". Verify that taking the derivative of $f$ as a polynomial produces the same result when we use the product rule. </p>
+<b>Solution:</b>
+If we take the derivative of $f(x) = x^2$ by using the power rule, then we get $f'(x) = 2x$. It is also possible to use the product rule to calculate this derivative. Thinking of $f(x) = (x)(x)$, and taking its derivative considering each $x$ as part of a product, 
+\begin{eqnarray*}
+f'(x) &=& \left(\frac{d}{dx}(x)\right)(x) + (x)\left(\frac{d}{dx}(x)\right)\\
+&=& (1)(x) + (x)(1)\\
+&=& x+x\\
+&=& 2x
+\end{eqnarray*}
+Thus both computations give the result of $f'(x) = 2x$. 
+</div> <br>
+
+
+<div class="example">
+<p><b>Example:</b> Suppose $f(1) = 3$ and $f'(1) = 2$. Evaluate the limit
+$$\lim_{x\to 1} \frac{x^7f(x) - f(1)}{x-1}.$$ </p>
+<b>Solution:</b>
+To evaluate this limit, we recognize it as being of the form of the definition of the derivative. In fact, it is the definition of the derivative of the function $x^7f(x)$ at the point $x = 1$. Calling $g(x) = x^7f(x)$, we calculate $g'(1)$ by using the product rule. The derivative is
+
+$$g'(x) = 7x^6 f(x) + x^7 f'(x).$$
+
+Then plugging $x = 1$ into both sides of the equation, we find that 
+
+\begin{eqnarray*}
+g'(1) &=& 7(1)^6f(1) + (1^7)f'(1) \\
+&=& (7)(3) + (1)(2)\\
+&=& 23
+\end{eqnarray*}
+
+Thus the limit evaluates to 
+$$\lim_{x\to 1} \frac{x^7f(x) - f(1)}{x-1} = 23.$$
+</div>
