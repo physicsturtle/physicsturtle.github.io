@@ -9,7 +9,7 @@ courseDisplay: Condensed Matter Physics I
 unitDisplay: Unit 4
 ---
 <ol>
-<li> <div class="exercise">  Consider the case when \(U(\x) = -\frac{e^2}{4\pi\epsilon_0\|\x\|}\), which is the Coulomb potential. Show that the spin-orbit coupling we find from the Dirac equation agrees with the one we often use in undergraduate quantum mechanics. 
+<li> <div class="exercise">  Consider the case when \(U(\x) = -\frac{e^2}{4\pi\epsilon_0|\x|}\), which is the Coulomb potential. Show that the spin-orbit coupling we find from the Dirac equation agrees with the one we often use in undergraduate quantum mechanics. 
 
 <div class="answerBox"> 
  <button onclick="myFunction('answer3')" class="answerButton">Show Answer</button> 

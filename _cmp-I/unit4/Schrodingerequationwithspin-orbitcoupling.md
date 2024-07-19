@@ -32,7 +32,7 @@ E\ket{\psi_1} ={}& mc^2\ket{\psi_1} + c\boldsymbol{\sigma}\cdot\p\ket{\psi_2} + 
 E\ket{\psi_2} ={}& -mc^2\ket{\psi_2} + c\boldsymbol{\sigma}\cdot\p\ket{\psi_1} + U(\x)\ket{\psi_2}
 \end{align}$$
 
-Each \\(\ket{\psi_1}\\) and \\(\ket{\psi_2}\\) are two-component spinors. The \\(\ket{\psi_1}\\) wave function corresponds to the electrons, and \\(\ket{\psi_2}\\) corresponds to the positron. Here, \\(E\\) is the energy eigenvalue obtained by performing separation of variables. Let us work in the case where \\(mc^2 \gg \text{KE},\text{PE}\\). This is appropriate for a solid, because the mass of an electron is around 0.5 MeV, whereas energy scales in a solid are typically on the order of a few eV, or a few keV in some exceptional cases. Then, we can take the second equation and rewrite it as 
+Each \\(\ket{\psi\_1}\\) and \\(\ket{\psi\_2}\\) are two-component spinors. The \\(\ket{\psi\_1}\\) wave function corresponds to the electrons, and \\(\ket{\psi\_2}\\) corresponds to the positron. Here, \\(E\\) is the energy eigenvalue obtained by performing separation of variables. Let us work in the case where \\(mc^2 \gg \text{KE},\text{PE}\\). This is appropriate for a solid, because the mass of an electron is around 0.5 MeV, whereas energy scales in a solid are typically on the order of a few eV, or a few keV in some exceptional cases. Then, we can take the second equation and rewrite it as 
 
 $$\begin{equation}
 (E + mc^2 - U(\x))\ket{\psi_2} = c\boldsymbol{\sigma}\cdot\p\ket{\psi_1}
@@ -75,7 +75,7 @@ $$\begin{equation}
 [\phat,f(\xhat)] = -i\hbar f'(\xhat)
 \end{equation}$$
 
-This generalizes to \\([\phat_i,U(\hat{\x})] = -i\hbar \partial_i U(\hat{\x})\\). This means that we can rewrite 
+This generalizes to \\([\phat\_i,U(\hat{\x})] = -i\hbar \partial\_i U(\hat{\x})\\). This means that we can rewrite 
 
 $$\begin{equation}
 (\boldsymbol{\sigma}\cdot\hat{\p}) U(\hat{\x}) = -i\hbar\boldsymbol{\sigma}\cdot\nabla U(\hat{\x}) + U(\hat{\x})\boldsymbol{\sigma}\cdot\hat{\p}

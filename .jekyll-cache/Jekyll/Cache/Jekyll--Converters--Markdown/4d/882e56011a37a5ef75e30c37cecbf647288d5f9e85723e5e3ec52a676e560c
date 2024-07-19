@@ -1,0 +1,5 @@
+I"É<ol>
+<li> <div class="exercise"> Suppose $f(x)$ is differentiable at $x = a$. Find the value of the limit in terms of $f'(a)$:
+\[\lim_{x\to a}\frac{f(x) - f(a)}{\sqrt{x} - \sqrt{a}}\]
+</div></li></ol>
+:ET

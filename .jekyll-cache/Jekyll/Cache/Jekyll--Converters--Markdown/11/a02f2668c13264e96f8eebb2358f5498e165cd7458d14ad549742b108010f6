@@ -1,0 +1,2 @@
+I"-<p>The method of <em>Lagrange Multipliers</em>  is  mathematical tool for optimizing functions with respect to a constraint on the independent variables. This has many physical and mathematical applications. Suppose there is an irregularly shaped surface, and we want to find the point on that surface which is closest to the origin in \(\mathbb{R}^3\). This problem concerns minimizing the function \(f(x,y,z) = x^2 + y^2 + z^2\) (distance from the origin squared), when the point we’re measuring the distance to is constrained to the surface given.</p>
+:ET

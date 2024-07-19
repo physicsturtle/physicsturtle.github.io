@@ -1,0 +1,137 @@
+I"ù<p>Welcome to Multi-Variable and Vector Calculus. This is a really exciting subject and is the first step into allowing one to tackle real world physics and engineering problems.</p>
+
+<p>This course is a <strong>work in progress</strong>.</p>
+
+<p>Sections marked with an asterisk * should be regarded as optional, and everything else as essential. The ones chosen to be marked with an asterisk are ones which are normally left out of multivariable calculus courses, but may be included in an honours course. One of the goals is to be able to cater to as wide of an audience as possible, and for this reason those sections were written.</p>
+
+<p>This is a course on calculus, <em>not analysis</em>. The goal is for students to understand how to compute important quantities and objects in multivariable calculus, and to understand the concepts without proof and be able to interpret concepts geometrically.</p>
+
+<p><a class="page-link" href="/calculus-III/introduction">Introduction - What is Multivariable Calculus? </a></p>
+
+<p><a class="page-link" href="/calculus-III/prerequisites"> Prerequisites</a></p>
+
+<p><a class="page-link" href="/calculus-III/learning-outcomes"> Learning Outcomes</a></p>
+
+<ul>
+
+
+<li>  <a class="page-link" href="/emptyCourse/unit1/"> "Unit 1 - Introduction to 3D Space and Vectors" </a> </li>
+<ol>
+
+
+
+
+<li> <a class="page-link" href="unit1/three-dimensional-cartesian-coordinates"> Three Dimensional Cartesian Coordinates </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/vectors-and-their-geometry"> Vectors and Their Geometry </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/algebraic-operations-with-vectors"> Algebraic Operations with Vectors </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/norm"> Norm </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/projections"> Projections </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="/emptyCourse/unit2/"> "Unit 2 - Space Curves" </a> </li>
+<ol>
+
+
+
+
+<li> <a class="page-link" href="unit1/three-dimensional-cartesian-coordinates"> Three Dimensional Cartesian Coordinates </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/vectors-and-their-geometry"> Vectors and Their Geometry </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/algebraic-operations-with-vectors"> Algebraic Operations with Vectors </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/norm"> Norm </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/projections"> Projections </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="/emptyCourse/unit3/"> "Unit 3 - Partial Differentiation" </a> </li>
+<ol>
+
+
+</ol>
+
+
+<li>  <a class="page-link" href="/emptyCourse/unit4/"> "Unit 4 - Multiple Integration" </a> </li>
+<ol>
+
+
+</ol>
+
+
+<li>  <a class="page-link" href="/emptyCourse/unit5/"> "Unit 5 - Vector Calculus" </a> </li>
+<ol>
+
+
+
+
+<li> <a class="page-link" href="unit1/maxwell's-equations"> Maxwell's Equations </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="/emptyCourse/supplements/"> "Supplementary Material" </a> </li>
+<ol>
+
+
+
+
+<li> <a class="page-link" href="unit1/chain-rules"> Chain Rules </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/coordinate-change-tensor"> Coordinate Change Tensor </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/coordinate-change"> Coordinate Change </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/curvilinear-coordinates"> Curvilinear Coordinates </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/notation"> Notation </a> </li>
+
+
+
+<li> <a class="page-link" href="supplements/product-rules"> Product Rules </a> </li>
+
+</ol>
+
+</ul>
+
+<p><strong>Sources</strong></p>
+
+<ol>
+  <li>Calculus, 7 ed. - Stewart, James (2012)</li>
+  <li>Vector Analysis - Spiegel, Murray R. (1959)</li>
+  <li>Differential Geometry of Curves and Surfaces - 2 ed. do Carmo, Manfredo (2016)</li>
+  <li>Calculus on Manifolds - Spivak, Michael (1965)</li>
+</ol>
+:ET

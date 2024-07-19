@@ -6,17 +6,17 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 18 Jul 2024 21:16:02 -0700</pubDate>
-    <lastBuildDate>Thu, 18 Jul 2024 21:16:02 -0700</lastBuildDate>
+    <pubDate>Fri, 19 Jul 2024 12:13:55 -0700</pubDate>
+    <lastBuildDate>Fri, 19 Jul 2024 12:13:55 -0700</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
-        <title>Zestymath is Born</title>
-        <description>&lt;p&gt;Today I am creating Zestymath, a website which I envision to encompass all of undergraduate physics and some undergraduate mathematics.&lt;/p&gt;
+        <title>Physicsturtle is Born</title>
+        <description>&lt;p&gt;Today I am creating Physicsturtle, an educational website aiming to present material on undergraduate and graduate physics and math topics.&lt;/p&gt;
 </description>
         <pubDate>Wed, 13 Jun 2018 15:37:28 -0700</pubDate>
-        <link>http://localhost:4000/jekyll/update/2018/06/13/zestymath-is-born.html</link>
-        <guid isPermaLink="true">http://localhost:4000/jekyll/update/2018/06/13/zestymath-is-born.html</guid>
+        <link>http://localhost:4000/jekyll/update/2018/06/13/physicsturtle-is-born.html</link>
+        <guid isPermaLink="true">http://localhost:4000/jekyll/update/2018/06/13/physicsturtle-is-born.html</guid>
         
         
         <category>jekyll</category>

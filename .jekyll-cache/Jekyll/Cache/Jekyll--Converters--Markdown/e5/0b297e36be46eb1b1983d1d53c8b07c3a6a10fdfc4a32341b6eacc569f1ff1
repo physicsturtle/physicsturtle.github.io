@@ -1,0 +1,6 @@
+I"Ý<p>The chain rule is used for finding the derivative of nested functions. For example, if we have a function of the form</p>
+
+\[f(x) = \sin(e^x),\]
+
+<p>how would we calculate its derivative? We will answer this here.</p>
+:ET

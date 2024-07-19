@@ -1,0 +1,13 @@
+I"<p>Hamiltonian is distinguished from Lagrangian mechanics in two ways:</p>
+<ol>
+  <li>In Lagrangian mechanics, the <em>Lagrangian</em> is a function of generalized positions $\textbf{q}$ and velocities $\dot{\textbf{q}}$, while in Hamiltonian mechanics, the <em>Hamiltonian</em> is a function of generalized positions $\textbf{q}$ and generalized momenta $\textbf{p}$.</li>
+  <li>In Lagrangian mechanics, the Euler-Lagrange equations for a system with $N$ degrees of freedom is a system of $N$ second order ordinary differential equations. In Hamiltonian mechanics, Hamilton’s equations for a system with $N$ degrees of freedom are a system of $2N$ first order ordinary differential equations.</li>
+</ol>
+
+<p>The two approaches are equivalent to one another and to Newtonian mechanics, but this recasting in terms of the Hamiltonian makes certain results more intuitive, and it also more naturally leads to quantum mechanics and Hamilton-Jacobi theory.</p>
+
+<div class="definition">
+<b>Definition:</b> Consider a mechanical system with 
+
+</div>
+:ET

@@ -1,0 +1,25 @@
+I"-<p>In the Heisenberg picture, the states are time independent, and the operators are time dependent. To find how these states and operators are related to the Schrödinger picture, we require that expectation values remain the same in every picture. That is, if \(\hat{A}\) is any operator, then</p>
+
+\[\begin{equation}
+\langle\hat{A}\rangle = \bra{\psi_H}\hat{A}_H(t)\ket{\psi_H} = \bra{\psi_S(t)} \hat{A}_S \ket{\psi_S(t)}
+\end{equation}\]
+
+<p>We define the Heisenberg states \(\ket{\psi_H} = \ket{\psi_S(0)}\). Thus, we find that</p>
+
+\[\begin{equation}
+\bra{\psi_S(t)} \hat{A}_S \ket{\psi_S(t)} = \bra{\psi_H}\hat{U}^\dagger (t,0)\hat{A}_S\hat{U}(t,0) \ket{\psi_H} 
+\end{equation}\]
+
+<p>so we identify the quantity \(\hat{U}^\dagger (t,0)\hat{A}_S\hat{U}(t,0)\) as \(\hat{A}_H(t)\). We can write this as</p>
+
+\[\begin{equation}
+\hat{A}_H(t) := e^{i\hat{H}t/\hbar} \hat{A}_S e^{-i\hat{H}t/\hbar} 
+\end{equation}\]
+
+<p>The Heisenberg equation of motion of a (time independent) operator is given by</p>
+
+\[\begin{equation}
+\frac{\d A}{\d t} = i[H,A]
+\end{equation}\]
+
+:ET

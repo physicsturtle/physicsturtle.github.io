@@ -1,0 +1,17 @@
+I"<ol>
+<li> <div class="exercise"> Let $\alpha$ be a real constant. Normalize the wave function $$\psi_k(x) = A\left(e^{ikx} + \alpha e^{-ikx}\right)$$ in the $k$ scale by finding the value of $A$.
+<div class="answerBox">
+<button onclick="myFunction('answer1')" class="answerButton">Show Answer</button>
+<div id="answer1" class="answer">
+We recall the normalization condition 
+$$\int_{-\infty}^\infty \psi^*_k(x) \int_{k - \Delta k}^{k + \Delta k} \psi_{k'}(x) dk' dx = 1.$$
+First, we compute the inner integral by plugging in $\psi_{k'}(x) = A\left(e^{ik'x} + \alpha e^{-ik'x}\right)$:
+\begin{eqnarray*}
+\int_{k-\Delta k}^{k+\Delta k} A\left(e^{ik'x} + \alpha e^{-ik'x}\right) dk' &amp;=&amp; \frac{1}{ix}\left(e^{ik'x} - \alpha e^{-ik'x}\right)\bigg|^{k+\Delta k}_{k - \Delta k}\\
+&amp;=&amp; \frac{A}{ix}\left(e^{i(k+\Delta k)x} - e^{i(k-\Delta k)x} - \alpha e^{-i(k+\Delta k)x} + \alpha e^{-i(k-\Delta k)x}\right)\\
+&amp;=&amp; \frac{A}{ix}\left(e^{ikx}\left(e^{ix\Delta k} - e^{-ix\Delta k}\right) + \alpha e^{-ikx}\left(e^{ix\Delta k} - e^{-ix\Delta k}\right)\right)\\
+&amp;=&amp; \frac{2A}{x}\left(e^{ikx}\sin(x\Delta k) + \alpha e^{-ikx}\sin(x\Delta k)\right)\\
+&amp;=&amp; \frac{2A\sin(x\Delta k)}{x}\left(e^{ikx} + \alpha e^{-ikx}\right)
+\end{eqnarray*}
+</div></div></div></li></ol>
+:ET

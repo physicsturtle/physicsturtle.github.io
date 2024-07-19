@@ -1,0 +1,40 @@
+I"9	<p>In both classical and quantum physics, a rigid rotor is a 3-dimensional rotating system. For example, a top, a figure skater, a water molecule are all examples of rigid rotors. To describe such a system classically, one can solve Newton’s equation for a rigid body or solve the Euler-Lagrange equations. In quantum mechanics, we are generally concerned with rigid rotors that have certain symmetries. In this course, the only rigid rotor that we will consider is the two body rotor. The hydrogen molecule falls under this category, and the bodies are the proton (nucleus) and the electron.</p>
+
+<h3 id="hydrogen-atom">Hydrogen Atom</h3>
+<p>The hydrogen atom is a two body system. This means that its (classical) Hamiltonian is described by the kinetic energies of the proton and electron, as well as an interaction term. The interaction is the Coulomb force. Mathematically, this Hamiltonian is</p>
+
+\[H = \frac{\textbf{p}_p^2}{2m_p} + \frac{\textbf{p}_e^2}{2m_e} - \frac{e^2}{4\pi\epsilon_0 r},\]
+
+<p>where</p>
+<ul>
+  <li>$p_p$ is the momentum of the proton</li>
+  <li>$p_e$ is the momentum of the electron</li>
+  <li>$m_p$ is the mass of the proton</li>
+  <li>$m_e$ is the mass of the electron</li>
+  <li>$r$ is the distance between the proton and the electron</li>
+  <li>$e$ is the charge of the proton.</li>
+</ul>
+
+<p>In classical mechanics, one makes the following coordinate transformations:</p>
+
+\[\textbf{R} = \frac{1}{2}(\textbf{r}_e + \textbf{r}_p),\qquad \textbf{r} = \textbf{r}_e - \textbf{r}_p.\]
+
+<p>If one performs these substitutions, then the Hamiltonian becomes</p>
+
+\[H = \frac{\textbf{P}^2}{2M} + \frac{\textbf{p}^2}{2\mu} - \frac{e^2}{4\pi\epsilon_0 r^2},\]
+
+<p>where $\textbf{P}$ is the total momentum of the system (so $\textbf{P}$ is conserved), and $\textbf{p}$ is an effective momentum term describing the rate of change of the distance between the two particles. Since $\textbf{P}$ is conserved, it is constant, and may be removed from the Hamiltonian without loss of generality. We now rewrite our Hamiltonian as</p>
+
+\[H = \frac{\textbf{p}^2}{2\mu} - \frac{e^2}{4\pi\epsilon_0 r}.\]
+
+<p>If we rewrite this Hamiltonian in its quantum form by setting</p>
+
+\[\textbf{p} = -i\hbar \nabla,\]
+
+<p>then we get</p>
+
+\[H = -\frac{\hbar^2}{2\mu}\nabla^2 - \frac{e^2}{4\pi\epsilon_0 r}.\]
+
+<p>This Hamiltonian can be solved exactly!</p>
+
+:ET

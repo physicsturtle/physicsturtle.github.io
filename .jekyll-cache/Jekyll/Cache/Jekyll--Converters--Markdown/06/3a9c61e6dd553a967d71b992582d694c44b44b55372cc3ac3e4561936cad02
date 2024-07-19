@@ -1,0 +1,16 @@
+I"á\[\left(\begin{array}{@{}c\|c@{}}
+  \begin{matrix}
+  a &amp; b \\
+  c &amp; d
+  \end{matrix}
+  &amp; 0 \\
+\hline
+ 0 &amp;
+  \begin{matrix}
+  a &amp; b \\
+  c &amp; d
+  \end{matrix}
+\end{array}\right)\]
+
+<p>\end{document}</p>
+:ET

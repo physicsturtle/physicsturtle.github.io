@@ -1,0 +1,38 @@
+I"ê<p>In this section, we consider composite systems. A composite system is a quantum system which is formed out of two or more other quantum systems. A composite quantum system can have one or more particles. An example of a composite quantum system of only one particle could be an electron in the hydrogen atom. Normally, we think of the orbital angular momentum and spin angular momentum as separate quantum systems. It is possible to <em>put them together</em> by considering them as a composite quantum system. The only types of composite quantum system that we will consider in this course are systems that contain one or two particles. In later courses, we will consider much more complicated composite systems, as well as revisit the ones we are seeing in this course from a more formal viewpoint.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>We will write the composite state simply as the concatenation of the two states from the subsystem. For example, suppose we have an electron in the $\left</td>
+      <td>n \ell m\right&gt; = \left</td>
+      <td>210\right&gt;$ state of the hydrogen atom. Suppose it is in a spin state $\left</td>
+      <td>s m \right&gt; = \left</td>
+      <td>\frac{1}{2} \frac{1}{2}\right&gt;$. Then, the composite state is written as</td>
+    </tr>
+  </tbody>
+</table>
+
+\[\left|210\right&gt;\left|\frac{1}{2} \frac{1}{2}\right&gt;.\]
+
+<p>In the study of composite spin systems, we are sometimes interested in performing a change of basis. What we mean by change of basis is that we can consider the total spin of the system and the total $z$ component of the spin of the system. Such formalism is useful because (WHY IS THIS USEFUL?). This will lead us to a discussion of the Clebsch-Gordon coefficients.</p>
+
+<div class="example">
+<p><b>Example:</b> Consider an electron in the $\left|n\,\ell\, m\right&gt; = \left|1, 1, 0\right&gt;$ state of the hydrogen atom. 
+
+
+&lt;/div&gt;
+
+
+
+
+
+
+
+
+
+
+
+
+
+</p></div>
+:ET

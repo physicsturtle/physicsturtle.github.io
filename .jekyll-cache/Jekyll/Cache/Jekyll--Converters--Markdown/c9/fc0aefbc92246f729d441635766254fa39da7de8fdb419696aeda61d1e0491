@@ -1,0 +1,4 @@
+I"Í<p>In this section, we discuss the concept of normalization of a wavefunction when the integral
+\(\int_{-\infty}^\infty |\psi|^2 dx\)
+does not actually converge. One may say that these are not physically realizable wave functions, but in fact many important problems involve wave functions which cannot be normalized. For example, if we have a free particle, then its wavefunction will not be normalizable! Letâ€™s consider the free particle as an example.</p>
+:ET

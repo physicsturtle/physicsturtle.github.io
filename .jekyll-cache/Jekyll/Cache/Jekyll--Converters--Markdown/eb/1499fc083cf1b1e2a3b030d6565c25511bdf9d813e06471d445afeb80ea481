@@ -1,0 +1,5 @@
+I"5<ol>
+<li> <div class="exercise">
+If the third degree Maclaurin polynomial for $g(x)$ is $g(x) \approx T_{3,g}(x) = 3 + 2x - 5x^2 + x^3/3$ (the subscript $g$ denotes it being the Maclaurin polynomial for $g(x)$), and $f(x) = (g(x))^3$, find the second degree Maclaurin polynomial for $f(x)$. 
+</div></li></ol>
+:ET

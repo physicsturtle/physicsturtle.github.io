@@ -1,0 +1,2 @@
+I"l<p>Suppose we have a function $f(x)$, and we are interested in approximating its value near $x = a$. A truly awful approximation would be $f(x)\approx f(a)$. This is an awful approximation because it works only at the value $x = a$. Everywhere else, the approximation, which is simply a horizontal line, isn’t even close to the value of the actual function.</p>
+:ET

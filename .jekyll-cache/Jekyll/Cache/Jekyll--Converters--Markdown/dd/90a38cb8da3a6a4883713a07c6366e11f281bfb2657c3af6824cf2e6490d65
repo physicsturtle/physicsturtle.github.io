@@ -1,0 +1,82 @@
+I"ª<p>The dot product is one of the two ways of multiplying vectors. It can be defined between vectors in 1, 2, 3 or even more dimensions. There are two equivalent definitions of the dot product. One is very geometric, and helps us to get an intuition of what the dot product means. Unfortunately, it is not very useful when performing complex calculations. For this, the abstract definition will come in handy.</p>
+
+<h3 id="geometric-definition">Geometric Definition</h3>
+<p>Suppose we have two vectors \(\textbf{a}\) and \(\textbf{b}\), in any number of dimensions. Then we define the <em>dot product</em></p>
+
+\[\textbf{a}\cdot\textbf{b} = \|\textbf{a}\|\|\textbf{b}\|\cos\theta\]
+
+<p>where \(\theta\) is the angle between the two vectors. This can be represented graphically by (insert picture here)</p>
+
+<p>This should be thought of as calcaulting the <em>projection</em> of one vector onto the other. But, which vector is being projected onto which? Actually, it doesnâ€™t matter which vector is being projected onto which, because both results turn out to be the exact same!</p>
+
+<p>If we project</p>
+
+<h3 id="abstract-definition">Abstract Definition</h3>
+<p>The more abstract definition of the dot product uses the <em>components</em> of the vector. The dot product between the vectors \(\textbf{a} = (a_1,a_2,a_3)\) and \(\textbf{b} = (b_1,b_2,b_3)\) is</p>
+
+\[\textbf{a}\cdot\textbf{b} = a_1b_1 + a_2b_2 + a_3b_3\]
+
+<p>The definition for vectors in dimensions other than 3 has the same form. For example, in 2 dimensions with vectors \(\textbf{a} = (a_1,a_2)\) and \(\textbf{b} = (b_1,b_2)\), the dot product is</p>
+
+\[\textbf{a}\cdot\textbf{b} = a_1b_1 + a_2b_2\]
+
+<h3 id="properties">Properties</h3>
+
+<p>Some basic facts about the dot product which you should keep in mind are:</p>
+
+<ol>
+  <li>The dot product takes place between two (and only two) <em>vectors</em>, not between scalars.</li>
+  <li>The dot product <em>produces</em> a <em>scalar</em> out of two vectors</li>
+  <li>If the dot product is zero, then that means that the two vectors are <em>perpendicular</em>, or, <em>orthogonal</em>, to one another.</li>
+</ol>
+
+<p>The dot product has a few nice properties which are familiar from multiplication between scalars.</p>
+
+<p>Commutativity:</p>
+
+\[\textbf{a}\cdot\textbf{b} = \textbf{b}\cdot\textbf{a}\]
+
+<p>Distributivity:</p>
+
+\[\textbf{a}\cdot(\textbf{b} + \textbf{c}) = \textbf{a}\cdot\textbf{b} + \textbf{a}\cdot\textbf{c}\]
+
+<h3 id="terminology-and-notation">Terminology and Notation</h3>
+<p>Other terms that are synonymous with <em>dot product</em> are</p>
+
+<ol>
+  <li>Inner product</li>
+  <li>Scalar product</li>
+</ol>
+
+<h3 id="equivalence-of-the-definitions">Equivalence of the Definitions</h3>
+<p>Now we will show that the two definitions of the dot product are actually identical. This will be done by using the cosine law, and the proof applies in either 2 or 3 (or more!) dimensions. Here, we will do it for 2 dimensions, but it can be extended to more dimensions without much effort.</p>
+
+<p>We start with the geometric definition:</p>
+
+\[\textbf{a}\cdot\textbf{b} = \|\textbf{a}\|\|\textbf{b}\|\cos\theta\]
+
+<p>By the cosine law, we know that \(|\textbf{c}|^2 = |\textbf{a}|^2 + |\textbf{b}|^2 - 2|\textbf{a}||\textbf{b}|\cos\theta\). Rearranging this, we get</p>
+
+\[\|\textbf{a}\|\|\textbf{b}\|\cos\theta = \frac{\|\textbf{a}\|^2 + \|\textbf{b}\|^2 - \|\textbf{c}\|^2}{2}\]
+
+<p>so this means that</p>
+
+\[\textbf{a}\cdot\textbf{b} = \frac{\|\textbf{a}\|^2 + \|\textbf{b}\|^2 - \|\textbf{c}\|^2}{2}\]
+
+<p>Since we have that \(\textbf{c} = \textbf{a} - \textbf{b}\), we can substitute this in</p>
+
+\[\textbf{a}\cdot\textbf{b} = \frac{\|\textbf{a}\|^2 + \|\textbf{b}\|^2 - \|\textbf{a} - \textbf{b}\|^2}{2}\]
+
+<p>expanding this out in terms of components, we get</p>
+
+\[\begin{eqnarray}
+\textbf{a}\cdot\textbf{b} &amp;=&amp; \frac{\|\textbf{a}\|^2 + \|\textbf{b}\|^2 - \|\textbf{a} - \textbf{b}\|^2}{2}\\
+&amp;=&amp; \frac{a_1^2 + a_2^2 + b_1^2 + b_2^2 - ((a_1-b_1)^2 + (a_2-b_2)^2))}{2}\\
+&amp;=&amp; \frac{a_1^2 + a_2^2 + b_1^2 + b_2^2 - (a_1^2 - 2a_1b_1 + b_1^2 + a_2^2 - a_2b_2 + b_2^2)}{2}\\
+&amp;=&amp; \frac{2a_1b_1 + 2a_2b_2}{2}\\
+&amp;=&amp; a_1b_1 + a_2b_2
+\end{eqnarray}\]
+
+<p>which is precisely the second definition.</p>
+
+:ET

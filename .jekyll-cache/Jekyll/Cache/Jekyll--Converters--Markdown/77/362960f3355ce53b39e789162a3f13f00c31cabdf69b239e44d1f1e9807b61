@@ -1,0 +1,9 @@
+I":\[\begin{align}
+\frac{\d}{\d x} \sinh x ={}&amp; \cosh x \\
+\frac{\d}{\d x} \cosh x ={}&amp; \sinh x \\
+\frac{\d}{\d x} \tanh x ={}&amp; \sech^2 x \\
+\frac{\d}{\d x} \csch x ={}&amp; -\coth x \csch x \\
+\frac{\d}{\d x} \sech x ={}&amp; -\tanh x \sech x \\
+\frac{\d}{\d x} \coth x ={}&amp; -\csch^2 x
+\end{align}\]
+:ET

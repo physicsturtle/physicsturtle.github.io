@@ -1,0 +1,15 @@
+I"Í<p>If a particle is travelling on a straight line from one point to another, we can describe its position at any point in time by a function $\r(t)$. This function $\r(t)$ is called the <em>position as a function of time</em>. We write it as a vector because it can have multiple components, depending on how many dimensions the particle is moving in. In this course we will discuss motion in 1 or 2 dimensions. If the particle is thrown straight up (ignoring air resistance), then $\r$ would have only one component, the vertical component. If the particle is rolling about on a table, then it would have two components.</p>
+
+<p>The study of kinematics is concerned with finding the velocity and acceleration of a particle assuming $\r(t)$ has already been found. The study of <em>dynamics</em> is interested in how we can determine $\r(t)$. Given $\r(t)$, there are a few important quantities that we can assign to a particleâ€™s trajectory. Consider two instances in time, $t_1$ and $t_2$, where $t_2$ is after $t_1$. The particle will travel a certain displacement $\textbf{d}$ in this time.</p>
+
+<div class="definition">
+<b>Definition:</b> Let $\r(t)$ be the position of a particle as a function of time. Let $t_1$ and $t_2$ be two instances in time. Then, the <i>displacement</i> of the particle from $t_1$ to $t_2$ is give nby 
+$$\textbf{d} = \frac{\r(t_2) - \r(t_1)}{t_2 - t_1}.$$
+</div>
+<p><br /></p>
+
+<div class="example">
+<b>Example:</b> Suppose we have a particle 
+</div>
+
+:ET

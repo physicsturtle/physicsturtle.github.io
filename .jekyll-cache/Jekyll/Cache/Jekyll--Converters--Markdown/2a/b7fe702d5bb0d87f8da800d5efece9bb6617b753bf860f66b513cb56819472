@@ -1,0 +1,78 @@
+I"_	<h3 id="derivative-formulas">Derivative Formulas</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>\(\frac{d}{dx}x^n = nx^{n-1}\)</th>
+      <th>\(\frac{d}{dx}e^x = e^x\)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(\frac{d}{dx}\sin x = \cos x\)</td>
+      <td>\(\frac{d}{dx}\cos x = -\sin x\)</td>
+    </tr>
+    <tr>
+      <td>\(\frac{d}{dx}\tan x = \sec^2 x\)</td>
+      <td>\(\frac{d}{dx}\cot x = -\csc^2 x\)</td>
+    </tr>
+    <tr>
+      <td>\(\frac{d}{dx}\sec x = \sec x \tan x\)</td>
+      <td>\(\frac{d}{dx}\csc x = -\csc x \cot x\)</td>
+    </tr>
+    <tr>
+      <td>\(\frac{d}{dx}\log x = \frac{1}{x}\)</td>
+      <td>\(\frac{d}{dx} a^x = \log(a) a^x\)</td>
+    </tr>
+    <tr>
+      <td>\(\frac{d}{dx}\arcsin x = \frac{1}{\sqrt{1-x^2}}\)</td>
+      <td>\(\frac{d}{dx}\arccos x = -\frac{1}{\sqrt{1-x^2}}\)</td>
+    </tr>
+    <tr>
+      <td>\(\frac{d}{dx}\arctan x = \frac{1}{1+x^2}\)</td>
+      <td>\(\frac{d}{dx}\arccot x = -\frac{1}{1+x^2}\)</td>
+    </tr>
+    <tr>
+      <td>\(\frac{d}{dx}\arcsec x = \frac{1}{|x|\sqrt{x^2-1}}\)</td>
+      <td>\(\frac{d}{dx}\arccsc x = -\frac{1}{|x|\sqrt{x^2-1}}\)</td>
+    </tr>
+    <tr>
+      <td>\(\frac{d}{dx}\sinh x = \cosh x\)</td>
+      <td>\(\frac{d}{dx}\cosh x = \sinh x\)</td>
+    </tr>
+    <tr>
+      <td>\(\frac{d}{dx}\tanh x = \sech^2 x\)</td>
+      <td>\(\frac{d}{dx}\coth x = -\csch^2 x\)</td>
+    </tr>
+    <tr>
+      <td>\(\frac{d}{dx}\sech x = \sech x \tanh x\)</td>
+      <td>\(\frac{d}{dx}\csch x = -\csch x \coth x\)</td>
+    </tr>
+    <tr>
+      <td>\(\frac{d}{dx}\arcsinh x = \frac{1}{\sqrt{x^2+1}}\)</td>
+      <td>\(\frac{d}{dx}\arccosh x = \frac{1}{\sqrt{x^2-1}}\)</td>
+    </tr>
+    <tr>
+      <td>\(\frac{d}{dx} \arctanh x = \frac{1}{1-x^2}\)</td>
+      <td>\(\frac{d}{dx}\arccoth x = \frac{1}{1-x^2}\)</td>
+    </tr>
+    <tr>
+      <td>\(\frac{d}{dx}\arcsech x = \frac{1}{|x|\sqrt{1-x^2}}\)</td>
+      <td>\(\frac{d}{dx}\arccsch x = -\frac{1}{|x|\sqrt{1-x^2}}\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="differentiation-rules">Differentiation Rules</h3>
+
+\[\frac{d}{dx}\left[ f(x) + g(x) \right]  = \frac{df}{dx} + \frac{dg}{dx}\]
+
+\[\frac{d}{dx}\left[\lambda f(x)\right] = \lambda \frac{df}{dx}\]
+
+\[\frac{d}{dx}\left[f(x)g(x)\right] = \frac{df}{dx}g(x) + f(x)\frac{dg}{dx}\]
+
+\[\frac{d}{dx}\left[\frac{f(x)}{g(x)}\right] = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}\]
+
+\[\frac{d}{dx}f(g(x)) = \frac{df}{dg}\frac{dg}{dx}\]
+
+:ET

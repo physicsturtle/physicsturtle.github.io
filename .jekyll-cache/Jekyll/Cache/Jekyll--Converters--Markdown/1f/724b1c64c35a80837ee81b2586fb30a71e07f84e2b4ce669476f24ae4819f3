@@ -1,0 +1,191 @@
+I"i<p>Welcome to Complex Variables! This course is often called complex analysis, but the level of rigour at which I will present this course does not warrant it being called analysis.</p>
+
+<p><a class="page-link" href="/complex-variables/introduction">Introduction - What is Complex analysis? </a></p>
+
+<p>The prerequisites for this course are</p>
+<ol>
+  <li>A strong background in single variable calculus</li>
+  <li>A strong background in multivariable and vector calculus</li>
+  <li>A basic knowledge of proof writing</li>
+  <li>A basic knowledge of ordinary and partial differential equations</li>
+</ol>
+
+<ul>
+
+
+<li>  <a class="page-link" href="/complex-variables/unit1/"> Unit 1 - Complex Numbers and Algebra </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit1/the_complex_plane"> The Complex Plane </a> - <a class="page-link" href="unit1/the_complex_plane-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/complex_arithmetic"> Complex Arithmetic </a> - <a class="page-link" href="unit1/complex_arithmetic-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/polar_representation"> Polar Representation </a> - <a class="page-link" href="unit1/polar_representation-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/argument"> Argument </a> - <a class="page-link" href="unit1/argument-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/de_moivre's_formula"> De Moivre's Formula </a> - <a class="page-link" href="unit1/de_moivre's_formula-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/complex_inequalities"> Complex Inequalities </a> - <a class="page-link" href="unit1/complex_inequalities-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/roots_of_unity"> Roots of Unity </a> - <a class="page-link" href="unit1/roots_of_unity-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="/complex-variables/unit2/"> Unit 2 - Mappings and Differentiation </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit2/elementary_mappings"> Elementary Mappings </a> - <a class="page-link" href="unit2/elementary_mappings-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/compositions_of_mappings"> Compositions of Mappings </a> - <a class="page-link" href="unit2/compositions_of_mappings-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/differentiable_functions"> Differentiable Functions </a> - <a class="page-link" href="unit2/differentiable_functions-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/harmonic_functions"> Harmonic Functions </a> - <a class="page-link" href="unit2/harmonic_functions-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/multivalued_functions"> Multivalued Functions </a> - <a class="page-link" href="unit2/multivalued_functions-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/branch_cuts"> Branch Cuts </a> - <a class="page-link" href="unit2/branch_cuts-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="/complex-variables/unit3/"> Unit 3 - Integration </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit3/contour_integration"> Contour integration </a> - <a class="page-link" href="unit3/contour_integration-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/fundamental_theorem_of_calculus"> Fundamental Theorem of Calculus </a> - <a class="page-link" href="unit3/fundamental_theorem_of_calculus-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/integral_inequalities"> Integral Inequalities </a> - <a class="page-link" href="unit3/integral_inequalities-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/cauchy-goursat_theorem"> Cauchy-Goursat Theorem </a> - <a class="page-link" href="unit3/cauchy-goursat_theorem-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/cauchy's_integral_theorem"> Cauchy's Integral Theorem </a> - <a class="page-link" href="unit3/cauchy's_integral_theorem-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="/complex-variables/unit4/"> Unit 4 - Applications </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit4/nyquist_criterion"> Nyquist Criterion </a> - <a class="page-link" href="unit4/nyquist_criterion-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/rouche's_theorem"> Rouche's Theorem </a> - <a class="page-link" href="unit4/rouche's_theorem-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/möbius_transformations"> Möbius Transformations </a> - <a class="page-link" href="unit4/möbius_transformations-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/symmetric_points"> Symmetric Points </a> - <a class="page-link" href="unit4/symmetric_points-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/fluid_flow"> Fluid Flow </a> - <a class="page-link" href="unit4/fluid_flow-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/electromagnetism"> Electromagnetism </a> - <a class="page-link" href="unit4/electromagnetism-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/conformal_mappings"> Conformal Mappings </a> - <a class="page-link" href="unit4/conformal_mappings-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="/complex-variables/unit5/"> Unit 5 - Laurent Series and the Calculus of Residues </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit5/laurent_series"> Laurent Series </a> - <a class="page-link" href="unit5/laurent_series-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="/complex-variables/unit6/"> Unit 6 - Evaluation of Integrals by Contour Integration </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit6/infinite_sums"> Infinite Sums </a> - <a class="page-link" href="unit6/infinite_sums-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit6/laplace_transform"> Laplace Transform </a> - <a class="page-link" href="unit6/laplace_transform-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="/complex-variables/"> Unit 7 - Applications 2 </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="infinite_sums"> Infinite Sums </a> - <a class="page-link" href="infinite_sums-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="laplace_transform"> Laplace Transform </a> - <a class="page-link" href="laplace_transform-exercises"> Exercises </a> </li>
+
+</ol>
+
+</ul>
+
+<p><strong>Sources</strong></p>
+
+<ol>
+  <li>Complex Variables and Applications, Churchill and Brown</li>
+</ol>
+:ET

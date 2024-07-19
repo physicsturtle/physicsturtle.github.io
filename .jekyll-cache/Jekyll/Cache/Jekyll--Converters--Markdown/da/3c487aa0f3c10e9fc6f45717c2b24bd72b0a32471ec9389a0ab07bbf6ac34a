@@ -1,0 +1,197 @@
+I"<p>Welcome to thermodynamics! In undergraduate physics, I have found that many skim over this material, but it is of extreme importance and often students are left to teach themselves later on.</p>
+
+<p>The prerequisites are as follows:</p>
+<ol>
+  <li>A working knowledge of multivariable and vector calculus.</li>
+  <li>A working knowledge of first year physics.</li>
+</ol>
+
+<ul>
+
+
+<li>  <a class="page-link" href="/td/unit1/"> Unit 1 -  </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit1/sets"> Sets </a> - <a class="page-link" href="unit1/sets-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/functions"> Functions </a> - <a class="page-link" href="unit1/functions-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/inverse_functions"> Inverse Functions </a> - <a class="page-link" href="unit1/inverse_functions-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="/td/unit2/"> Unit 2 - Limits and Continuity </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit2/introduction"> Introduction </a> - <a class="page-link" href="unit2/introduction-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/limits"> Limits </a> - <a class="page-link" href="unit2/limits-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/limit_laws"> Limit Laws </a> - <a class="page-link" href="unit2/limit_laws-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/limit_details"> Limit Details </a> - <a class="page-link" href="unit2/limit_details-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/squeeze_theorem"> Squeeze Theorem </a> - <a class="page-link" href="unit2/squeeze_theorem-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/continuity"> Continuity </a> - <a class="page-link" href="unit2/continuity-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/intermediate_value_theorem"> Intermediate Value Theorem </a> - <a class="page-link" href="unit2/intermediate_value_theorem-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/limits_at_infinity"> Limits at Infinity </a> - <a class="page-link" href="unit2/limits_at_infinity-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="/td/unit3/"> Unit 3 - Differentiation </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit3/definition_of_the_derivative"> Definition of the Derivative </a> - <a class="page-link" href="unit3/definition_of_the_derivative-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/derivatives_of_polynomials"> Derivatives of Polynomials </a> - <a class="page-link" href="unit3/derivatives_of_polynomials-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/product_rule"> Product Rule </a> - <a class="page-link" href="unit3/product_rule-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/quotient_rule"> Quotient Rule </a> - <a class="page-link" href="unit3/quotient_rule-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/derivatives_of_trigonometric_functions"> Derivatives of Trigonometric Functions </a> - <a class="page-link" href="unit3/derivatives_of_trigonometric_functions-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/derivatives_of_exponentials"> Derivatives of Exponentials </a> - <a class="page-link" href="unit3/derivatives_of_exponentials-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/derivatives_of_hyperbolic_functions*"> Derivatives of Hyperbolic Functions* </a> - <a class="page-link" href="unit3/derivatives_of_hyperbolic_functions*-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/chain_rule"> Chain Rule </a> - <a class="page-link" href="unit3/chain_rule-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/implicit_differentiation"> Implicit Differentiation </a> - <a class="page-link" href="unit3/implicit_differentiation-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/derivatives_of_logarithms"> Derivatives of Logarithms </a> - <a class="page-link" href="unit3/derivatives_of_logarithms-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/derivatives_of_inverse_trigonometric_functions"> Derivatives of Inverse Trigonometric Functions </a> - <a class="page-link" href="unit3/derivatives_of_inverse_trigonometric_functions-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/derivatives_of_inverse_hyperbolic_functions*"> Derivatives of Inverse Hyperbolic Functions* </a> - <a class="page-link" href="unit3/derivatives_of_inverse_hyperbolic_functions*-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/logarithmic_differentiation"> Logarithmic Differentiation </a> - <a class="page-link" href="unit3/logarithmic_differentiation-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/linear_approximations_and_differentials"> Linear Approximations and Differentials </a> - <a class="page-link" href="unit3/linear_approximations_and_differentials-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/taylor_polynomials"> Taylor Polynomials </a> - <a class="page-link" href="unit3/taylor_polynomials-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/lagrange_remainder_theorem"> Lagrange Remainder Theorem </a> - <a class="page-link" href="unit3/lagrange_remainder_theorem-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="/td/unit4/"> Unit 4 - Applications of Differentiation </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit4/kinematics_problems"> Kinematics Problems </a> - <a class="page-link" href="unit4/kinematics_problems-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/exponential_growth_and_decay"> Exponential Growth and Decay </a> - <a class="page-link" href="unit4/exponential_growth_and_decay-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/newton's_law_of_cooling"> Newton's Law of Cooling </a> - <a class="page-link" href="unit4/newton's_law_of_cooling-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/related_rates"> Related Rates </a> - <a class="page-link" href="unit4/related_rates-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/extrema"> Extrema </a> - <a class="page-link" href="unit4/extrema-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/mean_value_theorem"> Mean Value Theorem </a> - <a class="page-link" href="unit4/mean_value_theorem-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/curve_sketching"> Curve Sketching </a> - <a class="page-link" href="unit4/curve_sketching-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/optimization_problems"> Optimization Problems </a> - <a class="page-link" href="unit4/optimization_problems-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/l'hopital's_rule"> L'Hopital's Rule </a> - <a class="page-link" href="unit4/l'hopital's_rule-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/newton's_method"> Newton's Method </a> - <a class="page-link" href="unit4/newton's_method-exercises"> Exercises </a> </li>
+
+</ol>
+
+</ul>
+
+<p><strong>Sources</strong></p>
+
+<ol>
+  <li>Calculus, 7 ed. - Stewart, James (2012)</li>
+  <li>Schaums Outline of Calculus, 4 ed. - Ayres Jr., Frank (2002)</li>
+  <li>Calculus - Spivak, Michael</li>
+  <li>Calculus, Vol. 1 - Apostol, Tom</li>
+</ol>
+:ET

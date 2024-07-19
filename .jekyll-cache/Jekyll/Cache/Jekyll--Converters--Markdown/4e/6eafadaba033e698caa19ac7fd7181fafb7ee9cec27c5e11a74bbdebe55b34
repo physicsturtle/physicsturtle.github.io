@@ -1,0 +1,54 @@
+I"�	<h3 id="introduction">Introduction</h3>
+<p>In high school, we learned how to solve various algebraic equations. The most notable of which is the quadratic equation</p>
+
+\[ax^2 + bx + c = 0,\]
+
+<p>the solution to which was the quadratic formula</p>
+
+\[x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}.\]
+
+<p>There are of course many equations which don’t have simple solutions like that! For example,</p>
+
+\[x^3 - 2x + 2 = 0\]
+
+<p>doesn’t have a nice easy formula! One can use a computer to solve such equations, but, what does that computer actually do when it calculates the solution? One of the methods that one could program into a computer is called <em>Newton’s method</em>, which is the topic of this section.</p>
+
+<p>In this course, Newton’s method has two uses:</p>
+<ol>
+  <li>Providing approximate solutions to algebraic equations</li>
+  <li>Providing decimal expansions for numbers like $\sqrt{2}$</li>
+</ol>
+
+<h3 id="the-method">The Method</h3>
+<p>Suppose we have the graph of $y = f(x)$, and we are looking for a solution of $f(x) = 0$. Let’s make a guess of the solution, and call it $x_0$. Now, unless we were very very lucky, $f(x_0) \not= 0$. If it is a good guess however, then we can say that the tangent line to $f(x)$ at $x_0$ will intersect the $x$ axis at a point closer to the root than our original guess. Suppose it intersects at a point $x_1$. Now we apply the same procedure to $f(x_1)$.</p>
+
+<p>More systematically, we consider the tangent line about $x_n$:</p>
+
+\[L(x) = f(x_n) + (x-x_n)f'(x_n).\]
+
+<p>We then set $x_{n+1}$ to be the intersection of this line and the $x$ axis. Thus setting $L(x_{n+1}) = 0$, we find that</p>
+
+\[0 = f(x_n) + (x_{n+1} - x_n)f'(x_n).\]
+
+<p>Now if we solve for $x_{n+1}$, we find</p>
+
+<div class="result">
+<b>Newton's Method:</b>
+To iteratively solve $f(x) = 0$, we make a guess $x_0$. We plug $x_0$ into the following formula to find $x_1$. Continue plugging into the following formula to get sucessively better approximations to the solution of $f(x) = 0$. 
+$$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}.$$
+</div>
+
+<h3 id="examples">Examples</h3>
+<div class="example">
+<p><b>Example:</b> Find an approximation to the solution of $x^2 = 2$ by using Newton's method with an initial guess of $x_0 =1$. Find the third approximation $x_3$.  </p>
+<b>Solution:</b>
+
+</div>
+
+<div class="example">
+<p><b>Example:</b> Find an approximation to the solution of $x^2 = 2$ by using Newton's method with an initial guess of $x_0 =1$. Find the third approximation $x_3$.  </p>
+<b>Solution:</b>
+
+</div>
+
+:ET

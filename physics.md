@@ -127,13 +127,13 @@ Mathematical Classical Mechanics I
 ### Condensed Matter Physics
 <a class="page-link" href="/cmp-I/"> Condensed Matter Physics I </a>
 
-<!--- <a class="page-link" href="/cmp-II/"> Condensed Matter Physics II </a> --->
+<a class="page-link" href="/cmp-II/"> Condensed Matter Physics II </a>
 
-<!--- <a class="page-link" href="/many-body-I/"> Many-Body Theory I </a> --->
+<a class="page-link" href="/many-body-I/"> Many-Body Theory I </a>
 
 <a class="page-link" href="/many-body-II/"> Many-Body Theory II </a>
 
-<!--- <a class="page-link" href="/exp-cmp/"> Experimental Condensed Matter Physics </a> --->
+<!--- <a class="page-link" href="/exp-cmp/"> Experimental Condensed Matter Physics for Theorists </a> --->
 
 <a class="page-link" href="/superconductivity/"> Superconductivity & Superfluidity</a>
 

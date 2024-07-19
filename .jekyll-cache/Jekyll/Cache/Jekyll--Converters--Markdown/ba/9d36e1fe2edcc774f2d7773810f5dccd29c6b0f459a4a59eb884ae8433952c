@@ -1,0 +1,34 @@
+I"£<p>Spherical coordinates are a set of three coordinates used when the objects weâ€™re studying have spherical symmetry. They will simplify our calculations and make the results much more transparent. The three coordinates are the distance from the origin \(r\), the angle measured down from the \(z\) axis \(\theta\), and the angle measured in the \(xy\) plane, \(\varphi\). This can be represented graphically by</p>
+
+<p>(insert figure here)</p>
+
+<p>Algebraically, the transformation equations are</p>
+
+\[\left\{\begin{eqnarray}
+r &amp;=&amp; \sqrt{x^2+y^2+z^2}\\
+\theta &amp;=&amp; \arccos\left(\frac{z}{\sqrt{x^2+y^2+z^2}}\right)\\
+\varphi &amp;=&amp; \arctan\left(\frac{y}{x}\right)
+\end{eqnarray} \right.\]
+
+\[\left\{\begin{eqnarray}
+x &amp;=&amp; r\sin\theta\cos\varphi \\
+y &amp;=&amp; r\sin\theta\sin\varphi \\
+z &amp;=&amp; r\cos\theta \end{eqnarray} \right.\]
+
+<h3 id="exercises">Exercises</h3>
+
+<ol>
+<li> <div> Express the points $(1,2,3)$ in terms of the three spherical coordinates. </div>
+
+<button onclick="myFunction('answer1')" class="answerButton">Show Answer</button>
+<div id="answer1" class="answer">
+This is a plane that is parallel to the \(xz\) plane. 
+</div> </li>
+<li> <div> Sketch all of the points such that \(y = 1\). </div>
+
+<button onclick="myFunction('answer2')" class="answerButton">Show Answer</button>
+<div id="answer2" class="answer">
+This is a plane that is parallel to the \(xz\) plane. 
+</div> </li>
+</ol>
+:ET

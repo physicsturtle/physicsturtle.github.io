@@ -1,0 +1,53 @@
+I"�<p>Things you should understand after completing this lesson.</p>
+
+<ul>
+  <li>Definition of a surface integral</li>
+  <li>Surface of a graph</li>
+  <li>Parametrized surface</li>
+  <li>Flux through a surface – integration of a vector field</li>
+  <li>mass of a surface – integration of a scalar field</li>
+</ul>
+
+<p>We have already looked at how to calculate integrals of functions over regions of the \(xy\) plane. That was an integral over a <em>flat</em> region. Here, the concept of a surface integral allows us to calculate integrals of functions over a curvy surface!</p>
+
+<p>We can break surface integral problems into 4 different types. They are all solved the same way, but they all have different physical/geometric interpretations as to what they mean.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th style="text-align: center">Vector Field</th>
+      <th style="text-align: center">Scalar Field</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Vector Differential</td>
+      <td style="text-align: center">\(\displaystyle{\int \textbf{F}\cdot d\textbf{S}}\), \(\displaystyle{\int \textbf{F}\times d\textbf{S}}\)</td>
+      <td style="text-align: center">\(\displaystyle{\int f d\textbf{S}}\)</td>
+    </tr>
+    <tr>
+      <td>Scalar Differential</td>
+      <td style="text-align: center">\(\displaystyle{\int \textbf{F}dS}\)</td>
+      <td style="text-align: center">\(\displaystyle{\int f dS}\)</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="exercises">Exercises</h3>
+
+<ol>
+<li> <div> Sketch all of the points such that \(y = 1\). </div>
+
+<button onclick="myFunction('answer2')" class="answerButton">Show Answer</button>
+<div id="answer2" class="answer">
+This is a plane that is parallel to the \(xz\) plane. 
+</div> </li>
+<li> <div> Sketch all of the points such that \(y = 1\). </div>
+
+<button onclick="myFunction('answer2')" class="answerButton">Show Answer</button>
+<div id="answer2" class="answer">
+This is a plane that is parallel to the \(xz\) plane. 
+</div> </li>
+</ol>
+:ET

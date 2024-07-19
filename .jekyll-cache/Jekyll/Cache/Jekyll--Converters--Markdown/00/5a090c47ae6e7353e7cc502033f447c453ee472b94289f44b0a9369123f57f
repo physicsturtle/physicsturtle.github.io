@@ -1,0 +1,17 @@
+I"^<p>In this section, we will start by introducing the probability current in 1 dimension, then proceed to a discussion of the probability current in 3 dimensions.</p>
+
+<h3 id="probability-current-in-1-dimension">Probability Current in 1 Dimension</h3>
+<p>The probability current is defined as 
+\(J = \frac{\hbar}{2mi}\left(\psi^*\frac{d\psi}{dx} - \psi\frac{d\psi^*}{dx}\right)\)</p>
+
+<p>We can prove a conservation relation for the probability current</p>
+
+<h3 id="probability-current-in-3-dimensions">Probability Current in 3 Dimensions</h3>
+<p>The probability current can be generalized to 3 dimensions
+\(\textbf{J} = \frac{\hbar}{2m i}\left(\psi^*\nabla\psi - \psi\nabla\psi^*\right)\)</p>
+
+<p>and can again be written in terms of the momentum operator,</p>
+
+\[\textbf{J} = \frac{1}{2m}\left(\psi^*\hat{\textbf{p}}\psi - \psi\hat{\textbf{p}}\psi^*\right).\]
+
+:ET

@@ -343,7 +343,7 @@ i\hbar \frac{\partial}{\partial t} \ket{\psi} = \Hhat\ket{\psi}
 <p>To solve this, the Klein-Gordon equation can be factored as</p>
 
 \[\begin{equation}
-E^2 - (mc^2)^2 - \|c\p\|^2 = (E + \alpha_0 mc^2 + c\boldsymbol{\alpha}\cdot\p)(E - \alpha_0 mc^2 - c\boldsymbol{\alpha}\cdot\p) = 0
+E^2 - (mc^2)^2 - |c\p|^2 = (E + \alpha_0 mc^2 + c\boldsymbol{\alpha}\cdot\p)(E - \alpha_0 mc^2 - c\boldsymbol{\alpha}\cdot\p) = 0
 \end{equation}\]
 
 <p>If we expand out the brackets, then we get that</p>
@@ -396,14 +396,14 @@ E\ket{\psi_2} ={}&amp; -mc^2\ket{\psi_2} + c\boldsymbol{\sigma}\cdot\p\ket{\psi_
 <li> Q: In quantum field theory, we typically learn that the Klein-Gordon equation should be factorized as \((\gamma^0E + c\boldsymbol{\gamma}\cdot\p + mc^2)(\gamma^0E + c\boldsymbol{\gamma}\cdot\p - mc^2) = 0\). What is the relation between this factorization and the one discussed in this section? A: Well, we note that \(\gamma^0 = \alpha_0\). Well, we can rewrite the factorization as 
 
 $$\begin{align}
-E^2 - \|c\p\|^2 - (mc^2)^2 ={}&amp; (\gamma^0E + c\boldsymbol{\gamma}\cdot\p + mc^2)(\gamma^0E + c\boldsymbol{\gamma}\cdot\p - mc^2)\\
+E^2 - |c\p|^2 - (mc^2)^2 ={}&amp; (\gamma^0E + c\boldsymbol{\gamma}\cdot\p + mc^2)(\gamma^0E + c\boldsymbol{\gamma}\cdot\p - mc^2)\\
 ={}&amp; \gamma^0(E + c\gamma^0\boldsymbol{\gamma}\cdot\p + \gamma^0mc^2)(\gamma^0E + c\boldsymbol{\gamma}\cdot\p\gamma^0 - \gamma^0mc^2)\gamma^0
 \end{align}$$
 
 Then, we note that \(\gamma^0\gamma^a = \alpha_a\), and \(\gamma^a\gamma^0 = -\alpha_a\). Thus, we get that (removing the \(\gamma^0\) on the far left and far right of the equation)
 
 $$\begin{align}
-E^2 - \|c\p\|^2 - (mc^2)^2 ={}&amp; (E + c\boldsymbol{\alpha}\cdot\p + \alpha^0mc^2)(\gamma^0E - c\boldsymbol{\alpha}\cdot\p - \alpha^0mc^2)
+E^2 - |c\p|^2 - (mc^2)^2 ={}&amp; (E + c\boldsymbol{\alpha}\cdot\p + \alpha^0mc^2)(\gamma^0E - c\boldsymbol{\alpha}\cdot\p - \alpha^0mc^2)
 \end{align}$$
 
 We therefore see that the factorization is equivalent to the one we have made in the text. We note that the factorization used above is quite common in condensed matter physics, because we are interested in creating Schrödinger type equations for an electron in a solid. That is, we want \(E\) to be by itself.
@@ -459,7 +459,7 @@ We therefore see that the factorization is equivalent to the one we have made in
            
            
            <li>
-               This site updated 2024-07-18 21:16
+               This site updated 2024-07-19 12:13
            </li>
         </ul>
       </div>

@@ -1,0 +1,351 @@
+I"*;<p>Welcome to Multi-Variable and Vector Calculus. This is a really exciting subject and is the first step into allowing one to tackle real world physics and engineering problems.</p>
+
+<p>Sections marked with an asterisk * should be regarded as optional, and everything else as essential. The ones chosen to be marked with an asterisk are ones which are normally left out of multivariable calculus courses, but may be included in an honours course. One of the goals is to be able to cater to as wide of an audience as possible, and for this reason those sections were written.</p>
+
+<p>This is a course on calculus, <em>not analysis</em>. The goal is for students to understand how to compute important quantities and objects in multivariable calculus, and to understand the concepts without proof and be able to interpret concepts geometrically.</p>
+
+<p><a class="page-link" href="/calculus-III/introduction"> Introduction - What is Multivariable Calculus? </a></p>
+
+<ol>
+  <li>Working knowledge of single variable differential calculus (Calculus I)</li>
+  <li>Working knowledge of single variable integral calculus (Calculus II)</li>
+  <li>Rudimentary knowledge of linear algebra; any first course in linear algebra is more than sufficient</li>
+  <li>Knowledge of ordinary differential equations may be useful</li>
+  <li>An exposure to introductory physics will be useful for developing physical intuition</li>
+</ol>
+
+<ul>
+
+
+<li>  <a class="page-link" href="unit1/"> Unit 1 - Introduction to 3D Space and Vectors </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit1/three_dimensional_cartesian_coordinates"> Three Dimensional Cartesian Coordinates </a> - <a class="page-link" href="unit1/three_dimensional_cartesian_coordinates-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/vectors_and_their_geometry"> Vectors and Their Geometry </a> - <a class="page-link" href="unit1/vectors_and_their_geometry-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/algebraic_operations_with-vectors"> Algebraic Operations with-Vectors </a> - <a class="page-link" href="unit1/algebraic_operations_with-vectors-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/norm"> Norm </a> - <a class="page-link" href="unit1/norm-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/projections"> Projections </a> - <a class="page-link" href="unit1/projections-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/dot_product"> Dot Product </a> - <a class="page-link" href="unit1/dot_product-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/determinant_and_cross_product"> Determinant and Cross Product </a> - <a class="page-link" href="unit1/determinant_and_cross_product-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/equations_of_lines"> Equations of Lines </a> - <a class="page-link" href="unit1/equations_of_lines-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/equations_of_planes"> Equations of Planes </a> - <a class="page-link" href="unit1/equations_of_planes-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/quadric_surfaces"> Quadric Surfaces </a> - <a class="page-link" href="unit1/quadric_surfaces-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/cylindrical_coordinates"> Cylindrical Coordinates </a> - <a class="page-link" href="unit1/cylindrical_coordinates-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/spherical_coordinates"> Spherical Coordinates </a> - <a class="page-link" href="unit1/spherical_coordinates-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit1/general_surfaces"> General Surfaces </a> - <a class="page-link" href="unit1/general_surfaces-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="unit2/"> Unit 2 - Space Curves </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit2/vector_functions"> Vector Functions </a> - <a class="page-link" href="unit2/vector_functions-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/limits_and_continuity"> Limits and Continuity </a> - <a class="page-link" href="unit2/limits_and_continuity-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/differentiation_and_integration_of_curves"> Differentiation and Integration of Curves </a> - <a class="page-link" href="unit2/differentiation_and_integration_of_curves-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/arc_length"> Arc Length </a> - <a class="page-link" href="unit2/arc_length-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/curvature_and_torsion"> Curvature and Torsion </a> - <a class="page-link" href="unit2/curvature_and_torsion-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit2/frenet_serret_equations"> Frenet Serret Equations </a> - <a class="page-link" href="unit2/frenet_serret_equations-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="unit3/"> Unit 3 - Partial Differentiation </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit3/functions_of_multiple_variables"> Functions of Multiple Variables </a> - <a class="page-link" href="unit3/functions_of_multiple_variables-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/contour_plots_and_level_sets"> Contour Plots and Level Sets </a> - <a class="page-link" href="unit3/contour_plots_and_level_sets-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/limits_and_continuity"> Limits and Continuity </a> - <a class="page-link" href="unit3/limits_and_continuity-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/partial_differentiation"> Partial Differentiation </a> - <a class="page-link" href="unit3/partial_differentiation-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/tangent_planes_and_linear_approximations"> Tangent Planes and Linear Approximations </a> - <a class="page-link" href="unit3/tangent_planes_and_linear_approximations-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/gradient_vector"> Gradient Vector </a> - <a class="page-link" href="unit3/gradient_vector-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/the_differential"> The Differential </a> - <a class="page-link" href="unit3/the_differential-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/non_independent_variables"> Non Independent Variables </a> - <a class="page-link" href="unit3/non_independent_variables-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/chain_rule"> Chain Rule </a> - <a class="page-link" href="unit3/chain_rule-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/differentiation_of_integrals"> Differentiation of Integrals </a> - <a class="page-link" href="unit3/differentiation_of_integrals-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/directional_derivative"> Directional Derivative </a> - <a class="page-link" href="unit3/directional_derivative-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/extrema_1"> Extrema 1 </a> - <a class="page-link" href="unit3/extrema_1-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/extrema_2"> Extrema 2 </a> - <a class="page-link" href="unit3/extrema_2-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/lagrange_multipliers_1"> Lagrange Multipliers 1 </a> - <a class="page-link" href="unit3/lagrange_multipliers_1-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/lagrange_multipliers_2"> Lagrange Multipliers 2 </a> - <a class="page-link" href="unit3/lagrange_multipliers_2-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/bordered_hessian"> Bordered Hessian </a> - <a class="page-link" href="unit3/bordered_hessian-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/lagrange_remainder"> Lagrange Remainder </a> - <a class="page-link" href="unit3/lagrange_remainder-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/the_jacobian_derivative"> The Jacobian Derivative </a> - <a class="page-link" href="unit3/the_jacobian_derivative-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/higher_dimensional_lagrange_multipliers"> Higher Dimensional Lagrange Multipliers </a> - <a class="page-link" href="unit3/higher_dimensional_lagrange_multipliers-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit3/inflection_and_saddle_points_lagrange_multipliers"> Inflection and Saddle Points Lagrange Multipliers </a> - <a class="page-link" href="unit3/inflection_and_saddle_points_lagrange_multipliers-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="unit4/"> Unit 4 - Multiple Integration </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit4/riemann_sums"> Riemann Sums </a> - <a class="page-link" href="unit4/riemann_sums-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/double_integral_over_a_rectangle"> Double Integral Over a Rectangle </a> - <a class="page-link" href="unit4/double_integral_over_a_rectangle-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/double_integral_over_a_general_plane_region"> Double Integral Over a General Plane Region </a> - <a class="page-link" href="unit4/double_integral_over_a_general_plane_region-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/double_integral_in_polar_coordinates"> Double Integral in Polar Coordinates </a> - <a class="page-link" href="unit4/double_integral_in_polar_coordinates-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/surface_area"> Surface Area </a> - <a class="page-link" href="unit4/surface_area-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/triple_integrals"> Triple Integrals </a> - <a class="page-link" href="unit4/triple_integrals-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/triples_integrals_in_cylindrical_coordinates"> Triples Integrals In Cylindrical Coordinates </a> - <a class="page-link" href="unit4/triples_integrals_in_cylindrical_coordinates-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/triple_integrals_in_spherical_coordinates"> Triple Integrals in Spherical Coordinates </a> - <a class="page-link" href="unit4/triple_integrals_in_spherical_coordinates-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/change_of_variables"> Change of Variables </a> - <a class="page-link" href="unit4/change_of_variables-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit4/applications"> Applications </a> - <a class="page-link" href="unit4/applications-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="unit5/"> Unit 5 - Vector Calculus </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit5/vector_fields"> Vector Fields </a> - <a class="page-link" href="unit5/vector_fields-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/line_integrals_in_2d"> Line Integrals in 2D </a> - <a class="page-link" href="unit5/line_integrals_in_2d-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/fundamental_theorem_of_line_integrals"> Fundamental Theorem of Line Integrals </a> - <a class="page-link" href="unit5/fundamental_theorem_of_line_integrals-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/green's_theorem"> Green's Theorem </a> - <a class="page-link" href="unit5/green's_theorem-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/divergence"> Divergence </a> - <a class="page-link" href="unit5/divergence-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/curl"> Curl </a> - <a class="page-link" href="unit5/curl-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/laplacian"> Laplacian </a> - <a class="page-link" href="unit5/laplacian-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/surface_integrals"> Surface Integrals </a> - <a class="page-link" href="unit5/surface_integrals-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/stokes_theorem"> Stokes Theorem </a> - <a class="page-link" href="unit5/stokes_theorem-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/divergence_theorem"> Divergence Theorem </a> - <a class="page-link" href="unit5/divergence_theorem-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/applications"> Applications </a> - <a class="page-link" href="unit5/applications-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/flow_of_a_vector_field"> Flow of a Vector Field </a> - <a class="page-link" href="unit5/flow_of_a_vector_field-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/maxwell's_equations"> Maxwell's Equations </a> - <a class="page-link" href="unit5/maxwell's_equations-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/differential_forms"> Differential Forms </a> - <a class="page-link" href="unit5/differential_forms-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/green'_identities"> Green' Identities </a> - <a class="page-link" href="unit5/green'_identities-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="supplements/"> Supplementary Material </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="supplements/chain_rules"> Chain Rules </a> - <a class="page-link" href="supplements/chain_rules-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="supplements/coordinate_change-tensor"> Coordinate Change-Tensor </a> - <a class="page-link" href="supplements/coordinate_change-tensor-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="supplements/coordinate_change"> Coordinate Change </a> - <a class="page-link" href="supplements/coordinate_change-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="supplements/curvilinear_coordinates"> Curvilinear Coordinates </a> - <a class="page-link" href="supplements/curvilinear_coordinates-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="supplements/notation"> Notation </a> - <a class="page-link" href="supplements/notation-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="supplements/product_rules"> Product Rules </a> - <a class="page-link" href="supplements/product_rules-exercises"> Exercises </a> </li>
+
+</ol>
+
+</ul>
+
+<p><strong>Sources</strong></p>
+
+<ol>
+  <li>Calculus, 7 ed. - Stewart, James (2012)</li>
+  <li>Vector Analysis - Spiegel, Murray R. (1959)</li>
+  <li>Differential Geometry of Curves and Surfaces - 2 ed. do Carmo, Manfredo (2016)</li>
+  <li>Calculus on Manifolds - Spivak, Michael (1965)</li>
+</ol>
+:ET

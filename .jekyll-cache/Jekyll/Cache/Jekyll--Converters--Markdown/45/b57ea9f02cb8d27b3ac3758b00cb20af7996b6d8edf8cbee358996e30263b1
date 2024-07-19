@@ -1,0 +1,12 @@
+I"q<p>The derivatives of the trigonometric functions are given by</p>
+
+\[\begin{align}
+\frac{\d}{\d x} \sin x ={}&amp; \cos x \\
+\frac{\d}{\d x} \cos x ={}&amp; -\sin x \\
+\frac{\d}{\d x} \tan x ={}&amp; \sec^2 x \\
+\frac{\d}{\d x} \csc x ={}&amp; -\csc x \cot x \\
+\frac{\d}{\d x} \sec x ={}&amp; \sec x \tan x \\
+\frac{\d}{\d x} \cot x ={}&amp; -\csc^2 x
+\end{align}\]
+
+:ET

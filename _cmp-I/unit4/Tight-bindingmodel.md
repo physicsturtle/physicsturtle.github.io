@@ -8,7 +8,7 @@ deptDisplay: Physics
 courseDisplay: Condensed Matter Physics I
 unitDisplay: Unit 4
 ---
-The tight-binding model considers a system for which the electrons are tightly bound to their atoms. The implications of this is that, even when the electron wave functions on nearby sites overlap, the overlap is not that large, so the resulting localized wave functions closely resemble their atomic constituents. We can derive the energy eigenvalues of such a situation in the following way. We start by considering an isolated atom centred at the origin. The atom has numerous energy levels \\(E_n\\), which are all localized eigenfunctions (such as the wave functions of a hydrogen atom). The Schrödinger equation for such a situation is 
+The tight-binding model considers a system for which the electrons are tightly bound to their atoms. The implications of this is that, even when the electron wave functions on nearby sites overlap, the overlap is not that large, so the resulting localized wave functions closely resemble their atomic constituents. We can derive the energy eigenvalues of such a situation in the following way. We start by considering an isolated atom centred at the origin. The atom has numerous energy levels \\(E\_n\\), which are all localized eigenfunctions (such as the wave functions of a hydrogen atom). The Schrödinger equation for such a situation is 
 
 $$\begin{equation}
 \Hhat_\text{at}\psi_n(\x) = E_n \psi_n(\x).
@@ -20,7 +20,7 @@ $$\begin{equation}
 \phi(\x) = \sum_n a_n \psi_n(\x).
 \end{equation}$$
 
-Suppose we now have a lattice made of up atoms at positions \\(\mathbf{R}_i\\) in a Bravais lattice. How can we write a general atomic wave function for an electron which is localized about an atom on site \\(\mathbf{R}_i\\)? Well, we simply have to shift the wave function which we had at the origin to now be centred about site \\(i\\). This wave function would be \\(\phi_i(\x) = \phi(\x-\mathbf{R}_i)\\). Can we construct a Bloch wave function out of these localized orbitals? Well, the answer is yes. The only condition that our Bloch function must satisfy is \\(\Psi(\x + \mathbf{R}) = e^{i\k\cdot\mathbf{R}}\Psi(\x)\\), for any Bravais lattice vector \\(\mathbf{R}\\).  
+Suppose we now have a lattice made of up atoms at positions \\(\mathbf{R}\_i\\) in a Bravais lattice. How can we write a general atomic wave function for an electron which is localized about an atom on site \\(\mathbf{R}\_i\\)? Well, we simply have to shift the wave function which we had at the origin to now be centred about site \\(i\\). This wave function would be \\(\phi\_i(\x) = \phi(\x-\mathbf{R}\_i)\\). Can we construct a Bloch wave function out of these localized orbitals? Well, the answer is yes. The only condition that our Bloch function must satisfy is \\(\Psi(\x + \mathbf{R}) = e^{i\k\cdot\mathbf{R}}\Psi(\x)\\), for any Bravais lattice vector \\(\mathbf{R}\\).  
 
 
 

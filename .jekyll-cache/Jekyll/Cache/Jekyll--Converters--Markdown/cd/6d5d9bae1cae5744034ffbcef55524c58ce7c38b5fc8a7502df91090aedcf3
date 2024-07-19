@@ -1,0 +1,5 @@
+I"À<div class="definition">
+The <i>Riemann tensor</i> $R$ is the $(1,3)$ tensor field defined by 
+$$R(\omega,X,Y,Z) = \omega(\nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X,Y]}Z)$$
+</div>
+:ET

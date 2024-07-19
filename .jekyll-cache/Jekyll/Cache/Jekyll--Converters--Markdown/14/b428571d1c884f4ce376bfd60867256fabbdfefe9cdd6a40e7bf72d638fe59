@@ -1,0 +1,6 @@
+I"î<ol>
+<li> <div class="exercise"> Prove that if $f$ is an invertible, differentiable function, then
+\[(f^{-1})'(x) = \frac{1}{f'(f^{-1}(x))}\]
+Hint: Recall that $f(f^{-1}(x)) = x$. Try differentiating both sides of that. 
+</div></li></ol>
+:ET

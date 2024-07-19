@@ -1,0 +1,58 @@
+I"�<p>Suppose we have a function $f(x)$, and we are interested in approximating its value near $x = a$. A truly awful approximation would be $f(x)\approx f(a)$. This is an awful approximation because it works only at the value $x = a$. Everywhere else, the approximation, which is simply a horizontal line, isn’t even close to the value of the actual function.</p>
+
+<p>(insert figure here)</p>
+
+<p>A better approximation would be a straight line which not only passes through the point $(a,f(a))$, but also has the same slope as the original function at that point. This approximation is the linear approximation which we have discussed before:</p>
+
+\[f(x) \approx f(a) + (x-a)f'(a)\approx f(x).\]
+
+<p>(insert figure here)</p>
+
+<p>One can see that this approximation not only passes through the curve at $(a,f(a))$, but also is pretty close to the curve in a small neighbourhood around $x=a$.</p>
+
+<p>The next best approximation would match the second derivative as well. This approximation is</p>
+
+\[f(x) \approx f(a) + (x-a)f'(a) + \frac{(x-a)^2f''(a)}{2}.\]
+
+<p>Let’s proceed to one order higher before generalizing this result.</p>
+
+\[f(x) \approx f(a) + (x-a)f'(a) + \frac{(x-a)^2f''(a)}{2} + \frac{(x-a)^3f'''(a)}{6}.\]
+
+<p>The pattern here should be come clear. Rewriting it in the following form and recalling that $0! = 1$,</p>
+
+\[f(x) \approx \frac{(x-a)^0 f(a)}{0!} + \frac{(x-a)^1f'(a)}{1!} + \frac{(x-a)^2f''(a)}{2} + \frac{(x-a)^3f'''(a)}{6}.\]
+
+<p>The formula for the $n$ Taylor polynomial to $f$ centred about $x-a$ is therefore</p>
+
+<div class="result">
+<b>Result:</b> Suppose $f(x)$ is a function which is differentiable $n$ times at $x=a$. Then, its $n$th degree Taylor polynomial about $x = a$ is given by 
+$$T_n(x) = \sum_{k=0}^n \frac{(x-a)^k f^{(k)}(a)}{k!}.$$
+The higher $n$ is, the better $T$ approximates $f$. 
+</div>
+
+<p>Now, let’s proceed with some examples of calculating Taylor approximations to certain functions.</p>
+
+<div class="example">
+<p><b>Example:</b> Calculate the 
+
+</p> <b>Solution:</b>
+
+
+</div>
+
+<div class="example">
+<p><b>Example:</b> Calculate the 
+
+</p> <b>Solution:</b>
+
+
+</div>
+
+<div class="example">
+<p><b>Example:</b> Calculate the 
+
+</p> <b>Solution:</b>
+
+
+</div>
+:ET

@@ -63,4 +63,3 @@ Compute the derivative of each of the following functions:
 
 </div>
 
-

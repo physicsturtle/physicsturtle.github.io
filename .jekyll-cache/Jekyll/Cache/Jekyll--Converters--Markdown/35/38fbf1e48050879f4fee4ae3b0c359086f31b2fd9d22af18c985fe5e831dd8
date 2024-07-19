@@ -1,0 +1,29 @@
+I"°<p>Here, we solve one of the simplest quantum mechanics problems, mathematically speaking. Later we will come to the spin-$\frac{1}{2}$ system, which one may argue is simpler mathematically, but the infinite square well I find to be more intuitive.</p>
+
+<p>Consider an infinite square well, defined by the potential</p>
+
+\[V(x) = \begin{cases}
+0 &amp; 0 &lt; x &lt; L \\
+\infty &amp; \text{otherwise}
+\end{cases}.\]
+
+<p>This system should be thought of, classically, as a box of length $a$ whose walls are infinitely tall, so a ball which you throw up could never get out. What this means in quantum mechanics is that the wavefunction, whose squared magnitude represents the probability of a particle being at that point in space, is zero outside the box. That is, $\psi(0) = \psi(L) = 0$, and at all other points outside the box as well.</p>
+
+<p>The Schr√∂dinger equation and boundary conditions are for this equation in the region of $0 &lt; x &lt; L$ is</p>
+
+\[\begin{cases}
+-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} = E\psi &amp; 0 &lt; x &lt; L \\
+\psi(0) = 0 &amp; \psi(L) = 0
+\end{cases}\]
+
+<p>To solve this boundary value problem, we rearrange this equation to get</p>
+
+\[\psi'' + \frac{2mE}{\hbar^2}\psi = 0\]
+
+<p>This equation has well known solution of sines and cosines, which give</p>
+
+\[\psi(x) = A\sin(kx) + B\cos(kx)\]
+
+<p>Applying the boundary conditions, we find that $B = 0$, $A$ arbitrary, and we need $\sin(kL) = 0$.</p>
+
+:ET

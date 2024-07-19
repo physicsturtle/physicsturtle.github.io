@@ -1,0 +1,56 @@
+I"à<p>Welcome to Asymptotic Analysis I! This fits into the world of PDE somewhere between real analysis and analytic methods. On the other side of analytic methods is numerical methods.</p>
+
+<p><a class="page-link" href="/asympI/introduction"> Introduction - What is Asymptotic Analysis? </a></p>
+
+<p>The prerequisites are as follows</p>
+<ol>
+  <li>A strong background in solution methods of ODE and PDE</li>
+  <li>A working knowledge of complex analysis</li>
+  <li>An exposure to physics is useful; many examples will be drawn from physics.</li>
+</ol>
+
+<ul>
+
+
+<li>  <a class="page-link" href="/asymptotics/unit1/"> Unit 1 - Algebraic Perturbations </a> </li>
+<ol> 
+
+
+</ol>
+
+
+<li>  <a class="page-link" href="/asymptotics/unit2/"> Unit 2 - Basic Perturbations of Self-Adjoint Differential Equations </a> </li>
+<ol> 
+
+
+</ol>
+
+
+<li>  <a class="page-link" href="/asymptotics/unit3/"> Unit 3 - Integrals </a> </li>
+<ol> 
+
+
+</ol>
+
+
+<li>  <a class="page-link" href="/asymptotics/unit4/"> Unit 4 - Boundary Layers </a> </li>
+<ol> 
+
+
+</ol>
+
+
+<li>  <a class="page-link" href="/asymptotics/unit5/"> Unit 5 - Multiple Scales Analysis </a> </li>
+<ol> 
+
+
+</ol>
+
+</ul>
+
+<p><strong>Sources</strong></p>
+
+<ol>
+  <li>Calculus, 7 ed. - Stewart, James (2012)</li>
+</ol>
+:ET

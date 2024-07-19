@@ -1,0 +1,6 @@
+I"¿<ol>
+<li> <div class="exercise">  Suppose \(f(x)\) is defined as 
+$$\begin{equation}f(x) = \lim_{t \to x}\frac{\sec t - \sec x}{t - x}\end{equation}$$
+Compute \(f'(\pi/4)\).
+</div></li></ol>
+:ET

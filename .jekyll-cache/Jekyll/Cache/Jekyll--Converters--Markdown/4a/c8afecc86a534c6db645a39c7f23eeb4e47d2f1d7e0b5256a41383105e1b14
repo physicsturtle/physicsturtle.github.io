@@ -1,0 +1,2 @@
+I"-<p>The Fourier transform is ubiquitous throughout mathematics, physics, and engineering. In this section, we will study how it can be used to find integral representations of solutions to certain ODEs, thus making them easier to solve. For example, the Airy equation $y’’ = xy$ which we solved by series methods earlier can also have its solution be represented by an integral! In this section, we will introduce the idea of the Fourier transform and some definitions. This section will require the reader to know the calculus of complex variables.</p>
+:ET

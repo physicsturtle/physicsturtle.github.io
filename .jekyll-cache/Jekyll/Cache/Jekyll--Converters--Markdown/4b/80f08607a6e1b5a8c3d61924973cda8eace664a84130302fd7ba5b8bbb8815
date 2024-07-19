@@ -1,0 +1,27 @@
+I"Í<h4 id="simple-cubic">Simple Cubic</h4>
+<p>The Bravais lattice vectors for a simple cubic lattice with lattice constant $a$ are</p>
+
+\[\textbf{a}_1 = a\hat{\x},\qquad \textbf{a}_2 = a\hat{\y} ,\qquad \textbf{a}_3 = a\hat{\textbf{z}}\]
+
+<p>The reciprocal lattice vectors for the simple cubic lattice with lattice constant $a$ are</p>
+
+\[\textbf{g}_1 = \frac{2\pi}{a}\hat{\x},\qquad \textbf{g}_2 = \frac{2\pi}{a}\hat{\y},\qquad \textbf{g}_3 = \frac{2\pi}{a}\hat{\textbf{z}}\]
+
+<h4 id="face-centred-cubic">Face-Centred Cubic</h4>
+<p>The Bravais lattice vectors for a face-centred cubic lattice with lattice constant $a$ are</p>
+
+\[\textbf{a}_1 = \frac{a}{2}(1,1,0),\qquad \textbf{a}_2 = \frac{a}{2}(1,0,1),\qquad \textbf{a}_3 = \frac{a}{2}(0,1,1)\]
+
+<p>The reciprocal lattice vectors for the face-centred cubic lattice with lattice constant $a$ are</p>
+
+\[\textbf{g}_1 = \frac{2\pi}{a}(1,1,-1),\qquad \textbf{g}_2 = \frac{2\pi}{a}(1,-1,1),\qquad \textbf{g}_3 = \frac{2\pi}{a}(-1,1,1)\]
+
+<h4 id="body-centred-cubic">Body-Centred Cubic</h4>
+<p>The Bravais lattice vectors for a body-centred cubic lattice with lattice constant $a$ are</p>
+
+\[\textbf{a}_1 = \frac{a}{2} (1,1,-1),\qquad \textbf{a}_2 = \frac{a}{2}(1,-1,1),\qquad \textbf{a}_3 = \frac{a}{2}(-1,1,1)\]
+
+<p>The reciprocal lattice vectors for the body cubic lattice with lattice constant $a$ are</p>
+
+\[\textbf{g}_1 = \frac{2\pi}{a}(1,1,0),\qquad \textbf{g}_2 = \frac{2\pi}{a}(1,0,1),\qquad \textbf{g}_3 = \frac{2\pi}{a}(0,1,1)\]
+:ET

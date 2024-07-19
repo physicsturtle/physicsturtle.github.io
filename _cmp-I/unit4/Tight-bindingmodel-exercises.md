@@ -106,7 +106,7 @@ $$\begin{align}
 
 Then, we can digaonalize this matrix. The eigenvalues and (normalized) eigenvectors are simply 
 
-\(\)\lambda_\pm = \pm\|1 + e^{i\k\cdot\mathbf{a}_3} + e^{-i\k\cdot\mathbf{a}_1}\|\(\)
+\(\)\lambda_\pm = \pm|1 + e^{i\k\cdot\mathbf{a}_3} + e^{-i\k\cdot\mathbf{a}_1}|\(\)
 
 These can be simplified a little bit to find 
 
@@ -213,7 +213,7 @@ this gives us INSERT FIGURE HERE.
 <ol type="a">
 <li> Show that 
 \(\)\rho(\epsilon) = \begin{cases} 
-\frac{1}{2\pi^2}K(1 - \epsilon^2/16) & \|\epsilon\| w \\ 0 & else \end{cases}\(\)
+\frac{1}{2\pi^2}K(1 - \epsilon^2/16) & |\epsilon| w \\ 0 & else \end{cases}\(\)
 
 where \(K\) is the elliptic integral of the first kind.
 </li>
@@ -226,7 +226,7 @@ where \(K\) is the elliptic integral of the first kind.
 <ol type="a">
 <li> 
 </li>
-<li> \(\rho(\epsilon) \sim \log(1/\|\epsilon\|)\). 
+<li> \(\rho(\epsilon) \sim \log(1/|\epsilon|)\). 
 
 </li></ol>
 </div> 

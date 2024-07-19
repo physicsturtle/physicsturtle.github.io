@@ -1,0 +1,62 @@
+I"�
+<p>The chain rule is often one of the more difficult sections for students to grasp in multivariable calculus. This is usually because of sloppy notation, both on the part of the instructor and student. Here we will try to be as explicit and clear as possible so that the student can learn good habits.</p>
+
+<p>Let’s first recall the chain rule from single variable calculus. If \(y = f(g(x))\), then</p>
+
+\[y' = f'(g(x))g'(x)\]
+
+<p>The chain rule for functions of several variables is a direct extension of this. Additionally, there is a single formula just like the one above.</p>
+
+<h4 id="chain-rule-1">Chain Rule 1</h4>
+
+<p>Consider a function of the form \(f(t) = g(x(t),y(t))\). What is \(f’(t)\)? It is</p>
+
+\[\frac{df}{dt} = \frac{\partial g}{\partial x}\frac{dx}{dt} + \frac{\partial g}{\partial y}\frac{dy}{dt}\]
+
+<p>which can be rewritten as</p>
+
+\[\frac{df}{dt} = \nabla f \cdot \frac{d\textbf{r}}{dt}\]
+
+<p>where \(\textbf{r}(t) = (x(t),y(t))\). What does this mean physically? This represents how \(f\) changes as we move along the curve \((x(t),y(t))\) in the \(xy\) plane!</p>
+
+<p>(insert a figure)</p>
+
+<h4 id="chain-rule-2">Chain Rule 2</h4>
+
+<p>What about functions of the form \(f(x,y) = h(g(x,y))\)? Now \(f\) is a function of two variables, so we can look at computing its partials.</p>
+
+\[\frac{\partial f}{\partial x} = \frac{dh}{dg}\frac{\partial g}{\partial x}, \quad \frac{\partial f}{\partial y} = \frac{dh}{dg}\frac{\partial g}{\partial y}\]
+
+<p>This can be rewritten as</p>
+
+\[\nabla f = \frac{dh}{dg}\nabla g\]
+
+<h4 id="chain-rule-3">Chain Rule 3</h4>
+
+<p>Now we combine the two concepts to look at functions of the form \(f(x,y) = g(u(x,y),v(x,y))\). This looks like</p>
+
+\[\frac{\partial f}{\partial x} = \frac{\partial g}{\partial u}\frac{\partial u}{\partial x} + \frac{\partial g}{\partial v} \frac{\partial v}{\partial x}\]
+
+\[\frac{\partial f}{\partial y} = \frac{\partial g}{\partial u}\frac{\partial u}{\partial y} + \frac{\partial g}{\partial v} \frac{\partial v}{\partial y}\]
+
+<h4 id="second-derivatives">Second Derivatives</h4>
+
+<p>The tricky part of all this is when it comes to second derivatives. We really need to be clear about what is a function of what!</p>
+
+<h3 id="exercises">Exercises</h3>
+
+<ol>
+<li> <div> Sketch all of the points such that \(y = 1\). </div>
+
+<button onclick="myFunction('answer2')" class="answerButton">Show Answer</button>
+<div id="answer2" class="answer">
+This is a plane that is parallel to the \(xz\) plane. 
+</div> </li>
+<li> <div> Sketch all of the points such that \(y = 1\). </div>
+
+<button onclick="myFunction('answer2')" class="answerButton">Show Answer</button>
+<div id="answer2" class="answer">
+This is a plane that is parallel to the \(xz\) plane. 
+</div> </li>
+</ol>
+:ET

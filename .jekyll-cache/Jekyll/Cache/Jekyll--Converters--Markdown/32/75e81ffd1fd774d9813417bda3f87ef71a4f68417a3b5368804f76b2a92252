@@ -1,0 +1,9 @@
+I"œ<h3 id="hamilton-jacobi-theory">Hamilton Jacobi Theory</h3>
+
+<p>In this section, we will introduce Hamilton Jacobi theory. Consider the action $S$:</p>
+
+\[S[\textbf{q}] = \int_{t_1}^{t_2}\mathcal{L}(\textbf{q},\dot{\textbf{q}},t) dt\]
+
+<p>Clearly, $S$ is a <em>functional</em> of the <em>functions</em> $q_1,q_2,\dots,q_n$. However, it can also be thought of as a function of variables $q_1,q_2,\dots,q_n$.</p>
+
+:ET

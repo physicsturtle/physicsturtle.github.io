@@ -1,0 +1,64 @@
+I"±<h3 id="exercises">Exercises</h3>
+
+<ol>
+<li> <div class="exercise"> Calculate the norm of each of the following vectors.
+<ol type="a">
+<li> $(1,2,3)$,  </li>
+<li> $(-1,-2,1)$,  </li>
+<li> $(3,0,-6)$,  </li>
+</ol>
+
+<div class="answerBox">
+<button onclick="myFunction('answer1')" class="answerButton">Show Answer</button>
+<div id="answer1" class="answer">
+<ol type="a">
+<li> </li>
+</ol>
+</div>
+</div>
+</div>
+</li>
+
+
+<li> <div class="exercise"> Find the distance between each pair of points. 
+<ol type="a">
+<li> $(1,1,2)$ and $(-1,2,2)$ </li>
+<li> $(3,-3,4)$ and $(0,0,1)$ </li>
+</ol>
+
+
+<div class="answerBox">
+<button onclick="myFunction('answer2')" class="answerButton">Show Answer</button>
+<div id="answer2" class="answer">
+answer here!
+</div> 
+</div>
+</div>
+</li>
+
+
+<li> <div class="exericse"> Find the minimum distance between the set of points described by $\textbf{r}(t) = \left&lt;1,2,3\right&gt; + t\left&lt;1,0,2\right&gt;$ and $(-1,2,0)$.
+
+<div class="answerBox">
+<button onclick="myFunction('answer3')" class="answerButton">Show Answer</button>
+<div id="answer3" class="answer">
+answer here!
+</div> 
+</div> 
+</div> 
+</li>
+
+<li> <div class="exercise"> Is it possible that $|\textbf{v} + \textbf{u}| = |\textbf{v}| + |\textbf{u}|$? If so, in which situations?
+
+<div class="answerBox">
+<button onclick="myFunction('answer4')" class="answerButton">Show Answer</button>
+<div id="answer4" class="answer">
+answer here!
+</div> 
+</div>
+</div>
+</li>
+
+
+</ol>
+:ET

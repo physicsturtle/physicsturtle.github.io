@@ -1,0 +1,2 @@
+I"‡<p>In first semester calculus, you learned how to take limits of functions $f : \mathbb{R}\to \mathbb{R}$. In this section, we perform a straightforward extension of this idea to functions in higher dimensions.  When taking the limit of a vector valued function, we define this by taking the limit of each component. Thus for a vector valued function $\textbf{r}(t) = (x(t),y(t),z(t))$,</p>
+:ET

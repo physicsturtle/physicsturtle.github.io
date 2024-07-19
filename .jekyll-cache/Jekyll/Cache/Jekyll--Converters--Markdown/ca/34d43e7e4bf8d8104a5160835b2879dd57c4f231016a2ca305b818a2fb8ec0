@@ -1,0 +1,79 @@
+I"ƒ<p>Ordinary Differential Equations II â€“ In progress</p>
+
+<p>In this course, we continue with more methods for solving ordinary differential equations. As in the first course on ordinary differential equations, we will not go heavy on the theory here, but focus on illustrating the theory with examples and applications.</p>
+
+<p>The prerequisites for this course are</p>
+<ol>
+  <li>A working knowledge of Ordinary Differential Equations I</li>
+  <li>A working knowledge of Calculus III - Multivariable and Vector Calculus</li>
+  <li>The units on the Fourier transform and Laplace transform require a working knowledge of the calculus of complex variables, in particular contour integration.</li>
+</ol>
+
+<p><a class="page-link" href="/calculus-III/introduction"> Introduction </a></p>
+
+<ul>
+
+
+<li>  <a class="page-link" href="/ode-II/unit1/"> Unit 1 - Power Series Solutions </a> </li>
+<ol> 
+
+
+</ol>
+
+
+<li>  <a class="page-link" href="/ode-II/unit2/"> Unit 2 - Fourier Series </a> </li>
+<ol> 
+
+
+</ol>
+
+
+<li>  <a class="page-link" href="/ode-II/unit3/"> Unit 3 - Sturm Liouville Boundary Value Problems </a> </li>
+<ol> 
+
+
+</ol>
+
+
+<li>  <a class="page-link" href="/ode-II/unit4/"> Unit 4 - Operators </a> </li>
+<ol> 
+
+
+</ol>
+
+
+<li>  <a class="page-link" href="/ode-II/unit5/"> Unit 5 - Fourier Transform </a> </li>
+<ol> 
+
+
+
+
+<li> <a class="page-link" href="unit5/introduction"> Introduction </a> - <a class="page-link" href="unit5/introduction-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/properties"> Properties </a> - <a class="page-link" href="unit5/properties-exercises"> Exercises </a> </li>
+
+
+
+<li> <a class="page-link" href="unit5/solving-odes"> Solving ODEs </a> - <a class="page-link" href="unit5/solving-odes-exercises"> Exercises </a> </li>
+
+</ol>
+
+
+<li>  <a class="page-link" href="/ode-II/supplements/"> Unit 6 - Laplace Transform </a> </li>
+<ol> 
+
+
+</ol>
+
+</ul>
+
+<p><strong>Sources</strong></p>
+
+<ol>
+  <li>Elementary Differential Equations and Boundary Value Problems, Boyce and Di Prima</li>
+  <li>Complex Variables and Applications, by Churchill and Brown</li>
+  <li>Ordinary Differential Equations, by Morris and Tenenbaum</li>
+</ol>
+:ET

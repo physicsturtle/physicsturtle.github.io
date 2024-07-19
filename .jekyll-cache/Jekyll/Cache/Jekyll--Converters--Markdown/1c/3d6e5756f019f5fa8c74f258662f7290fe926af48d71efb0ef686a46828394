@@ -1,0 +1,22 @@
+I"¨<ul>
+  <li>charge, density and such</li>
+  <li>average value of a function, area of a given plane region, moment of inertia</li>
+</ul>
+
+<h3 id="exercises">Exercises</h3>
+
+<ol>
+<li> <div> Sketch all of the points such that \(y = 1\). </div>
+
+<button onclick="myFunction('answer2')" class="answerButton">Show Answer</button>
+<div id="answer2" class="answer">
+This is a plane that is parallel to the \(xz\) plane. 
+</div> </li>
+<li> <div> Sketch all of the points such that \(y = 1\). </div>
+
+<button onclick="myFunction('answer2')" class="answerButton">Show Answer</button>
+<div id="answer2" class="answer">
+This is a plane that is parallel to the \(xz\) plane. 
+</div> </li>
+</ol>
+:ET

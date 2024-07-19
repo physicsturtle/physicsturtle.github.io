@@ -168,7 +168,8 @@ Here is a rough trajectory of the order in which I think topics should be studie
     <!--- <a class = "page-link" href = "/qft-I/"> Quantum Field Theory I </a> ---><br> 
     <a class = "page-link" href = "/cmp-I/"> Condensed Matter Physics I </a>
     <!--- <a class = "page-link" href = "/qo-I/"> Quantum Optics I </a> ---> <br> 
-    <!--- <a class = "page-link" href = "/many-body-I/"> Many-Body Physics I </a> ---> <br> 
+    <a class = "page-link" href = "/many-body-I/"> Many-Body Physics I </a> 
+    <br> 
     <a class = "page-link" href = "/sft-I/"> Statistical Field Theory I </a>  </td>
 <td>  </td>
 </tr>
@@ -177,7 +178,7 @@ Here is a rough trajectory of the order in which I think topics should be studie
 <td> <a class = "page-link" href = "/qm-V/"> Quantum Mechanics V </a> <br>
     <!--- <a class = "page-link" href = "/em-IV/"> Electromagnetism IV </a> ---> <br>
     <!--- <a class = "page-link" href = "/qft-II/"> Quantum Field Theory II </a> ---> <br>
-    <!--- <a class = "page-link" href = "/cmp-II/"> Condensed Matter Physics II </a> --->
+    <a class = "page-link" href = "/cmp-II/"> Condensed Matter Physics II </a>
     <!--- <a class = "page-link" href = "/qo-II/"> Quantum Optics II </a> ---> <br>
      <a class = "page-link" href = "/many-body-II/"> Many-Body Physics II </a>  <br>
     <!--- <a class = "page-link" href = "/sft-II/"> Statistical Field Theory II </a> ---><br>

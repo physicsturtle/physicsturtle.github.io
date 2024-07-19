@@ -9,7 +9,7 @@ courseDisplay: Calculus I
 unitDisplay: Unit 1
 ---
 
-### Introduction
+### Intro\d uction
 
 If we want to say that \\(x\\) is a real number, the easiest way to do that is in the language of sets. If we define some structure that contains all real numbers, and say that \\(x\\) is in that structure, then that is the same as saying \\(x\\) is a real number. This is where set theory comes into play. We therefore define a <i>set</i> as a collection of objects. If this definition seems unsatisfying to you, then you are not alone; so called <i>axiomatic set theory</i> is an entire field of study in which this question is explored in detail. However, we do not concern ourselves with such fundamental mathematics in this course, and this will be our working definition.
 
@@ -17,7 +17,7 @@ In general, we will denote sets by capital letters, \\(A\\), \\(B\\), \\(C\\) et
 
 ### Important Sets of Numbers
 
-We have learned about numbers for many years, and you have slowly been introduced to more and more kinds of numbers. It started with the natural numbers, then you were introduced to the integers, then rational numbers, then finally the real numbers. There are of course more kinds of numbers, but none of them will be explored in this course. 
+We have learned about numbers for many years, and you have slowly been intro\d uced to more and more kinds of numbers. It started with the natural numbers, then you were intro\d uced to the integers, then rational numbers, then finally the real numbers. There are of course more kinds of numbers, but none of them will be explored in this course. 
 
 <ul>
 <li> We denote the set of all <i>natural numbers</i> by  \(\NN = \{1,2,3,4,\dots\}\), and the set of all <i>nonnegative integers</i> by \(\NN_0 = \\{0,1,2,3,4,\dots\\}\). 
@@ -69,10 +69,10 @@ Suppose we have two sets \\(A\\) and \\(B\\). The *intersection* of \\(A\\) and 
 
 A useful notation for defining sets is the following. Given a set \\(A\\), we can form the set \\(S\\) by defining \\(S\\) as the set of elements which are in \\(A\\), but satisfy some further property. The notation looks like
 
-$$S = \{x \in A \| x\text{ satisfies some property}\}.$$
+$$S = \{x \in A | x\text{ satisfies some property}\}.$$
 
 For example, I could write the set \\(S = \{1,2,3\}\\) in this notation in the following way:
-$$S = \{x \in \ZZ \| 1\leq x \leq 3\}.$$
+$$S = \{x \in \ZZ | 1\leq x \leq 3\}.$$
 
 ### Examples
 

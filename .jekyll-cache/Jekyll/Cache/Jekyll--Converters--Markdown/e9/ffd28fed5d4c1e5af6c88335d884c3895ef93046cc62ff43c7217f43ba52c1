@@ -1,0 +1,26 @@
+I"}<p>In this section, we will derive the quotient rule.</p>
+
+<h3 id="introduction">Introduction</h3>
+<p>In this section, we will learn how to compute derivatives if there are two functions multiplied together, for example $f(x) = x\sin x$. The product rule is not as simple as the sum rule which we have seen so far, but is intuitive if one thinks about it the right way. We will start simply with what the product rule is, and then have a discussion on the intuition behind it later.</p>
+
+<h3 id="theorem-and-derivation">Theorem and Derivation</h3>
+
+<div class="theorem">
+<b>Theorem:</b> Let $f(x)$ and $g(x)$ each be differentiable functions. Then, the derivative of their quotient is 
+$$\frac{d}{dx}\left[\frac{f(x)}{g(x)}\right] = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}.$$
+</div>
+<p><br /></p>
+
+<p>To proceed with the proof we apply the definition of the derivative.</p>
+
+<div class="proof">
+<b>Proof:</b> 
+$$\begin{eqnarray*}
+\frac{d}{dx}\frac{f(x)}{g(x)} &amp;=&amp; \lim_{h\to 0} \frac{\frac{f(x+h)}{g(x+h)} - \frac{f(x)}{g(x)}}{h}\\
+&amp;=&amp; \lim_{h\to 0} \frac{f(x+h)g(x) - f(x)g(x+h)}{g(x+h)g(x)h}\\
+&amp;=&amp; \lim_{h\to 0}\frac{f(x+h)g(x) - f(x) g(x) + f(x)g(x) - f(x)g(x+h)}{g(x+h)g(x)h}\\
+&amp;=&amp; \frac{g(x)\lim_{h\to 0}\frac{f(x+h)-f(x)}{h} - f(x)\lim_{h\to 0}\frac{g(x+h) - g(x)}{h}}{\lim_{h\to 0}g(x)g(x+h)}\\
+&amp;=&amp; \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}
+\end{eqnarray*}$$
+</div>
+:ET

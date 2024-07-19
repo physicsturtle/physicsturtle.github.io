@@ -1,0 +1,7 @@
+I"«<p>Consider systems of the form
+\(x'' = F(x)\)
+If we multiply both sides by $xâ€™$, then
+\(x'' x' = x' F(x)\)
+If we define 
+\(V(x) = -\int_{\eta_0}^x F(\eta) d\eta,\)</p>
+:ET

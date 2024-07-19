@@ -1,0 +1,10 @@
+I"€<h3 id="derivation">Derivation</h3>
+<p>The Eikonal equation is important in geometric optics; its characteristic curves describe the ray propagation of light. To derive the equation, we start with the wave equation
+\(\phi_{tt} = c^2(\phi_{XX} +\phi_{YY})\)
+Let $\phi = e^{-i\omega t}\psi(X,Y)$, so that we get 
+\(\psi_{XX} + \psi_{YY} + k^2\psi = 0\)
+To non-dimensionalise, we set $x = X/L$ and $y = Y/L$, so that we get 
+\(\psi_{xx} + \psi_{yy} + \kappa^2\psi = 0\)
+where $\kappa = Lk$. Assume that $\kappa \gg 1$, which is the case of short wavelength in comparison to the system. Then, let 
+\(\psi(x,y) = A(x,y) e^{i\kappa u(x,y)}\)</p>
+:ET
