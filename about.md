@@ -92,7 +92,7 @@ Here is a rough trajectory of the order in which I think topics should be studie
     <!--- <a class = "page-link" href = "/fluids-I/">Fluid Mechanics I</a> ---> 
 </td>
 <td> <a class = "page-link" href = "/pde-I/"> Partial Differential Equations I </a> <br> 
-     <a class = "page-link" href = "/complex-vars/"> Complex Variables </a>  <br> 
+     <a class = "page-link" href = "/complex-vars-I/"> Complex Variables </a>  <br> 
     <!--- <a class = "page-link" href = "/nonlin_dyn-I/"> Dynamical Systems I </a> --->  <br> 
     <!--- <a class = "page-link" href = "/vec_and_forms/"> Vector Calculus and Forms  </a> ---> <br>
     <!--- <a class = "page-link" href = "/probability-II/"> Probability II </a> ---> 
@@ -115,7 +115,7 @@ Here is a rough trajectory of the order in which I think topics should be studie
 <tr> <!--- Semester 6 --->
 <td>Year 3 Term 2</td>
 <td> <!--- <a class = "page-link" href = "/elasticity/">Elasticity</a> ---> <br> 
-    <!--- <a class = "page-link" href = "/sm-II/"> Statistical Mechanics II</a> ---><br>
+    <a class = "page-link" href = "/sm-II/"> Statistical Mechanics II</a> <br>
     <a class = "page-link" href = "/qm-III/">Quantum Mechanics III</a> <br>
     <!--- <a class = "page-link" href = "/optics-I/"> Optics I </a> ---> </td>
     
@@ -182,7 +182,7 @@ Here is a rough trajectory of the order in which I think topics should be studie
     <!--- <a class = "page-link" href = "/qo-II/"> Quantum Optics II </a> ---> <br>
      <a class = "page-link" href = "/many-body-II/"> Many-Body Physics II </a>  <br>
     <!--- <a class = "page-link" href = "/sft-II/"> Statistical Field Theory II </a> ---><br>
-    <!--- <a class = "page-link" href = "/top_phys/"> Topological Physics </a> ---> </td>
+    <a class = "page-link" href = "/top_phys-I/"> Topological Physics </a> </td>
 <td> </td>
 </tr>
 <tr> 
@@ -193,7 +193,7 @@ Here is a rough trajectory of the order in which I think topics should be studie
     <a class = "page-link" href = "/qpt/"> Quantum Phase Transitions </a> <br> 
     <!--- <a class = "page-link" href = "/transport/"> Transport Theory </a> ---> <br> 
     <!--- <a class = "page-link" href = "/tft/"> Topological Field Theory </a> ---> <br> 
-    <!--- <a class = "page-link" href = "/kondo_physics/"> Kondo and Heavy Fermion Physics </a> ---> <br>
+    <a class = "page-link" href = "/kondo-physics/"> Kondo and Heavy Fermion Physics </a> <br>
     <!--- <a class = "page-link" href = "/top_quantum/"> Topological Phases of Matter </a> ---> <br>
     <!--- <a class = "page-link" href = "/non_hermitian/"> Non-Hermitian Physics </a> --->
     <a class = "page-link" href = "/many-body-III/"> Many-Body Physics III </a>  <br>

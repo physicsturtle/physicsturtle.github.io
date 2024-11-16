@@ -8,17 +8,27 @@ deptDisplay: Physics
 courseDisplay: Electromagnetism I
 unitDisplay: Unit 2
 ---
-Electrostatics is the study of electric charges at rest (hence ``statics"). At the centre of this is <i>Coulomb's law</i>. Coulomb's law is the statement that the force of \\(q_a\\) on \\(q_b\\) is given by 
+All particles have certain intrinsic properties. The most commonly known property of a particle (or collection of particles) is the mass. As we have studied in classical mechanics, a system of masses interacts through the gravitational force, as Newton studied back in 1687 in his <i>Principia Mathematica</i>. Another property of all matter is the <i>electric charge</i>. Just as the mass of an object is intimately familiar (we all have to lift objects every day!), so is electric charge. When shuffling across a fluffy carpet and then touching a metal door handle, one experiences an electric shock, as <i>electric charge</i> is transferred between your hand and the door handle. In contrast to mass, which is always positive, electric charge can either be positive or negative. For example, when you put a battery into a remote control, the battery has a positive and negative side. Positive charge comes out of the \\(+\\) side, and goes in to the negative side. The battery must be plugged in the right way, otherwise it does not work! 
+
+To get an understanding of these electric charges, we first need to study how they interact with each other. In the same way that Newton's law of gravitation tells us how strongly two masses attract one another, there is an analogous law for electric charges, known as <i>Coulomb's law</i>. Coulomb's law is the statement that the force of \\(q\_a\\) on \\(q\_b\\) is given by 
 
 $$\begin{equation}
 \mathbf{F}_{ab} = \frac{q_aq_b}{4\pi\epsilon_0 r^2}\hat{r}_{ab},
 \end{equation}$$
 
-where \\(\hat{r}_{ab}\\) is the unit vector which points from \\(q_a\\) to \\(q_b\\). The constant \\(\epsilon_0 = 8.85\times 10^{-12}\text{C}^2/\text{N}\text{m}^2\\) is called the <i>permittivity of free space</i>. Coulomb's law is known to very high precision. It goes as \\(1/r^n\\), where \\(n\\) has been measured experimentally to be very close to 2, in fact \\( \|n-2\| < 10^{-16}\\). 
+where \\(\hat{r}\_{ab}\\) is the unit vector which points from \\(q\_a\\) to \\(q\_b\\). The constant \\(\epsilon\_0 = 8.85\times 10^{-12}\text{C}^2/\text{N}\text{m}^2\\) is called the <i>permittivity of free space</i>. Coulomb's law is known to very high precision. It goes as \\(1/r^n\\), where \\(n\\) has been measured experimentally to be very close to 2, in fact \\( \|n-2\| < 10^{-16}\\). 
 
 <figure class="center">
 <p><img src="figures/coulomb_law.pdf" alt="Function" class="center" style="width:192.252px;height:33.886px;"> </p><figcaption class="center">Schematic of Coulomb's law for the case where \(q_a\) and \(q_b\) are like charges. Because the two charges are like, they repel one another.</figcaption>
 </figure>
+
+From Coulomb's law, we observe that:
+
+<ul>
+<li> If \(q_a\) and \(q_b\) are both positive, or both negative, the force is <i>repulsive</i>
+</li>
+<li> If \(q_a\) and \(q_b\) are opposite in sign, then the force is <i>attractive</i>
+</li></ul>
 
 
 Surrounding a point charge is the <i>electric field</i>, and the electric field due to an isolated charge \\(Q\\) is given by 
@@ -43,7 +53,7 @@ Regardless of what produces the electric field, we can find the force due to thi
 <li> The speed of light: \(c = 2.9979\times10^8\text{m}/\text{s}\). 
 </li></ul>
 
-A further important fact, which may seem trivial, is the law of superposition of electric fields. This states that, the electric field due to multiple charges is the sum of the electric fields of each individual charge. To see this, we can use the fact that <i>forces can be added together</i>. Suppose we have \\(n\\) point charges \\(q_1,q_2,\dots,q_n\\). The force on a charge \\(q\\) is given by
+A further important fact, which may seem trivial, is the law of superposition of electric fields. This states that, the electric field due to multiple charges is the sum of the electric fields of each individual charge. To see this, we can use the fact that <i>forces can be added together</i>. Suppose we have \\(n\\) point charges \\(q\_1,q\_2,\dots,q\_n\\). The force on a charge \\(q\\) is given by
 
 $$\begin{equation}
 \mathbf{F} = \sum_{i=1}^n \frac{qq_i}{4\pi\epsilon_0 r_i^2}\hat{r}_i
@@ -96,30 +106,4 @@ $$\begin{equation}
 
 
 </div>
-
-What we have said about the superposition of electric fields due to a number of charges also applies for continuous charge distributions. For a continuous distribution, 
-
-$$\begin{equation}
-\mathbf{E} = \int_{V'}\frac{\rho(\x')(\x-\x')}{\|\x-\x'\|^3}\d^3\x'
-\end{equation}$$
-
-where \\(\rho\\) is the volume charge density and \\(V'\\) is the volume where the charge resides. There are analogous expressions for surface and line charge densities:
-
-$$\begin{align}
-\mathbf{E} ={}& \frac{1}{4\pi\epsilon_0}\int_{A'} \frac{\sigma(\x')(\x-\x')}{\|\x-\x'\|^3} \d^2\x' \\
-\mathbf{E} ={}& \frac{1}{4\pi\epsilon_0}\int_{L'} \frac{\lambda(\x')(\x-\x')}{\|\x-\x'\|^3}\d\ell'.
-\end{align}$$
-
-These expressions have been written somewhat compactly. For clarity, if we expand out e.g. the volume formula, we get 
-
-$$\begin{equation}
-\mathbf{E}(\x) = \frac{1}{4\pi\epsilon_0}\int\frac{(x-',y-y',z-z')\rho(\x')}{[(x-x')^2+(y-y')^2+(z-z')^2]^{3/2}}\d x' \d y' \d z'.
-\end{equation}$$
-
-<div class="example">
-<b>Example:</b>
-Consider an infinite line of charge, with linear charge density \(\lambda\). Compute the electric field at all points in space. 
-
-</div>
-
 

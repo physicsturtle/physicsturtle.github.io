@@ -1,0 +1,415 @@
+I"ǋ<p>We aim to rotate out high energy degrees of freedom. Suppose we have a Hamiltonian \(\Hhat = \Hhat_0 + \Hhat_1\), where \(\Hhat_1\) acts as a perturbation to \(\Hhat_0\). To do this, we define a new Hamiltonian</p>
+
+\[\begin{equation}
+\Hhat' = e^{i\Shat}\Hhat e^{-i\Shat}
+\end{equation}\]
+
+<p>and expand using the Baker-Campbell-Hausdorff formula</p>
+
+\[\begin{align}
+\Hhat' ={}&amp; \Hhat + i[\Shat,\Hhat] - \frac{1}{2}[\Shat,[\Shat,\Hhat]] + \cdots \\
+={}&amp; \Hhat_0 + \Hhat_1 + i[\Shat,\Hhat_0] + i[\Shat,\Hhat_1] - \frac{1}{2}[\Shat,[\Shat,\Hhat_0]] - \frac{1}{2}[\Shat,[\Shat,\Hhat_1]] + \cdots
+\end{align}\]
+
+<p>With \(\Hhat_0\) being \(O(1)\) in the perturbation, we set \(\Hhat_1 + i[\Shat,\Hhat_0] = 0\), because these terms are the ones at \(O(H_1)\); defining this cancellation also tells us that \(S = O(H_1)\). Therefore, we have no linear term and the next term after \(O(1)\) is the quadratic term. We will truncate the series after the quadratic term, leaving us with an effective Hamiltonian. In other words, \(H_\text{eff}\) is the truncation of the expansion of \(H’\) to quadratic order. We immediately notice that \([\Shat,[\Shat,\Hhat_1]] = O(H_1^3)\), so we remove it from our definition of \(\Hhat_\text{eff}\).</p>
+
+\[\begin{align}
+\Hhat_\text{eff} ={}&amp; \Hhat_0 + i[\Shat,\Hhat_1] - \frac{1}{2}[\Shat,[\Shat,\Hhat_0]] \\
+={}&amp; \Hhat_0 + i[\Shat,\Hhat_1] - \frac{1}{2}[\Shat, i\Hhat_1] \\
+={}&amp; \Hhat_0 + \frac{i}{2}[\Shat,\Hhat_1]
+\end{align}\]
+
+<h3 id="rotating-the-anderson-model">Rotating The Anderson Model</h3>
+
+<p>We can actually use this to perform the Schrieffer-Wolff transformation to derive the Kondo Hamiltonian. Note that one can simply use a clever ansatz to do this, but evaluating this integral provides a more systematic method. In our case, we want to solve the equation</p>
+
+\[\begin{equation}
+\Shat \Hhat_0 - \Hhat_0 \Shat = i\Hhat_1
+\end{equation}\]
+
+<p>so, identifying \(\Xhat = \Shat\), \(\Ahat = \Hhat_0\), and \(\Bhat = i\Hhat_1\), we find that</p>
+
+\[\begin{equation}
+\Shat = -\lim_{\eta\to 0^+}\int_0^\infty e^{-\eta t} e^{i\Hhat_0 t} \Hhat_1 e^{-i\Hhat_0 t} \d t 
+\end{equation}\]
+
+<p>we recognize the integrand as being able to be expanded with the Baker-Campbell-Hausdorff formula.</p>
+
+\[\begin{equation}
+\Shat = -\lim_{\eta\to 0^+}\int_0^\infty e^{-\eta t}\sum_{n=0}^\infty \frac{(it)^n}{n!}[\Hhat_0,[\Hhat_0,\dots, [\Hhat_0,\Hhat_1]]] \d t 
+\end{equation}\]
+
+<p>The Anderson model is given by</p>
+
+\[\begin{equation}
+\Hhat = \Hhat_0 + \Hhat_1
+\end{equation}\]
+
+<p>where we are treating \(\Hhat_1\) as a perturbation. We treat it as a perturbation because we want to examine the system in a low-energy subspace, where there is no hopping onto or off of the impurity, and the impurity is bound in place. The unperturbed and perturbed Hamiltonians are given below.</p>
+
+\[\begin{align}
+\Hhat_0 ={}&amp; \sum_{\k} \epsilon_{\k} \chat^\dagger_{\k\sigma}\chat_{\k\sigma} + \sum_\sigma \epsilon_d \fhat^\dagger_{\sigma} \fhat_{\sigma} + U\nhat_{d\uparrow}\nhat_{d\downarrow}\\
+\Hhat_1 ={}&amp; \sum_{\k\sigma} V_{\k}(\chat^\dagger_{\k\sigma}\fhat_{\sigma} + \fhat^\dagger_{\sigma}\chat_{\k\sigma})
+\end{align}\]
+
+<p>it is helpful to split up \(H_0\) into three parts: the free electron part \(\Hhat_e\), the binding energy on the impurity part \(\Hhat_i\), and the Coulomb potential part \(\Hhat_c\). We will also split up \(\Hhat_1\) into two parts</p>
+
+\[\begin{equation}
+H_1 = \sum_{\k\sigma} V_{\k} \chat^\dagger_{\k\sigma}\fhat_{\sigma} + \sum_{\k\sigma} V_{\k} \fhat^\dagger_{\sigma}\chat_{\k\sigma}
+\end{equation}\]
+
+<p>where we pick those subscrips to mean that the electron is going off of the impurity or onto the impurity. The goal is to calculate \([H_0,H_1]\), and see if a pattern arises to these nested commutators. To do this, we calculate</p>
+
+\[\begin{align}
+[\chat^\dagger_{\k\sigma}\chat_{\k\sigma},\chat^\dagger_{\k'\sigma'}\fhat_{\sigma'}] ={}&amp; \chat^\dagger_{\k\sigma}\chat_{\k\sigma}\chat^\dagger_{\k'\sigma'}\fhat_{\sigma'} - \chat^\dagger_{\k'\sigma'}\fhat_{\sigma'}\chat^\dagger_{\k\sigma}\chat_{\k\sigma} \\
+={}&amp; \left(\chat^\dagger_{\k\sigma}\chat_{\k\sigma}\chat^\dagger_{\k'\sigma'} - \chat^\dagger_{\k'\sigma'}\chat^\dagger_{\k\sigma}\chat_{\k\sigma} \right)\fhat_{\sigma'} \\
+={}&amp; \left(\chat^\dagger_{\k\sigma}(\delta_{\k\k'}\delta_{\sigma\sigma'} -\chat^\dagger_{\k'\sigma'} \chat_{\k\sigma}) - \chat^\dagger_{\k'\sigma'}\chat^\dagger_{\k\sigma}\chat_{\k\sigma} \right)\fhat_{\sigma'} \\
+={}&amp; \chat^\dagger_{\k\sigma}\fhat_{\sigma'}\delta_{\k\k'}\delta_{\sigma\sigma'}
+\end{align}\]
+
+\[\begin{align}
+[\chat^\dagger_{\k\sigma}\chat_{\k\sigma},\fhat^\dagger_{\sigma'}\chat_{\k'\sigma'}] ={}&amp; \chat^\dagger_{\k\sigma}\chat_{\k\sigma}\fhat^\dagger_{\sigma'}\chat_{\k'\sigma'} - \fhat^\dagger_{\sigma'}\chat_{\k'\sigma'}\chat^\dagger_{\k\sigma}\chat_{\k\sigma} \\
+={}&amp; \fhat^\dagger_{\sigma'}\left(\chat^\dagger_{\k\sigma}\chat_{\k\sigma}\chat_{\k'\sigma'} -\chat_{\k'\sigma'}\chat^\dagger_{\k\sigma}\chat_{\k\sigma}\right) \\
+={}&amp; \fhat^\dagger_{\sigma'}\left(\chat^\dagger_{\k\sigma}\chat_{\k\sigma}\chat_{\k'\sigma'} - (\delta_{\k\k'}\delta_{\sigma\sigma'} - \chat^\dagger_{\k\sigma}\chat_{\k'\sigma'})\chat_{\k\sigma}\right) \\
+={}&amp; -\fhat^\dagger_{\sigma'}\chat_{\k\sigma}\delta_{\k\k'}\delta_{\sigma\sigma'}
+\end{align}\]
+
+\[\begin{align}
+[\fhat^\dagger_{\sigma}\fhat_{\sigma},\chat^\dagger_{\k'\sigma'}\fhat_{\sigma'}] ={}&amp; \fhat^\dagger_{\sigma}\fhat_{\sigma}\chat^\dagger_{\k'\sigma'}\fhat_{\sigma'} - \chat^\dagger_{\k'\sigma'}\fhat_{\sigma'}\fhat^\dagger_{\sigma}\fhat_{\sigma} \\
+={}&amp; \chat^\dagger_{\k'\sigma'}\left(\fhat^\dagger_{\sigma}\fhat_{\sigma}\fhat_{\sigma'} - \fhat_{\sigma'}\fhat^\dagger_{\sigma}\fhat_{\sigma} \right) \\
+={}&amp; \chat^\dagger_{\k'\sigma'}\left(\fhat^\dagger_{\sigma}\fhat_{\sigma}\fhat_{\sigma'} - (\delta_{\sigma\sigma'} - \fhat^\dagger_{\sigma} \fhat_{\sigma'})\fhat_{\sigma} \right) \\
+={}&amp; -\chat^\dagger_{\k'\sigma'}\fhat_{\sigma}\delta_{\sigma\sigma'}
+\end{align}\]
+
+\[\begin{align}
+[\fhat^\dagger_{\sigma}\fhat_{\sigma},\fhat^\dagger_{\sigma'}\chat_{\k'\sigma'}] ={}&amp; \fhat^\dagger_{\sigma}\fhat_{\sigma}\fhat^\dagger_{\sigma'}\chat_{\k'\sigma'} - \fhat^\dagger_{\sigma'}\chat_{\k'\sigma'}\fhat^\dagger_{\sigma}\fhat_{\sigma}\\
+={}&amp; \left(\fhat^\dagger_{\sigma}\fhat_{\sigma}\fhat^\dagger_{\sigma'}- \fhat^\dagger_{\sigma'}\fhat^\dagger_{\sigma}\fhat_{\sigma} \right)\chat_{\k'\sigma'} \\
+={}&amp; \left(\fhat^\dagger_{\sigma}(\delta_{\sigma\sigma'} - \fhat^\dagger_{\sigma'} \fhat_{\sigma}) - \fhat^\dagger_{\sigma'}\fhat^\dagger_{\sigma}\fhat_{\sigma} \right)\chat_{\k'\sigma'} \\
+={}&amp; \fhat^\dagger_{\sigma}\chat_{\k'\sigma'}\delta_{\sigma\sigma'}
+\end{align}\]
+
+\[\begin{align}
+[\nhat_{d\uparrow}\nhat_{d\downarrow},\chat^\dagger_{\k'\sigma'}\fhat_{\sigma'}] ={}&amp; \nhat_{d\uparrow}[\nhat_{d\downarrow},\chat^\dagger_{\k'\sigma'}\fhat_{\sigma'}] + [\nhat_{d\uparrow},\chat^\dagger_{\k'\sigma'}\fhat_{\sigma'}]\nhat_{d\downarrow} \\
+={}&amp; \nhat_{d\uparrow}\left(-\chat^\dagger_{\k'\sigma'}\fhat_{\downarrow}\delta_{\downarrow\sigma'}\right) + \left(-\chat^\dagger_{\k'\sigma'}\fhat_{\uparrow}\delta_{\uparrow\sigma'}\right)\nhat_{d\downarrow}\\
+={}&amp; - \nhat_{d\uparrow}\chat^\dagger_{\k'\downarrow}\fhat_{\downarrow} \delta_{\downarrow\sigma'}- \chat^\dagger_{\k'\uparrow}\fhat_{\uparrow}\nhat_{d\downarrow} \delta_{\uparrow\sigma'}\\
+={}&amp; -\sum_{\sigma}\chat^\dagger_{\k'\sigma}\fhat_{\sigma}\nhat_{d,-\sigma}\delta_{\sigma\sigma'} \\
+={}&amp; -\chat^\dagger_{\k'\sigma'}\fhat_{\sigma'}\nhat_{d,-\sigma'}
+\end{align}\]
+
+\[\begin{align}
+[\nhat_{d\uparrow}\nhat_{d\downarrow},\fhat^\dagger_{\sigma'}\chat_{\k'\sigma'}] ={}&amp; \nhat_{d\uparrow}[\nhat_{d\downarrow},\chat^\dagger_{\k'\sigma'}\fhat_{\sigma'}] + [\nhat_{d\uparrow},\chat^\dagger_{\k'\sigma'}\fhat_{\sigma'}]\nhat_{d\downarrow} \\
+={}&amp; \nhat_{d\uparrow}\fhat^\dagger_{\downarrow}\chat_{\k'\sigma'}\delta_{\downarrow\sigma'} + \fhat^\dagger_{\uparrow}\chat_{\k'\sigma'}\delta_{\uparrow\sigma'} \nhat_{d\downarrow} \\
+={}&amp; \nhat_{d\uparrow}\fhat^\dagger_{\downarrow}\chat_{\k'\downarrow}\delta_{\downarrow\sigma'} + \fhat^\dagger_{\uparrow}\chat_{\k'\uparrow}\nhat_{d\downarrow}\delta_{\uparrow\sigma'} \\
+={}&amp; \sum_{\sigma}\fhat^\dagger_{\sigma}\chat_{\k'\sigma}\nhat_{d,-\sigma}\delta_{\sigma\sigma'} \\
+={}&amp; \fhat^\dagger_{\sigma'}\chat_{\k'\sigma'}\nhat_{d,-\sigma'}
+\end{align}\]
+
+<p>We see that all of the commutators have worked out to a term which is proportional to something which already existed in \(H_1\). We now search for the pattern, which will allow us to evaluate a general nested commutator. As an intermediate step, let’s collect some of the results we previously calculated by doing</p>
+
+\[\begin{align}
+[H_0,\chat^\dagger_{\k\sigma} \fhat_{\sigma}] ={}&amp; \sum_{\k'\sigma'} \epsilon_{\k'} [\chat^\dagger_{\k'\sigma'}\chat_{\k'\sigma'},\chat^\dagger_{\k\sigma}\fhat_{\sigma}] + \sum_{\sigma'}\epsilon_d[\fhat^\dagger_{\sigma'}\fhat_{\sigma'},\chat^\dagger_{k\sigma}\fhat_{\sigma}] + U[\nhat_{d\uparrow}\nhat_{d\downarrow},\chat^\dagger_{\k\sigma}\fhat_{\downarrow}] \\
+={}&amp; \sum_{\k'\sigma'}\epsilon_{\k'}\chat^\dagger_{\k'\sigma'}\fhat_{\sigma}\delta_{\k\k'}\delta_{\sigma\sigma'} + \sum_{\sigma'}\epsilon_d (-\chat^\dagger_{\k\sigma}\fhat_{\sigma'}\delta_{\sigma\sigma'}) + U(-\chat^\dagger_{\k\sigma}\fhat_{\sigma}\nhat_{d,-\sigma})\\
+={}&amp; \epsilon_{\k}\chat^\dagger_{\k\sigma}\fhat_{\sigma} -\epsilon_d \chat^\dagger_{\k\sigma}\fhat_{\sigma} - U\chat^\dagger_{\k\sigma}\fhat_{\sigma}\nhat_{d,-\sigma} \\
+={}&amp; (\epsilon_{\k}-\epsilon_d - U\nhat_{d,-\sigma})\chat^\dagger_{\k\sigma}\fhat_{\sigma}
+\end{align}\]
+
+\[\begin{align}
+[H_0,\fhat^\dagger_{\sigma} \chat_{\k\sigma}] ={}&amp; \sum_{\k'\sigma'}\epsilon_{\k'} [\chat^\dagger_{\k'\sigma'}\chat_{\k'\sigma'},\fhat^\dagger_{\sigma} \chat_{\k\sigma}] + \sum_{\sigma'}\epsilon_d [\fhat^\dagger_{\sigma'}\fhat_{\sigma'},\fhat^\dagger_{\sigma} \chat_{\k\sigma}] + U[\nhat_{d\uparrow}\nhat_{d\downarrow},\fhat^\dagger_{\sigma} \chat_{\k\sigma}] \\
+={}&amp;\sum_{\k'\sigma'}(-\epsilon_{\k'})\fhat^\dagger_{\sigma}\chat_{\k'\sigma'}\delta_{\k\k'}\delta_{\sigma\sigma'} + \sum_{\sigma'}\epsilon_d \fhat^\dagger_{\sigma'}\chat_{\k\sigma}\delta_{\sigma\sigma'} + U\fhat^\dagger_{\sigma}\chat_{\k\sigma}\nhat_{d,-\sigma} \\
+={}&amp; -\epsilon_{\k}\fhat^\dagger_{\sigma}\chat_{\k\sigma} + \epsilon_d \fhat^\dagger_{\sigma}\chat_{\k\sigma} + U\fhat^\dagger_{\sigma}\chat_{\k\sigma}\nhat_{d,-\sigma} \\
+={}&amp; (-\epsilon_{\k} + \epsilon_d + U\nhat_{d,-\sigma})\fhat^\dagger_{\sigma}\chat_{\k\sigma}
+\end{align}\]
+
+<p>which we will now plug into the full commutator between \(H_0\) and \(H_1\).</p>
+
+\[\begin{align}
+[H_0,H_1] ={}&amp; \sum_{\k\sigma}V_{\k} \left( [H_0,\chat^\dagger_{\k\sigma}\fhat_{\sigma}] + [H_0,\fhat^\dagger_{\sigma}\chat_{\k\sigma}]\right) \\
+={}&amp; \sum_{\k\sigma}\epsilon_{\k} V_{\k}\left( \chat^\dagger_{\k\sigma}\fhat_{\sigma} -\fhat^\dagger_{\sigma}\chat_{\k\sigma}\right) \\
+&amp;+ \sum_{\k\sigma}\epsilon_d V_{\k} \left(-\chat^\dagger_{\k\sigma}\fhat_{\sigma}+ \fhat^\dagger_{\sigma}\chat_{\k\sigma}\right) \\
+&amp;+ U\sum_{\k\sigma}V_{\k} \left( -\nhat_{d,-\sigma}\chat^\dagger_{\k\sigma}\fhat_{\sigma} + \nhat_{d,-\sigma}\fhat^\dagger_{\sigma}\chat_{\k\sigma} \right) \\
+={}&amp; \sum_{\k\sigma}V_{\k}\left[\left(\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma}\right)\chat^\dagger_{\k\sigma}\fhat_{\sigma} + \left(-\epsilon_{\k} + \epsilon_d + U\nhat_{d,-\sigma}\right)\fhat^\dagger_{\sigma}\chat_{\k\sigma}\right]
+\end{align}\]
+
+<p>which looks very similar to our original expression for \(H_1\), but with different values for \(V_{\k}\). Before moving on with finding the pattern, let’s evaluate the commutator</p>
+
+<p>To simplify these commutators, it is useful to know</p>
+
+\[\begin{align}
+[\nhat_{d\sigma},n_{d\sigma'}] ={}&amp; \fhat^\dagger_{\sigma}[\fhat_{\sigma},n_{d\sigma'}] + [\fhat^\dagger_{\sigma},\nhat_{d\sigma'}]\fhat_{\sigma} \\
+={}&amp; \fhat^\dagger_{\sigma}(\fhat_{\sigma}\fhat^\dagger_{\sigma'}\fhat_{\sigma'} - \fhat^\dagger_{\sigma'}\fhat_{\sigma'}\fhat_{\sigma}) + (\fhat^\dagger_{\sigma}\fhat^\dagger_{\sigma'}\fhat_{\sigma'} - \fhat^\dagger_{\sigma'}\fhat_{\sigma'}\fhat^\dagger_{\sigma})\fhat_{\sigma} \\
+={}&amp; \fhat^\dagger_{\sigma}((\delta_{\sigma\sigma} - \fhat^\dagger_{\sigma'}\fhat_{\sigma})\fhat_{\sigma'} - \fhat^\dagger_{\sigma'}\fhat_{\sigma'}\fhat_{\sigma}) + (\fhat^\dagger_{\sigma}\fhat^\dagger_{\sigma'}\fhat_{\sigma'} - \fhat^\dagger_{\sigma'}(\delta_{\sigma\sigma'}- \fhat^\dagger_{\sigma}\fhat_{\sigma'}))\fhat_{\sigma}\\
+={}&amp; \fhat^\dagger_{\sigma}\fhat_{\sigma'}\delta_{\sigma\sigma'} - \fhat^\dagger_{\sigma'}\fhat_{\sigma'}\delta_{\sigma\sigma'}\\
+={}&amp; 0.
+\end{align}\]
+
+<p>which therefore tells us that</p>
+
+\[\begin{align}
+[H_0,\nhat_{d,-\sigma}] ={}&amp; \sum_{\k\sigma'}\epsilon_{\k} [\nhat_{\k\sigma'},\nhat_{d,-\sigma}] + \sum_{\sigma'}\epsilon_d [\nhat_{d\sigma'},\nhat_{d,-\sigma}] + U[\nhat_{d\uparrow}\nhat_{d\downarrow},\nhat_{d,-\sigma}] \\
+={}&amp; 0
+\end{align}\]
+
+<p>If we now consider taking an expression like \([H_0,[H_0,H_1]]\), what do we get?</p>
+
+\[\begin{align}
+[H_0,[H_0,H_1]] ={}&amp; \sum_{\k\sigma}V_{\k}\left([H_0,\left(\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma}\right)\chat^\dagger_{\k\sigma}\fhat_{\sigma}] + [H_0,\left(-\epsilon_{\k} + \epsilon_d + U\nhat_{d,-\sigma}\right)\fhat^\dagger_{\sigma}\chat_{\k\sigma}]\right)
+\end{align}\]
+
+<p>Since we have just shown that \([H_0,\nhat_{d,-\sigma}] = 0\), we know that \([H_0,\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma}] = 0\) so we can simplify</p>
+
+\[\begin{align}
+[H_0,[H_0,H_1]] ={}&amp; \sum_{\k\sigma}V_{\k}\left(\left(\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma}\right)[H_0,\chat^\dagger_{\k\sigma}\fhat_{\sigma}] + \left(-\epsilon_{\k} + \epsilon_d + U\nhat_{d,-\sigma}\right)[H_0,\fhat^\dagger_{\sigma}\chat_{\k\sigma}]\right) \\
+={}&amp; \sum_{\k\sigma}V_{\k}\left(\left(\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma}\right)^2\chat^\dagger_{\k\sigma}\fhat_{\sigma} + \left(-\epsilon_{\k} + \epsilon_d + U\nhat_{d,-\sigma}\right)^2\fhat^\dagger_{\sigma}\chat_{\k\sigma}\right)
+\end{align}\]
+
+<p>From this, it is now obvious that if we have \(n\) nested commutators, then</p>
+
+\[\begin{equation}
+\underbrace{[H_0,[H_0,\dots[H_0,H_1]]]}_{n\,\text{times}} = \sum_{\k\sigma}V_{\k}\left(\left(\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma}\right)^n\chat^\dagger_{\k\sigma}\fhat_{\sigma} + \left(-\epsilon_{\k} + \epsilon_d + U\nhat_{d,-\sigma}\right)^n\fhat^\dagger_{\sigma}\chat_{\k\sigma}\right)
+\end{equation}\]
+
+<p>Now plugging this in to our formula for \(S\),</p>
+
+\[\begin{align}
+S ={}&amp; -\lim_{\eta\to 0^+}\int_0^\infty e^{-\eta t}\sum_{n=0}^\infty \frac{(it)^n}{n!} \sum_{\k\sigma}V_{\k}\left(\left(\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma}\right)^n\chat^\dagger_{\k\sigma}\fhat_{\sigma} + \left(-\epsilon_{\k} + \epsilon_d + U\nhat_{d,-\sigma}\right)^n\fhat^\dagger_{\sigma}\chat_{\k\sigma}\right) \d t\\
+={}&amp; -\lim_{\eta\to 0^+}\int_0^\infty e^{-\eta t}\sum_{\k\sigma}V_{\k}\left[ \exp\left(it(\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma})\right) \chat^\dagger_{\k\sigma}\fhat_{\sigma} + \exp\left(-it(\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma})\right)\fhat^\dagger_{\sigma}\chat_{\k\sigma}\right]\d t \\
+={}&amp; \sum_{\k\sigma}V_{\k}\lim_{\eta\to 0^+} \left((-\eta + i(\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma}))^{-1}\chat^\dagger_{\k\sigma}\fhat_{\sigma} + (-\eta - i(\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma}))^{-1}\fhat^\dagger_{\sigma}\chat_{\k\sigma}\right)\\
+={}&amp; \sum_{\k\sigma}V_{\k}\left(( i(\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma}))^{-1}\chat^\dagger_{\k\sigma}\fhat_{\sigma} + (- i(\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma}))^{-1}\fhat^\dagger_{\sigma}\chat_{\k\sigma}\right)\\
+={}&amp;-i \sum_{\k\sigma}V_{\k} \frac{1}{\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma}} \left( \chat^\dagger_{\k\sigma}\fhat_{\sigma} - \fhat^\dagger_{\sigma}\chat_{\k\sigma}\right) 
+\end{align}\]
+
+<p>Now we need to deal with the nasty \((\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma})^{-1}\). To deal with this, we expand in a Taylor series in \(\nhat_{d,-\sigma}\). This gives us</p>
+
+\[\begin{align}
+\frac{1}{\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma}} ={}&amp; \frac{1}{\epsilon_{\k} - \epsilon_d}\frac{1}{1 - U\nhat_{d,-\sigma}/(\epsilon_{\k} - \epsilon_d)} \\
+={}&amp; \frac{1}{\epsilon_{\k} - \epsilon_d} \sum_{n=0}^\infty \left(\frac{U\nhat_{d,-\sigma}}{\epsilon_{\k} - \epsilon_d}\right)^n
+\end{align}\]
+
+<p>Since, for \(n \geq 1\), we have \(\nhat_{d,-\sigma}^n = \nhat_{d,-\sigma}\), we can rewrite this as</p>
+
+\[\begin{align}
+\frac{1}{\epsilon_{\k} - \epsilon_d - U\nhat_{d,-\sigma}}={}&amp; \frac{1}{\epsilon_{\k} - \epsilon_d} \left(1 + \sum_{n=1}^\infty \left(\frac{U\nhat_{d,-\sigma}}{\epsilon_{\k} - \epsilon_d}\right)^n\right) \\
+={}&amp; \frac{1}{\epsilon_{\k} - \epsilon_d} +  \frac{1}{\epsilon_{\k} - \epsilon_d} \sum_{n=1}^\infty \left(\frac{U}{\epsilon_{\k} - \epsilon_d}\right)^n \nhat_{d,-\sigma} \\
+={}&amp; \frac{1}{\epsilon_{\k} - \epsilon_d} +  \frac{1}{\epsilon_{\k} - \epsilon_d} \left(\frac{1}{1 - U/(\epsilon_{\k} - \epsilon_d)} - 1\right) \nhat_{d,-\sigma} \\ 
+={}&amp; \frac{1}{\epsilon_{\k} - \epsilon_d} +   \left(\frac{1}{\epsilon_{\k} - \epsilon_d - U} - \frac{1}{\epsilon_{\k} - \epsilon_d}\right) \nhat_{d,-\sigma}
+\end{align}\]
+
+<p>Thus, we plug this result in to get</p>
+
+\[\begin{align}
+S ={}&amp; -i\sum_{\k\sigma}V_{\k}\left[\frac{1}{\epsilon_{\k} - \epsilon_d} +   \left(\frac{1}{\epsilon_{\k} - \epsilon_d - U} - \frac{1}{\epsilon_{\k} - \epsilon_d}\right) \nhat_{d,-\sigma}\right]\left(\chat^\dagger_{\k\sigma}\fhat_{\sigma} - \fhat^\dagger_{\sigma}\chat_{\k\sigma}\right).
+\end{align}\]
+
+<p>For later ease of notation, we define</p>
+
+\[\begin{equation}
+A_{\k} = \frac{V_{\k}}{\epsilon_{\k} - \epsilon_d} ,\qquad V_{\k} = V_{\k}\left(\frac{1}{\epsilon_{\k} - \epsilon_d - U} - \frac{1}{\epsilon_{\k} - \epsilon_d}\right).
+\end{equation}\]
+
+<h3 id="from-anderson-to-kondo">From Anderson to Kondo</h3>
+
+<p>The next step is to plug our expression for \(S\) into the expansion of the effective Hamiltonian.</p>
+
+\[\begin{equation}
+H_\text{eff} = H_0 + \frac{i}{2}[S, H_1]
+\end{equation}\]
+
+<p>The intermediate steps in evaluating \([S,H_1]\) consist of evaluating the commutators</p>
+
+\[\begin{align}
+[\chat^\dagger_{\k\sigma}\fhat_{\sigma}, \fhat^\dagger_{\sigma'} \chat_{\k'\sigma'}] ={}&amp; \chat^\dagger_{\k\sigma}\fhat_{\sigma} \fhat^\dagger_{\sigma'} \chat_{\k'\sigma'} - \fhat^\dagger_{\sigma'} \chat_{\k'\sigma'} \chat^\dagger_{\k\sigma}\fhat_{\sigma} \\
+={}&amp; \chat^\dagger_{\k\sigma}(\delta_{\sigma\sigma'} - \fhat^\dagger_{\sigma'}\fhat_{\sigma}) \chat_{\k'\sigma'} - \fhat^\dagger_{\sigma'}(\delta_{\k\k'}\delta_{\sigma\sigma'} - \chat^\dagger_{\k\sigma}\chat_{\k'\sigma'}) \fhat_{\sigma} \\
+={}&amp; \chat^\dagger_{\k\sigma}\chat_{\k'\sigma'}\delta_{\sigma\sigma'} - \chat^\dagger_{\k\sigma}\fhat^\dagger_{\sigma'} \fhat_{\sigma} \chat_{\k'\sigma'} - \fhat^\dagger_{\sigma'}\fhat_{\sigma} \delta_{\k\k'} \delta_{\sigma\sigma'} + \fhat^\dagger_{\sigma'} \chat^\dagger_{\k\sigma} \chat_{\k'\sigma'} \fhat_{\sigma} \\ 
+={}&amp; \chat^\dagger_{\k\sigma}\chat_{\k'\sigma'}\delta_{\sigma\sigma'} - \fhat^\dagger_{\sigma'}\fhat_{\sigma} \delta_{\k\k'} \delta_{\sigma\sigma'} 
+\end{align}\]
+
+<p>This means that we can now calculate commutators with \(H_1\).</p>
+
+\[\begin{align}
+[\chat^\dagger_{\k\sigma} \fhat_{\sigma}, H_1] ={}&amp; \sum_{\k'\sigma'} V_{\k'} \left([\chat^\dagger_{\k\sigma} \fhat_{\sigma}, \chat^\dagger_{\k'\sigma'} \fhat_{\sigma'}] + [\chat^\dagger_{\k\sigma} \fhat_{\sigma}, \fhat^\dagger_{\sigma'} \chat_{\k'\sigma'} ] \right) \\
+={}&amp; \sum_{\k'\sigma'} V_{\k'} \left( \chat^\dagger_{\k\sigma}\chat_{\k'\sigma'}\delta_{\sigma\sigma'} - \fhat^\dagger_{\sigma'}\fhat_{\sigma} \delta_{\k\k'} \delta_{\sigma\sigma'}  \right) \\
+={}&amp; \sum_{\k'} V_{\k'} \left( \chat^\dagger_{\k\sigma}\chat_{\k'\sigma} - \fhat^\dagger_{\sigma}\fhat_{\sigma} \delta_{\k\k'}  \right) 
+\end{align}\]
+
+<p>where the first commutator is zero because the \(\k\) operators are both creation, and the \(d\) operators are both annihilation. We therefore get perfect anticommutation between them, but because we have an even number of operators we get commuting behaviour.</p>
+
+<p>Then, we can easily calculate the commutator with the complex conjugate,</p>
+
+\[\begin{align}
+[\fhat^\dagger_{\sigma} \chat_{\k\sigma}, H_1] ={}&amp; -[\chat^\dagger_{\k\sigma} \fhat_{\sigma}, H_1]^\dagger \\
+={}&amp; -\sum_{\k'} V_{\k'} \left( \chat^\dagger_{\k'\sigma}\chat_{\k\sigma} - \fhat^\dagger_{\sigma}\fhat_{\sigma} \delta_{\k\k'}  \right) \\
+\end{align}\]
+
+<p>One more commutator that we need is</p>
+
+\[\begin{align}
+[\nhat_{d,-\sigma}, H_1] ={}&amp; \sum_{\k'\sigma'} V_{\k'} \left( [\nhat_{d,-\sigma}, \chat^\dagger_{\k'\sigma'} \fhat_{\sigma'}] + [\nhat_{d,-\sigma}, \fhat^\dagger_{\sigma'} \chat_{\k'\sigma'}] \right) \\
+={}&amp; \sum_{\k'\sigma'} V_{\k'} \left( -\delta_{\sigma',-\sigma}\chat^\dagger_{\k'\sigma'}\fhat_{,-\sigma} + \delta_{\sigma',-\sigma}\fhat^\dagger_{,-\sigma} \chat_{\k'\sigma'} \right) \\
+={}&amp; \sum_{\k'} V_{\k'} \left( - \chat^\dagger_{\k',-\sigma}\fhat_{,-\sigma} + \fhat^\dagger_{,-\sigma} \chat_{\k',-\sigma} \right)
+\end{align}\]
+
+<p>Now we are ready to calculate \(\frac{i}{2}[S,H_1]\).</p>
+
+\[\begin{align}
+\frac{i}{2}[S,H_1] ={}&amp; \frac{1}{2}\left[\sum_{\k\sigma}(A_{\k} + B_{\k}\nhat_{d,-\sigma})(\chat^\dagger_{\k\sigma}\fhat_{\sigma} - \fhat^\dagger_{\sigma} \chat_{\k\sigma}), H_1\right] \\
+={}&amp; \frac{1}{2}\sum_{\k\sigma}\left( (A_{\k} + B_{\k} \nhat_{d,-\sigma})\left[\chat^\dagger_{\k\sigma} \fhat_{\sigma} - \fhat^\dagger_{\sigma} \chat_{\k\sigma}, H_1\right] + \left[A_{\k} + B_{\k} \nhat_{d,-\sigma}, H_1\right](\chat^\dagger_{\k\sigma}\fhat_{\sigma} - \fhat^\dagger_{\sigma}\chat_{\k\sigma}) \right) 
+\end{align}\]
+
+<p>Now we use all the commutator relations that we just calculated to simplify this down. We get</p>
+
+\[\begin{align}
+\frac{i}{2}[S,H_1] ={}&amp; \frac{1}{2}\sum_{\k\sigma}(A_{\k} + B_{\k} \nhat_{d,-\sigma})\sum_{\k'} V_{\k'd}\left(\chat^\dagger_{\k\sigma}\chat_{\k'\sigma} - \fhat^\dagger_{\sigma}\fhat_{\sigma}\delta_{\k\k'} + \chat^\dagger_{\k'\sigma}\chat_{\k\sigma} - \fhat^\dagger_{\sigma} \fhat_{\sigma}\delta_{\k\k'} \right) \\
+&amp;+ \frac{1}{2}\sum_{\k\sigma} B_{\k} \sum_{\k'}V_{\k' d}\left(-\chat^\dagger_{\k',-\sigma}\fhat_{,-\sigma} + \fhat^\dagger_{,-\sigma}\chat_{\k',-\sigma}\right)\left(\chat^\dagger_{\k\sigma}\fhat_{\sigma} - \fhat^\dagger_{\sigma}\chat_{\k\sigma}\right) \\
+={}&amp; \frac{1}{2}\sum_{\k\sigma\k'}V_{\k'd}(A_{\k} + B_{\k} \nhat_{d,-\sigma})\left(\chat^\dagger_{\k\sigma}\chat_{\k'\sigma} + \chat^\dagger_{\k'\sigma}\chat_{\k\sigma}- 2\fhat^\dagger_{\sigma}\fhat_{\sigma}\delta_{\k\k'}\right) \\
+&amp;+ \frac{1}{2}\sum_{\k\sigma\k'} B_{\k} V_{\k' d}\left(-\chat^\dagger_{\k',-\sigma}\fhat_{,-\sigma}\chat^\dagger_{\k\sigma}\fhat_{\sigma} + \fhat^\dagger_{,-\sigma}\chat_{\k',-\sigma}\chat^\dagger_{\k\sigma}\fhat_{\sigma} + \chat^\dagger_{\k',-\sigma}\fhat_{,-\sigma}\fhat^\dagger_{\sigma}\chat_{\k\sigma} - \fhat^\dagger_{,-\sigma}\chat_{\k',-\sigma} \fhat^\dagger_{\sigma}\chat_{\k\sigma} \right)
+\end{align}\]
+
+<p>Now we expand out the brackets in the first sum, then collect some of the \(B_{\k}\) terms together.</p>
+
+\[\begin{align}
+\frac{i}{2}[S,H_1] ={}&amp; -\sum_{\k\sigma}V_{\k d}(A_{\k} + B_{\k} \nhat_{d,-\sigma}) \fhat^\dagger_{\sigma}\fhat_{\sigma} +  \frac{1}{2} \sum_{\k\sigma\k'}V_{\k'd}(A_{\k} + B_{\k} \nhat_{d,-\sigma}) \left(\chat^\dagger_{\k\sigma}\chat_{\k'\sigma}  + \chat^\dagger_{\k'\sigma} \chat_{\k\sigma}\right) \\
+&amp;+ \frac{1}{2}\sum_{\k\sigma\k'} B_{\k} V_{\k' d}\left(\fhat^\dagger_{,-\sigma}\chat_{\k',-\sigma}\chat^\dagger_{\k\sigma}\fhat_{\sigma} + \chat^\dagger_{\k',-\sigma}\fhat_{,-\sigma}\fhat^\dagger_{\sigma}\chat_{\k\sigma}\right) \\
+&amp;-\frac{1}{2}\sum_{\k\sigma\k'} B_{\k} V_{\k' d}\left(\chat^\dagger_{\k',-\sigma}\fhat_{,-\sigma}\chat^\dagger_{\k\sigma}\fhat_{\sigma} + \fhat^\dagger_{,-\sigma}\chat_{\k',-\sigma} \fhat^\dagger_{\sigma}\chat_{\k\sigma} \right) \\
+={}&amp; -\sum_{\k\sigma}V_{\k d}(A_{\k} + B_{\k} \nhat_{d,-\sigma}) \nhat_{d\sigma} +  \frac{1}{2} \sum_{\k\sigma\k'}V_{\k'd}A_{\k} \left(\chat^\dagger_{\k\sigma}\chat_{\k'\sigma}  + \chat^\dagger_{\k'\sigma} \chat_{\k\sigma}\right) \\
+&amp;+\frac{1}{2}\sum_{\k\sigma\k'} V_{\k' d} B_{\k} \left[ \nhat_{d,-\sigma}  \left(\chat^\dagger_{\k\sigma}\chat_{\k'\sigma}  + \chat^\dagger_{\k'\sigma} \chat_{\k\sigma}\right) +\fhat^\dagger_{,-\sigma}\chat_{\k',-\sigma}\chat^\dagger_{\k\sigma}\fhat_{\sigma} + \chat^\dagger_{\k',-\sigma}\fhat_{,-\sigma}\fhat^\dagger_{\sigma}\chat_{\k\sigma}\right]  \\
+&amp;-\frac{1}{2}\sum_{\k\sigma\k'} B_{\k} V_{\k' d}\left(\chat^\dagger_{\k',-\sigma}\fhat_{,-\sigma}\chat^\dagger_{\k\sigma}\fhat_{\sigma} + \fhat^\dagger_{,-\sigma}\chat_{\k',-\sigma} \fhat^\dagger_{\sigma}\chat_{\k\sigma} \right)
+\end{align}\]
+
+<p>We can drastically simplify some of these terms by splitting up expressions and then swapping \(\k\) and \(\k’\). Doing this, and also swapping the order of some operators to clean up the expressions, we find</p>
+
+\[\begin{align}
+\frac{i}{2}[S,H_1] ={}&amp; -\sum_{\k\sigma}V_{\k d}(A_{\k} + B_{\k} \nhat_{d,-\sigma}) \nhat_{d\sigma} +  \frac{1}{2} \sum_{\k\sigma\k'}(V_{\k'd}A_{\k}+V_{\k d}A_{\k'}) \chat^\dagger_{\k\sigma}\chat_{\k'\sigma}\\
+&amp;+\frac{1}{2}\sum_{\k\sigma\k'} (V_{\k' d} B_{\k}+ V_{\k d} B_{\k'}) \left[ \nhat_{d,-\sigma}  \chat^\dagger_{\k\sigma}\chat_{\k'\sigma} -\chat^\dagger_{\k\sigma}\chat_{\k',-\sigma}\fhat^\dagger_{,-\sigma}\fhat_{\sigma} \right]  \\
+&amp;-\frac{1}{2}\sum_{\k\sigma\k'} B_{\k} V_{\k' d}\left(\chat^\dagger_{\k\sigma}\chat^\dagger_{\k',-\sigma}\fhat_{,-\sigma}\fhat_{\sigma} + \chat_{\k\sigma}\chat_{\k',-\sigma} \fhat^\dagger_{,-\sigma}\fhat^\dagger_{\sigma} \right)
+\end{align}\]
+
+<p>Now, let’s isolate some of these terms. Let’s define</p>
+
+\[\begin{align}
+\Hhat_0' ={}&amp; -\sum_{\k\sigma}V_{\k d}(A_{\k} + B_{\k} \nhat_{d,-\sigma})\nhat_{d\sigma} \\
+={}&amp; -\frac{1}{2} \sum_{\k\sigma}2V_{\k d}(A_{\k} + B_{\k} \nhat_{d,-\sigma})\nhat_{d\sigma} \\
+\end{align}\]
+
+\[\begin{align}
+\Hhat_0" ={}&amp; \frac{1}{2} \sum_{\k\sigma\k'}(V_{\k'd}A_{\k}+V_{\k d}A_{\k'}) \chat^\dagger_{\k\sigma}\chat_{\k'\sigma} \\
+={}&amp; \sum_{\k\k'\sigma} W_{\k\k'}\chat^\dagger_{\k\sigma}\chat_{\k'\sigma}
+\end{align}\]
+
+<p>where</p>
+
+\[\begin{equation}
+W_{\k\k'} = \frac{1}{2}(V_{\k d} A_{\k'} + V_{\k' d} A_{\k}).
+\end{equation}\]
+
+<p>We also define</p>
+
+\[\begin{equation}
+\Hhat_\text{ch} = -\frac{1}{2}\sum_{\k\sigma\k'} B_{\k} V_{\k' d}\left(\chat^\dagger_{\k\sigma}\chat^\dagger_{\k',-\sigma}\fhat_{,-\sigma}\fhat_{\sigma} + \chat_{\k\sigma}\chat_{\k',-\sigma} \fhat^\dagger_{,-\sigma}\fhat^\dagger_{\sigma} \right)
+\end{equation}\]
+
+<p>which corresponds to changing the occupancy of the impurity by 2. The last part of \(\frac{i}{2}[\hat{S},\Hhat_1]\) actually contains some spin operators hidden in it. To make this clear, let’s show how the spin operators are written in terms of creation/annihilation operators. We define the notation</p>
+
+\[\begin{equation}
+\Shat^x_{\k\k'} = \chat^\dagger_{\k\uparrow}\chat_{\k'\downarrow} + \chat^\dagger_{\k\downarrow}\chat_{\k'\uparrow},\qquad \Shat^y_{\k\k'} = -i\chat^\dagger_{\k\uparrow} \chat_{\k'\downarrow} + i\chat^\dagger_{\k\downarrow} \chat_{\k'\uparrow} ,\qquad \Shat^z_{\k\k'} = \chat^\dagger_{\k\uparrow}\chat_{\k'\uparrow} - \chat^\dagger_{\k\downarrow}\chat_{\k'\downarrow}
+\end{equation}\]
+
+\[\begin{equation}
+2\Shat^x_{d} = \fhat^\dagger_{\uparrow}\fhat_{\downarrow} + \fhat^\dagger_{\downarrow}\fhat_{\uparrow},\qquad 2\Shat^y_{d} = -i\fhat^\dagger_{\uparrow} \fhat_{\downarrow} + i\fhat^\dagger_{\downarrow} \fhat_{\uparrow} ,\qquad 2\Shat^z_{d} = \fhat^\dagger_{\uparrow}\fhat_{\uparrow} - \fhat^\dagger_{\downarrow}\fhat_{\downarrow}
+\end{equation}\]
+
+<p>The factor of two in defining the impurity spin is just an arbitrary convention. Note that these definitions also induce the \(\Shat^+\) and \(\Shat^-\) operators:</p>
+
+\[\begin{equation}
+\Shat^+_{\k\k'} = \Shat^x_{\k\k'} + i\Shat^y_{\k\k'} = 2\chat^\dagger_{\k\uparrow} \chat_{\k'\downarrow} ,\qquad \Shat^-_{\k\k'} = \Shat^x_{\k\k'} - i\Shat^y_{\k\k'} = 2\chat^\dagger_{\k\downarrow}\chat_{\k'\uparrow}
+\end{equation}\]
+
+\[\begin{equation}
+\Shat^+_d = \Shat^x_d + i\Shat^y_d = \fhat^\dagger_{\uparrow} \fhat_{\downarrow}, \qquad \Shat^-_d = \Shat^x_d - i\Shat^y_d = \fhat^\dagger_{\downarrow} \fhat_{\uparrow}
+\end{equation}\]
+
+<p>Let’s take products of these conduction electron spin operators and impurity spin operators so that we get terms quartic in fermionic operators, and then try to match said terms with terms in the expression for \(\frac{i}{2}[\hat{S},\Hhat_1]\). First, let’s consider</p>
+
+\[\begin{align}
+2\Shat^z_{\k\k'}\Shat^z_d ={}&amp; \chat^\dagger_{\k\uparrow} \chat_{\k'\uparrow}\fhat^\dagger_{\uparrow} \fhat_{\uparrow} + \chat^\dagger_{\k\downarrow}\chat_{\k'\downarrow} \fhat^\dagger_{\uparrow}\fhat_{\uparrow} - \chat^\dagger_{\k\uparrow}\chat_{\k'\uparrow} \fhat^\dagger_{\downarrow} \fhat_{\downarrow} - \chat^\dagger_{\k\downarrow} \chat_{\k\downarrow} \fhat^\dagger_{\uparrow} \fhat_{\uparrow} \\
+={}&amp; \sum_\sigma\left(\chat^\dagger_{\k\sigma}\chat_{\k'\sigma}\fhat^\dagger_{\sigma}\fhat_{\sigma} - \chat^\dagger_{\k\sigma}\chat_{\k'\sigma}\fhat^\dagger_{,-\sigma}\fhat_{,-\sigma}\right)
+\end{align}\]
+
+<p>and also</p>
+
+\[\begin{align}
+\Shat^+_{\k\k'} \Shat^-_d + \Shat^-_{\k\k'}\Shat^+_d ={}&amp; 2\chat^\dagger_{\k\uparrow}\chat_{\k'\downarrow}\fhat^\dagger_{\downarrow}\fhat_{\uparrow} + 2\chat^\dagger_{\k\downarrow}\chat_{\k'\uparrow}\fhat^\dagger_{\uparrow}\fhat_{\downarrow} \\
+(\Shat^x_{\k\k'}+i\Shat^y_{\k\k'})(\Shat^x_d - i\Shat^y_d) + (\Shat^x_{\k\k'} - i\Shat^y_{\k\k'})(\Shat^x_d + i\Shat^y_d) ={}&amp; 2\sum_\sigma \chat^\dagger_{\k\sigma}\chat_{\k',-\sigma} \fhat^\dagger_{,-\sigma}\fhat_{\sigma} \\
+2\Shat^x_{\k\k'}\Shat^x_d + 2\Shat^y_{\k\k'} \Shat^y_d ={}&amp; 2\sum_\sigma \chat^\dagger_{\k\sigma}\chat_{\k',-\sigma} \fhat^\dagger_{,-\sigma}\fhat_{\sigma}
+\end{align}\]
+
+<p>We substitute these expressions in to the second line of our expression for \(\frac{i}{2}[\hat{S},\Hhat_1]\). This gives us</p>
+
+\[\begin{align}
+={}&amp; \frac{1}{2}\sum_{\k\sigma\k'} (V_{\k' d} B_{\k}+ V_{\k d} B_{\k'}) \left[ \nhat_{d,-\sigma}  \chat^\dagger_{\k\sigma}\chat_{\k'\sigma} -\chat^\dagger_{\k\sigma}\chat_{\k',-\sigma}\fhat^\dagger_{,-\sigma}\fhat_{\sigma} \right] \\
+={}&amp; \frac{1}{2}\sum_{\k\k'} (V_{\k' d} B_{\k}+ V_{\k d} B_{\k'})\left[ \sum_\sigma \chat^\dagger_{\k\sigma}\chat_{\k'\sigma}\fhat^\dagger_{\sigma} \fhat_{\sigma} - 2\Shat^z_{\k\k'} \Shat^z_d - \Shat^x_{\k\k'}\Shat^x_d - \Shat^y_{\k\k'} \Shat^y_d \right] \\
+={}&amp; \frac{1}{2}\sum_{\k\k'} (V_{\k' d} B_{\k}+ V_{\k d} B_{\k'})\left[ \sum_\sigma \chat^\dagger_{\k\sigma}\chat_{\k'\sigma}\fhat^\dagger_{\sigma} \fhat_{\sigma} - \Shat^z_{\k\k'} \Shat^z_d - \hat{\mathbf{S}}_{\k\k'}\cdot\hat{\mathbf{S}}_d \right] \\
+={}&amp; \frac{1}{2}\sum_{\k\k'} (V_{\k' d} B_{\k}+ V_{\k d} B_{\k'})\left[\sum_\sigma \left( \chat^\dagger_{\k\sigma}\chat_{\k'\sigma}\fhat^\dagger_{\sigma} \fhat_{\sigma} - \frac{1}{2}\chat^\dagger_{\k\sigma}\chat_{\k'\sigma} \fhat^\dagger_{\sigma}\fhat_{\sigma} + \frac{1}{2}\chat^\dagger_{\k\sigma} \chat_{\k'\sigma} \fhat^\dagger_{,-\sigma} \fhat_{,-\sigma}\right) - \hat{\mathbf{S}}_{\k\k'}\cdot\hat{\mathbf{S}}_d \right] \\
+={}&amp; \frac{1}{2}\sum_{\k\k'} (V_{\k' d} B_{\k}+ V_{\k d} B_{\k'})\left[ \sum_\sigma\left(\frac{1}{2}\chat^\dagger_{\k\sigma}\chat_{\k'\sigma}(\fhat^\dagger_{\sigma} \fhat_{\sigma} + \fhat^\dagger_{,-\sigma} \fhat_{,-\sigma}) \right) - \hat{\mathbf{S}}_{\k\k'}\cdot\hat{\mathbf{S}}_d \right] \\
+={}&amp; \frac{1}{4}\sum_{\k\sigma\k'} J_{\k\k'} \chat^\dagger_{\k\sigma}\chat_{\k'\sigma}(\fhat^\dagger_{\sigma} \fhat_{\sigma} + \fhat^\dagger_{,-\sigma} \fhat_{,-\sigma}) - \frac{1}{2}\sum_{\k\sigma\k'} J_{\k\k'} \hat{\mathbf{S}}_{\k\k'}\cdot\hat{\mathbf{S}}_d
+\end{align}\]
+
+<p>where we have defined</p>
+
+\[\begin{equation}
+J_{\k\k'} = V_{\k' d} B_{\k} + V_{\k d} B_{\k'}
+\end{equation}\]
+
+\[\begin{equation}
+\Hhat_\text{dir} = \frac{1}{4}\sum_{\k\sigma\k'} J_{\k\k'} \chat^\dagger_{\k\sigma}\chat_{\k'\sigma}(\fhat^\dagger_{\sigma} \fhat_{\sigma} + \fhat^\dagger_{,-\sigma} \fhat_{,-\sigma})
+\end{equation}\]
+
+<p>and</p>
+
+\[\begin{equation}
+\Hhat_\text{exch} = -\frac{1}{2}\sum_{\k\k'\sigma} J_{\k\k'} \hat{\mathbf{S}}_{\k\k'}\cdot\hat{\mathbf{S}}_d.
+\end{equation}\]
+
+<p>Thus, the total Hamiltonian is given by</p>
+
+\[\begin{equation}
+\hat{\tilde{H}} = \Hhat_0 + \Hhat_0' + \Hhat_0" + \Hhat_\text{ch} + \Hhat_\text{dir} + \Hhat_\text{exch}.
+\end{equation}\]
+
+<p>Let’s drop \(\Hhat_\text{ch}\) since it changes the occupancy of the impurity by 2. The other terms \(\Hhat_0’\), \(\Hhat_0”\), and \(\Hhat_\text{dir}\) are all one-electron terms. We will always have one electron on the impurity, so these merely contribute constants in the one-particle sector. We therefore keep only \(\Hhat_\text{exch}\). Thus,</p>
+
+\[\begin{equation}
+\hat{\tilde{H}} = \Hhat_0 + \Hhat_\text{exch}.
+\end{equation}\]
+
+<p>Let’s now discuss the exchange term, which constitutes the Kondo interaction. The interaction term is</p>
+
+\[\begin{equation}
+\Hhat_\text{exch} = -\frac{1}{2}\sum_{\k\k'\sigma} J_{\k\k'} \hat{\mathbf{S}}_{\k\k'}\cdot\hat{\mathbf{S}}_d.
+\end{equation}\]
+
+<p>and the coupling constant is given by</p>
+
+\[\begin{align}
+J_{\k\k'} ={}&amp; V_{\k' d}  V_{\k d}\left(\frac{1}{\epsilon_{\k} - \epsilon_d - U} - \frac{1}{\epsilon_{\k} - \epsilon_d}\right) + V_{\k d}  V_{\k' d}\left(\frac{1}{\epsilon_{\k'} - \epsilon_d - U} - \frac{1}{\epsilon_{\k'} - \epsilon_d}\right) \\
+={}&amp; V_{\k d} V_{\k' d}\left(\frac{1}{\epsilon_{\k} - \epsilon_d - U} - \frac{1}{\epsilon_{\k} - \epsilon_d} + \frac{1}{\epsilon_{\k'} - \epsilon_d - U} - \frac{1}{\epsilon_{\k'} - \epsilon_d}\right).
+\end{align}\]
+
+<p>What can we say about the sign of \(J_{\k\k’}\)? Well, if we have an incoming conduction electron near the Fermi surface, and the electron is also outgoing near the Fermi surface, let’s set \(|\k| \approx |\k’| \approx k_F\).</p>
+
+\[\begin{align}
+J_{k_Fk_F} \approx &amp; |V_{k_F d}|^2 \left(\frac{1}{\epsilon_{k_F} - \epsilon_d - U} - \frac{1}{\epsilon_{k_F} - \epsilon_d} + \frac{1}{\epsilon_{k_F} - \epsilon_d - U} - \frac{1}{\epsilon_{k_F} - \epsilon_d}\right) \\
+={}&amp; 2|V_{k_F d}|^2 \left(\frac{1}{\epsilon_{k_F} - \epsilon_d - U} - \frac{1}{\epsilon_{k_F} - \epsilon_d}\right) \\
+={}&amp; 2|V_{k_F d}|^2 \frac{\epsilon_{k_F} - \epsilon_d - \epsilon_{k_F} + \epsilon_d + U}{(\epsilon_{k_F} - \epsilon_d - U)(\epsilon_{k_F} - \epsilon_d)} \\
+={}&amp; \frac{2|V_{k_F d}|^2 U}{(\epsilon_{k_F} - \epsilon_d - U)(\epsilon_{k_F} - \epsilon_d)}
+\end{align}\]
+
+<p>Since we have set the dispersion relation to be zero at the Fermi surface (because of the chemical potential), this simplifies. Additionally, \(\epsilon_d\) is the binding energy of the electron on the impurity, so it is negative. Replacing \(\epsilon_d = -|\epsilon_d|\), we find</p>
+
+\[\begin{align}
+J_{k_Fk_F} ={}&amp; \frac{2|V_{k_F d}|^2 U}{(\epsilon_d + U)\epsilon_d} \\
+={}&amp; \frac{2|V_{k_F d}|^2 U}{(|\epsilon_d| - U)|\epsilon_d|} 
+\end{align}\]
+
+<p>Since we are dealing with the particle-hole symmetric case (this is equivalent to taking a constant density of states above and below the Fermi energy), we can set \(|\epsilon_d| = U/2\), which tells us that \(J_{k_Fk_F} &lt; 0\), so the interaction is antiferromagnetic.</p>
+
+:ET

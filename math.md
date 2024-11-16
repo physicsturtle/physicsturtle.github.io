@@ -32,8 +32,7 @@ Coming soon --->
 ### Ordinary Differential Equations
 <a class="page-link" href="/ode-I/"> Ordinary Differential Equations I  </a>
 
-<!--- Ordinary Differential Equations II - Coming soon
-<a class="page-link" href="/ode-II/"> Ordinary Differential Equations II  </a> - In progress --->
+<a class="page-link" href="/ode-II/"> Ordinary Differential Equations II  </a>
 
 <!--- Theory of Ordinary Differential Equations - ODE with Real Domain - Coming soon
 <a class="page-link" href="/odet-real/"> Theory of Ordinary Differential Equations - ODE with Real Domain </a> - In progress ---> 
@@ -64,7 +63,7 @@ Nonlinear Dynamics and Chaos I - Coming soon --->
 <a class="page-link" href="/nonlin-dyn-I/"> Stabilization of Dynamical Systems </a> --->
 
 ### Complex Analysis
-<a class="page-link" href="/complex-variables/"> Complex Variables </a>
+<a class="page-link" href="/complex-vars-I/"> Complex Variables </a>
 
 
 ### Partial Differential Equations
@@ -81,8 +80,8 @@ Nonlinear Dynamics and Chaos I - Coming soon --->
 <!---  Theory of Partial Differential Equations - Coming soon
 <a class="page-link" href="/pdet-I/"> Theory of Partial Differential Equations I </a> - In progress --->
 
-<!---  ### Topics in Applied Mathematics
-Applied Analysis - Coming soon
+### Topics in Applied Mathematics
+<!--- Applied Analysis - Coming soon
 <a class="page-link" href="/applied-analysis/"> Applied Analysis </a> - In progress --->
 
 <!--- Special Functions - Coming soon
@@ -91,8 +90,7 @@ Applied Analysis - Coming soon
 <!--- Tensor Calculus - Coming soon
 <a class="page-link" href="/tensor-calculus/"> Tensor Calculus </a> - In progress --->
 
-<!--- Perturbation Theory of ODE - Coming soon
-<a class="page-link" href="/asymptotic-analysis-I/"> Asymptotic Analysis I </a> - In progress --->
+<a class="page-link" href="/perturb-I/"> Asymptotic Analysis I </a>
 
 <!--- Perturbation Theory of PDE - Coming soon
 <a class="page-link" href="/asymptotic-analysis-II/"> Asymptotic Analysis II  </a> - In progress --->

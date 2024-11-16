@@ -10,20 +10,26 @@ unitDisplay: Unit 6
 ---
 <ol>
 <li> <div class="exercise">  Consider the fermionic Hamiltonian
-\(\)\hat{H}_0 = \sum_{\k\sigma} \xi_{\k} \chat^\dagger_{\k\sigma} \chat_{\k\sigma}.\(\)
+$$\begin{equation}
+\hat{H}_0 = \sum_{\k\sigma} \xi_{\k} \chat^\dagger_{\k\sigma} \chat_{\k\sigma}.
+\end{equation}$$
 
 Explicitly calculate the interaction picture operator \(\chat_{\k\sigma,I}(t)\).
 
 <div class="answerBox"> 
- <button onclick="myFunction('answer6')" class="answerButton">Show Answer</button> 
- <div  id='answer6' class="answer" >
+ <button onclick="myFunction('answer8')" class="answerButton">Show Answer</button> 
+ <div  id='answer8' class="answer" >
 To do this, we first consider the definition of the interaction picture operator, which is 
 
-\(\)\chat_{\k\sigma,I}(t) = e^{i\hat{H}_0t/\hbar} \chat_{\k\sigma} e^{-i\hat{H}_0t/\hbar}.\(\)
+$$\begin{equation}
+\chat_{\k\sigma,I}(t) = e^{i\hat{H}_0t/\hbar} \chat_{\k\sigma} e^{-i\hat{H}_0t/\hbar}.
+\end{equation}$$
 
 We now apply the Baker-Campbell-Hausdorff formula to get 
 
-\(\)\chat_{\k\sigma,I}(t) = \chat_{\k\sigma} + \frac{it}{\hbar}[\hat{H}_0, \chat_{\k\sigma}] + \frac{1}{2} \left(\frac{it}{\hbar}\right)^2[\hat{H}_0,[\hat{H}_0,\chat_{\k\sigma}]] + \cdots\(\)
+$$\begin{equation}
+\chat_{\k\sigma,I}(t) = \chat_{\k\sigma} + \frac{it}{\hbar}[\hat{H}_0, \chat_{\k\sigma}] + \frac{1}{2} \left(\frac{it}{\hbar}\right)^2[\hat{H}_0,[\hat{H}_0,\chat_{\k\sigma}]] + \cdots
+\end{equation}$$
 
 Let's first calculate the commutator \([\hat{H}_0,\chat_{\k\sigma}]\). 
 
@@ -52,10 +58,11 @@ $$\begin{align}
 ={}& e^{-it\xi_{\k}/\hbar} \chat_{\k\sigma}
 \end{align}$$
 
-
 Similarly, one can show that 
 
-\(\)\chat^\dagger_{\k\sigma,I}(t) = e^{it\xi_{\k}/\hbar} \chat^\dagger_{\k\sigma},\(\)
+$$\begin{equation}
+\chat^\dagger_{\k\sigma,I}(t) = e^{it\xi_{\k}/\hbar} \chat^\dagger_{\k\sigma},
+\end{equation}$$
 
 either by taking the Hermitian conjugate of our previous result, or by direct computation.
 </div> 
@@ -64,20 +71,26 @@ either by taking the Hermitian conjugate of our previous result, or by direct co
 </div> </li>
 <li> <div class="exercise">  Consider the following free bosonic Hamiltonian 
 
-\(\)\hat{H}_0 = \sum_{\k} \xi_{\k} \bhat^\dagger_{\k} \bhat_{\k}.\(\)
+$$\begin{equation}
+\hat{H}_0 = \sum_{\k} \xi_{\k} \bhat^\dagger_{\k} \bhat_{\k}.
+\end{equation}$$
 
 Explicitly calculate the interaction picture operator \(\bhat_{\k,I}(t)\). 
 
 <div class="answerBox"> 
- <button onclick="myFunction('answer56')" class="answerButton">Show Answer</button> 
- <div  id='answer56' class="answer" >
+ <button onclick="myFunction('answer65')" class="answerButton">Show Answer</button> 
+ <div  id='answer65' class="answer" >
 To do this, we first consider the definition of the interaction picture operator, which is 
 
-\(\)\bhat_{\k,I}(t) = e^{i\Hhat_0 t/\hbar} \bhat_{\k} e^{-i\Hhat_0 t/\hbar}\(\)
+$$\begin{equation}
+\bhat_{\k,I}(t) = e^{i\Hhat_0 t/\hbar} \bhat_{\k} e^{-i\Hhat_0 t/\hbar}
+\end{equation}$$
 
 We now apply the Baker-Campbell-Hausdorff formula to get 
 
-\(\)\bhat_{\k,I}(t) = \bhat_{\k} + \frac{it}{\hbar}[\Hhat_0,\bhat_{\k}] + \frac{1}{2}\left(\frac{it}{\hbar}\right)^2[\Hhat_0,[\Hhat_0,\bhat_{\k}]] + \cdots\(\)
+$$\begin{equation}
+\bhat_{\k,I}(t) = \bhat_{\k} + \frac{it}{\hbar}[\Hhat_0,\bhat_{\k}] + \frac{1}{2}\left(\frac{it}{\hbar}\right)^2[\Hhat_0,[\Hhat_0,\bhat_{\k}]] + \cdots
+\end{equation}$$
 
 Let's first compute the commutator \([\Hhat_0, \bhat_{\k}]\). We find 
 
@@ -98,7 +111,9 @@ $$\begin{align}
 
 From this, we also see that 
 
-\(\)\bhat^\dagger_{\k,I}(t) = e^{it\xi_{\k}/\hbar} \bhat^\dagger_{\k}.\(\)
+$$\begin{equation}
+\bhat^\dagger_{\k,I}(t) = e^{it\xi_{\k}/\hbar} \bhat^\dagger_{\k}.
+\end{equation}$$
 
 </div> 
  </div>

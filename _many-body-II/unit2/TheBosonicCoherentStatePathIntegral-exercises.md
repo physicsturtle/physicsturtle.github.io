@@ -39,7 +39,7 @@ which gives us a recursion relation capturing the first constraint on our coeffi
 
 The second constraint of normalization simply yields that 
 
-\(\)\sum_{n=0}^\infty \|a_{nz}\|^2 = 1.\(\)
+\(\)\sum_{n=0}^\infty |a_{nz}|^2 = 1.\(\)
 
 Equipped with these constraints, we start by solving the recursion relation, which gives 
 
@@ -47,19 +47,19 @@ Equipped with these constraints, we start by solving the recursion relation, whi
 
 Now plugging this into the normalization condition, we find that 
 
-\(\)\sum_{n=0}^\infty \frac{\|z\|^{2n}}{n!}\|a_{0z}\|^2 = 1 = e^{\|z\|^2}\(\)
+\(\)\sum_{n=0}^\infty \frac{|z|^{2n}}{n!}|a_{0z}|^2 = 1 = e^{|z|^2}\(\)
 
 and find that 
 
-\(\)a_{0z} = e^{-\|z\|^2/2}.\(\)
+\(\)a_{0z} = e^{-|z|^2/2}.\(\)
 
 Lastly, we write 
 
 $$\begin{align}
-\ket{z} ={}& e^{-\|z\|^2/2} \sum_{n=0}^\infty \frac{z^n}{\sqrt{n!}}\ket{n} \\
-={}& e^{-\|z\|^2/2}\sum_{n=0}^\infty \frac{z^n}{n!} \sqrt{n!}\ket{n} \\
-={}& e^{-\|z\|^2/2}\sum_{n=0}^\infty \frac{z^n}{n!} (\bhat^\dagger)^n \ket{0} \\
-={}& e^{-\|z\|^2/2} e^{z\bhat^\dagger}\ket{0}
+\ket{z} ={}& e^{-|z|^2/2} \sum_{n=0}^\infty \frac{z^n}{\sqrt{n!}}\ket{n} \\
+={}& e^{-|z|^2/2}\sum_{n=0}^\infty \frac{z^n}{n!} \sqrt{n!}\ket{n} \\
+={}& e^{-|z|^2/2}\sum_{n=0}^\infty \frac{z^n}{n!} (\bhat^\dagger)^n \ket{0} \\
+={}& e^{-|z|^2/2} e^{z\bhat^\dagger}\ket{0}
 \end{align}$$
 
 </div> 

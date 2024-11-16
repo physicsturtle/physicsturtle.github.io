@@ -1,0 +1,46 @@
+I"w<p>In this section, we will apply a much more elegant technique to find the eigenvalues and eigenstates of the harmonic oscillators. Starting from the classical Hamiltonian</p>
+
+\[\begin{equation}
+H = \frac{p^2}{2m} + \frac{1}{2}m\omega^2x^2
+\end{equation}\]
+
+<p>we promote \(p\) and \(x\) to operators, so the quantum Hamiltonian is given by</p>
+
+\[\begin{equation}
+\hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2}m\omega^2\hat{x}^2.
+\end{equation}\]
+
+<p>We simplify the Hamiltonian by factoring it. Note that a usual factoring (as difference of squares) is not possible because \([\hat{x},\hat{p}]\neq 0\). Thus, we write the factoring, and add a correction term to account for the non-commutation:</p>
+
+\[\begin{align}
+\hat{H} ={}&amp; \frac{1}{2m}(\hat{p}^2+ m^2\omega^2 \hat{x}^2) \\
+={}&amp; \frac{1}{2m}\left((-i\hat{p} + m\omega \hat{x})(ip+m\omega\hat{x}) - m\omega\hat{x} i\hat{p} + i\hat{p}m\omega\hat{x}\right) \\
+={}&amp; \frac{1}{2m}((-i\hat{p} + m\omega\hat{x})(i\hat{p} + m\omega\hat{x}) - im\omega[\hat{x},\hat{p}]) \\
+={}&amp; \frac{1}{2m}((-i\hat{p} + m\omega\hat{x})(i\hat{p} + m\omega\hat{x}) + m\omega\hbar) \\
+={}&amp; \hbar\omega\left(\frac{(-i\hat{p} + m\omega\hat{x})(i\hat{p} + m\omega\hat{x})}{2\hbar\omega m} + \frac{1}{2}\right) \\
+={}&amp; \hbar\omega\left(\left(\frac{-i\hat{p} + m\omega\hat{x}}{\sqrt{2\hbar\omega m}}\right)\left(\frac{i\hat{p} + m\omega\hat{x}}{\sqrt{2\hbar\omega m}}\right) + \frac{1}{2}\right)
+\end{align}\]
+
+<p>which leads us to define</p>
+
+\[\begin{equation}
+\ahat^\dagger = \frac{1}{\sqrt{2\hbar m\omega}}(-i\hat{p} + m\omega\hat{x}),\qquad \ahat = \frac{1}{\sqrt{2\hbar m\omega}}(i\hat{p} + m\omega\hat{x})
+\end{equation}\]
+
+<p>Thus, the Hamiltonian is rewritten as</p>
+
+\[\begin{equation}
+\hat{H} = \hbar\omega\left(\ahat^\dagger\ahat+\frac{1}{2}\right).
+\end{equation}\]
+
+<p>This tells us that \(E_n = \hbar\omega(n+1/2)\).</p>
+
+<p>INSERT SOME DISCUSSION</p>
+
+<p>We can invert the relations for the creation/annihilation operators to find that</p>
+
+\[\begin{equation}
+\xhat = \sqrt{\frac{\hbar}{2m\omega}}(\ahat+\ahat^\dagger),\quad \phat = i\sqrt{\frac{\hbar m\omega}{2}}(\ahat^\dagger-\ahat)
+\end{equation}\]
+
+:ET

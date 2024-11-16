@@ -4,23 +4,23 @@ title: Electromagnetism I
 banner: em-I.svg
 permalink: /em-I/
 ---
-{% assign unitNames = "Unit 2 - Electrostatics , "\| split: ', ' %}
+{% assign unitNames = "Unit 2 - Electrostatics , "| split: ', ' %}
 
-{% assign units = "unit2/, " \| split: ', ' %}
+{% assign units = "unit2/, " | split: ', ' %}
 
-{% assign lessonNames2 = "Coulomb's Law , Electric Flux , " \| split: ', ' %}
+{% assign lessonNames2 = "Coulomb's Law , Coulomb's law for continuous charge distributions , Electric Flux , Gauss's Law , Using Gauss's Law , " | split: ', ' %}
 <ul>
 
 {% for unitName in unitNames %}
-{% assign unitLink = page.permalink \| append: units[forloop.index0] %}
+{% assign unitLink = page.permalink | append: units[forloop.index0] %}
 <li>  <a class="page-link" href="{{unitLink}}"> {{unitName}} </a> </li>
 <ol> {%assign unitIndex = forloop.index0 %}
 {% if unitIndex == 0 %} {% assign lessonNames = lessonNames2 %}
 {% endif %}
 {% for lessonName in lessonNames %}
-{% assign lessonTitle = lessonName \| replace:  '_', ' ' %}
-{% assign linkName = lessonName \| replace: ' ', " %}
-<li> <a class = "page-link" href = "{{ linkName \| prepend: units[unitIndex] \| prepend: current_page.permalink }}"> {{lessonTitle}} </a> - <a class = "page-link" href = "{{ linkName \| prepend: units[unitIndex] \| prepend: current_page.permalink \| append: "-exercises" }}"> Exercises </a> </li>
+{% assign lessonTitle = lessonName | replace:  '_', ' ' %}
+{% assign linkName = lessonName | replace: ' ', " %}
+<li> <a class = "page-link" href = "{{ linkName | prepend: units[unitIndex] | prepend: current_page.permalink }}"> {{lessonTitle}} </a> - <a class = "page-link" href = "{{ linkName | prepend: units[unitIndex] | prepend: current_page.permalink | append: "-exercises" }}"> Exercises </a> </li>
 {% endfor %}
 </ol>
 {% endfor %}

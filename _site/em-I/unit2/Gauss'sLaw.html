@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Gauss&#39;s Law</title>
+  <meta name="description" content="In the last section, we discussed electric flux, which is the amount of electric field lines passing through some surface. Defined mathematically, the flux t...">
+    
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+</script>
+<!---
+<script type="text/x-mathjax-config">
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$']],
+      inlineMath: [['$', '$']],
+    },
+  };
+</script>
+--->
+<script>
+    window.MathJax = {
+      tex: {
+        packages: ['base', 'ams', 'amscd', 'mathrsfs', 'upgreek'],
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      tags: 'all'  // Enable automatic numbering for all displayed equations
+    }
+  };
+</script>
+
+
+
+<div style="display:none">
+\(
+%Residues
+\let\Res\relax
+\DeclareMathOperator*{\Res}{Res}
+
+%Allow us to write angstroms
+\let\ring\r
+\renewcommand{\r}{\textbf{r}}
+\let\Oersted\O
+\let\O\relax
+\DeclareMathOperator{\O}{O}
+
+%Define useful symbols for commonly used sets in mathematics
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}} 
+\newcommand{\TT}{\mathbb{T}} 
+%\newcommand{\H}{\mathbb{H}}
+
+%Useful symbols for differential geometry
+\newcommand{\M}{\mathcal{M}}
+\renewcommand{\d}{\text{d}}
+\newcommand{\Sphere}{\mathbb{S}}
+\newcommand{\Torus}{\mathbb{T}}
+
+%Useful notations for electromagnetism
+\newcommand{\E}{\textbf{E}}
+\newcommand{\B}{\textbf{B}}
+\newcommand{\A}{\textbf{A}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\J}{\textbf{J}}
+\newcommand{\R}{\bm{R}}
+
+%Useful symbols for vector notation
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\y}{\boldsymbol{y}}
+\newcommand{\z}{\boldsymbol{z}}
+\newcommand{\p}{\boldsymbol{p}}
+\newcommand{\q}{\boldsymbol{q}}
+\newcommand{\w}{\boldsymbol{w}}
+\renewcommand{\k}{\boldsymbol{k}}
+\newcommand{\K}{\boldsymbol{K}}
+\newcommand{\Q}{\boldsymbol{Q}}
+\renewcommand{\r}{\boldsymbol{r}}
+
+%Useful symbols for physics
+\newcommand{\hc}{\text{H.c.}}
+\newcommand{\Hc}{\text{H.c.}}
+\newcommand{\BZ}{\text{BZ}}
+\newcommand{\Kn}{\text{Kn}}
+\newcommand{\g}{\mathfrak{g}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{i}}
+\newcommand{\jhat}{\hat{j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\lhat}{\hat{l}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\Thetahat}{\hat{\Theta}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\varphihat}{\hat{\varphi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\V}{\mathcal{V}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\D}{\mathcal{D}}
+
+\newcommand{\id}{\text{id}}
+
+
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\atan}{atan}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\preim}{preim}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ver}{ver}
+\DeclareMathOperator{\hor}{hor}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Cl}{C\ell}
+\DeclareMathOperator{\conf}{conf}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\algsl}{\mathfrak{sl}}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\algsu}{\mathfrak{su}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Unit}{U}
+\DeclareMathOperator{\algu}{\mathfrak{u}}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\algso}{\mathfrak{so}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\artanh}{artanh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\arcoth}{arcoth}
+\DeclareMathOperator{\arcsch}{arcsch}
+\DeclareMathOperator{\arsech}{arsech}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Witt}{Witt}
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\Li}{Li}
+\DeclareMathOperator{\vecspan}{span}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\1}{\mathbb{1}}
+
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Bi}{Bi}
+
+
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+%Useful notations for thermodynamics
+\newcommand{\dbar}}
+    
+\)
+</div>
+
+<div style="display:none">
+    \(\require{cancel}\)
+    \(\require{simpler-wick}\)
+    \(\require{braket}\)
+</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+                                                  google_ad_client: "ca-pub-7447253757666293",
+                                                  enable_page_level_ads: true
+                                                  });
+    </script>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="http://localhost:4000/em-I/unit2/Gauss'sLaw.html">
+  <link rel="alternate" type="application/rss+xml" title="Physicsturtle" href="http://localhost:4000/feed.xml">
+      <script>
+          function myFunction(name) {
+              var x = document.getElementById(name);
+              if (x.style.display === "block") {
+                  x.style.display = "none";
+              } else {
+                  x.style.display = "block";
+              }
+          }
+      </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header" style="background-color:#9ED54C">
+
+  <div class="wrapper" >
+
+    <a class="site-title" href="/">Physicsturtle</a>
+
+    <nav class="site-nav" >
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <!--hide the physics content for now... my_page.title == "Physics" or -->
+      <div class="trigger" >
+          
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/physics">Physics</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/math">Math</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/guides">Guides</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/about">About</a>
+          
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+      
+      
+      
+      
+      
+      <div> <a href="http://localhost:4000/physics">Physics</a> > <a href="http://localhost:4000/em-I">Electromagnetism I</a> > <a href="http://localhost:4000/em-I/unit2">Unit 2</a> > <a href="/em-I/unit2/Gauss'sLaw.html">Gauss's Law</a> > <a href="/em-I/unit2/Gauss'sLaw-exercises.html"> Exercises </a> </div> <br>
+    <h1 class="post-title">Gauss's Law</h1>
+  </header>
+  
+  <div class="post-content">
+    <p>In the last section, we discussed electric flux, which is the amount of electric field lines passing through some surface. Defined mathematically, the flux through a surface \(S\) is</p>
+
+\[\begin{equation}
+\Phi = \int_S \mathbf{E} \cdot \nhat \, \d A
+\end{equation}\]
+
+<p>where \(\nhat\) is the normal vector to \(S\). In this equation, we see that if we increase the electric field strength \(\mathbf{E}\), then the flux would increase. Also, if we increase the surface area, then the flux would also increase. Practically, to increase the electric field strength, one can increase the charge producing the electric field strength. Are there any general relationships about the flux through a surface \(S\) and the charge producing the electric field? It turns out the answer is yes, but only for <i>closed surfaces</i>.</p>
+
+<p>Gauss’s law makes a statement about the relationship between the total amount of electric flux passing through the surface and the total amount of charge enclosed by the surface.</p>
+
+<p>\begin{theorem_wrapper}
+\begin{theorem}
+(Gauss’s law) If \(S\) is a closed surface, and \(Q\) is the amount of charge enclosed by \(S\), then the electric flux through the surface satisfies</p>
+
+\[\begin{equation}
+\oint_S \mathbf{E}\cdot\nhat \, \d A = \frac{Q}{\epsilon_0}
+\end{equation}\]
+
+<p>where \(\nhat\) is the unit normal vector to the surface \(S\). This equation is known as <i>Gauss’s law</i>. Since the flux of the electric field through a surface should be thought of as the <code class="language-plaintext highlighter-rouge">amount" of electric field lines passing through that surface. Thus, Gauss's law is often stated in words as:</code>The electric flux through a closed surface is equal to the amount of charge enclosed within the surface”. 
+\end{theorem}
+\end{theorem_wrapper}</p>
+
+<p>Before solving some physical problems with Gauss’s law, we make a few remarks.</p>
+<ol>
+<li> The surface \(S\) is an <i>imaginary surface</i>, called a Gaussian surface. You are free to choose the surface in whatever way is most convenient. The only restriction is that it is a closed surface. 
+</li>
+<li> Gauss's law is always true, but not always useful. In particular, it is not useful if the system does not have a high degree of symmetry.
+</li>
+<li> Gauss's law is normally used to find the electric field due to a particular charge distribution.
+</li>
+<li> Gauss's law can only be used in systems with spherical, cylindrical, or planar symmetry. This is because for each of these three cases, it is possible to construct a Gaussian surface on which the following properties hold:
+<ul>
+&lt;/li&gt;
+<li> The electric field has constant magnitude along the surface
+</li>
+<li> The electric field is always either normal or perpendicular to the surface's normal vector
+</li></ul>
+</li>
+<li> There are some small exceptions to points 1 and 3. In particular, Gauss's law may be useful in systems where there is not as much symmetry, but only when certain subparts of the system have a high degree of symmetry (namely spherical, cylindrical, or planar). 
+</li></ol>
+
+<p>We now proceed to some examples which help us to understand Gauss’s law. The practical usage of Gauss’s law will be reserved for the next section.</p>
+
+<div class="example">
+<b>Example:</b>
+In this problem, we will show that Gauss's law is consistent with Coulomb's law. Consider a point charge \(q\) at the origin. Consider a Then, the right hand side of Gauss's law is \(q/\epsilon_0\).
+
+
+
+<figure class="center"><p><img src="figures/point_charge_gauss.pdf" alt="Function" class="center" style="width:113.784px;height:113.784px;" /> </p></figure>
+
+
+
+</div>
+
+<div class="example">
+<b>Example:</b>
+Consider the problem of finding the electric field due to a point charge without using Coulomb's law, but rather Gauss's law. Argue that the electric field must be exactly the one found by using Coulomb's law.
+
+\noindent<b>Solution:</b> 
+
+
+
+N
+
+Now, this may seem like a very convoluted way to compute the electric field. The purpose of this problem is merely to demonstrate how to use Gauss's law, and the symmetry arguments that go along with it. The true power of Gauss's law will be demonstrated in the examples in the next section. 
+
+</div>
+
+<div class="example">
+<b>Example:</b>
+Compute the electric field due to a uniformly charged spherical shell of radius \(a\). 
+
+<b>Solution:</b> First, we start with the example of the electric field due to a uniformly charged spherical shell. We get 
+
+$$\begin{equation}
+\mathbf{E} = \frac{1}{4\pi\epsilon_0}\int\frac{\sigma(\r-<b>a</b>)\d A}{|\r-<b>a</b>|^3}
+\end{equation}$$
+
+For simplicity, take \(\mathbf{E}\) on the \(z\)-axis. Then, by symmetry, we only need to calculate \(E_z = \mathbf{E}\cdot\hat{z}\), and now \(|\r-<b>a</b>| = (a^2+z^2-2az\cos\theta)^{1/2}\). Note that \(<b>a</b>\) is the integration variable here. This gives us the formula for the electric field at this particular point
+
+$$\begin{equation}
+E_z = \frac{1}{4\pi\epsilon_0}\int\frac{\sigma \d A(\r-<b>a</b>)\cdot\hat{z}}{(a^2+z^2-2az\cos\theta)^{3/2}}
+\end{equation}$$
+
+Since \(\d A = a^2\sin\theta\d\theta\d\phi = -a^2\d(\cos\theta)\d\phi\) and \((\r-<b>a</b>)\cdot\hat{a} = (z-a\cos\theta)\), we find that 
+
+$$\begin{align}
+ E_z ={}&amp; -\frac{1}{4\pi\epsilon_0}\int\frac{\sigma a^2 \d(\cos\theta) \d\phi (z - a\cos\theta)}{(a^2+z^2-2az\cos\theta)^{3/2}} \\
+={}&amp; -\frac{2\pi\sigma a^2}{4\pi\epsilon_0}\int\frac{\d(\cos\theta)(z-a\cos\theta)}{(a^2+z^2-2az\cos\theta)^{3/2}} \\
+={}&amp; \frac{\sigma a^2}{2\epsilon_0}\int_{-1}^1 \frac{(z-au) \d u}{(a^2+z^2-2azu)^{3/2}} \\
+={}&amp; \frac{\sigma a^2}{2\epsilon_0}\left(\frac{1}{z^2}\frac{zu-a}{\sqrt{a^2+z^2-2azu}}\right)\bigg|_{-1}^1 \\
+={}&amp; \frac{\sigma a^2}{2z^2\epsilon_0}\left(\frac{z-a}{|z-a|} - \frac{-z-a}{|z+a|}\right)
+\end{align}$$
+
+which tells us that
+
+$$\begin{equation}
+E_z = \begin{cases}
+\frac{q}{4\pi\epsilon_0}\frac{q}{z^2} &amp; z &gt; a \\
+0 &amp; z &lt; a
+\end{cases}
+\end{equation}$$
+
+</div>
+
+<div class="example">
+<b>Example:</b>
+Calculate the field everywhere due to a uniformly charged sphere. In particular, obtain the field inside the sphere and outside. 
+
+Solution: In general, for an arbitrary charge distribution, we have 
+
+\(\)\mathbf{E}(\r) = \frac{1}{4\pi\epsilon_0}\int \frac{\rho(\r')(\r-\r')}{|\r-\r'|^3}\d V'\(\)
+
+so outside the sphere, all charge is enclosed and 
+
+\(\)\mathbf{E} = \frac{Q}{4\pi\epsilon_0 r^2}\hat{r}\(\)
+
+whereas inside the sphere, we find all the charge up to radius \(r\)....
+
+DO THE EXAMPLE WITH A TRIPLE INTEGRAL!!
+
+</div>
+
+<p>Gauss’s law:</p>
+
+<p>The goal of Gauss’s law is to relate the flux of \(E\) across a closed surface to the total charge enclosed. We consider a charge \(Q\) inside a closed surface \(A\) and the flux of \(E\) across \(\d A\). The flux is defined by</p>
+
+\[\d\Phi = \mathbf{E} \cdot \d&lt;b&gt;A&lt;/b&gt; = \frac{Q}{4\pi\epsilon_0}\frac{\hat{r}}{r^2}\d&lt;b&gt;A&lt;/b&gt;\]
+
+<p>The dot product is evaluated simply as</p>
+
+\[\begin{align}
+\hat{r}\cdot\d&lt;b&gt;A&lt;/b&gt; ={}&amp; \hat{r}\cdot\hat{r}\d A_r \\
+={}&amp; r^2\sin\theta\d\theta\d\phi \\
+={}&amp; -r^2 \d(\cos\theta) \d\phi
+\end{align}\]
+
+<p>Thus, we calculate</p>
+
+\[\oint_A\mathbf{E}\cdot\d&lt;b&gt;A&lt;/b&gt; = -\frac{Q}{4\pi\epsilon_0}\int_1^{-1}\d(\cos\theta)\int_0^{2\pi}\d\phi = \frac{Q}{\epsilon_0}.\]
+
+<p>Therefore we have Gauss’s law in integral form:</p>
+
+\[\int_A \mathbf{E}\cdot\d&lt;b&gt;A&lt;/b&gt; = 
+\begin{cases}
+\frac{Q}{\epsilon_0} &amp; Q \in &lt;b&gt;A&lt;/b&gt; \\
+0 &amp; Q \not\in&lt;b&gt;A&lt;/b&gt;
+\end{cases}.\]
+
+<p>If there is a volume charge density \(\rho\) but no surface charge, then</p>
+
+\[\int_A \mathbf{E}\cdot\d&lt;b&gt;A&lt;/b&gt; = \frac{Q}{\epsilon_0} = \frac{1}{\epsilon_0}\int_V \rho \d V\]
+
+<p>Since this holds for any volume \(V\), we can use the divergence theorem to rewrite this as</p>
+
+\[\int_V \nabla\cdot \mathbf{E}\cdot\d&lt;b&gt;A&lt;/b&gt; = \frac{1}{\epsilon_0}\int_V \rho \d V\]
+
+<p>so that \(\nabla\cdot\mathbf{E} = \frac{\rho}{\epsilon_0}\).</p>
+
+<div class="faq">
+<b>FAQ:</b>
+<ul>
+<li> Q: What is meant by a ``closed surface"? A: by a closed surface, we mean a surface which you must punch through in order to get from one side to another.
+</li></ul>
+
+</div>
+
+
+  </div>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Footer -->
+<ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-7447253757666293"
+    data-ad-slot="6075791093"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer" >
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Physicsturtle</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physicsturtle</li>
+          <li><a href="mailto:nanoturtle2@gmail.com">nanoturtle2@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/physicsturtle"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">physicsturtle</span></a>
+
+          </li>
+          
+          
+           
+           
+           <li>
+               This site updated 2024-11-16 19:53
+           </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Welcome to Physicsturtle! Please use the e-mail contact to let me know if you find any mistakes or omissions, you feel an explanation could be improved, or you have a suggestion for content. 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

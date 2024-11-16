@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Quantum harmonic oscillator I</title>
+  <meta name="description" content="In classical mechanics, a simple harmonic oscillator is a system consisting of a mass \(m\) which experiences a harmonic potential, namely a quadratic potent...">
+    
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+</script>
+<!---
+<script type="text/x-mathjax-config">
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$']],
+      inlineMath: [['$', '$']],
+    },
+  };
+</script>
+--->
+<script>
+    window.MathJax = {
+      tex: {
+        packages: ['base', 'ams', 'amscd', 'mathrsfs', 'upgreek'],
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      tags: 'all'  // Enable automatic numbering for all displayed equations
+    }
+  };
+</script>
+
+
+
+<div style="display:none">
+\(
+%Residues
+\let\Res\relax
+\DeclareMathOperator*{\Res}{Res}
+
+%Allow us to write angstroms
+\let\ring\r
+\renewcommand{\r}{\textbf{r}}
+\let\Oersted\O
+\let\O\relax
+\DeclareMathOperator{\O}{O}
+
+%Define useful symbols for commonly used sets in mathematics
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}} 
+\newcommand{\TT}{\mathbb{T}} 
+%\newcommand{\H}{\mathbb{H}}
+
+%Useful symbols for differential geometry
+\newcommand{\M}{\mathcal{M}}
+\renewcommand{\d}{\text{d}}
+\newcommand{\Sphere}{\mathbb{S}}
+\newcommand{\Torus}{\mathbb{T}}
+
+%Useful notations for electromagnetism
+\newcommand{\E}{\textbf{E}}
+\newcommand{\B}{\textbf{B}}
+\newcommand{\A}{\textbf{A}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\J}{\textbf{J}}
+\newcommand{\R}{\bm{R}}
+
+%Useful symbols for vector notation
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\y}{\boldsymbol{y}}
+\newcommand{\z}{\boldsymbol{z}}
+\newcommand{\p}{\boldsymbol{p}}
+\newcommand{\q}{\boldsymbol{q}}
+\newcommand{\w}{\boldsymbol{w}}
+\renewcommand{\k}{\boldsymbol{k}}
+\newcommand{\K}{\boldsymbol{K}}
+\newcommand{\Q}{\boldsymbol{Q}}
+\renewcommand{\r}{\boldsymbol{r}}
+
+%Useful symbols for physics
+\newcommand{\hc}{\text{H.c.}}
+\newcommand{\Hc}{\text{H.c.}}
+\newcommand{\BZ}{\text{BZ}}
+\newcommand{\Kn}{\text{Kn}}
+\newcommand{\g}{\mathfrak{g}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{i}}
+\newcommand{\jhat}{\hat{j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\lhat}{\hat{l}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\Thetahat}{\hat{\Theta}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\varphihat}{\hat{\varphi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\V}{\mathcal{V}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\D}{\mathcal{D}}
+
+\newcommand{\id}{\text{id}}
+
+
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\atan}{atan}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\preim}{preim}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ver}{ver}
+\DeclareMathOperator{\hor}{hor}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Cl}{C\ell}
+\DeclareMathOperator{\conf}{conf}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\algsl}{\mathfrak{sl}}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\algsu}{\mathfrak{su}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Unit}{U}
+\DeclareMathOperator{\algu}{\mathfrak{u}}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\algso}{\mathfrak{so}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\artanh}{artanh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\arcoth}{arcoth}
+\DeclareMathOperator{\arcsch}{arcsch}
+\DeclareMathOperator{\arsech}{arsech}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Witt}{Witt}
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\Li}{Li}
+\DeclareMathOperator{\vecspan}{span}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\1}{\mathbb{1}}
+
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Bi}{Bi}
+
+
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+%Useful notations for thermodynamics
+\newcommand{\dbar}}
+    
+\)
+</div>
+
+<div style="display:none">
+    \(\require{cancel}\)
+    \(\require{simpler-wick}\)
+    \(\require{braket}\)
+</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({
+                                                  google_ad_client: "ca-pub-7447253757666293",
+                                                  enable_page_level_ads: true
+                                                  });
+    </script>
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="http://localhost:4000/qm-I/unit3/QuantumharmonicoscillatorI.html">
+  <link rel="alternate" type="application/rss+xml" title="Physicsturtle" href="http://localhost:4000/feed.xml">
+      <script>
+          function myFunction(name) {
+              var x = document.getElementById(name);
+              if (x.style.display === "block") {
+                  x.style.display = "none";
+              } else {
+                  x.style.display = "block";
+              }
+          }
+      </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header" style="background-color:#9ED54C">
+
+  <div class="wrapper" >
+
+    <a class="site-title" href="/">Physicsturtle</a>
+
+    <nav class="site-nav" >
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <!--hide the physics content for now... my_page.title == "Physics" or -->
+      <div class="trigger" >
+          
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/physics">Physics</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/math">Math</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/guides">Guides</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/about">About</a>
+          
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+      
+      
+      
+      
+      
+      <div> <a href="http://localhost:4000/physics">Physics</a> > <a href="http://localhost:4000/qm-I">Quantum Mechanics I</a> > <a href="http://localhost:4000/qm-I/unit3">Unit 3</a> > <a href="/qm-I/unit3/QuantumharmonicoscillatorI.html">Quantum harmonic oscillator I</a> > <a href="/qm-I/unit3/QuantumharmonicoscillatorI-exercises.html"> Exercises </a> </div> <br>
+    <h1 class="post-title">Quantum harmonic oscillator I</h1>
+  </header>
+  
+  <div class="post-content">
+    <p>In classical mechanics, a simple harmonic oscillator is a system consisting of a mass \(m\) which experiences a <i>harmonic potential</i>, namely a quadratic potential. Typically, the potential energy is produced by a spring, whose restoring force is \(F(x) = -kx\), where \(k\) is the spring constant. The The corresponding potential energy is found by integrating the following equation:</p>
+
+\[\begin{equation}
+\frac{\d V}{\d x} = -F(x),
+\end{equation}\]
+
+<p>which gives us the potential</p>
+
+\[\begin{equation}
+V(x) = \frac{1}{2}kx^2.
+\end{equation}\]
+
+<p>It is important that we have the potential because, in quantum mechanics, the fundamental equation is the Schrödinger equation. The Schrödinger equation is not expressed in terms of forces, but rather in terms of energies. This means that the appropriate (time independent) Schrödinger equation is</p>
+
+\[\begin{equation}
+\left(-\frac{\hbar^2}{2m}\frac{\d^2}{\d x^2} + \frac{1}{2}kx^2\right)\psi = E\psi.
+\end{equation}\]
+
+<p>In quantum mechanics, there isn’t an analogue of spring constant, so instead, we use the equation for the resonant frequency \(\omega^2 = k/m\) to substitute in for \(k\). This gives us a simple rewriting of the equation</p>
+
+\[\begin{equation}
+\left(-\frac{\hbar^2}{2m}\frac{\d^2}{\d x^2} + \frac{1}{2}\omega^2m x^2\right)\psi = E\psi.
+\end{equation}\]
+
+<p>Since the wave function should decay at infinity (we want it to be normalizable!), we set the boundary conditions to be</p>
+
+\[\begin{equation}
+\lim_{x\to\pm\infty} \psi(x) = 0.
+\end{equation}\]
+
+<p>Now, let’s actually solve this equation! There are two approaches that we will perform here. The first is much less elegant, but it is also more concrete; it is solving the differential equation by brute force. We will do the brute force approach first, because you will never want to use it again after you learn the second method. The second is defining some useful operators known as the raising and lowering operators, which allows us to simplify the differential equation substantially. This will be done in the next section.</p>
+
+<p>For the brute force approach, we just need to solve the differential equation! This is easier said than done. Before moving on to actually solving it, let’s rewrite the equation in terms of a dimensionless (unitless) variable \(\xi\). To determine what this variable should be, rewrite the equation</p>
+
+\[\begin{equation}
+\left(-\frac{\hbar}{m\omega}\frac{\d^2\psi}{\d x^2} + \frac{\omega m}{\hbar} x^2 \psi\right) = \frac{2E}{\hbar\omega}\psi.
+\end{equation}\]
+
+<p>Notice that on the left hand side of the equation, we have the expression \(\omega m x^2/\hbar\) in the denominator of the first term, and the same expression in the numerator of the second term (I know it isn’t technically in the denominator of the first term because it is \(\d x^2\), not \(x^2\), but for variable changing purposes it doesn’t matter). This suggests the substitution</p>
+
+\[\begin{equation}
+\xi = \sqrt{\frac{\omega m}{\hbar}} x.
+\end{equation}\]
+
+<p>Making this substitution, as well as defining a modified eigenvalue \(\lambda = 2E/m\omega\), we get</p>
+
+\[\begin{equation}
+-\frac{\d^2\psi}{\d\xi^2} + \xi^2\psi = \lambda\psi.
+\end{equation}\]
+
+<p>This is now the differential equation that we want to solve. However, you have not likely seen this equation in your differential equations courses! To solve it, we need to make a substitution. This substitution makes this problem much easier, but a priori, there is no way to know what it is! There are various arguments from asymptotic analysis that one can make, but I will simply show you what the substitution is. The substitution is</p>
+
+\[\begin{equation}
+\psi(\xi) = u(\xi)e^{-\xi^2/2}.
+\end{equation}\]
+
+<p>Note that the substitution \(\psi(\xi) = u(\xi)e^{\xi^2/2}\) also substantially simplifies the equation, but we reject it because it doesn’t decay to zero at infinity. We calculate the derivatives of our substitution to find</p>
+
+\[\begin{equation}
+\psi'(\xi) = (-\xi u + u')e^{-\xi^2/2},\qquad \psi"(\xi) = (-u + \xi^2 u - 2\xi u' + u")e^{-\xi^2/2}
+\end{equation}\]
+
+<p>Plugging in the second derivative to the equation, we find that</p>
+
+\[\begin{equation}
+-(-u + \xi^2 u - 2\xi u' + u")e^{-\xi^2/2} + \xi^2 u e^{-\xi^2/2} = \lambda u e^{-\xi^2/2}
+\end{equation}\]
+
+<p>Cancelling all factors of \(e^{-\xi^2/2}\) and simplifying, we get</p>
+
+\[\begin{equation}
+u + 2\xi u' - u" = \lambda u.
+\end{equation}\]
+
+<p>Lastly, gathering like terms we get</p>
+
+\[\begin{equation}
+u" - 2\xi u' + (\lambda - 1)u =0.
+\end{equation}\]
+
+<p>The standard technique for solving ordinary differential equations with constant coefficients (by trying the Ansatz \(e^{rx}\)) is not applicable here because there is a \(\xi\) coefficient on the \(u’\) term. However, we can solve such differential equations by using a <i>power series solution</i>. This technique involves substituting a power series with unknown coefficients into the differential equation, and then solving for the coefficients order by order. This will then yield a solution to the equation. The power series solution takes the form</p>
+
+\[\begin{equation}
+u(\xi) = \sum_{n=0}^\infty a_n \xi^n = a_0 + a_1 \xi + a_2 \xi^2 + \cdots.
+\end{equation}\]
+
+<p>Substituting this into the differential equation, we get</p>
+
+\[\begin{equation}
+\sum_{n=2}^\infty n(n-1)a_n \xi^{n-2} -2\xi \sum_{n=1}^\infty na_n \xi^{n-1} + (\lambda-1) \sum_{n=0}^\infty a_n \xi^n = 0.
+\end{equation}\]
+
+<p>Next, we shift the indices of the first and second sums so that the powers of \(\xi^n\) all match:</p>
+
+\[\begin{equation}
+\sum_{n=0}^\infty(n+2)(n+1)a_{n+2} \xi^{n} -2\sum_{n=1}^\infty na_{n}\xi^{n} + (\lambda-1)\sum_{n=0}^\infty a_n \xi^n = 0.
+\end{equation}\]
+
+<p>Now we peel off the \(n=0\) terms from the first and third sums so that the sums all start at \(n=1\):</p>
+
+\[\begin{equation}
+\sum_{n=1}^\infty\left[(n+2)(n+1)a_{n+2}-2na_{n}+(\lambda-1) a_n \right]\xi^{n}+2a_{2}+(\lambda-1) a_{0} = 0.
+\end{equation}\]
+
+<p>This gives us that \(a_2 = -\frac{(\lambda-1) a_{0}}{2}\). The recurrence relation is:</p>
+
+\[\begin{equation}
+a_{n+2} = \frac{2n-(\lambda-1)}{(n+2)(n+1)}\cdot a_n,\qquad n\geq 1.
+\end{equation}\]
+
+<p>Note that this also satisfies our extra condition \(a_2 = -\frac{(\lambda-1) a_{0}}{2}\), so we can in fact define it for \(n\geq 0\):</p>
+
+\[\begin{equation}
+a_{n+2} = \frac{2n-(\lambda-1)}{(n+2)(n+1)} a_n,\qquad n\geq 0.
+\end{equation}\]
+
+<p>This gives us two solutions. Set \(a_0\) and \(a_1\) arbitrary, then generate all further terms. Now, notice that for \(n\) large, the recurrence relation is like</p>
+
+\[\begin{equation}
+a_{n+2}\sim \frac{2}{n}a_n,\qquad n\to\infty
+\end{equation}\]
+
+<p>the solution to which is \(a_{n} \sim \frac{1}{(n/2)!}\), as \(n\to\infty\). This generates the coefficients for the power series</p>
+
+\[\begin{equation}
+e^{\xi^2} = \sum_{\substack{n=0 \\ n\,\text{even}}}^\infty \frac{\xi^{n}}{(n/2)!}
+\end{equation}\]
+
+<p>What this means for us, is that if we allow the recurrence relation to continue forever, we will get solutions like \(u(\xi) \sim e^{\xi^2}\), which leads again to \(\psi(\xi) = e^{\xi^2}e^{-\xi^2/2} = e^{\xi^2/2}\), which goes to infinity and is non-normalizable! Our conclusion is that our recurrence relation <i>must terminate</i>. The relation terminates if \(2n = \lambda - 1\), for some \(n\). This gives us the value for our eigenvalue \(\lambda\). Thus,</p>
+
+\[\begin{equation}
+\lambda = 1 + 2n
+\end{equation}\]
+
+<p>Plugging back in our previous expression for \(\lambda = 2E/\hbar\omega\), we finally get the energy eigenvalues for the system:</p>
+
+\[\begin{equation}
+E = \hbar\omega\left(\frac{1}{2} + n\right),\qquad n\geq 0
+\end{equation}\]
+
+<p>The \(n=0\) case is known as the <i>zero point energy</i> of the harmonic oscillator. Let’s work now on the eigenfunctions of the system. The eigenfunctions corresponding to these eigenvalues are known as the Hermite polynomials, \(H_n(\xi)\). If you want more information about the Hermite polynomials, consult a book on mathematical physics or special functions.</p>
+
+
+  </div>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Footer -->
+<ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-7447253757666293"
+    data-ad-slot="6075791093"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer" >
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Physicsturtle</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physicsturtle</li>
+          <li><a href="mailto:nanoturtle2@gmail.com">nanoturtle2@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/physicsturtle"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">physicsturtle</span></a>
+
+          </li>
+          
+          
+           
+           
+           <li>
+               This site updated 2024-11-16 19:53
+           </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Welcome to Physicsturtle! Please use the e-mail contact to let me know if you find any mistakes or omissions, you feel an explanation could be improved, or you have a suggestion for content. 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

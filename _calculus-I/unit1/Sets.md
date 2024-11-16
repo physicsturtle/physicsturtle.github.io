@@ -9,7 +9,7 @@ courseDisplay: Calculus I
 unitDisplay: Unit 1
 ---
 
-### Intro\d uction
+### Introduction
 
 If we want to say that \\(x\\) is a real number, the easiest way to do that is in the language of sets. If we define some structure that contains all real numbers, and say that \\(x\\) is in that structure, then that is the same as saying \\(x\\) is a real number. This is where set theory comes into play. We therefore define a <i>set</i> as a collection of objects. If this definition seems unsatisfying to you, then you are not alone; so called <i>axiomatic set theory</i> is an entire field of study in which this question is explored in detail. However, we do not concern ourselves with such fundamental mathematics in this course, and this will be our working definition.
 
@@ -48,7 +48,6 @@ There are certain subsets of the real number line which we will use quite freque
 Given two sets, it is possible to combine them in certain ways to make new sets. 
 
 ### Union
-
 
 Suppose we have two sets \\(A\\) and \\(B\\). The *union* of \\(A\\) and \\(B\\) is denoted by \\(A\cup B\\), and it consists of all elements which are in \\(A\\), in \\(B\\), or in both \\(A\\) and \\(B\\). We can represent this schematically with a Venn diagram, as shown
 

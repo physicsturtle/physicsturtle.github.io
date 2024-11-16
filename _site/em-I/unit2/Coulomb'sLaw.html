@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Coulomb&#39;s Law</title>
-  <meta name="description" content="Electrostatics is the study of electric charges at rest (hence ``statics”). At the centre of this is Coulomb’s law. Coulomb’s law is the statement that the f...">
+  <meta name="description" content="All particles have certain intrinsic properties. The most commonly known property of a particle (or collection of particles) is the mass. As we have studied ...">
     
 <script type="text/javascript" async
   src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
@@ -43,7 +43,7 @@
     }
   };
 </script>
-    
+
 
 
 <div style="display:none">
@@ -65,6 +65,7 @@
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}} 
+\newcommand{\TT}{\mathbb{T}} 
 %\newcommand{\H}{\mathbb{H}}
 
 %Useful symbols for differential geometry
@@ -79,6 +80,7 @@
 \newcommand{\A}{\textbf{A}}
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\J}{\textbf{J}}
+\newcommand{\R}{\bm{R}}
 
 %Useful symbols for vector notation
 \newcommand{\x}{\boldsymbol{x}}
@@ -160,6 +162,7 @@
 \newcommand{\Psihat}{\hat{\Psi}}
 \newcommand{\phihat}{\hat{\phi}}
 \newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\Thetahat}{\hat{\Theta}}
 \newcommand{\chihat}{\hat{\chi}}
 \newcommand{\Phihat}{\hat{\Phi}}
 \newcommand{\Omegahat}{\hat{\Omega}}
@@ -176,8 +179,13 @@
 \newcommand{\id}{\text{id}}
 
 
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\atan}{atan}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\preim}{preim}
+\DeclareMathOperator{\proj}{proj}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\ver}{ver}
@@ -200,9 +208,17 @@
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\erfc}{erfc}
 \DeclareMathOperator{\Log}{Log}
-\DeclareMathOperator{\arctanh}{arctanh}
-\DeclareMathOperator{\arcsinh}{arcsinh}
-\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\artanh}{artanh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\arcoth}{arcoth}
+\DeclareMathOperator{\arcsch}{arcsch}
+\DeclareMathOperator{\arsech}{arsech}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
 \DeclareMathOperator{\Alt}{Alt}
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Aut}{Aut}
@@ -216,6 +232,7 @@
 \DeclareMathOperator{\Vir}{Vir}
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\Li}{Li}
 \DeclareMathOperator{\vecspan}{span}
 \DeclareMathOperator{\dist}{dist}
 \DeclareMathOperator{\dom}{dom}
@@ -224,6 +241,7 @@
 
 \DeclareMathOperator{\Ai}{Ai}
 \DeclareMathOperator{\Bi}{Bi}
+
 
 \let\Re\relax
 \DeclareMathOperator{\Re}{Re}
@@ -238,7 +256,8 @@
 
 <div style="display:none">
     \(\require{cancel}\)
-    \(\require{physics}\)
+    \(\require{simpler-wick}\)
+    \(\require{braket}\)
 </div>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -324,7 +343,9 @@
   </header>
   
   <div class="post-content">
-    <p>Electrostatics is the study of electric charges at rest (hence ``statics”). At the centre of this is <i>Coulomb’s law</i>. Coulomb’s law is the statement that the force of \(q_a\) on \(q_b\) is given by</p>
+    <p>All particles have certain intrinsic properties. The most commonly known property of a particle (or collection of particles) is the mass. As we have studied in classical mechanics, a system of masses interacts through the gravitational force, as Newton studied back in 1687 in his <i>Principia Mathematica</i>. Another property of all matter is the <i>electric charge</i>. Just as the mass of an object is intimately familiar (we all have to lift objects every day!), so is electric charge. When shuffling across a fluffy carpet and then touching a metal door handle, one experiences an electric shock, as <i>electric charge</i> is transferred between your hand and the door handle. In contrast to mass, which is always positive, electric charge can either be positive or negative. For example, when you put a battery into a remote control, the battery has a positive and negative side. Positive charge comes out of the \(+\) side, and goes in to the negative side. The battery must be plugged in the right way, otherwise it does not work!</p>
+
+<p>To get an understanding of these electric charges, we first need to study how they interact with each other. In the same way that Newton’s law of gravitation tells us how strongly two masses attract one another, there is an analogous law for electric charges, known as <i>Coulomb’s law</i>. Coulomb’s law is the statement that the force of \(q_a\) on \(q_b\) is given by</p>
 
 \[\begin{equation}
 \mathbf{F}_{ab} = \frac{q_aq_b}{4\pi\epsilon_0 r^2}\hat{r}_{ab},
@@ -335,6 +356,14 @@
 <figure class="center">
 <p><img src="figures/coulomb_law.pdf" alt="Function" class="center" style="width:192.252px;height:33.886px;" /> </p><figcaption class="center">Schematic of Coulomb's law for the case where \(q_a\) and \(q_b\) are like charges. Because the two charges are like, they repel one another.</figcaption>
 </figure>
+
+<p>From Coulomb’s law, we observe that:</p>
+
+<ul>
+<li> If \(q_a\) and \(q_b\) are both positive, or both negative, the force is <i>repulsive</i>
+</li>
+<li> If \(q_a\) and \(q_b\) are opposite in sign, then the force is <i>attractive</i>
+</li></ul>
 
 <p>Surrounding a point charge is the <i>electric field</i>, and the electric field due to an isolated charge \(Q\) is given by</p>
 
@@ -412,31 +441,6 @@ $$\begin{equation}
 
 </div>
 
-<p>What we have said about the superposition of electric fields due to a number of charges also applies for continuous charge distributions. For a continuous distribution,</p>
-
-\[\begin{equation}
-\mathbf{E} = \int_{V'}\frac{\rho(\x')(\x-\x')}{\|\x-\x'\|^3}\d^3\x'
-\end{equation}\]
-
-<p>where \(\rho\) is the volume charge density and \(V’\) is the volume where the charge resides. There are analogous expressions for surface and line charge densities:</p>
-
-\[\begin{align}
-\mathbf{E} ={}&amp; \frac{1}{4\pi\epsilon_0}\int_{A'} \frac{\sigma(\x')(\x-\x')}{\|\x-\x'\|^3} \d^2\x' \\
-\mathbf{E} ={}&amp; \frac{1}{4\pi\epsilon_0}\int_{L'} \frac{\lambda(\x')(\x-\x')}{\|\x-\x'\|^3}\d\ell'.
-\end{align}\]
-
-<p>These expressions have been written somewhat compactly. For clarity, if we expand out e.g. the volume formula, we get</p>
-
-\[\begin{equation}
-\mathbf{E}(\x) = \frac{1}{4\pi\epsilon_0}\int\frac{(x-',y-y',z-z')\rho(\x')}{[(x-x')^2+(y-y')^2+(z-z')^2]^{3/2}}\d x' \d y' \d z'.
-\end{equation}\]
-
-<div class="example">
-<b>Example:</b>
-Consider an infinite line of charge, with linear charge density \(\lambda\). Compute the electric field at all points in space. 
-
-</div>
-
 
   </div>
 
@@ -485,7 +489,7 @@ Consider an infinite line of charge, with linear charge density \(\lambda\). Com
            
            
            <li>
-               This site updated 2024-07-19 12:13
+               This site updated 2024-11-16 19:53
            </li>
         </ul>
       </div>

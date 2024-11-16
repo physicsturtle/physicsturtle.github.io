@@ -20,7 +20,7 @@ $$\bra{b}\Hhat[\bhat^\dagger,\bhat]\ket{b'} = H[b^{*},b'].$$
 
 where \\(b\\) represents all variables at each site of the lattice and for each spin. We can actually write this multivariable coherent state as 
 
-$$\ket{b} = e^{-\sum_{i\alpha} \|b_{i\alpha}\|^2} e^{\sum_{i\alpha} b_{i\alpha} \bhat^\dagger_{i\alpha}}\ket{0}$$
+$$\ket{b} = e^{-\sum_{i\alpha} |b_{i\alpha}|^2} e^{\sum_{i\alpha} b_{i\alpha} \bhat^\dagger_{i\alpha}}\ket{0}$$
 
 Then, we see that 
 
@@ -33,7 +33,7 @@ where \\(\Hhat\\) includes the subtraction of \\(\mu\Nhat\\) in it already. Thus
 
 $$\mathcal{Z} = \int \bra{\{b_{0}\}} e^{-\beta \Hhat} \ket{\{b_{0}\}} \frac{\D b^{*}_{0} \D b_{0}}{\pi}$$ 
 
-where \\(\ket{\{b_0\}}\\) runs over all sites in the lattice, and \\(\D b_0\\) also runs over all sites in the lattice. Next, we perform a Trotter decomposition by writing
+where \\(\ket{\{b\_0\}}\\) runs over all sites in the lattice, and \\(\D b\_0\\) also runs over all sites in the lattice. Next, we perform a Trotter decomposition by writing
 
 $$e^{-\beta \Hhat} = \left(e^{-\epsilon\Hhat}\right)^N$$
 
@@ -49,7 +49,7 @@ $$\begin{align}
 ={}& \int \left[\prod_{n=1}^{N} \bra{\{b_n\}} e^{-\epsilon\Hhat} \ket{\{b_{n-1}\}}\right] \frac{\D b^{*}_{0} \D b_{0}\D b^{*}_1 \D b_1 \cdots \D b^{*}_{N-1} \D b_{N-1}}{\pi^N} \\
 \end{align}$$
 
-where we set \\(b_0 = b_N\\). Let us consider one of the terms in this product. Namely, 
+where we set \\(b\_0 = b\_N\\). Let us consider one of the terms in this product. Namely, 
 
 $$\bra{\{b_i\}} e^{-\epsilon\Hhat} \ket{\{b_{i-1}\}}$$
 
@@ -59,24 +59,24 @@ $$\begin{align}
 \bra{\{b_n\}} e^{-\epsilon\Hhat} \ket{\{b_{n-1}\}} \approx & \bra{\{b_n\}} (1 - \epsilon\Hhat[\bhat^\dagger,\bhat]) \ket{\{b_{n-1}\}} + O(\epsilon^2) \\
 ={}&\bra{\{b_n\}} (1 - \epsilon H[b^{*}_n ,b_{n-1}]) \ket{\{b_{n-1}\}} + O(\epsilon^2) \\
 ={}&\bra{\{b_n\}}\ket{\{b_{n-1}\}}(1 - \epsilon H[b^{*}_n ,b_{n-1}])  + O(\epsilon^2) \\
-\approx & \exp\left(-\frac{1}{2}\sum_i \|b_{in}\|^2 - \frac{1}{2}\sum_i \|b_{i,n-1}\|^2 + \sum_i b_{in}^{*} b_{i,n-1}\right) e^{-\epsilon H[b_n^{*}, b_{n-1}]} + O(\epsilon^2)
+\approx & \exp\left(-\frac{1}{2}\sum_i |b_{in}|^2 - \frac{1}{2}\sum_i |b_{i,n-1}|^2 + \sum_i b_{in}^{*} b_{i,n-1}\right) e^{-\epsilon H[b_n^{*}, b_{n-1}]} + O(\epsilon^2)
 \end{align}$$
 
 Now, if we plug this into the path integral, we find 
 
 $$\begin{align}
-\mathcal{Z} ={}& \int \left[\prod_{n=1}^N \exp\left(-\frac{1}{2}\sum_i \|b_{in}\|^2 - \frac{1}{2}\sum_i \|b_{i,n-1}\|^2 + \sum_i b_{in}^{*} b_{i,n-1}\right) e^{-\epsilon H[b_n^{*}, b_{n-1}]}\right] \frac{\D b^{*}_{0} \D b_{0}\D b^{*}_1 \D b_1 \cdots \D b^{*}_{N-1} \D b_{N-1}}{\pi^N} \\
-={}& \int \left[\prod_{n=1}^N \exp\left(-\sum_i \|b_{i,n}\|^2 + \sum_i b_{in}^{*} b_{i,n-1}\right) e^{-\epsilon H[b_n^{*}, b_{n-1}]}\right] \frac{\D b^{*}_{0} \D b_{0}\D b^{*}_1 \D b_1 \cdots \D b^{*}_{N-1} \D b_{N-1}}{\pi^N} \\
+\mathcal{Z} ={}& \int \left[\prod_{n=1}^N \exp\left(-\frac{1}{2}\sum_i |b_{in}|^2 - \frac{1}{2}\sum_i |b_{i,n-1}|^2 + \sum_i b_{in}^{*} b_{i,n-1}\right) e^{-\epsilon H[b_n^{*}, b_{n-1}]}\right] \frac{\D b^{*}_{0} \D b_{0}\D b^{*}_1 \D b_1 \cdots \D b^{*}_{N-1} \D b_{N-1}}{\pi^N} \\
+={}& \int \left[\prod_{n=1}^N \exp\left(-\sum_i |b_{i,n}|^2 + \sum_i b_{in}^{*} b_{i,n-1}\right) e^{-\epsilon H[b_n^{*}, b_{n-1}]}\right] \frac{\D b^{*}_{0} \D b_{0}\D b^{*}_1 \D b_1 \cdots \D b^{*}_{N-1} \D b_{N-1}}{\pi^N} \\
 ={}& \int \left[\prod_{n=1}^N \exp\left(-\sum_i b_{i,n}^{*}(b_{i,n} - b_{i,n-1})\right) e^{-\epsilon H[b_n^{*}, b_{n-1}]}\right] \frac{\D b^{*}_{0} \D b_{0}\D b^{*}_1 \D b_1 \cdots \D b^{*}_{N-1} \D b_{N-1}}{\pi^N}
 \end{align}$$
 
-Now, we reinterpret the \\(n\\) index as an imaginary time. We call \\(\tau_n = \epsilon n \beta\\). Then, we write this as 
+Now, we reinterpret the \\(n\\) index as an imaginary time. We call \\(\tau\_n = \epsilon n \beta\\). Then, we write this as 
 
 $$\begin{align}
 \mathcal{Z} ={}& \int \exp\left(-\sum_{n=1}^N \left[\sum_i  b_{i,n}^{*}\left(\frac{b_{i,n} - b_{i,n-1}}{\epsilon}\right) + H[b_n^{*}, b_{n-1}] \right]\epsilon \right) \frac{\D b^{*}_{0} \D b_{0}\D b^{*}_1 \D b_1 \cdots \D b^{*}_{N-1} \D b_{N-1}}{\pi^N}
 \end{align}$$
 
-As we take the limit \\(\epsilon \to 0\\), the sum over \\(n\\) becomes an integral, and \\(b_{in}\\) becomes a derivative in imaginary time. Furthermore, the difference between the two indices \\(n\\) and \\(n-1\\) in \\(H[b_n^{*}, b_{n-1}]\\) become irrelevant since they are spaced closer and closer together. Thus we can write 
+As we take the limit \\(\epsilon \to 0\\), the sum over \\(n\\) becomes an integral, and \\(b\_{in}\\) becomes a derivative in imaginary time. Furthermore, the difference between the two indices \\(n\\) and \\(n-1\\) in \\(H[b\_n^{*}, b\_{n-1}]\\) become irrelevant since they are spaced closer and closer together. Thus we can write 
 
 $$\begin{align}
 \mathcal{Z} ={}& \int \exp\left(-\int_0^\beta \left[\sum_i  b^{*}_{i\tau} \partial_\tau b_{i\tau} + H[b^{*}, b] \right]\d\tau \right) \D b^{*} \D b

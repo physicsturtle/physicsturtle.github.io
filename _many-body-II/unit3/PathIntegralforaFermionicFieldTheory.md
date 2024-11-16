@@ -20,13 +20,13 @@ $$\begin{equation}
 \mathcal{Z} = \int\bra{\{-\bar{c}\}}e^{-\beta \Hhat}\ket{\{c\}} e^{-\bar{c}c}\d\bar{c}\d c
 \end{equation}$$
 
-where we are using the short notation \\(\ket{\{c\}} = \ket{\{c_{i\sigma}\}}\\), \\(\bra{\{-\bar{\psi}\}} = \bra{\{-\bar{c}_{i\sigma}\}}\\). This enumerates all states in our system. We also write 
+where we are using the short notation \\(\ket{\{c\}} = \ket{\{c\_{i\sigma}\}}\\), \\(\bra{\{-\bar{\psi}\}} = \bra{\{-\bar{c}\_{i\sigma}\}}\\). This enumerates all states in our system. We also write 
 
 $$\begin{equation}
 \bar{c}c = \sum_{i\sigma} \bar{c}_{i\sigma} c_{i\sigma},
 \end{equation}$$
 
-and the differential \\(\D\bar{c}_0 = \prod_{i\sigma} \d\bar{c}_{i0\sigma}\\), \\(\D c_0 = \prod_{i\sigma} \d c_{i0\sigma}\\). Before moving on to rewriting the partition function as a path integral, relabel the \\(c\\) and \\(\bar{c}\\) to have a subscript 0:
+and the differential \\(\D\bar{c}\_0 = \prod\_{i\sigma} \d\bar{c}\_{i0\sigma}\\), \\(\D c\_0 = \prod\_{i\sigma} \d c\_{i0\sigma}\\). Before moving on to rewriting the partition function as a path integral, relabel the \\(c\\) and \\(\bar{c}\\) to have a subscript 0:
 
 $$\begin{equation}
 \mathcal{Z} = \int\bra{\{-\bar{c}_0\}}e^{-\beta \Hhat }\ket{\{c_0\}} e^{-\bar{c}_0 c_0} \D\bar{c}_0\D c_0
@@ -51,9 +51,9 @@ $$\begin{equation}
 \1 = \int\ket{\{c\}}\bra{\{\bar{c}\}}\exp\left(-\sum_{i\sigma} \bar{c}_{i\sigma}c_{i\sigma}\right)\D\bar{c}\D c,
 \end{equation}$$
 
-whereby \\(\{c\}\\) contains the states for all sites, \\(\D c = \prod_{i\sigma} \d c_{i\sigma}\\), and \\(\D\bar{c} = \prod_{i\sigma} \d \bar{c}_{i\sigma}\\). 
+whereby \\(\{c\}\\) contains the states for all sites, \\(\D c = \prod\_{i\sigma} \d c\_{i\sigma}\\), and \\(\D\bar{c} = \prod\_{i\sigma} \d \bar{c}\_{i\sigma}\\). 
 
-Doing this, we find (setting \\(c_N = -c_0\\))
+Doing this, we find (setting \\(c\_N = -c\_0\\))
 
 $$\begin{align}
 \mathcal{Z} ={}& \int \bra{\{c_{N}\}} e^{-\epsilon\Hhat}\ket{\{c_{N-1}\}} \bra{\{c_{N-1}\}} \cdots \ket{\{c_1\}} \bra{\{c_1\}} e^{-\epsilon\Hhat} \ket{\{c_{0}\}} e^{-\bar{c}_0c_0} \cdots e^{- \bar{c}_{N-1}c_{N-1}} \prod_{n=1}^N \D \bar{c}_{n} \D c_{n} \\
@@ -61,7 +61,7 @@ $$\begin{align}
 ={}& \int \left[\prod_{n=1}^{N} \bra{\{c_n\}} e^{-\epsilon\Hhat} \ket{\{c_{n-1}\}}\right] e^{-\bar{c}_0c_0} \cdots e^{-\bar{c}_{N-1}c_{N-1}}\prod_{n=1}^N \D \bar{c}_{n} \D c_{n}
 \end{align}$$
 
-We are now tasked with computing the matrix element \\(\bra{\{c_n\}} e^{-\epsilon\Hhat} \ket{\{c_{n-1}\}}\\). To compute this, let us employ a Taylor expansion, which is valid because \\(N\\) is large and thus \\(\epsilon = \beta/N\\) is small. Doing this, we find 
+We are now tasked with computing the matrix element \\(\bra{\{c\_n\}} e^{-\epsilon\Hhat} \ket{\{c\_{n-1}\}}\\). To compute this, let us employ a Taylor expansion, which is valid because \\(N\\) is large and thus \\(\epsilon = \beta/N\\) is small. Doing this, we find 
 
 $$\begin{align}
 \bra{\{c_n\}} e^{-\epsilon\Hhat} \ket{\{c_{n-1}\}}\sim & \bra{\{c_n\}} (1 - \epsilon\Hhat[\chat^\dagger,\chat]) \ket{\{c_{n-1}\}} \\
@@ -83,20 +83,20 @@ $$\begin{align}
 ={}& \int \exp\left(-\left[\sum_{n=1}^N \frac{\bar{c}_n(c_n - c_{n-1})}{\epsilon} + H[\bar{c}_n,c_{n-1}]\right]\epsilon\right)\prod_{n=1}^N \D\bar{c}_n \D c_n
 \end{align}$$
 
-Let's now write \\(c_n = c(\tau_n)\\), where \\(\tau_n = n\epsilon\\). This means that
+Let's now write \\(c\_n = c(\tau\_n)\\), where \\(\tau\_n = n\epsilon\\). This means that
 
 $$\begin{equation}
 \frac{c_{n} - c_{n-1}}{\epsilon} \sim \frac{\partial}{\partial\tau}c(\tau_n). 
  \end{equation}$$
 
-We recognize this as a Riemann sum! We therefore change the \\(n\\) index to \\(\tau_n = n\epsilon = \beta n/N\\) and write this as an integral from \\(\tau = 0\\) to \\(\beta\\). This gives us 
+We recognize this as a Riemann sum! We therefore change the \\(n\\) index to \\(\tau\_n = n\epsilon = \beta n/N\\) and write this as an integral from \\(\tau = 0\\) to \\(\beta\\). This gives us 
 
 $$\begin{align}
 \mathcal{Z} ={}& \int \exp\left(-\int_0^\beta \left(\bar{c}_\tau \partial_\tau c_\tau + H[\bar{c},c]\right)\d\tau \right) \D c \D c \\
 ={}& \int \exp\left(-\int_0^\beta \left(\sum_{i\sigma} \bar{c}_{i\tau\sigma} \partial_\tau c_{i\tau\sigma} + H[\bar{c},c]\right)\d\tau \right) \D c \D c
 \end{align}$$
 
-Where we restored the longhand notation for \\(\bar{c}c\\) as the sum over all sites and spins, as well as define \\(\D c = \lim_{N\to\infty}\prod_{n=1}^N \D c_n = \prod_{\tau\in[0,\beta]} \D \bar{c}(\tau)\D c(\tau)\\). This is not a rigorous notation, but it suffices. We then define the action
+Where we restored the longhand notation for \\(\bar{c}c\\) as the sum over all sites and spins, as well as define \\(\D c = \lim\_{N\to\infty}\prod\_{n=1}^N \D c\_n = \prod\_{\tau\in[0,\beta]} \D \bar{c}(\tau)\D c(\tau)\\). This is not a rigorous notation, but it suffices. We then define the action
 
 $$\begin{equation}
 S = \int_0^\beta \left(\sum_{i\sigma} \bar{c}_{i\tau\sigma}\partial_\tau c_{i\tau\sigma} + H[\bar{c},c]\right)\d\tau

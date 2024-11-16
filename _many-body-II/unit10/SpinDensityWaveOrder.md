@@ -22,7 +22,7 @@ $$\begin{equation}
 S = \int_0^\beta\left[ \sum_{i,\sigma} \bar{c}_{i\tau\sigma}\partial_\tau c_{i\tau\sigma} -t\sum_{\langle i,j\rangle,\sigma}(\bar{c}_{i\tau\sigma}c_{j\tau\sigma} + \bar{c}_{j\tau\sigma}c_{i\tau\sigma}) + U\sum_i \bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow} - \mu\sum_{i\sigma}\bar{c}_{i\tau\sigma}c_{i\tau\sigma}\right] \d\tau
 \end{equation}$$
 
-We split up this action into two parts: a non-interacting part \\(S_0\\) and an interacting part \\(S_{\text{int}}\\):
+We split up this action into two parts: a non-interacting part \\(S\_0\\) and an interacting part \\(S\_{\text{int}}\\):
 
 $$\begin{align}
 S_0 ={}& \int_0^\beta\left[ \sum_{i,\sigma} \bar{c}_{i\tau\sigma}\partial_\tau c_{i\tau\sigma} -t\sum_{\langle i,j\rangle,\sigma}(\bar{c}_{i\tau\sigma}c_{j\tau\sigma} + \bar{c}_{j\tau\sigma}c_{i\tau\sigma}) - \mu\sum_{i\sigma}\bar{c}_{i\tau\sigma}c_{i\tau\sigma}\right] \d\tau \\
@@ -43,7 +43,7 @@ $$\begin{equation}
 
 We will call the Hubbard-Stratonovich field \\(\mathbf{m}\\) to signify an (internal) magnetic field. If we then have 
 
-$$\int e^{-a\|\mathbf{m}\|^2 - b\mathbf{m}\cdot \mathbf{S}}\d\mathbf{m} \propto e^{b^2\|\mathbf{S}\|^2/4a} = e^{-U\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow}}$$
+$$\int e^{-a|\mathbf{m}|^2 + b\mathbf{m}\cdot \mathbf{S}}\d\mathbf{m} \propto e^{b^2|\mathbf{S}|^2/4a} = e^{-U\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow}}$$
 
 One can verify that 
 
@@ -67,21 +67,21 @@ $$\begin{align}
 which tells us that 
 
 $$\begin{equation}
-\|\mathbf{S}_{i\tau}\|^2 = (S_{i\tau}^x)^2 + (S_{i\tau}^y)^2 + (S_{i\tau}^z)^2 = -6\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow}.
+|\mathbf{S}_{i\tau}|^2 = (S_{i\tau}^x)^2 + (S_{i\tau}^y)^2 + (S_{i\tau}^z)^2 = -6\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow}.
 \end{equation}$$
 
 Thus, setting 
 
 $$\begin{align}
--U\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow} ={}& \frac{b^2\|\mathbf{S}\|^2}{4a} \\
+-U\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow} ={}& \frac{b^2|\mathbf{S}|^2}{4a} \\
 ={}& \frac{-6b^2\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow}c_{i\tau\downarrow}c_{i\tau\uparrow}}{4a}
 \end{align}$$
 
 which means that \\(U = 3b^2/2a\\). We let \\(b=1\\) and \\(a = 3/2U\\). Thus, the interaction term of the effective action becomes 
 
-$$S_{\text{int}} = \int_0^\beta \sum_i\left[\frac{3}{2U}\|\mathbf{m}_{i\tau}\|^2 + \sum_{\alpha\beta}\mathbf{m}_{i\tau} \cdot \bar{c}_{i\tau\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{i\tau\beta}\right]\d\tau$$
+$$S_{\text{int}} = \int_0^\beta \sum_i\left[\frac{3}{2U}|\mathbf{m}_{i\tau}|^2 - \sum_{\alpha\beta}\mathbf{m}_{i\tau} \cdot \bar{c}_{i\tau\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{i\tau\beta}\right]\d\tau$$
 
-and we need to remember to integrate over \\(\mathbf{h}\\). Next, we will Fourier transform all of the fields in spacetime. We will apply the Fourier conventions 
+and we need to remember to integrate over \\(\mathbf{m}\\). Next, we will Fourier transform all of the fields in spacetime. We will apply the Fourier conventions 
 
 $$\begin{equation}
 c_{i\tau\sigma} = \frac{1}{\sqrt{N\beta}}\sum_k e^{-ik_0\tau + i\mathbf{R}_i\cdot\k} c_{k\sigma},\quad \bar{c}_{i\tau\sigma} = \frac{1}{\sqrt{N\beta}}\sum_k e^{ik_0\tau - i\mathbf{R}_i\cdot\k} \bar{c}_{k\sigma}, \quad \mathbf{m}_{i\tau} = \frac{1}{\beta N}\sum_k e^{-ik_0\tau + i\mathbf{R}_i\cdot\k}\mathbf{m}_k 
@@ -89,61 +89,63 @@ c_{i\tau\sigma} = \frac{1}{\sqrt{N\beta}}\sum_k e^{-ik_0\tau + i\mathbf{R}_i\cdo
 
 which allows us to rewrite the two terms of the action as 
 
-$$S_0 = \sum_{k\sigma}\bar{c}_{k\sigma}(-ik_0+\xi_{\k})c_{k\sigma},\quad S_{\text{int}} = \frac{3}{2U\beta N}\sum_k <b>m</b>_k \cdot<b>m</b>_{-k} + \frac{1}{\beta N}\sum_{kp\alpha\beta} <b>m</b>_k\cdot \bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}.$$
+$$\begin{equation}
+S_0 = \sum_{k\sigma}\bar{c}_{k\sigma}(-ik_0+\xi_{\k})c_{k\sigma},\quad S_{\text{int}} = \frac{3}{2U\beta N}\sum_k \mathbf{m}_k \cdot\mathbf{m}_{-k} - \frac{1}{\beta N}\sum_{kp\alpha\beta} \mathbf{m}_k\cdot \bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}.
+\end{equation}$$
 
 If we plug these expressions back in to the path integral representation of the partition function, we find that 
 
 $$\begin{equation}
-Z = \int e^{-S_0}\exp\left(-\frac{3}{2U\beta N}\sum_k<b>m</b>_k\cdot<b>m</b>_{-k}\right)\exp\left(-\frac{1}{\beta N}\sum_{kp\alpha\beta}<b>m</b>_{k}\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)\D\bar{c}\D c\D<b>m</b>
+Z = \int e^{-S_0}\exp\left(-\frac{3}{2U\beta N}\sum_k\mathbf{m}_k\cdot\mathbf{m}_{-k}\right)\exp\left(\frac{1}{\beta N}\sum_{kp\alpha\beta}\mathbf{m}_{k}\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)\D\bar{c}\D c\D\mathbf{m}
 \end{equation}$$
 
 We now regroup terms in this action to find that 
 
 $$\begin{equation}
-Z = \int \exp\left(-\frac{3}{2U\beta N}\sum_k<b>m</b>_k\cdot<b>m</b>_{-k}\right)\left[\int e^{-S_0}\exp\left(-\frac{1}{\beta N}\sum_{kp\alpha\beta}<b>m</b>\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)\D\bar{c}\D c \right]\D<b>m</b>
+Z = \int \exp\left(-\frac{3}{2U\beta N}\sum_k\mathbf{m}_k\cdot\mathbf{m}_{-k}\right)\left[\int e^{-S_0}\exp\left(\frac{1}{\beta N}\sum_{kp\alpha\beta}\mathbf{m}_{i\tau}\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)\D\bar{c}\D c \right]\D\mathbf{m}
 \end{equation}$$
 
 and then rewrite the bracketed term as 
 
 $$\begin{equation}
-Z = \int \exp\left(-\frac{3}{2U\beta N}\sum_k<b>m</b>_k\cdot<b>m</b>_{-k}\right)Z_0 \left\langle \exp\left(-\frac{1}{\beta N}\sum_{kp\alpha\beta}<b>m</b>_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)\right\rangle_0 \D<b>m</b>
+Z = \int \exp\left(-\frac{3}{2U\beta N}\sum_k\mathbf{m}_k\cdot\mathbf{m}_{-k}\right)Z_0 \left\langle \exp\left(\frac{1}{\beta N}\sum_{kp\alpha\beta}\mathbf{m}_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)\right\rangle_0 \D\mathbf{m}
 \end{equation}$$
 
 and we now want to write 
 
 $$\begin{equation}
-Z = Z_0 \int e^{-S_{\text{eff}}[<b>m</b>]}\D<b>m</b>.
+Z = Z_0 \int e^{-S_{\text{eff}}[\mathbf{m}]}\D\mathbf{m}.
 \end{equation}$$
 
 where the effective action is given by 
 
 $$\begin{equation}
-S_{\text{eff}}[\mathbf{m}] = \frac{3}{2U\beta N}\sum_k<b>m</b>_k \cdot<b>m</b>_{-k} - \log\left\langle\exp\left(-\frac{1}{\beta N}\sum_{kp\alpha\beta}<b>m</b>_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)\right\rangle_0
+S_{\text{eff}}[\mathbf{m}] = \frac{3}{2U\beta N}\sum_k\mathbf{m}_k \cdot\mathbf{m}_{-k} - \log\left\langle\exp\left(\frac{1}{\beta N}\sum_{kp\alpha\beta}\mathbf{m}_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)\right\rangle_0
 \end{equation}$$
 
-We will evaluate \\(S_{\text{eff}}\\) perturbatively in powers of \\(<b>m</b>\\). To do this, we apply the cumulant expansion. We define 
+We will evaluate \\(S\_{\text{eff}}\\) perturbatively in powers of \\(\mathbf{m}\\). To do this, we apply the cumulant expansion. We define 
 
 $$\begin{equation}
-\Delta S_{\text{eff}} = -\log\left\langle\exp\left(-\frac{1}{\beta N}\sum_{k,p}<b>m</b>_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta} c_{p\beta}\right)\right\rangle_0
+\Delta S_{\text{eff}} = -\log\left\langle\exp\left(\frac{1}{\beta N}\sum_{k,p}\mathbf{m}_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta} c_{p\beta}\right)\right\rangle_0
 \end{equation}$$
 
-and the resulting cumulant expansion gives terms at each power of \\(<b>m</b>\\). The first order term is given by
+and the resulting cumulant expansion gives terms at each power of \\(\mathbf{m}\\). The first order term is given by
 
 $$\begin{align}
-\Delta S_{\text{eff}}^{(1)} ={}& \frac{1}{\beta N}\sum_{kp\alpha\beta}<b>m</b>_k \cdot \langle\bar{c}_{k+p,\alpha} \boldsymbol{\sigma}_{\alpha\beta} c_{p\beta}\rangle_0 
+\Delta S_{\text{eff}}^{(1)} ={}& -\frac{1}{\beta N}\sum_{kp\alpha\beta}\mathbf{m}_k \cdot \langle\bar{c}_{k+p,\alpha} \boldsymbol{\sigma}_{\alpha\beta} c_{p\beta}\rangle_0 
 \end{align}$$
 
-Since we have that \\(\langle \bar{c}_{k+p,\alpha} c_{p\beta}\rangle_0 \propto \delta_{\alpha\beta}\\), the sums over \\(\alpha,\beta\\) will give zero because the Pauli matrices are traceless. Thus \\(\Delta S^{(1)}_{\text{eff}} = 0\\). The second order contribution is then given by 
+Since we have that \\(\langle \bar{c}\_{k+p,\alpha} c\_{p\beta}\rangle\_0 \propto \delta\_{\alpha\beta}\\), the sums over \\(\alpha,\beta\\) will give zero because the Pauli matrices are traceless. Thus \\(\Delta S^{(1)}\_{\text{eff}} = 0\\). The second order contribution is then given by 
 
 $$\begin{align}
-\Delta S_{\text{eff}}^{(2)} ={}& -\frac{1}{2}\left[\left\langle\left(-\frac{1}{\beta N}\sum_{kp\alpha\beta}<b>m</b>_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)^2\right\rangle_0 - \left\langle-\frac{1}{\beta N}\sum_{kp\alpha\beta}<b>m</b>_k\cdot\bar{c}_{k+p,\alpha}\sigma_{\alpha\beta}c_{p\beta}\right\rangle_0^2\right]
+\Delta S_{\text{eff}}^{(2)} ={}& -\frac{1}{2}\left[\left\langle\left(\frac{1}{\beta N}\sum_{kp\alpha\beta}\mathbf{m}_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)^2\right\rangle_0 - \left\langle\frac{1}{\beta N}\sum_{kp\alpha\beta}\mathbf{m}_k\cdot\bar{c}_{k+p,\alpha}\sigma_{\alpha\beta}c_{p\beta}\right\rangle_0^2\right]
 \end{align}$$
 
 We note that the second term is simply 0, because it is just the first order contribution to the effective action (which was 0). Thus we will focus on the first of the two terms. We will evaluate it in detail. 
 
 $$\begin{align}
-\Delta S_{\text{eff}}^{(2)} ={}& -\frac{1}{2}\left\langle\left(-\frac{1}{\beta N}\sum_{kp\alpha\beta}<b>m</b>_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)^2\right\rangle_0 \\
-={}& -\frac{1}{2(\beta N)^2}\left\langle\left(\sum_{k,p}m^\ell_k \bar{c}_{k+p,\alpha}\sigma^\ell_{\alpha\beta}c_{p\beta}\right)^2\right\rangle_0 \\
+\Delta S_{\text{eff}}^{(2)} ={}& -\frac{1}{2}\left\langle\left(\frac{1}{\beta N}\sum_{kp\alpha\beta}\mathbf{m}_k\cdot\bar{c}_{k+p,\alpha}\boldsymbol{\sigma}_{\alpha\beta}c_{p\beta}\right)^2\right\rangle_0 \\
+={}& -\frac{1}{2(\beta N)^2}\left\langle\left(\sum_{kp\alpha\beta}m^\ell_k \bar{c}_{k+p,\alpha}\sigma^\ell_{\alpha\beta}c_{p\beta}\right)^2\right\rangle_0 \\
 ={}& -\frac{1}{2(\beta N)^2}\sum_{\substack{kp\alpha\beta \\ k'p'\alpha'\beta'}} m^\ell_k m^{\ell'}_{k'}\sigma^\ell_{\alpha\beta} \sigma^{\ell'}_{\alpha'\beta'}\langle\bar{c}_{k+p,\alpha}c_{p\beta}\bar{c}_{k'+p',\alpha'}c_{p'\beta'}\rangle_0
 \end{align}$$
 
@@ -155,11 +157,11 @@ $$\begin{align}
 ={}& \mathcal{G}_0(p)\delta_{k,0}\delta_{\alpha\beta}\mathcal{G}_0(p')\delta_{k',0}\delta_{\alpha'\beta'} - \mathcal{G}_0(p')\delta_{k+p,p'}\delta_{\alpha\beta'} \mathcal{G}_0(p)\delta_{p,k'+p'}\delta_{\alpha'\beta}
 \end{align}$$
 
-Plugging this in to our expression for \\(\Delta S^{(2)}_{\text{eff}}\\), we find that 
+Plugging this in to our expression for \\(\Delta S^{(2)}\_{\text{eff}}\\), we find that 
 
 $$\begin{align}
-\Delta S_{\text{eff}}^{(2)} ={}& -\frac{1}{2(\beta N)^2}\sum_{k,p,k',p'} h^\ell_k h^{\ell'}_{k'}\sigma^\ell_{\alpha\beta} \sigma^{\ell'}_{\alpha'\beta'}\left( \mathcal{G}_0(p)\delta_{k,0}\delta_{\alpha\beta}\mathcal{G}_0(p')\delta_{k',0}\delta_{\alpha'\beta'} - \mathcal{G}_0(p')\delta_{k+p,p'}\delta_{\alpha\beta'} \mathcal{G}_0(p)\delta_{p,k'+p'}\delta_{\alpha'\beta}\right) \\
-={}& -\frac{1}{2(\beta N)^2}\sum_{k,p,k',p'} h^\ell_k h^{\ell'}_{k'}\left( \mathcal{G}_0(p)\delta_{k,0}\mathcal{G}_0(p')\delta_{k',0}\sigma^\ell_{\alpha\alpha}\sigma^{\ell'}_{\alpha'\alpha'} - \mathcal{G}_0(p')\delta_{k+p,p'} \mathcal{G}_0(p)\delta_{p,k'+p'} \sigma^\ell_{\beta'\beta}\sigma^{\ell}_{\beta\beta'} \right)
+\Delta S_{\text{eff}}^{(2)} ={}& -\frac{1}{2(\beta N)^2}\sum_{\substack{ kp\alpha\beta \\ k'p'\alpha'\beta'}} m^\ell_k m^{\ell'}_{k'}\sigma^\ell_{\alpha\beta} \sigma^{\ell'}_{\alpha'\beta'}\left( \mathcal{G}_0(p)\delta_{k,0}\delta_{\alpha\beta}\mathcal{G}_0(p')\delta_{k',0}\delta_{\alpha'\beta'} - \mathcal{G}_0(p')\delta_{k+p,p'}\delta_{\alpha\beta'} \mathcal{G}_0(p)\delta_{p,k'+p'}\delta_{\alpha'\beta}\right) \\
+={}& -\frac{1}{2(\beta N)^2}\sum_{k,p,k',p'} m^\ell_k m^{\ell'}_{k'}\left( \mathcal{G}_0(p)\delta_{k,0}\mathcal{G}_0(p')\delta_{k',0}\sigma^\ell_{\alpha\alpha}\sigma^{\ell'}_{\alpha'\alpha'} - \mathcal{G}_0(p')\delta_{k+p,p'} \mathcal{G}_0(p)\delta_{p,k'+p'} \sigma^\ell_{\beta'\beta}\sigma^{\ell}_{\beta\beta'} \right)
 \end{align}$$
 
 We can write the remaining sums over Pauli matrices indices as traces: 
@@ -173,31 +175,45 @@ $$\begin{align}
 This gives us 
 
 $$\begin{align}
-\Delta S_{\text{eff}}^{(2)} ={}& -\frac{1}{2(\beta N)^2}\sum_{k,p,k',p'} h^\ell_k h^{\ell'}_{k'}\left( - \mathcal{G}_0(p')\delta_{k+p,p'} \mathcal{G}_0(p)\delta_{p,k'+p'} 2\delta_{\ell\ell'} \right) \\
-={}& \frac{1}{(\beta N)^2}\sum_{k,p,k',p'} h^\ell_k h^\ell_{k'}\mathcal{G}_0(p')\delta_{k+p,p'} \mathcal{G}_0(p)\delta_{p,k'+p'} \\
-={}& \frac{1}{(\beta N)^2}\sum_{k,p,k'} h^\ell_k h^\ell_{k'}\mathcal{G}_0(k+p)\mathcal{G}_0(p)\delta_{p,k'+k+p}
+\Delta S_{\text{eff}}^{(2)} ={}& -\frac{1}{2(\beta N)^2}\sum_{k,p,k',p'} m^\ell_k m^{\ell'}_{k'}\left( - \mathcal{G}_0(p')\delta_{k+p,p'} \mathcal{G}_0(p)\delta_{p,k'+p'} 2\delta_{\ell\ell'} \right) \\
+={}& \frac{1}{(\beta N)^2}\sum_{k,p,k',p'} m^\ell_k m^\ell_{k'}\mathcal{G}_0(p')\delta_{k+p,p'} \mathcal{G}_0(p)\delta_{p,k'+p'} \\
+={}& \frac{1}{(\beta N)^2}\sum_{k,p,k'} m^\ell_k m^\ell_{k'}\mathcal{G}_0(k+p)\mathcal{G}_0(p)\delta_{p,k'+k+p}
 \end{align}$$
 
-Since \\(\delta_{p,k'+k+p} = \delta_{k+k',0} = \delta_{k',-k}\\), we can evaluate another sum:
+Since \\(\delta\_{p,k'+k+p} = \delta\_{k+k',0} = \delta\_{k',-k}\\), we can evaluate another sum:
 
 $$\begin{align}
-\Delta S_{\text{eff}}^{(2)} ={}& \frac{1}{(\beta N)^2}\sum_{k,p,k'} h^\ell_k h^\ell_{k'}\mathcal{G}_0(k+p)\mathcal{G}_0(p)\delta_{k',-k} \\
-={}& \frac{1}{(\beta N)^2}\sum_{k,p} h^\ell_k h^\ell_{-k}\mathcal{G}_0(k+p)\mathcal{G}_0(p)\\
-={}& \frac{1}{\beta N}\sum_k<b>h</b>_k\cdot<b>h</b>_{-k}\left(\frac{1}{\beta N}\sum_p \mathcal{G}_0(k+p)\mathcal{G}_0(p) \right) \\
-={}& \frac{1}{\beta N}\sum_k<b>h</b>_k\cdot<b>h</b>_{-k}\left(\frac{1}{N}\sum_{\p} \frac{n_F(\xi_{\p}) - n_F(\xi_{\p+\k})}{ik_0 + \xi_{\p} - \xi_{\p+\k}}\right) 
+\Delta S_{\text{eff}}^{(2)} ={}& \frac{1}{(\beta N)^2}\sum_{k,p,k'} m^\ell_k m^\ell_{k'}\mathcal{G}_0(k+p)\mathcal{G}_0(p)\delta_{k',-k} \\
+={}& \frac{1}{(\beta N)^2}\sum_{k,p} m^\ell_k m^\ell_{-k}\mathcal{G}_0(k+p)\mathcal{G}_0(p)\\
+={}& \frac{1}{\beta N}\sum_k\mathbf{m}_k\cdot\mathbf{m}_{-k}\left(\frac{1}{\beta N}\sum_p \mathcal{G}_0(k+p)\mathcal{G}_0(p) \right) \\
+={}& \frac{1}{\beta N}\sum_k\mathbf{m}_k\cdot\mathbf{m}_{-k}\left(\frac{1}{N}\sum_{\p} \frac{n_F(\xi_{\p}) - n_F(\xi_{\p+\k})}{ik_0 + \xi_{\p} - \xi_{\p+\k}}\right) 
 \end{align}$$
 
-Now, we finally write down the whole effective action to \\(O(h^2)\\). We find that 
+Now, we finally write down the whole effective action to \\(O(m^2)\\). We find that 
 
 $$\begin{align}
-S_{\text{eff}} ={}& \frac{3}{2U\beta N} \sum_k<b>h</b>_k\cdot<b>h</b>_{-k} + \Delta S^{(2)}_{\text{eff}} \\
-={}& \frac{3}{2U\beta N} \sum_k<b>h</b>_k\cdot<b>h</b>_{-k} + \frac{1}{\beta N}\sum_k<b>h</b>_k\cdot<b>h</b>_{-k}\left(\frac{1}{N}\sum_{\p} \frac{n_F(\xi_{\p}) - n_F(\xi_{\p+\k})}{ik_0 + \xi_{\p} - \xi_{\p+\k}}\right) \\
-={}& \frac{1}{2\beta N}\sum_k<b>h</b>_k\cdot<b>h</b>_{-k}\left[\frac{3}{U} + \frac{2}{N}\sum_{\p}\frac{n_F(\xi_{\p}) - n_F(\xi_{\p+\k})}{ik_0 + \xi_{\p} - \xi_{\p+\k}}\right]
+S_{\text{eff}} ={}& \frac{3}{2U\beta N} \sum_k\mathbf{m}_k\cdot\mathbf{m}_{-k} + \Delta S^{(2)}_{\text{eff}} \\
+={}& \frac{3}{2U\beta N} \sum_k\mathbf{m}_k\cdot\mathbf{m}_{-k} + \frac{1}{\beta N}\sum_k\mathbf{m}_k\cdot\mathbf{m}_{-k}\left(\frac{1}{N}\sum_{\p} \frac{n_F(\xi_{\p}) - n_F(\xi_{\p+\k})}{ik_0 + \xi_{\p} - \xi_{\p+\k}}\right) \\
+={}& \frac{1}{2\beta N}\sum_k\mathbf{m}_k\cdot\mathbf{m}_{-k}\left[\frac{3}{U} + \frac{2}{N}\sum_{\p}\frac{n_F(\xi_{\p}) - n_F(\xi_{\p+\k})}{ik_0 + \xi_{\p} - \xi_{\p+\k}}\right]
 \end{align}$$
 
-This result for the effective action describes an effective Gaussian theory for \\(<b>h</b>\\). The theory converges if the factor is positive, whereas it diverges if the factor is negative. Thus, when the factor is zero, this signifies an instability in the theory. This will allow us to find, as a function of frequency \\(k_0\\) and wave vector \\(\k\\), the transition temperature for such an ordering by solving the equation 
+This result for the effective action describes an effective Gaussian theory for \\(\mathbf{h}\\). The theory converges if the factor is positive, whereas it diverges if the factor is negative. Thus, when the factor is zero, this signifies an instability in the theory. This will allow us to find, as a function of frequency \\(k\_0\\) and wave vector \\(\k\\), the transition temperature for such an ordering by solving the equation 
 
 $$\frac{3}{U} + \frac{2}{N}\sum_{\p}\frac{n_F(\xi_{\p}) - n_F(\xi_{\p+\k})}{ik_0 + \xi_{\p} - \xi_{\p+\k}} = 0.$$
 
 We note that temperature enters in through the Fermi-Dirac distribution.
+
+<div class="faq">
+<b>FAQ:</b>
+FAQ:
+
+Q:When we do the Hubbard-Stratonovich transformation, how do we do it only at a single site?
+
+A: you can take the product over all sites
+
+Q: When we do the HS stransformatinon, how do we do it only at a single imaginary time? Further more, what's up with the units?
+
+A: For this, you can do the following: (show calculation absorbing \(\Delta\tau\) in to the HS field)
+
+</div>
 

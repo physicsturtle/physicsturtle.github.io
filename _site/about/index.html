@@ -44,7 +44,7 @@
     }
   };
 </script>
-    
+
 
 
 <div style="display:none">
@@ -66,6 +66,7 @@
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}} 
+\newcommand{\TT}{\mathbb{T}} 
 %\newcommand{\H}{\mathbb{H}}
 
 %Useful symbols for differential geometry
@@ -80,6 +81,7 @@
 \newcommand{\A}{\textbf{A}}
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\J}{\textbf{J}}
+\newcommand{\R}{\bm{R}}
 
 %Useful symbols for vector notation
 \newcommand{\x}{\boldsymbol{x}}
@@ -161,6 +163,7 @@
 \newcommand{\Psihat}{\hat{\Psi}}
 \newcommand{\phihat}{\hat{\phi}}
 \newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\Thetahat}{\hat{\Theta}}
 \newcommand{\chihat}{\hat{\chi}}
 \newcommand{\Phihat}{\hat{\Phi}}
 \newcommand{\Omegahat}{\hat{\Omega}}
@@ -177,8 +180,13 @@
 \newcommand{\id}{\text{id}}
 
 
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\atan}{atan}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\preim}{preim}
+\DeclareMathOperator{\proj}{proj}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\ver}{ver}
@@ -201,9 +209,17 @@
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\erfc}{erfc}
 \DeclareMathOperator{\Log}{Log}
-\DeclareMathOperator{\arctanh}{arctanh}
-\DeclareMathOperator{\arcsinh}{arcsinh}
-\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\artanh}{artanh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\arcoth}{arcoth}
+\DeclareMathOperator{\arcsch}{arcsch}
+\DeclareMathOperator{\arsech}{arsech}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
 \DeclareMathOperator{\Alt}{Alt}
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Aut}{Aut}
@@ -217,6 +233,7 @@
 \DeclareMathOperator{\Vir}{Vir}
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\Li}{Li}
 \DeclareMathOperator{\vecspan}{span}
 \DeclareMathOperator{\dist}{dist}
 \DeclareMathOperator{\dom}{dom}
@@ -225,6 +242,7 @@
 
 \DeclareMathOperator{\Ai}{Ai}
 \DeclareMathOperator{\Bi}{Bi}
+
 
 \let\Re\relax
 \DeclareMathOperator{\Re}{Re}
@@ -239,7 +257,8 @@
 
 <div style="display:none">
     \(\require{cancel}\)
-    \(\require{physics}\)
+    \(\require{simpler-wick}\)
+    \(\require{braket}\)
 </div>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -330,7 +349,7 @@
 
 <!--- Much of these notes have grown out of lecture notes that I took as a student of these courses. There are few original thoughts here, as all of this has been known for many years and is published in well-known textbooks. I will try to continually update as my perspective shifts, clarifies, and evolves throughout my academic journey. --->
 
-<p>The website was last updated on 2024-07-19 12:13</p>
+<p>The website was last updated on 2024-11-16 19:53</p>
 
 <h3 id="about-the-author">About the author</h3>
 <p>I am a lifelong enjoyer of teaching, especially of math and physics. I have a bachelor’s degree, where I majored in engineering physics and minored in mathematics. I also have a PhD in theoretical physics. In particular, I studied theoretical condensed matter physics, which is the study of exotic phases of matter.</p>
@@ -406,7 +425,7 @@ background-color: #dddddd;
     <!--- <a class = "page-link" href = "/fluids-I/">Fluid Mechanics I</a> ---> 
 </td>
 <td> <a class="page-link" href="/pde-I/"> Partial Differential Equations I </a> <br /> 
-     <a class="page-link" href="/complex-vars/"> Complex Variables </a>  <br /> 
+     <a class="page-link" href="/complex-vars-I/"> Complex Variables </a>  <br /> 
     <!--- <a class = "page-link" href = "/nonlin_dyn-I/"> Dynamical Systems I </a> --->  <br /> 
     <!--- <a class = "page-link" href = "/vec_and_forms/"> Vector Calculus and Forms  </a> ---> <br />
     <!--- <a class = "page-link" href = "/probability-II/"> Probability II </a> ---> 
@@ -429,7 +448,7 @@ background-color: #dddddd;
 <tr> <!--- Semester 6 --->
 <td>Year 3 Term 2</td>
 <td> <!--- <a class = "page-link" href = "/elasticity/">Elasticity</a> ---> <br /> 
-    <!--- <a class = "page-link" href = "/sm-II/"> Statistical Mechanics II</a> ---><br />
+    <a class="page-link" href="/sm-II/"> Statistical Mechanics II</a> <br />
     <a class="page-link" href="/qm-III/">Quantum Mechanics III</a> <br />
     <!--- <a class = "page-link" href = "/optics-I/"> Optics I </a> ---> </td>
     
@@ -497,7 +516,7 @@ background-color: #dddddd;
     <!--- <a class = "page-link" href = "/qo-II/"> Quantum Optics II </a> ---> <br />
      <a class="page-link" href="/many-body-II/"> Many-Body Physics II </a>  <br />
     <!--- <a class = "page-link" href = "/sft-II/"> Statistical Field Theory II </a> ---><br />
-    <!--- <a class = "page-link" href = "/top_phys/"> Topological Physics </a> ---> </td>
+    <a class="page-link" href="/top_phys-I/"> Topological Physics </a> </td>
 <td> </td>
 </tr>
 <tr> 
@@ -508,7 +527,7 @@ background-color: #dddddd;
     <a class="page-link" href="/qpt/"> Quantum Phase Transitions </a> <br /> 
     <!--- <a class = "page-link" href = "/transport/"> Transport Theory </a> ---> <br /> 
     <!--- <a class = "page-link" href = "/tft/"> Topological Field Theory </a> ---> <br /> 
-    <!--- <a class = "page-link" href = "/kondo_physics/"> Kondo and Heavy Fermion Physics </a> ---> <br />
+    <a class="page-link" href="/kondo-physics/"> Kondo and Heavy Fermion Physics </a> <br />
     <!--- <a class = "page-link" href = "/top_quantum/"> Topological Phases of Matter </a> ---> <br />
     <!--- <a class = "page-link" href = "/non_hermitian/"> Non-Hermitian Physics </a> --->
     <a class="page-link" href="/many-body-III/"> Many-Body Physics III </a>  <br />
@@ -567,7 +586,7 @@ background-color: #dddddd;
            
            
            <li>
-               This site updated 2024-07-19 12:13
+               This site updated 2024-11-16 19:53
            </li>
         </ul>
       </div>

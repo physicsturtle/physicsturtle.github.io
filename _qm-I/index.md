@@ -8,7 +8,7 @@ permalink: /qm-I/
 
 {% assign units = "unit3/, " | split: ', ' %}
 
-{% assign lessonNames3 = "Infinite square well , " | split: ', ' %}
+{% assign lessonNames3 = "Infinite square well , Quantum harmonic oscillator I , Quantum harmonic oscillator II , " | split: ', ' %}
 <ul>
 
 {% for unitName in unitNames %}

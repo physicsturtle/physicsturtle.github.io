@@ -9,9 +9,47 @@ courseDisplay: Condensed Matter Physics I
 unitDisplay: Unit 4
 ---
 <ol>
+<li> <div class="exercise">  Consider the case of a single \(s\)-orbital. This time, we will work on the square lattice again. Defining the same quantities above, plus also 
+
+$$\begin{align}
+\alpha' ={}& \int \psi_s^*(\x) \psi_s(\x - \mathbf{R}'_i) \d^3\x \\
+\gamma' ={}& -\int \psi_s^*(\x) \psi_s\Delta U(\x - \mathbf{R}'_i) \d^3\x
+\end{align}$$
+
+where \(\mathbf{R}_i'\) is a second nearest neighbour vector, find the band structure of this system.
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer10')" class="answerButton">Show Answer</button> 
+ <div  id='answer10' class="answer" >
+We ignore the \(\alpha\) and \(\alpha'\), as before. The dispersion then becomes 
+
+$$\begin{equation}
+\epsilon(\k) = E_s - \beta - \gamma\sum_{i\in \text{n.n}}e^{i\k\cdot\mathbf{R}_i} - \gamma'\sum_{i\in\text{n.n.n}}e^{i\k\cdot\mathbf{R}_i}
+\end{equation}$$
+
+The nearest neighbour term is the same as before. The second nearest neighbour term becomes (summing over the second nearest neighbour vectors (\((\pm a,\pm a)\))
+
+$$\begin{align}
+- \gamma'\sum_{i\in\text{n.n.n}}e^{i\k\cdot\mathbf{R}_i} ={}& -\gamma' (e^{ia(k_x + k_y)} + e^{ia(k_x - k_y)} + e^{-ia(k_x + k_y)} + e^{-ia(k_x - k_y)}) \\
+={}& -2\gamma'(\cos(a(k_x + k_y)) + \cos(a(k_x - k_y))) \\
+={}& -2\gamma'(\cos(ak_x)\cos(ak_y) - \sin(ak_x)\sin(ak_y) + \cos(ak_x)\cos(ak_y) + \sin(ak_x) \sin(ak_y)) \\
+={}& -4\gamma'\cos(ak_x)\cos(ak_y)
+\end{align}$$
+ 
+Thus, the total dispersion is given by 
+ 
+$$\begin{equation}
+\epsilon(\k) = E_s - \beta - 2\gamma(\cos(ak_x) + \cos(ak_y)) - 4\gamma'\cos(ak_x)\cos(ak_y)
+\end{equation}$$ 
+</div> 
+ </div>
+
+</div> </li>
 <li> <div class="exercise">  Consider a tight-binding model on the square lattice with dispersion
 
-\(\)\epsilon_{\k} = -2t(\cos(k_xa) + \cos(k_ya))\(\)
+$$\begin{equation}
+\epsilon_{\k} = -2t(\cos(k_xa) + \cos(k_ya))
+\end{equation}$$
 
 <ol type="a">
 <li> Plot the Fermi surface for \(\mu = 0\)
@@ -24,8 +62,8 @@ unitDisplay: Unit 4
 </li></ol>
 
 <div class="answerBox"> 
- <button onclick="myFunction('answer12')" class="answerButton">Show Answer</button> 
- <div  id='answer12' class="answer" >
+ <button onclick="myFunction('answer46')" class="answerButton">Show Answer</button> 
+ <div  id='answer46' class="answer" >
 <ol type="a">
 <li> We define \(\xi_{\k} = \epsilon_{\k} - \mu\)
 </li>
@@ -41,15 +79,17 @@ unitDisplay: Unit 4
 </div> </li>
 <li> <div class="exercise">  Consider the triangular lattice. The Bravais lattice vectors are \(\mathbf{a}_1 = a(1,0)\), and \(\mathbf{a}_2 = a(1/2,\sqrt{3}/2)\). Compute the tight-binding band structure for the Hamiltonian
 
-\(\)\Hhat = -t\sum_{\langle i,j\rangle;\sigma} (\chat^\dagger_{i\sigma} \chat_{j\sigma} + \hc)\(\)
+$$\begin{equation}
+\Hhat = -t\sum_{\langle i,j\rangle;\sigma} (\chat^\dagger_{i\sigma} \chat_{j\sigma} + \hc)
+\end{equation}$$
 
 <figure class="center">
 <p><img src="figures/triangular_lattice.pdf" alt="Function" class="center" style="width:170.079px;height:170.079px;"> </p><figcaption class="center">Triangular lattice</figcaption>
 </figure>
 
 <div class="answerBox"> 
- <button onclick="myFunction('answer169')" class="answerButton">Show Answer</button> 
- <div  id='answer169' class="answer" >
+ <button onclick="myFunction('answer205')" class="answerButton">Show Answer</button> 
+ <div  id='answer205' class="answer" >
 The 
 </div> 
  </div>
@@ -62,30 +102,40 @@ The
 </figure>
 	
 <div class="answerBox"> 
- <button onclick="myFunction('answer272')" class="answerButton">Show Answer</button> 
- <div  id='answer272' class="answer" >
+ <button onclick="myFunction('answer308')" class="answerButton">Show Answer</button> 
+ <div  id='answer308' class="answer" >
 The Hamiltonian can be rewritten as
 
-\(\)\Hhat = - t\sum_{i} \sum_{j\in[i]} \chat^\dagger_{i\sigma} \chat_{j\sigma}\(\)
+$$\begin{equation}
+\Hhat = - t\sum_{i} \sum_{j\in[i]} \chat^\dagger_{i\sigma} \chat_{j\sigma}
+\end{equation}$$
 
 Then, we can rewrite the sum as 
 
-\(\)\Hhat = - t\sum_{i\in A}\sum_{j\in[i]}  \chat^\dagger_{i\sigma} \chat_{j\sigma} - t\sum_{i\in B}\sum_{j\in[i]}  \chat^\dagger_{i\sigma} \chat_{j\sigma}\(\)
+$$\begin{equation}
+\Hhat = - t\sum_{i\in A}\sum_{j\in[i]}  \chat^\dagger_{i\sigma} \chat_{j\sigma} - t\sum_{i\in B}\sum_{j\in[i]}  \chat^\dagger_{i\sigma} \chat_{j\sigma}
+\end{equation}$$
 
 Then defining now that \(i\) is a Bravais lattice site, instead of an actual lattice site, we have
 
-\(\)\chat_{i\sigma} = \begin{cases}
+$$\begin{equation}
+\chat_{i\sigma} = \begin{cases}
 \chat_{i1\sigma}, & i\in A \\
 \chat_{i2\sigma}, & i\in B 
-\end{cases}\(\)
+\end{cases}
+\end{equation}$$
 
 then we need to be careful about intra vs. inter unit cell hoppings. If we define the unit cell to be the site at (0,0) and the site at \((a,0)\), then we find that the Hamiltonian can be rewritten as 
 
-\(\)\Hhat = - t\sum_{i\in A}\chat^\dagger_{i1\sigma}(\chat_{i2\sigma} + \chat_{i + \mathbf{a}_3,2\sigma} + \chat_{i - \mathbf{a}_1,2\sigma}) - t\sum_{i\in B}\chat^\dagger_{i2\sigma} (\chat_{i1\sigma} + \chat_{i+\mathbf{a}_1,1\sigma} + \chat_{i - \mathbf{a}_3,1\sigma})\(\)
+$$\begin{equation}
+\Hhat = - t\sum_{i\in A}\chat^\dagger_{i1\sigma}(\chat_{i2\sigma} + \chat_{i + \mathbf{a}_3,2\sigma} + \chat_{i - \mathbf{a}_1,2\sigma}) - t\sum_{i\in B}\chat^\dagger_{i2\sigma} (\chat_{i1\sigma} + \chat_{i+\mathbf{a}_1,1\sigma} + \chat_{i - \mathbf{a}_3,1\sigma})
+\end{equation}$$
 
 Then, we plug in the Fourier transforms 
 
-\(\)\chat_{in\sigma} = \frac{1}{\sqrt{N_s}}\sum_{\k} e^{i\k\cdot\mathbf{R}_i} \chat_{\k n\sigma}\(\)
+$$\begin{equation}
+\chat_{in\sigma} = \frac{1}{\sqrt{N_s}}\sum_{\k} e^{i\k\cdot\mathbf{R}_i} \chat_{\k n\sigma}
+\end{equation}$$
 
 This gives us 
 
@@ -106,7 +156,9 @@ $$\begin{align}
 
 Then, we can digaonalize this matrix. The eigenvalues and (normalized) eigenvectors are simply 
 
-\(\)\lambda_\pm = \pm|1 + e^{i\k\cdot\mathbf{a}_3} + e^{-i\k\cdot\mathbf{a}_1}|\(\)
+$$\begin{equation}
+\lambda_\pm = \pm|1 + e^{i\k\cdot\mathbf{a}_3} + e^{-i\k\cdot\mathbf{a}_1}|
+\end{equation}$$
 
 These can be simplified a little bit to find 
 
@@ -118,15 +170,21 @@ $$\begin{align}
 
 Then, if we plug in our lattice vectors, then this simplifies to 
 
-\(\)\lambda_\pm = \pm\sqrt{3 + 4\cos\left(\frac{3k_x a}{2}\right)\cos\left(\frac{\sqrt{3}k_y a}{2}\right) + 2\cos(\sqrt{3}k_y a)}\(\)
+$$\begin{equation}
+\lambda_\pm = \pm\sqrt{3 + 4\cos\left(\frac{3k_x a}{2}\right)\cos\left(\frac{\sqrt{3}k_y a}{2}\right) + 2\cos(\sqrt{3}k_y a)}
+\end{equation}$$
 
 Since we have the double angle identity \(\cos(2\theta) = 2\cos^2\theta - 1\), we can rewrite this as 
 
-\(\)\lambda_\pm = \pm\sqrt{1 + 4\cos\left(\frac{3k_x a}{2}\right)\cos\left(\frac{\sqrt{3}k_y a}{2}\right) + 4\cos^2\left(\frac{\sqrt{3}k_y a}{2}\right)}\(\)
+$$\begin{equation}
+\lambda_\pm = \pm\sqrt{1 + 4\cos\left(\frac{3k_x a}{2}\right)\cos\left(\frac{\sqrt{3}k_y a}{2}\right) + 4\cos^2\left(\frac{\sqrt{3}k_y a}{2}\right)}
+\end{equation}$$
 
 These are the energy bands:
 
-\(\)\epsilon_\pm(\k) = \pm\sqrt{1 + 4\cos\left(\frac{3k_x a}{2}\right)\cos\left(\frac{\sqrt{3}k_y a}{2}\right) + 4\cos^2\left(\frac{\sqrt{3}k_y a}{2}\right)}\(\)
+$$\begin{equation}
+\epsilon_\pm(\k) = \pm\sqrt{1 + 4\cos\left(\frac{3k_x a}{2}\right)\cos\left(\frac{\sqrt{3}k_y a}{2}\right) + 4\cos^2\left(\frac{\sqrt{3}k_y a}{2}\right)}
+\end{equation}$$
 
 </div> 
  </div>
@@ -143,8 +201,8 @@ $$\begin{equation}
 </figure>
 
 <div class="answerBox"> 
- <button onclick="myFunction('answer740')" class="answerButton">Show Answer</button> 
- <div  id='answer740' class="answer" >
+ <button onclick="myFunction('answer794')" class="answerButton">Show Answer</button> 
+ <div  id='answer794' class="answer" >
 There are three sublattices in this Hamiltonian. We define the \(A,B,C\) sublattices as the red \({\color{red}A}\), blue \({\color{blue}B}\), and green \({\color{green}C}\), respectively. The primitive basis vectors are \(\mathbf{a}_1 = a(2,0)\), \(\mathbf{a}_2 = a(1,\sqrt{3})\), and \(\mathbf{a}_3 = a(-1,\sqrt{3})\), where \(a\) is the lattice spacing between neighbouring sites. The hopping Hamiltonian can be rewritten as 
 
 $$\begin{align}
@@ -154,9 +212,11 @@ $$\begin{align}
 &-t\sum_{i\in\text{BL}} \chat^\dagger_{i3\sigma}(\chat_{i1\sigma} + \chat_{i2\sigma} + \chat_{i+\mathbf{a}_2,1\sigma} + \chat_{i+\mathbf{a}_3,2\sigma})
 \end{align}$$
 
-where the sum in the first line is over all sites (there are \(3N\) sites, where \(N_s\) is the number of Bravais lattice unit cells), whereas when \(i,j\in\text{BL}\), then \(i,j\) label Bravais lattice unit cells. Of course the associated Bravais lattice is a triangular lattice. Next, we perform a Fourier transform as:
+where the sum in the first line is over all sites (there are \(3N_s\) sites, where \(N_s\) is the number of Bravais lattice unit cells), whereas when \(i,j\in\text{BL}\), then \(i,j\) label Bravais lattice unit cells. Of course the associated Bravais lattice is a triangular lattice. Next, we perform a Fourier transform as:
 
-\(\)\chat_{ia\sigma} = \frac{1}{\sqrt{N_s}}\sum_{\k} e^{i\k\cdot\mathbf{R}_i} \chat_{\k a\sigma}, \quad \chat^\dagger_{ia\sigma} = \frac{1}{\sqrt{N_s}}\sum_{\k} e^{-i\k\cdot\mathbf{R}_i} \chat^\dagger_{\k a\sigma}\(\)
+$$\begin{equation}
+\chat_{ia\sigma} = \frac{1}{\sqrt{N_s}}\sum_{\k} e^{i\k\cdot\mathbf{R}_i} \chat_{\k a\sigma}, \quad \chat^\dagger_{ia\sigma} = \frac{1}{\sqrt{N_s}}\sum_{\k} e^{-i\k\cdot\mathbf{R}_i} \chat^\dagger_{\k a\sigma}
+\end{equation}$$
 
 If we do this, then we find that 
 
@@ -168,7 +228,9 @@ $$\begin{align}
 
 Then we use the identity 
 
-\(\)\sum_{i\in\text{BL}} e^{-i\k'\cdot\mathbf{R}_i} e^{i\k\cdot\mathbf{R}_i} = N_s\delta_{\k\k'}\(\)
+$$\begin{equation}
+\sum_{i\in\text{BL}} e^{-i\k'\cdot\mathbf{R}_i} e^{i\k\cdot\mathbf{R}_i} = N_s\delta_{\k\k'}
+\end{equation}$$
 
 and perform sums over \(i\) and \(\k'\), which gives us 
 
@@ -191,11 +253,15 @@ $$\begin{align}
 
 The band structure of this can be found by diagonalizing the matrix. If we diagonalize this, then the eigenvalues are: 
 
-\(\)\lambda_{1,2} = -t \pm \sqrt{3 + 2(\cos(\k\cdot\mathbf{a}_1) + \cos(\k\cdot\mathbf{a}_2) + \cos(\k\cdot\mathbf{a}_3))}, \quad \lambda_3 = 2t\(\)
+$$\begin{equation}
+\lambda_{1,2} = -t \pm \sqrt{3 + 2(\cos(\k\cdot\mathbf{a}_1) + \cos(\k\cdot\mathbf{a}_2) + \cos(\k\cdot\mathbf{a}_3))}, \quad \lambda_3 = 2t
+\end{equation}$$
 
 The band structure can be plotted in the first Brillouin zone. We will plot along the path \(\Gamma\to K\to M \to \Gamma\), where the points are 
 
-\(\)\Gamma = (0,0), \qquad K = \left(\frac{4\pi}{3a}\right), \qquad M = \left(\frac{\pi}{a},\frac{\pi}{a\sqrt{3}}\right)\(\)
+$$\begin{equation}
+\Gamma = (0,0), \qquad K = \left(\frac{4\pi}{3a}\right), \qquad M = \left(\frac{\pi}{a},\frac{\pi}{a\sqrt{3}}\right)
+\end{equation}$$
 
 this gives us INSERT FIGURE HERE. 
 
@@ -208,7 +274,9 @@ this gives us INSERT FIGURE HERE.
 </div> </li>
 <li> <div class="exercise">  Consider the square lattice dispersion:
 
-\(\)\epsilon_{\k} = -2t(\cos(k_xa) + \cos(k_ya))\(\)
+$$\begin{equation}
+\epsilon_{\k} = -2t(\cos(k_xa) + \cos(k_ya))
+\end{equation}$$
 
 <ol type="a">
 <li> Show that 
@@ -221,8 +289,8 @@ where \(K\) is the elliptic integral of the first kind.
 </li></ol>
 
 <div class="answerBox"> 
- <button onclick="myFunction('answer812')" class="answerButton">Show Answer</button> 
- <div  id='answer812' class="answer" >
+ <button onclick="myFunction('answer876')" class="answerButton">Show Answer</button> 
+ <div  id='answer876' class="answer" >
 <ol type="a">
 <li> 
 </li>

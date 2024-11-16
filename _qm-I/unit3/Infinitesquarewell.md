@@ -47,7 +47,7 @@ $$\begin{equation}
 
 where \\(k = \sqrt{2mE/\hbar^2}\\). The constants \\(A\\) and \\(B\\) are determined by the initial conditions for the classical harmonic oscillator case, but here they are determined by the boundary conditions and the normalization condition (normalization of wave functions must be 1). Let us first apply the boundary condition at \\(x=0\\). Doing this, we find \\(\psi(0) = A\sin(0) + B\cos(0) = B\\). This tells us that \\(B = 0\\). Thus our solution simplifies to \\(\psi(x) = A\sin(kx)\\).
 
-Applying the second boundary condition, we have \\(\psi(a) = A\sin(ka) = 0\\). This leaves us with two choices. Either \\(A = 0\\), or \\(\sin(ka) = 0\\). Clearly, if we set \\(A = 0\\), then the entire wave function \\(\psi(x) \equiv 0\\). This is not a normalizable wave function and is unphysical. Instead, we let \\(A\neq 0\\), and set \\(\sin(ka) = 0\\), or in other words, \\(ak = n\pi\\). This gives a list of possible \\(k\\) values, enumerated by positive integers \\(n\\), namely \\(k_n = n\pi/a\\). This in turn yields the allowed energy eigenvalues 
+Applying the second boundary condition, we have \\(\psi(a) = A\sin(ka) = 0\\). This leaves us with two choices. Either \\(A = 0\\), or \\(\sin(ka) = 0\\). Clearly, if we set \\(A = 0\\), then the entire wave function \\(\psi(x) \equiv 0\\). This is not a normalizable wave function and is unphysical. Instead, we let \\(A\neq 0\\), and set \\(\sin(ka) = 0\\), or in other words, \\(ak = n\pi\\). This gives a list of possible \\(k\\) values, enumerated by positive integers \\(n\\), namely \\(k\_n = n\pi/a\\). This in turn yields the allowed energy eigenvalues 
 
 $$\begin{align}
 E_n ={}& \hbar^2k_n^2/2m \\
@@ -60,7 +60,7 @@ $$\begin{equation}
 \psi_n(x) = A_n\sin\left(\frac{n\pi}{a}\right)
 \end{equation}$$
 
-The last step is to determine the constants \\(A_n\\). This is done by imposing the normalization condition
+The last step is to determine the constants \\(A\_n\\). This is done by imposing the normalization condition
 
 $$\begin{equation}
 \int_0^a |\psi_n(x)|^2 \d x = 1.
@@ -73,13 +73,13 @@ $$\begin{align}
 ={}& \frac{a}{2}|A_n|^2
 \end{align}$$
 
-which gives us \\(A_n = \sqrt{2/a}\\). Our final result is therefore a set of eigenfunction and eigenvalue pairs:
+which gives us \\(A\_n = \sqrt{2/a}\\). Our final result is therefore a set of eigenfunction and eigenvalue pairs:
 
 $$\begin{equation}
 \psi_n(x) = \sqrt{\frac{2}{a}}\sin\left(\frac{n\pi}{a}\right),\quad E_n = \frac{n^2\pi^2\hbar^2}{2ma^2}.
 \end{equation}$$
 
-We note that the wave function is \\(\psi_n(x) \equiv 0\\) if the particle is outside of the well (\\(x < 0\\) or \\(x > a\\)).
+We note that the wave function is \\(\psi\_n(x) \equiv 0\\) if the particle is outside of the well (\\(x < 0\\) or \\(x > a\\)).
 
 <div class="example">
 <b>Example:</b>
@@ -116,7 +116,7 @@ There are a few general features of wave functions that are exemplified here (as
 <li> The wave functions are either even or odd with respect to \(x=a/2\), which is a symptom of the fact that our potential is even with respect to \(a/2\). 
 </li></ol>
 
-We want to show that the eigenfunctions are orthogonal. We have already shown that they are normalized (we didn't show this, but rather we imposed it and chose the \\(A_n\\) coefficients accordingly). When we say orthogonal, this means that we want to show that the inner product (generalization of dot product) is zero between any two wave functions with different \\(n\\). Thus, we want to show that, if \\(n\neq m\\), the following inner product vanishes:
+We want to show that the eigenfunctions are orthogonal. We have already shown that they are normalized (we didn't show this, but rather we imposed it and chose the \\(A\_n\\) coefficients accordingly). When we say orthogonal, this means that we want to show that the inner product (generalization of dot product) is zero between any two wave functions with different \\(n\\). Thus, we want to show that, if \\(n\neq m\\), the following inner product vanishes:
 
 $$\begin{equation}
 \int \psi^*_m(x) \psi_n(x) \d x = 0.

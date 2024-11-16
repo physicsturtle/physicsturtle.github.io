@@ -139,10 +139,10 @@ Mathematical Classical Mechanics I
 
 <!--- <a class="page-link" href="/quantum-magnetism/"> Quantum Magnetism </a> --->
 
-<!--- <a class="page-link" href="/heavy-fermions/"> Heavy Fermions </a> --->
+<a class="page-link" href="/kondo-physics/"> Kondo physics and heavy fermions </a>
 
 <!--- Topological Physics --->
 
-<!--- <a class="page-link" href="/topological-insulators/"> Topological Insulators and SPTs </a> --->
+<!--- <a class="page-link" href="/top_phys-I/"> Topological Physics I </a> --->
 
 <!--- <a class="page-link" href="/topological-insulators/"> Intrinsically topological phases </a> --->

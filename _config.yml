@@ -68,6 +68,8 @@ collections:
         output: true
     hs-physics-II:
         output: true
+    kondo-physics:
+        output: true
     kt:
         output: true
     linear-algebra-I:
@@ -129,6 +131,8 @@ collections:
     ssp:
         output: true
     superconductivity:
+        output: true
+    top_phys-I:
         output: true
     td:
         output: true

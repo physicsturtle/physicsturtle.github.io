@@ -1,0 +1,117 @@
+I"Ô"<ol>
+<li> <div class="exercise"> 
+
+</div> </li></ol>
+
+<h3 id="conduction-electron-self-energy-at-4th-order">Conduction electron self-energy at 4th order</h3>
+
+<p>The fourth order contribution is given by</p>
+
+<p>We need to compute the spin operator correlator</p>
+
+\[\begin{align}
+\langle T_\tau[\Shat^{\ell_1}_0(\tau_1)\Shat^{\ell_2}_0(\tau_2)\Shat^{\ell_3}_0(\tau_3)\Shat^{\ell_4}_0(\tau_4)]\rangle_0 ={}&amp; 
+\end{align}\]
+
+<p>It is very tedious to write out all 24 contributions. We note however that, using the cyclic property of the trace, there will be \(3! = 6\) distinct ways to arrange the spin operators: 1234, 1243,1324,1342,1423,1432. This gives us</p>
+
+\[\begin{align}
+\langle T_\tau[\Shat^{\ell_1}_0(\tau_1)\Shat^{\ell_2}_0(\tau_2)\Shat^{\ell_3}_0(\tau_3)\Shat^{\ell_4}_0(\tau_4)]\rangle_0 ={}&amp; f(\tau_1,\tau_2,\tau_3,\tau_4)\langle \Shat^{\ell_1}_0\Shat^{\ell_2}_0\Shat^{\ell_3}_0\Shat^{\ell_4}_0\rangle_0 \\
+&amp;+ f(\tau_1,\tau_2,\tau_4,\tau_3)\langle \Shat^{\ell_1}_0\Shat^{\ell_2}_0\Shat^{\ell_4}_0\Shat^{\ell_3}_0\rangle_0 \\
+&amp;+ f(\tau_1,\tau_3,\tau_2,\tau_4)\langle \Shat^{\ell_1}_0\Shat^{\ell_3}_0\Shat^{\ell_2}_0\Shat^{\ell_4}_0\rangle_0 \\
+&amp;+ f(\tau_1,\tau_3,\tau_4,\tau_2)\langle \Shat^{\ell_1}_0\Shat^{\ell_3}_0\Shat^{\ell_4}_0\Shat^{\ell_2}_0\rangle_0 \\
+&amp;+ f(\tau_1,\tau_4,\tau_2,\tau_3)\langle \Shat^{\ell_1}_0\Shat^{\ell_4}_0\Shat^{\ell_2}_0\Shat^{\ell_3}_0\rangle_0 \\
+&amp;+ f(\tau_1,\tau_4,\tau_3,\tau_2)\langle \Shat^{\ell_1}_0\Shat^{\ell_4}_0\Shat^{\ell_3}_0\Shat^{\ell_2}_0\rangle_0 
+\end{align}\]
+
+<p>whereby</p>
+
+\[\begin{align}
+f(\tau_1,\tau_2,\tau_3,\tau_4) ={}&amp; \theta(\tau_1-\tau_2)\theta(\tau_2-\tau_3)\theta(\tau_3-\tau_4) + \theta(\tau_2-\tau_3)\theta(\tau_3-\tau_4)\theta(\tau_4-\tau_1) \\
+&amp;+ \theta(\tau_3-\tau_4)\theta(\tau_4-\tau_1)\theta(\tau_1-\tau_2) + \theta(\tau_4-\tau_1)\theta(\tau_1-\tau_2)\theta(\tau_2-\tau_3) 
+\end{align}\]
+
+<p>Next, we use the trace relation</p>
+
+\[\tr\left(\sigma^{\ell_1}\sigma^{\ell_2}\sigma^{\ell_3}\sigma^{\ell_4}\right)= 2\left(\delta _{\ell_1\ell_2}\delta _{\ell_3 \ell_4} - \delta _{\ell_1\ell_3}\delta _{\ell_2\ell_4}+\delta _{\ell_1\ell_4}\delta _{\ell_2\ell_3}\right)\]
+
+<p>to get</p>
+
+\[\begin{align}
+\langle \Shat^{\ell_1}_0\Shat^{\ell_2}_0\Shat^{\ell_3}_0\Shat^{\ell_4}_0\rangle_0 ={}&amp; 2\left(\delta _{\ell_1\ell_2}\delta _{\ell_3 \ell_4} - \delta _{\ell_1\ell_3}\delta _{\ell_2\ell_4}+\delta _{\ell_1\ell_4}\delta _{\ell_2\ell_3}\right) \\
+\langle \Shat^{\ell_1}_0\Shat^{\ell_2}_0\Shat^{\ell_4}_0\Shat^{\ell_3}_0\rangle_0 ={}&amp; 2\left(\delta _{\ell_1\ell_2}\delta _{\ell_3 \ell_4} - \delta _{\ell_1\ell_4}\delta _{\ell_2\ell_3}+\delta _{\ell_1\ell_3}\delta _{\ell_2\ell_4}\right) \\
+\langle \Shat^{\ell_1}_0\Shat^{\ell_3}_0\Shat^{\ell_2}_0\Shat^{\ell_4}_0\rangle_0 ={}&amp; 2\left(\delta _{\ell_1\ell_3}\delta _{\ell_2 \ell_4} - \delta _{\ell_1\ell_2}\delta _{\ell_3\ell_4}+\delta _{\ell_1\ell_4}\delta _{\ell_2\ell_3}\right) \\
+ \langle \Shat^{\ell_1}_0\Shat^{\ell_3}_0\Shat^{\ell_4}_0\Shat^{\ell_2}_0\rangle_0 ={}&amp; 2\left(\delta _{\ell_1\ell_3}\delta _{\ell_2 \ell_4} - \delta _{\ell_1\ell_4}\delta _{\ell_2\ell_3}+\delta _{\ell_1\ell_2}\delta _{\ell_3\ell_4}\right) \\
+\langle \Shat^{\ell_1}_0\Shat^{\ell_4}_0\Shat^{\ell_2}_0\Shat^{\ell_3}_0\rangle_0 ={}&amp; 2\left(\delta _{\ell_1\ell_4}\delta _{\ell_3 \ell_2} - \delta _{\ell_1\ell_2}\delta _{\ell_4\ell_3}+\delta _{\ell_1\ell_3}\delta _{\ell_2\ell_4}\right) \\
+\langle \Shat^{\ell_1}_0\Shat^{\ell_4}_0\Shat^{\ell_3}_0\Shat^{\ell_2}_0\rangle_0 ={}&amp; 2\left(\delta _{\ell_1\ell_4}\delta _{\ell_2 \ell_3} - \delta _{\ell_1\ell_3}\delta _{\ell_2\ell_4}+\delta _{\ell_1\ell_2}\delta _{\ell_3\ell_4}\right) 
+\end{align}\]
+
+<p>Plugging these in, we find</p>
+
+\[\begin{align}
+\langle T_\tau[\Shat^{\ell_1}_0(\tau_1)\Shat^{\ell_2}_0(\tau_2)\Shat^{\ell_3}_0(\tau_3)\Shat^{\ell_4}_0(\tau_4)]\rangle_0 ={}&amp; f(\tau_1,\tau_2,\tau_3,\tau_4)2\left(\delta _{\ell_1\ell_2}\delta _{\ell_3 \ell_4} - \delta _{\ell_1\ell_3}\delta _{\ell_2\ell_4}+\delta _{\ell_1\ell_4}\delta _{\ell_2\ell_3}\right) \\
+&amp;+ f(\tau_1,\tau_2,\tau_4,\tau_3)2\left(\delta _{\ell_1\ell_2}\delta _{\ell_3 \ell_4} - \delta _{\ell_1\ell_4}\delta _{\ell_2\ell_3}+\delta _{\ell_1\ell_3}\delta _{\ell_2\ell_4}\right) \\
+&amp;+ f(\tau_1,\tau_3,\tau_2,\tau_4)2\left(\delta _{\ell_1\ell_3}\delta _{\ell_2 \ell_4} - \delta _{\ell_1\ell_2}\delta _{\ell_3\ell_4}+\delta _{\ell_1\ell_4}\delta _{\ell_2\ell_3}\right) \\ \\
+&amp;+ f(\tau_1,\tau_3,\tau_4,\tau_2)2\left(\delta _{\ell_1\ell_3}\delta _{\ell_2 \ell_4} - \delta _{\ell_1\ell_4}\delta _{\ell_2\ell_3}+\delta _{\ell_1\ell_2}\delta _{\ell_3\ell_4}\right) \\ \\
+&amp;+ f(\tau_1,\tau_4,\tau_2,\tau_3)2\left(\delta _{\ell_1\ell_4}\delta _{\ell_3 \ell_2} - \delta _{\ell_1\ell_2}\delta _{\ell_4\ell_3}+\delta _{\ell_1\ell_3}\delta _{\ell_2\ell_4}\right) \\ \\
+&amp;+ f(\tau_1,\tau_4,\tau_3,\tau_2)2\left(\delta _{\ell_1\ell_4}\delta _{\ell_2 \ell_3} - \delta _{\ell_1\ell_3}\delta _{\ell_2\ell_4}+\delta _{\ell_1\ell_2}\delta _{\ell_3\ell_4}\right) 
+\end{align}\]
+
+<p>Now collecting like terms, we find</p>
+
+\[\begin{align}
+\langle T_\tau[\Shat^{\ell_1}_0(\tau_1)\Shat^{\ell_2}_0(\tau_2)\Shat^{\ell_3}_0(\tau_3)\Shat^{\ell_4}_0(\tau_4)]\rangle_0 ={}&amp; 2(f(\tau_1,\tau_2,\tau_3,\tau_4) + f(\tau_1,\tau_2,\tau_4,\tau_3) - f(\tau_1,\tau_3,\tau_2,\tau_4) \\
+&amp;+ f(\tau_1,\tau_3,\tau_4,\tau_2) - f(\tau_1,\tau_4,\tau_2,\tau_3) + f(\tau_1,\tau_4,\tau_3,\tau_2))\delta_{\ell_1\ell_2}\delta_{\ell_3\ell_4} \\
+&amp;+ 2(f(\tau_1,\tau_2,\tau_3,\tau_4) + f(\tau_1,\tau_2,\tau_4,\tau_3) + f(\tau_1,\tau_3,\tau_2,\tau_4) \\
+&amp;+ f(\tau_1,\tau_3,\tau_4,\tau_2) + f(\tau_1,\tau_4,\tau_2,\tau_3) - f(\tau_1,\tau_4,\tau_3,\tau_2)) \delta_{\ell_1\ell_3}\delta_{\ell_2\ell_4} \\
+&amp;+ 2(f(\tau_1,\tau_2,\tau_3,\tau_4) ) \delta_{\ell_1\ell_4}\delta_{\ell_2\ell_3}
+\end{align}\]
+
+<p>It is too tedious</p>
+
+<h3 id="conduction-electron-self-energy-at-5th-order">Conduction electron self-energy at 5th order</h3>
+
+<p>The fifth order contribution is given by</p>
+
+<p>We need to evaluate the following:</p>
+
+\[\begin{align}
+\langle T_\tau[\Shat^{\ell_1}_0(\tau_1)\Shat^{\ell_2}_0(\tau_2)\Shat^{\ell_3}_0(\tau_3)\Shat^{\ell_4}_0(\tau_4)\Shat^{\ell_5}_0(\tau_5)]\rangle_0
+\end{align}\]
+
+<p>This time, there are 120 possible time-orderings of this. However, when we take advantage of the cyclicity of the trace, there will be \(4! = 24\) distinct ways to arrange the spin operators. This is because we can think of always moving the 5th one to the end, and the other ones have any possible order.</p>
+
+<p>Then, we use the trace relation</p>
+
+\[\begin{align}
+\tr(\sigma^a\sigma^b\sigma^c\sigma^d\sigma^e) ={}&amp; \tr(\sigma^a\sigma^b\sigma^c(\delta_{de}\sigma^0 + i\epsilon_{def}\sigma^f)) \\
+={}&amp; \delta_{de}\tr(\sigma^a\sigma^b\sigma^c) + i\epsilon_{def}\tr(\sigma^a\sigma^b\sigma^c\sigma^f) \\
+={}&amp; 2i\epsilon_{abc}\delta_{de} + 2i\epsilon_{def}(\delta_{ab}\delta_{cf} - \delta_{ac}\delta_{bf} + \delta_{af}\delta_{bc}) \\ 
+={}&amp; 2i\epsilon_{abc}\delta_{de} + 2i\delta_{ab}\epsilon_{dec} - 2i\epsilon_{deb}\delta_{ac} + 2i\epsilon_{dea}\delta_{bc} \\ 
+={}&amp; 2i(\epsilon_{abc}\delta_{de} + \delta_{ab}\epsilon_{cde} - \epsilon_{deb}\delta_{ac} + \epsilon_{dea}\delta_{bc})
+\end{align}\]
+
+<h3 id="conduction-electron-self-energy-at-6th-order">Conduction electron self-energy at 6th order</h3>
+
+<p>Finally, we consider the 6th order contribution to the self-energy. The spin correlator is given by</p>
+
+\[\begin{align}
+\langle T_\tau[\Shat^{\ell_1}_0(\tau_1)\Shat^{\ell_2}_0(\tau_2)\Shat^{\ell_3}_0(\tau_3)\Shat^{\ell_4}_0(\tau_4)\Shat^{\ell_5}_0(\tau_5)\Shat^{\ell_6}_0(\tau_6)]\rangle_0
+\end{align}\]
+
+<p>If we evaluate the 6-Pauli matrix trace, we find that</p>
+
+\[\begin{align}
+\tr(\sigma^a\sigma^b\sigma^c\sigma^d\sigma^e\sigma^f) ={}&amp; \tr(\sigma^a\sigma^b\sigma^c\sigma^d(\delta_{ef}\sigma^0 + i\epsilon_{efg}\sigma^g)) \\
+={}&amp; \delta_{ef}\tr(\sigma^a\sigma^b\sigma^c\sigma^d) + i\epsilon_{efg} \tr(\sigma^a\sigma^b\sigma^c\sigma^d\sigma^g) \\
+={}&amp; 2\left(\delta _{ab}\delta _{cd} - \delta _{ac}\delta _{bd}+\delta _{ad}\delta _{bc}\right)\delta_{ef} + i\epsilon_{efg}2i(\epsilon_{abc}\delta_{de} + \delta_{ab}\epsilon_{cde} - \epsilon_{deb}\delta_{ac} + \epsilon_{dea}\delta_{bc}) \\
+={}&amp; 2\left(\delta _{ab}\delta _{cd} - \delta _{ac}\delta _{bd}+\delta _{ad}\delta _{bc}\right)\delta_{ef} - 2\epsilon_{efg}(\epsilon_{abc}\delta_{dg} + \delta_{ab}\epsilon_{cdg} - \epsilon_{dgb}\delta_{ac} + \epsilon_{dga}\delta_{bc})
+\end{align}\]
+
+<p>To simplify this, we can use the formula</p>
+
+\[\begin{align}
+\tr(\sigma^a\sigma^b\sigma^c\sigma^d\sigma^e\sigma^f) ={}&amp; 2\left(\delta _{ab}\delta _{cd} - \delta _{ac}\delta _{bd}+\delta _{ad}\delta _{bc}\right)\delta_{ef} - 2\epsilon_{efg}(\epsilon_{abc}\delta_{dg} + \delta_{ab}\epsilon_{cdg} - \epsilon_{dgb}\delta_{ac} + \epsilon_{dga}\delta_{bc})
+\end{align}\]
+
+:ET

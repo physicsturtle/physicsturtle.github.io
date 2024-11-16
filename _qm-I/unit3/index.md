@@ -8,7 +8,7 @@ deptDisplay: Physics
 courseDisplay: Quantum Mechanics I
 unitDisplay: Unit 3
 ---
-{% assign lessonNames = "Infinite square well , " | split: ', ' %}
+{% assign lessonNames = "Infinite square well , Quantum harmonic oscillator I , Quantum harmonic oscillator II , " | split: ', ' %}
 
 <ol>
 {% for lessonName in lessonNames %}

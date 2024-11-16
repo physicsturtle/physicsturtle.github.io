@@ -11,7 +11,7 @@ unitDisplay: Unit 1
 ### Intro\d uction
 
 
-In high school, we learn what functions are, but many people forget the formal definition by the time they reach university. In this lesson, we will review this definition, as well as the definitions of domain, range, and function notation. Additionally, we will intro\d uce some definitions which are likely new to you, such as the codomain, image, and preimage. These terms will not be used too frequently in this course, but are useful to know especially if you take further math courses in the future.
+In high school, we learn what functions are, but many people forget the formal definition by the time they reach university. In this lesson, we will review this definition, as well as the definitions of domain, range, and function notation. Additionally, we will intro\d uce some definitions which are likely new to you, such as the codomain, image, and preimage. These terms will not be used too frequently in this course, but are useful to know especially if you take further math courses in the future. 
 
 ### Definitions
 

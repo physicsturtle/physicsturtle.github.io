@@ -43,7 +43,7 @@
     }
   };
 </script>
-    
+
 
 
 <div style="display:none">
@@ -65,6 +65,7 @@
 \newcommand{\QQ}{\mathbb{Q}}
 \newcommand{\RR}{\mathbb{R}}
 \newcommand{\CC}{\mathbb{C}} 
+\newcommand{\TT}{\mathbb{T}} 
 %\newcommand{\H}{\mathbb{H}}
 
 %Useful symbols for differential geometry
@@ -79,6 +80,7 @@
 \newcommand{\A}{\textbf{A}}
 \newcommand{\F}{\mathbb{F}}
 \newcommand{\J}{\textbf{J}}
+\newcommand{\R}{\bm{R}}
 
 %Useful symbols for vector notation
 \newcommand{\x}{\boldsymbol{x}}
@@ -160,6 +162,7 @@
 \newcommand{\Psihat}{\hat{\Psi}}
 \newcommand{\phihat}{\hat{\phi}}
 \newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\Thetahat}{\hat{\Theta}}
 \newcommand{\chihat}{\hat{\chi}}
 \newcommand{\Phihat}{\hat{\Phi}}
 \newcommand{\Omegahat}{\hat{\Omega}}
@@ -176,8 +179,13 @@
 \newcommand{\id}{\text{id}}
 
 
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\atan}{atan}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\conv}{conv}
 \DeclareMathOperator{\preim}{preim}
+\DeclareMathOperator{\proj}{proj}
 \DeclareMathOperator{\im}{im}
 \DeclareMathOperator{\supp}{supp}
 \DeclareMathOperator{\ver}{ver}
@@ -200,9 +208,17 @@
 \DeclareMathOperator{\sgn}{sgn}
 \DeclareMathOperator{\erfc}{erfc}
 \DeclareMathOperator{\Log}{Log}
-\DeclareMathOperator{\arctanh}{arctanh}
-\DeclareMathOperator{\arcsinh}{arcsinh}
-\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\artanh}{artanh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\arcoth}{arcoth}
+\DeclareMathOperator{\arcsch}{arcsch}
+\DeclareMathOperator{\arsech}{arsech}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
 \DeclareMathOperator{\Alt}{Alt}
 \DeclareMathOperator{\Sym}{Sym}
 \DeclareMathOperator{\Aut}{Aut}
@@ -216,6 +232,7 @@
 \DeclareMathOperator{\Vir}{Vir}
 \DeclareMathOperator{\diag}{diag}
 \DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\Li}{Li}
 \DeclareMathOperator{\vecspan}{span}
 \DeclareMathOperator{\dist}{dist}
 \DeclareMathOperator{\dom}{dom}
@@ -224,6 +241,7 @@
 
 \DeclareMathOperator{\Ai}{Ai}
 \DeclareMathOperator{\Bi}{Bi}
+
 
 \let\Re\relax
 \DeclareMathOperator{\Re}{Re}
@@ -238,7 +256,8 @@
 
 <div style="display:none">
     \(\require{cancel}\)
-    \(\require{physics}\)
+    \(\require{simpler-wick}\)
+    \(\require{braket}\)
 </div>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
@@ -336,7 +355,7 @@
 
 <p>where \(b\) represents all variables at each site of the lattice and for each spin. We can actually write this multivariable coherent state as</p>
 
-\[\ket{b} = e^{-\sum_{i\alpha} \|b_{i\alpha}\|^2} e^{\sum_{i\alpha} b_{i\alpha} \bhat^\dagger_{i\alpha}}\ket{0}\]
+\[\ket{b} = e^{-\sum_{i\alpha} |b_{i\alpha}|^2} e^{\sum_{i\alpha} b_{i\alpha} \bhat^\dagger_{i\alpha}}\ket{0}\]
 
 <p>Then, we see that</p>
 
@@ -374,14 +393,14 @@
 \bra{\{b_n\}} e^{-\epsilon\Hhat} \ket{\{b_{n-1}\}} \approx &amp; \bra{\{b_n\}} (1 - \epsilon\Hhat[\bhat^\dagger,\bhat]) \ket{\{b_{n-1}\}} + O(\epsilon^2) \\
 ={}&amp;\bra{\{b_n\}} (1 - \epsilon H[b^{*}_n ,b_{n-1}]) \ket{\{b_{n-1}\}} + O(\epsilon^2) \\
 ={}&amp;\bra{\{b_n\}}\ket{\{b_{n-1}\}}(1 - \epsilon H[b^{*}_n ,b_{n-1}])  + O(\epsilon^2) \\
-\approx &amp; \exp\left(-\frac{1}{2}\sum_i \|b_{in}\|^2 - \frac{1}{2}\sum_i \|b_{i,n-1}\|^2 + \sum_i b_{in}^{*} b_{i,n-1}\right) e^{-\epsilon H[b_n^{*}, b_{n-1}]} + O(\epsilon^2)
+\approx &amp; \exp\left(-\frac{1}{2}\sum_i |b_{in}|^2 - \frac{1}{2}\sum_i |b_{i,n-1}|^2 + \sum_i b_{in}^{*} b_{i,n-1}\right) e^{-\epsilon H[b_n^{*}, b_{n-1}]} + O(\epsilon^2)
 \end{align}\]
 
 <p>Now, if we plug this into the path integral, we find</p>
 
 \[\begin{align}
-\mathcal{Z} ={}&amp; \int \left[\prod_{n=1}^N \exp\left(-\frac{1}{2}\sum_i \|b_{in}\|^2 - \frac{1}{2}\sum_i \|b_{i,n-1}\|^2 + \sum_i b_{in}^{*} b_{i,n-1}\right) e^{-\epsilon H[b_n^{*}, b_{n-1}]}\right] \frac{\D b^{*}_{0} \D b_{0}\D b^{*}_1 \D b_1 \cdots \D b^{*}_{N-1} \D b_{N-1}}{\pi^N} \\
-={}&amp; \int \left[\prod_{n=1}^N \exp\left(-\sum_i \|b_{i,n}\|^2 + \sum_i b_{in}^{*} b_{i,n-1}\right) e^{-\epsilon H[b_n^{*}, b_{n-1}]}\right] \frac{\D b^{*}_{0} \D b_{0}\D b^{*}_1 \D b_1 \cdots \D b^{*}_{N-1} \D b_{N-1}}{\pi^N} \\
+\mathcal{Z} ={}&amp; \int \left[\prod_{n=1}^N \exp\left(-\frac{1}{2}\sum_i |b_{in}|^2 - \frac{1}{2}\sum_i |b_{i,n-1}|^2 + \sum_i b_{in}^{*} b_{i,n-1}\right) e^{-\epsilon H[b_n^{*}, b_{n-1}]}\right] \frac{\D b^{*}_{0} \D b_{0}\D b^{*}_1 \D b_1 \cdots \D b^{*}_{N-1} \D b_{N-1}}{\pi^N} \\
+={}&amp; \int \left[\prod_{n=1}^N \exp\left(-\sum_i |b_{i,n}|^2 + \sum_i b_{in}^{*} b_{i,n-1}\right) e^{-\epsilon H[b_n^{*}, b_{n-1}]}\right] \frac{\D b^{*}_{0} \D b_{0}\D b^{*}_1 \D b_1 \cdots \D b^{*}_{N-1} \D b_{N-1}}{\pi^N} \\
 ={}&amp; \int \left[\prod_{n=1}^N \exp\left(-\sum_i b_{i,n}^{*}(b_{i,n} - b_{i,n-1})\right) e^{-\epsilon H[b_n^{*}, b_{n-1}]}\right] \frac{\D b^{*}_{0} \D b_{0}\D b^{*}_1 \D b_1 \cdots \D b^{*}_{N-1} \D b_{N-1}}{\pi^N}
 \end{align}\]
 
@@ -457,7 +476,7 @@
            
            
            <li>
-               This site updated 2024-07-19 12:13
+               This site updated 2024-11-16 19:53
            </li>
         </ul>
       </div>
