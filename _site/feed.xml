@@ -6,17 +6,17 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 16 Nov 2024 19:53:12 +0100</pubDate>
-    <lastBuildDate>Sat, 16 Nov 2024 19:53:12 +0100</lastBuildDate>
+    <pubDate>Sun, 05 Jan 2025 15:48:20 -0800</pubDate>
+    <lastBuildDate>Sun, 05 Jan 2025 15:48:20 -0800</lastBuildDate>
     <generator>Jekyll v4.2.2</generator>
     
       <item>
         <title>Physicsturtle is Born</title>
         <description>&lt;p&gt;Today I am creating Physicsturtle, an educational website aiming to present material on undergraduate and graduate physics and math topics.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 14 Jun 2018 00:37:28 +0200</pubDate>
-        <link>http://localhost:4000/jekyll/update/2018/06/14/physicsturtle-is-born.html</link>
-        <guid isPermaLink="true">http://localhost:4000/jekyll/update/2018/06/14/physicsturtle-is-born.html</guid>
+        <pubDate>Wed, 13 Jun 2018 15:37:28 -0700</pubDate>
+        <link>http://localhost:4000/jekyll/update/2018/06/13/physicsturtle-is-born.html</link>
+        <guid isPermaLink="true">http://localhost:4000/jekyll/update/2018/06/13/physicsturtle-is-born.html</guid>
         
         
         <category>jekyll</category>

@@ -95,10 +95,10 @@ Mathematical Classical Mechanics I
 <!--- Mathematical Electromagnetism
  <a class="page-link" href="/mathematical-electromagnetism/"> Mathematical Electromagnetism </a> --->
 
-<!--- ### Quantum Mechanics--->
-<!--- <a class="page-link" href="/quantum-mechanics-III/"> Quantum Mechanics III </a> --->
-
+### Quantum Mechanics
 <!--- <a class="page-link" href="/quantum-mechanics-IV/"> Quantum Mechanics IV </a> --->
+
+<a class="page-link" href="/qm-V/"> Quantum Mechanics V </a>
 
 <!--- Mathematical Theory of Quantum Mechanics I
 <a class="page-link" href="/mathematical-theory-of-quantum-mechanics-I/"> Mathematical Theory of Quantum Mechanics I </a> --->

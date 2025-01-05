@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Landau Theory from BCS Theory</title>
+  <meta name="description" content="We recall that the effective action, as derived from the attractive Hubbard model, was given by">
+    
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+
+</script>
+<!---
+<script type="text/x-mathjax-config">
+  MathJax = {
+    tex: {
+      displayMath: [['$$', '$$']],
+      inlineMath: [['$', '$']],
+    },
+  };
+</script>
+--->
+<script>
+    window.MathJax = {
+      tex: {
+        packages: ['base', 'ams', 'amscd', 'mathrsfs', 'upgreek'],
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+
+<script>
+  window.MathJax = {
+    tex: {
+      tags: 'all'  // Enable automatic numbering for all displayed equations
+    }
+  };
+</script>
+
+
+
+<div style="display:none">
+\(
+%Residues
+\let\Res\relax
+\DeclareMathOperator*{\Res}{Res}
+
+%Allow us to write angstroms
+\let\ring\r
+\renewcommand{\r}{\textbf{r}}
+\let\Oersted\O
+\let\O\relax
+\DeclareMathOperator{\O}{O}
+
+%Define useful symbols for commonly used sets in mathematics
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}} 
+\newcommand{\TT}{\mathbb{T}} 
+%\newcommand{\H}{\mathbb{H}}
+
+%Useful symbols for differential geometry
+\newcommand{\M}{\mathcal{M}}
+\renewcommand{\d}{\text{d}}
+\newcommand{\Sphere}{\mathbb{S}}
+\newcommand{\Torus}{\mathbb{T}}
+
+%Useful notations for electromagnetism
+\newcommand{\E}{\mathbf{E}}
+\newcommand{\B}{\mathbf{B}}
+\newcommand{\A}{\mathbf{A}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\J}{\mathbf{J}}
+\newcommand{\R}{\boldsymbol{R}}
+
+%Useful symbols for vector notation
+\newcommand{\x}{\boldsymbol{x}}
+\newcommand{\y}{\boldsymbol{y}}
+\newcommand{\z}{\boldsymbol{z}}
+\newcommand{\p}{\boldsymbol{p}}
+\newcommand{\q}{\boldsymbol{q}}
+\newcommand{\w}{\boldsymbol{w}}
+\renewcommand{\k}{\boldsymbol{k}}
+\newcommand{\K}{\boldsymbol{K}}
+\newcommand{\Q}{\boldsymbol{Q}}
+\renewcommand{\r}{\boldsymbol{r}}
+
+%Useful symbols for physics
+\newcommand{\hc}{\text{H.c.}}
+\newcommand{\Hc}{\text{H.c.}}
+\newcommand{\BZ}{\text{BZ}}
+\newcommand{\Kn}{\text{Kn}}
+\newcommand{\g}{\mathfrak{g}}
+
+\newcommand{\ahat}{\hat{a}}
+\newcommand{\bhat}{\hat{b}}
+\newcommand{\chat}{\hat{c}}
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\ehat}{\hat{e}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\ihat}{\hat{i}}
+\newcommand{\jhat}{\hat{j}}
+\newcommand{\khat}{\hat{k}}
+\newcommand{\lhat}{\hat{l}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\nhat}{\hat{n}}
+\newcommand{\ohat}{\hat{o}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\qhat}{\hat{q}}
+\newcommand{\rhat}{\hat{r}}
+\newcommand{\shat}{\hat{s}}
+\newcommand{\that}{\hat{t}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\what}{\hat{w}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
+\newcommand{\Ahat}{\hat{A}}
+\newcommand{\Bhat}{\hat{B}}
+\newcommand{\Chat}{\hat{C}}
+\newcommand{\Dhat}{\hat{D}}
+\newcommand{\Ehat}{\hat{E}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Jhat}{\hat{J}}
+\newcommand{\Khat}{\hat{K}}
+\newcommand{\Lhat}{\hat{L}}
+\newcommand{\Mhat}{\hat{M}}
+\newcommand{\Nhat}{\hat{N}}
+\newcommand{\Ohat}{\hat{O}}
+\newcommand{\Phat}{\hat{P}}
+\newcommand{\Qhat}{\hat{Q}}
+\newcommand{\Rhat}{\hat{R}}
+\newcommand{\Shat}{\hat{S}}
+\newcommand{\That}{\hat{T}}
+\newcommand{\Uhat}{\hat{U}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\What}{\hat{W}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\Zhat}{\hat{Z}}
+
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\Pihat}{\hat{\Pi}}
+\newcommand{\sigmahat}{\hat{\sigma}}
+\newcommand{\psihat}{\hat{\psi}}
+\newcommand{\Psihat}{\hat{\Psi}}
+\newcommand{\phihat}{\hat{\phi}}
+\newcommand{\thetahat}{\hat{\theta}}
+\newcommand{\Thetahat}{\hat{\Theta}}
+\newcommand{\chihat}{\hat{\chi}}
+\newcommand{\Phihat}{\hat{\Phi}}
+\newcommand{\Omegahat}{\hat{\Omega}}
+\newcommand{\Deltahat}{\hat{\Delta}}
+\newcommand{\pihat}{\hat{\pi}}
+\newcommand{\varphihat}{\hat{\varphi}}
+\newcommand{\rhohat}{\hat{\rho}}
+\newcommand{\gammahat}{\hat{\gamma}}
+\newcommand{\etahat}{\hat{\eta}}
+\newcommand{\V}{\mathcal{V}}
+\renewcommand{\L}{\mathcal{L}}
+\newcommand{\D}{\mathcal{D}}
+
+\newcommand{\id}{\text{id}}
+
+
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\atan}{atan}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\preim}{preim}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\ver}{ver}
+\DeclareMathOperator{\hor}{hor}
+\DeclareMathOperator{\ad}{ad}
+\DeclareMathOperator{\const}{const}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\SU}{SU}
+\DeclareMathOperator{\Cl}{C\ell}
+\DeclareMathOperator{\conf}{conf}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\algsl}{\mathfrak{sl}}
+\DeclareMathOperator{\Sp}{Sp}
+\DeclareMathOperator{\algsu}{\mathfrak{su}}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Unit}{U}
+\DeclareMathOperator{\algu}{\mathfrak{u}}
+\DeclareMathOperator{\SO}{SO}
+\DeclareMathOperator{\algso}{\mathfrak{so}}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\erfc}{erfc}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\artanh}{artanh}
+\DeclareMathOperator{\arsinh}{arsinh}
+\DeclareMathOperator{\arcosh}{arcosh}
+\DeclareMathOperator{\arcoth}{arcoth}
+\DeclareMathOperator{\arcsch}{arcsch}
+\DeclareMathOperator{\arsech}{arsech}
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\Alt}{Alt}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Spin}{Spin}
+\DeclareMathOperator{\Diff}{Diff}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\Witt}{Witt}
+\DeclareMathOperator{\Vir}{Vir}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\Pf}{Pf}
+\DeclareMathOperator{\Li}{Li}
+\DeclareMathOperator{\vecspan}{span}
+\DeclareMathOperator{\dist}{dist}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\range}{range}
+\DeclareMathOperator{\1}{\mathbb{1}}
+
+\DeclareMathOperator{\Ai}{Ai}
+\DeclareMathOperator{\Bi}{Bi}
+
+
+\let\Re\relax
+\DeclareMathOperator{\Re}{Re}
+\let\Im\relax
+\DeclareMathOperator{\Im}{Im}
+
+%Useful notations for thermodynamics
+\newcommand{\dbar}}
+    
+\)
+</div>
+
+<div style="display:none">
+    \(\require{cancel}\)
+    \(\require{simpler-wick}\)
+    \(\require{braket}\)
+</div>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7447253757666293"
+     crossorigin="anonymous"></script>
+
+
+
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="canonical" href="http://localhost:4000/superconductivity/unit45/LandauTheoryfromBCSTheory.html">
+  <link rel="alternate" type="application/rss+xml" title="Physicsturtle" href="http://localhost:4000/feed.xml">
+      <script>
+          function myFunction(name) {
+              var x = document.getElementById(name);
+              if (x.style.display === "block") {
+                  x.style.display = "none";
+              } else {
+                  x.style.display = "block";
+              }
+          }
+      </script>
+</head>
+
+
+  <body>
+
+    <header class="site-header" style="background-color:#9ED54C">
+
+  <div class="wrapper" >
+
+    <a class="site-title" href="/">Physicsturtle</a>
+
+    <nav class="site-nav" >
+      <a href="#" class="menu-icon">
+        <svg viewBox="0 0 18 15">
+          <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+          <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+          <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        </svg>
+      </a>
+      <!--hide the physics content for now... my_page.title == "Physics" or -->
+      <div class="trigger" >
+          
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/physics">Physics</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/math">Math</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/guides">Guides</a>
+          
+          
+          
+          <a class = "page-link" href = "http://localhost:4000/about">About</a>
+          
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+      
+      
+      
+      
+      
+      <div> <a href="http://localhost:4000/physics">Physics</a> > <a href="http://localhost:4000/superconductivity">Superconductivity & Superfluidity</a> > <a href="http://localhost:4000/superconductivity/unit45">Unit 45</a> > <a href="/superconductivity/unit45/LandauTheoryfromBCSTheory.html">Landau Theory from BCS Theory</a> > <a href="/superconductivity/unit45/LandauTheoryfromBCSTheory-exercises.html"> Exercises </a> </div> <br>
+    <h1 class="post-title">Landau Theory from BCS Theory</h1>
+  </header>
+  
+  <div class="post-content">
+    <p>We recall that the effective action, as derived from the attractive Hubbard model, was given by</p>
+
+\[S_\text{eff}[\Delta^*,\Delta] = \int_0^\beta \sum_i \frac{1}{U}|\Delta_{i\tau}|^2\d\tau - \log\left&lt;\exp\left(-\int_0^\beta\sum_i \left(\Delta_{i\tau}\bar{c}_{i\tau\uparrow}\bar{c}_{i\tau\downarrow} + \Delta^*_{i\tau} c_{i\tau\downarrow} c_{i\tau\uparrow}\right)\d\tau\right)\right&gt;_0.\]
+
+<p>If we Fourier transform all of the fields in \(\Delta S_\text{eff}\) according to</p>
+
+\[c_{i\tau\sigma} = \frac{1}{\sqrt{N_s\beta}} \sum_k e^{-ik_0\tau + i\mathbf{R}_i\cdot\k}c_{k\sigma}, \quad \bar{c}_{i\tau\sigma} = \frac{1}{\sqrt{N_s\beta}}\sum_k e^{ik_0-i\mathbf{R}_i\cdot\k}\bar{c}_{k\sigma},\quad \Delta_{i\tau} = \frac{1}{\beta N_s}\sum_k e^{-ik_0\tau + i\mathbf{R}_i\cdot\k}\Delta_k\]
+
+<p>we find that</p>
+
+\[\begin{align}
+\Delta S_\text{eff} = -\log\left&lt;\exp\left(-\frac{1}{\beta N_s}\sum_{kq}\left(\Delta_{k+q}\bar{c}_{k\uparrow}\bar{c}_{q\downarrow} + \Delta^*_{k+q}c_{k\downarrow}c_{q\uparrow}\right) \right)\right&gt;_0
+\end{align}\]
+
+<p>To easily integrate out the fermions, we perform a Bogolyubov transformation. This is done by writing</p>
+
+\[\begin{align}
+\Delta S_\text{eff} ={}&amp; -\log\left(\frac{1}{Z_0} \int e^{-S_0} \exp\left(-\frac{1}{\beta N_s}\sum_{kq}\left(\Delta_{k+q}\bar{c}_{k\uparrow}\bar{c}_{q\downarrow} + \Delta^*_{k+q}c_{k\downarrow}c_{q\uparrow}\right) \right)\D\bar{c}\D c\right) \\
+={}&amp;-\log\left(\frac{1}{Z_0}\int \exp\left(\sum_{kq}\left[ \bar{c}_{k\sigma} \mathcal{G}^{-1}_0(k) c_{q\sigma} \delta_{kq} - \frac{1}{\beta N_s} \Delta_{k+q}\bar{c}_{k\uparrow} \bar{c}_{q\downarrow} - \frac{1}{\beta N_s} \Delta^*_{k+q} c_{k\downarrow} c_{q\uparrow} \right] \right) \D \bar{c} \D c\right)
+\end{align}\]
+
+<p>Let us now massage the integrand. We can rewrite it as</p>
+
+\[\begin{align}
+={}&amp; \sum_{kq}\left[ \bar{c}_{k\sigma} \mathcal{G}^{-1}_0(k) c_{q\sigma} \delta_{kq} - \frac{1}{\beta N_s} \Delta_{k+q}\bar{c}_{k\uparrow} \bar{c}_{q\downarrow} - \frac{1}{\beta N_s} \Delta^*_{k+q} c_{k\downarrow} c_{q\uparrow} \right] \\
+={}&amp; \sum_{kq}\begin{pmatrix} \bar{c}_{k\uparrow} &amp; c_{-k\downarrow} \end{pmatrix} \begin{pmatrix} \mathcal{G}^{-1}_0(k)\delta_{kq} &amp; -\frac{1}{\beta N_s}\Delta_{k-q} \\ -\frac{1}{\beta N_s}\Delta^*_{q-k} &amp; -\mathcal{G}^{-1}_0(-k)\delta_{kq}\end{pmatrix} \begin{pmatrix} c_{q\uparrow} \\ \bar{c}_{-q\downarrow} \end{pmatrix} 
+\end{align}\]
+
+<p>Here \(\mathcal{G}_0(-k)\) refers to swapping the signs of both the Matsubara frequency and the momentum. Now, if we evaluate the integral</p>
+
+\[\int\exp\left(\sum_{kq}\begin{pmatrix} \bar{c}_{k\uparrow} &amp; c_{-k\downarrow} \end{pmatrix} \begin{pmatrix} \mathcal{G}^{-1}_0(k)\delta_{kq} &amp; -\frac{1}{\beta N_s}\Delta_{k-q} \\ -\frac{1}{\beta N_s}\Delta^*_{q-k} &amp; -\mathcal{G}^{-1}_0(-k)\delta_{kq}\end{pmatrix} \begin{pmatrix} c_{q\uparrow} \\ \bar{c}_{-q\downarrow} \end{pmatrix} \right)\D\bar{c}\D c = \det \begin{pmatrix} \mathcal{G}^{-1}_0(k)\delta_{kq} &amp; -\frac{1}{\beta N_s}\Delta_{k-q} \\ -\frac{1}{\beta N_s}\Delta^*_{q-k} &amp; -\mathcal{G}^{-1}_0(-k)\delta_{kq}\end{pmatrix}\]
+
+<p>Note that the determinant is NOT simply over this \(2\times 2\) matrix, but rather also over \(k\) and \(q\). We then have that</p>
+
+\[\begin{align}
+\Delta S_\text{eff} ={}&amp; -\log \left[\frac{1}{Z_0}\det \begin{pmatrix} \mathcal{G}^{-1}_0(k)\delta_{kq} &amp; -\frac{1}{\beta N_s}\Delta_{k-q} \\ -\frac{1}{\beta N_s}\Delta^*_{q-k} &amp; -\mathcal{G}^{-1}_0(-k)\delta_{kq}\end{pmatrix}\right] \\
+={}&amp; \log Z_0 -\tr\log \begin{pmatrix} \mathcal{G}^{-1}_0(k)\delta_{kq} &amp; -\frac{1}{\beta N_s}\Delta_{k-q} \\ -\frac{1}{\beta N_s}\Delta^*_{q-k} &amp; -\mathcal{G}^{-1}_0(-k)\delta_{kq}\end{pmatrix} 
+\end{align}\]
+
+<p>Now, we write this as a matrix multiplication:</p>
+
+\[\begin{align}
+\Delta S_\text{eff} ={}&amp; -\tr\log\left[ \begin{pmatrix} \mathcal{G}^{-1}_0(k)\delta_{kq} &amp; 0 \\ 0 &amp; -\mathcal{G}^{-1}_0(-k)\delta_{kq}\end{pmatrix}  \begin{pmatrix} \delta_{kq} &amp; -\frac{1}{\beta N_s}\mathcal{G}_0(k)\Delta_{k-q} \\ \frac{1}{\beta N_s}\mathcal{G}_0(-k)\Delta^*_{q-k} &amp; \delta_{kq} \end{pmatrix} \right]
+\end{align}\]
+
+<p>Now, using \(\tr\log[AB] = \tr\log A + \tr\log B\), we have that</p>
+
+\[\begin{align}
+\Delta S_\text{eff} ={}&amp; \log Z_0 - \tr\log \begin{pmatrix} \mathcal{G}^{-1}_0(k)\delta_{kq} &amp; 0 \\ 0 &amp; -\mathcal{G}^{-1}_0(-k)\delta_{kq}\end{pmatrix} - \tr\log \begin{pmatrix} \delta_{kq} &amp; -\frac{1}{\beta N_s}\mathcal{G}_0(k)\Delta_{k-q} \\ \frac{1}{\beta N_s}\mathcal{G}_0(-k)\Delta^*_{q-k} &amp; \delta_{kq} \end{pmatrix} \\
+={}&amp; \log Z_0 - \log\det \begin{pmatrix} \mathcal{G}^{-1}_0(k)\delta_{kq} &amp; 0 \\ 0 &amp; -\mathcal{G}^{-1}_0(-k)\delta_{kq}\end{pmatrix} - \tr\log(\1-X)
+\end{align}\]
+
+<p>Since the first term is completely diagonal, it reduces to a product over diagonal elements in both \(k\) space and in the \(2\times 2\) space, and also the matrix \(X\) is given by</p>
+
+\[\begin{equation}
+X_{kq} = \begin{pmatrix} 0 &amp; -\frac{1}{\beta N_s}\mathcal{G}_0(k)\Delta_{k-q} \\ \frac{1}{\beta N_s}\mathcal{G}_0(-k)\Delta^*_{q-k} &amp; 0\end{pmatrix}
+\end{equation}\]
+
+<p>Thus, the effective action can be written as</p>
+
+\[\begin{align}
+\Delta S_\text{eff} ={}&amp; \log Z_0 - \underbrace{\log\prod_k (\mathcal{G}^{-1}_0)^2}_{Z_0}- \tr\log(\1-X)
+\end{align}\]
+
+<p>Now, the effective action can be Taylor expanded according to</p>
+
+\[-\log(\1 - X) = \sum_{n=1}^\infty \frac{X^n}{n}\]
+
+<p>It is clear that the first order correction is zero. The second order correction is nonzero, so we compute \(X^2\):</p>
+
+\[\begin{align}
+(X^2)_{k_1q_2} ={}&amp; \tr\left[\begin{pmatrix} 0 &amp; -\frac{\mathcal{G}_0(k_1)}{\beta N_s}\Delta_{k_1-q_1} \\ \frac{\mathcal{G}_0(-k_1)}{\beta N_s}\Delta^*_{q_1-k_1} &amp; 0 \end{pmatrix} \begin{pmatrix} 0 &amp; -\frac{\mathcal{G}_0(k_2)}{\beta N_s}\Delta_{k_2-q_2} \\ \frac{\mathcal{G}_0(-k_2)}{\beta N_s}\Delta^*_{q_2-k_2} &amp; 0 \end{pmatrix}\right] \\
+={}&amp; -\frac{1}{(\beta N_s)^2}\sum_{q_1k_2} \begin{pmatrix} \delta_{q_1k_2} \mathcal{G}_0(k_1)\Delta_{k_1-q_1}\mathcal{G}_0(-k_2)\Delta^*_{q_2-k_2}&amp; 0 \\ 0 &amp; \delta_{q_1k_2} \mathcal{G}_0(-k_1)\Delta^*_{q_1-k_1}\mathcal{G}_0(k_2)\Delta_{k_2-q_2} \end{pmatrix} \\
+={}&amp; -\frac{1}{(\beta N_s)^2} \sum_{k_2} \begin{pmatrix} \mathcal{G}_0(k_1)\Delta_{k_1-k_2}\mathcal{G}_0(-k_2)\Delta^*_{q_2-k_2}&amp; 0 \\ 0 &amp; \mathcal{G}_0(-k_1)\Delta^*_{k_2-k_1}\mathcal{G}_0(k_2)\Delta_{k_2-q_2} \end{pmatrix} 
+\end{align}\]
+
+<p>The fourth order contribution comes from</p>
+
+\[\begin{align}
+(X^4)_{k_1q_4} ={}&amp;\frac{1}{(\beta N_s)^4}\begin{pmatrix} (x_1)_{k_1q_4}&amp; 0 \\0 &amp; (x_2)_{k_1q_4} \end{pmatrix}
+\end{align}\]
+
+<p>where</p>
+
+\[\begin{align}
+(x_1)_{k_1q_4} ={}&amp; \sum_{k_2q_2k_3k_4} \mathcal{G}_0(k_1)\Delta_{k_1-k_2}\mathcal{G}_0(-k_2)\Delta^*_{q_2-k_2}\delta_{q_2k_3} \mathcal{G}_0(k_3)\Delta_{k_3-k_4}\mathcal{G}_0(-k_4) \Delta^*_{q_4-k_4} \\
+={}&amp; \sum_{k_2k_3k_4} \mathcal{G}_0(k_1)\Delta_{k_1-k_2}\mathcal{G}_0(-k_2)\Delta^*_{k_3-k_2} \mathcal{G}_0(k_3)\Delta_{k_3-k_4}\mathcal{G}_0(-k_4) \Delta^*_{q_4-k_4} \\
+(x_2)_{k_1q_4} ={}&amp; \sum_{k_2q_2k_3k_4} \mathcal{G}_0(-k_1)\Delta_{k_2-q_2}\mathcal{G}_0(k_2)\Delta^*_{k_2-k_1} \delta_{q_2k_3}\mathcal{G}_0(-k_3)\Delta_{k_4-q_4} \mathcal{G}_0(k_4)\Delta^*_{k_4-k_3} \\
+={}&amp; \sum_{k_2k_3k_4} \mathcal{G}_0(-k_1)\Delta_{k_2-k_3}\mathcal{G}_0(k_2)\Delta^*_{k_2-k_1} \mathcal{G}_0(-k_3)\Delta_{k_4-q_4} \mathcal{G}_0(k_4)\Delta^*_{k_4-k_3}
+\end{align}\]
+
+<p>Now, let’s compute the second order correction:</p>
+
+\[\begin{align}
+\Delta S_\text{eff}^{(2)} ={}&amp; \frac{1}{2}\tr X^2 \\
+={}&amp; -\frac{1}{2(\beta N_s)^2}\sum_{k_1k_2q_2} \delta_{q_2k_1} \tr_{2\times 2} \begin{pmatrix} \mathcal{G}_0(k_1)\Delta_{k_1-k_2}\mathcal{G}_0(-k_2)\Delta^*_{q_2-k_2}&amp; 0 \\ 0 &amp; \mathcal{G}_0(-k_1)\Delta^*_{k_2-k_1}\mathcal{G}_0(k_2)\Delta_{k_2-q_2} \end{pmatrix} \\
+={}&amp; -\frac{1}{2(\beta N_s)^2}\sum_{k_1k_2} \tr_{2\times 2} \begin{pmatrix} \mathcal{G}_0(k_1)\Delta_{k_1-k_2}\mathcal{G}_0(-k_2)\Delta^*_{k_1-k_2}&amp; 0 \\ 0 &amp; \mathcal{G}_0(-k_1)\Delta^*_{k_2-k_1}\mathcal{G}_0(k_2)\Delta_{k_2-k_1} \end{pmatrix} \\
+={}&amp; -\frac{1}{2(\beta N_s)^2}\sum_{k_1k_2} \tr_{2\times 2} \begin{pmatrix} \mathcal{G}_0(k_1) \mathcal{G}_0(-k_2) |\Delta_{k_1-k_2}|^2&amp; 0 \\ 0 &amp; \mathcal{G}_0(-k_1) \mathcal{G}_0(k_2)|\Delta_{k_2-k_1}|^2 \end{pmatrix} \\
+={}&amp; -\frac{1}{2(\beta N_s)^2}\sum_{kq} \tr_{2\times 2} \begin{pmatrix} \mathcal{G}_0(k) \mathcal{G}_0(q-k) |\Delta_q|^2 &amp; 0 \\ 0 &amp; \mathcal{G}_0(k) \mathcal{G}_0(q-k) |\Delta_q|^2\end{pmatrix} \\
+={}&amp; -\frac{1}{\beta N_s}\sum_{k}|\Delta_k|^2 \frac{1}{\beta N_s}\sum_q \mathcal{G}_0(q) \mathcal{G}_0(k-q) 
+\end{align}\]
+
+<p>We finally define \(P(k) = \frac{1}{\beta N_s} \sum_q \mathcal{G}_0(q) \mathcal{G}_0(k-q) \), and get</p>
+
+\[\begin{align}
+\Delta S_\text{eff}^{(2)} ={}&amp; -\frac{1}{\beta N_s}\sum_{k}|\Delta_k|^2 P(k) 
+\end{align}\]
+
+<p>Now, we compute the fourth order correction:</p>
+
+\[\begin{align}
+\Delta S_\text{eff}^{(4)} ={}&amp; \frac{1}{4}\tr X^4 \\
+={}&amp; \frac{1}{4(\beta N_s)^4}\tr_{2\times 2} \begin{pmatrix} \tr_{k} (x_1) &amp; 0 \\0 &amp; \tr_k (x_2) \end{pmatrix} 
+\end{align}\]
+
+<p>Now, we evaluate the traces over the momenta and Matsubara sums. This gives</p>
+
+\[\begin{align}
+\tr_k(x_1) ={}&amp; \sum_{k_1k_2k_3k_4q_4}\delta_{q_4k_1}\mathcal{G}_0(k_1)\Delta_{k_1-k_2}\mathcal{G}_0(-k_2)\Delta^*_{k_3-k_2}\mathcal{G}_0(k_3)\Delta_{k_3-k_4}\mathcal{G}_0(-k_4)\Delta^*_{q_4-k_4} \\
+={}&amp; \sum_{k_1k_2k_3k_4}\mathcal{G}_0(k_1)\Delta_{k_1-k_2}\mathcal{G}_0(-k_2)\Delta^*_{k_3-k_2}\mathcal{G}_0(k_3)\Delta_{k_3-k_4}\mathcal{G}_0(-k_4)\Delta^*_{k_1-k_4} \\
+={}&amp; \sum_{k_1k_2k_3}\Delta_{k_1}\Delta^*_{k_2}\Delta_{k_3}\Delta^*_{k_1-k_2+k_3}\sum_{q}\mathcal{G}_0(q)\mathcal{G}_0(k_1-q)\mathcal{G}_0(q-k_1+k_2)\mathcal{G}_0(k_1+k_3-k_2-q)
+\end{align}\]
+
+<p>SImilarly, we find that</p>
+
+\[\begin{align}
+\tr_k(x_2) ={}&amp; \sum_{k_1k_2k_3k_4q_4} \delta_{q_4k_1} \mathcal{G}_0(-k_1) \Delta_{k_2-k_3} \mathcal{G}_0(k_2) \Delta^*_{k_2-k_1} \mathcal{G}_0(-k_3) \Delta_{k_4-q_4} \mathcal{G}_0(k_4) \Delta^*_{k_4-k_3} \\
+={}&amp; \sum_{k_1k_2k_3k_4} \mathcal{G}_0(-k_1)\Delta_{k_2-k_3} \mathcal{G}_0(k_2) \Delta^*_{k_2-k_1} \mathcal{G}_0(-k_3) \Delta_{k_4-k_1} \mathcal{G}_0(k_4) \Delta^*_{k_4-k_3} \\
+={}&amp; \sum_{k_1k_2k_3} \Delta_{k_1}\Delta^*_{k_2}\Delta_{k_3}\Delta^*_{k_1-k_2+k_3} \sum_q \mathcal{G}_0(q) \mathcal{G}_0(k_1-q)\mathcal{G}_0(q-k_1+k_2)\mathcal{G}_0(k_1+k_3-k_2-q)
+\end{align}\]
+
+<p>We therefore see that \(\tr_k(x_1) = \tr_k(x_2)\), so that we get</p>
+
+\[\begin{align}
+\Delta S_\text{eff}^{(4)} ={}&amp; \frac{1}{2(\beta N_s)^4} \tr(x_1) \\
+={}&amp;  \frac{1}{2(\beta N_s)^4} \sum_{k_1k_2k_3} \Delta_{k_1}\Delta^*_{k_2}\Delta_{k_3}\Delta^*_{k_1-k_2+k_3} \sum_q \mathcal{G}_0(q) \mathcal{G}_0(k_1-q)\mathcal{G}_0(q-k_1+k_2)\mathcal{G}_0(k_1+k_3-k_2-q)
+\end{align}\]
+
+<p>We then define</p>
+
+\[u(k_1,k_2,k_3) = \frac{1}{2\beta N_s} \sum_q \mathcal{G}_0(q) \mathcal{G}_0(k_1-q)\mathcal{G}_0(q-k_1+k_2)\mathcal{G}_0(k_1+k_3-k_2-q)\]
+
+<p>Thus, we get</p>
+
+\[\begin{align}
+\Delta S_\text{eff}^{(4)} ={}&amp;  \frac{1}{(\beta N_s)^3} \sum_{k_1k_2k_3} u(k_1,k_2,k_3) \Delta_{k_1}\Delta^*_{k_2}\Delta_{k_3}\Delta^*_{k_1-k_2+k_3}
+\end{align}\]
+
+<p>The full effective action is therefore given by</p>
+
+\[S_\text{eff}[\Delta,\Delta^*] = \frac{1}{\beta N_s}\sum_k |\Delta_k|^2\left(\frac{1}{U} -  P(k)\right) + \frac{1}{(\beta N_s)^3} \sum_{k_1k_2k_3}u(k_1,k_2,k_3) \Delta_{k_1} \Delta^*_{k_2} \Delta_{k_3} \Delta^*_{k_1-k_2+k_3} + O(\Delta^6)\]
+
+<p>Now let’s try to learn a little bit more about these coefficients. We can rewrite</p>
+
+\[\begin{align}
+P(k) ={}&amp; \frac{1}{\beta N_s}\sum_q \mathcal{G}_0(q) \mathcal{G}_0(k-q) \\
+={}&amp; \frac{1}{N_s}\sum_{\q} \frac{1}{\beta} \sum_{i\omega} \frac{1}{i\omega - \xi_{\q}} \frac{1}{ik_0 - i\omega - \xi_{\k-\q}} \\
+={}&amp; \frac{1}{N_s} \sum_{\q} \frac{n_F(\xi_{\q}) - n_F(-\xi_{\k-\q})}{ik_0 - \xi_{\q} - \xi_{\k-\q}} \\
+={}&amp; \frac{1}{N_s}\sum_{\q} \frac{1 - n_F(\xi_{\q}) - n_F(\xi_{\k-\q})}{-ik_0 + \xi_{\q} + \xi_{\k-\q}}
+\end{align}\]
+
+<p>Now, let’s take the Taylor expansion around small \(\k\) and \(k_0\). This makes sense because high powers of \(k\) and \(k_0\) will be irrelevant. We first find</p>
+
+\[\begin{align}
+P(0) ={}&amp; \frac{1}{N_s}\sum_{\q} \frac{1 - 2n_F(\xi_{\q})}{2\xi_{\q}} \\
+={}&amp; \frac{1}{N_s}\sum_{\q} \frac{\tanh(\beta\xi_{\q}/2)}{2\xi_{\q}} \\
+={}&amp; \int_{-\Lambda}^\Lambda \rho(\xi) \frac{\tanh(\beta \xi/2)}{2\xi} \d\xi \\
+\sim &amp; \rho(0)\int_{0}^\Lambda \frac{\tanh(\beta \xi/2)}{\xi} \d\xi \\
+={}&amp; \rho(0)\int_{0}^{\beta\Lambda/2} \frac{\tanh x}{x} \d x \\
+={}&amp; \rho(0)\left[\log x \tanh x \bigg|_0^{\beta\Lambda/2} - \int_{0}^{\beta\Lambda/2} \frac{\log x}{\cosh^2 x} \d x \right] \\
+\sim &amp; \rho(0)\left[\log \frac{\beta\Lambda}{2} \tanh \frac{\beta\Lambda}{2} - \int_{0}^{\infty} \frac{\log x}{\cosh^2 x} \d x \right] \\
+={}&amp; \rho(0)\left[\log \frac{\beta\Lambda}{2} - \log\left(\frac{\pi}{4e^\gamma}\right) \right] \\
+={}&amp; \rho(0)\log \left(\frac{2e^\gamma\beta\Lambda}{\pi}\right) \\
+\end{align}\]
+
+<p>Next, we need to compute \(P(ik_0,0)\) for small Matsubara frequency. To do this, we set \(\k = 0\). Doing this, we get</p>
+
+\[\begin{align}
+P(ik_0,0) ={}&amp; \frac{1}{N_s}\sum_{\q} \frac{1 - 2n_F(\xi_{\q})}{-ik_0 + 2\xi_{\q}} \\
+={}&amp; \int_{-\Lambda}^{\Lambda} \rho(\xi) \frac{\tanh(\beta\xi/2)}{-ik_0 + 2\xi} \d\xi \\
+={}&amp; \rho(0) \int_{-\Lambda}^{\Lambda} \frac{\tanh(\beta\xi/2)}{-ik_0 + 2\xi} \d\xi \\
+\end{align}\]
+
+<p>Now, we multiply by the conjugate to find</p>
+
+\[\begin{align}
+P(ik_0,0) ={}&amp; \rho(0) \int_{-\Lambda}^{\Lambda} \frac{\tanh(\beta\xi/2)}{k_0^2 + 4\xi^2}(ik_0 + 2\xi) \d\xi \\
+={}&amp; \rho(0) \int_{-\Lambda}^{\Lambda} \frac{\tanh(\beta\xi/2)}{k_0^2 + 4\xi^2}2\xi \d\xi \\
+={}&amp; 4\rho(0) \int_{0}^{\Lambda} \frac{\xi\tanh(\beta\xi/2)}{k_0^2 + 4\xi^2} \d\xi \\
+\end{align}\]
+
+<p>Now, we want this integral to look like the original integral \(P(0,0)\). To do this, we perform the following manipulation:</p>
+
+\[\begin{align}
+P(ik_0,0) ={}&amp; \rho(0) \int_{0}^{\Lambda} \frac{1}{\xi} \tanh\left(\frac{\beta\xi}{2}\right)\left(\frac{4\xi^2}{k_0^2 + 4\xi^2} - 1 + 1\right)\d\xi \\
+={}&amp; \rho(0) \int_{0}^{\Lambda} \frac{1}{\xi} \tanh\left(\frac{\beta\xi}{2}\right)\d\xi + \rho(0)\int_0^\Lambda \frac{1}{\xi} \tanh\left(\frac{\beta\xi}{2}\right)\left(\frac{4\xi^2}{k_0^2 + 4\xi^2} - 1\right)\d\xi \\
+={}&amp; P(0) - \rho(0)\int_0^\Lambda \frac{1}{\xi} \tanh\left(\frac{\beta\xi}{2}\right)\frac{k_0^2}{k_0^2 + 4\xi^2} \d\xi \\
+={}&amp; P(0) - \rho(0)k_0^2\int_0^\Lambda \frac{1}{\xi} \tanh\left(\frac{\beta\xi}{2}\right)\frac{1}{k_0^2 + 4\xi^2} \d\xi \\
+\approx &amp; P(0) - \rho(0)k_0^2\int_0^\infty \frac{1}{\xi} \tanh\left(\frac{\beta\xi}{2}\right)\frac{1}{k_0^2 + 4\xi^2} \d\xi
+\end{align}\]
+
+<p>Since \(k_0\) is small, the integral is dominated by small \(\xi\). Thus let us replace \(\tanh(\beta\xi/2)/\xi\) by its value at \(\xi = 0\). This gives us</p>
+
+\[\begin{align}
+P(ik_0,0) ={}&amp; P(0) - \frac{\beta\rho(0)}{2} k_0^2\int_0^\infty \frac{1}{k_0^2 + 4\xi^2} \d\xi \\
+={}&amp; P(0) - \frac{\rho(0)\beta}{2} k_0^2 \frac{1}{2|k_0|} \arctan\left(\frac{2\xi}{k_0}\right)\bigg|_0^\infty \\
+={}&amp; P(0) - \frac{\rho(0)\beta}{2} k_0^2 \frac{1}{2|k_0|} \frac{\pi}{2} \\
+={}&amp; P(0) - \frac{\rho(0)\beta \pi}{8} |k_0|
+\end{align}\]
+
+<p>Lastly, we compute \(P(0,\k)\) for small momentum. Let us do this for \(k_0 = 0\) and Taylor expand in small \(\k\). We define \(\xi_{\q-\k} = \xi_{\q} + \epsilon\), where \(\epsilon\) is small.</p>
+
+\[\begin{align}
+P(0,\k) ={}&amp; \frac{1}{N_s}\sum_{\q} \frac{1 - n_F(\xi_{\q}) - n_F(\xi_{\k-\q})}{\xi_{\q} + \xi_{\k-\q}}
+\end{align}\]
+
+<p>Let us first compute the derivatives of \(P(0,\k)\). This gives us</p>
+
+\[\begin{align}
+\frac{\partial P}{\partial k_\alpha} ={}&amp; \frac{1}{N_s}\sum_{\q} \left(\frac{-n_F'(\xi_{\k-\q})}{\xi_{\q} + \xi_{\k-\q}} - \frac{1 - n_F(\xi_{\q}) - n_F(\xi_{\k-\q})}{(\xi_{\q} + \xi_{\k-\q})^2}\right)\partial_\alpha\xi_{\k-\q}
+\end{align}\]
+
+<p>Setting \(\k = 0\), we then see that the only remaining terms are odd in \(\q\) (assuming that \(\xi\) is an even function). This means that all the terms go to zero because the sum is odd. Now, for the second derivative, we find</p>
+
+\[\begin{align}
+\frac{\partial^2 P}{\partial k_\alpha k_\beta} ={}&amp; \frac{1}{N_s}\sum_{\q} \left(\frac{-n_F'(\xi_{\k-\q})}{\xi_{\q} + \xi_{\k-\q}} - \frac{1 - n_F(\xi_{\q}) - n_F(\xi_{\k-\q})}{(\xi_{\q} + \xi_{\k-\q})^2}\right)\partial_\alpha\partial_\beta\xi_{\k-\q} \\
+&amp;+ \frac{1}{N_s}\sum_{\q}\left(2\frac{n_F'(\xi_{\k-\q})}{(\xi_{\q} + \xi_{\k-\q})^2} - \frac{n_F"(\xi_{\k-\q})}{\xi_{\q} + \xi_{\k-\q}} + 2\frac{1 - n_F(\xi_{\q}) - n_F(\xi_{\k-\q})}{(\xi_{\q} + \xi_{\k-\q})^3} \right) (\partial_\alpha \xi_{\k-\q}) (\partial_\beta \xi_{\k-\q}) 
+\end{align}\]
+
+<p>For the first line, if we set that \(\k = 0\) and assume that \(\partial_\alpha \partial_\beta \xi_{\k-\q}\) is independent of \(\q\), then the all the terms are odd in \(\xi\) and with an even density of states it all goes away. This the expression simplifies to</p>
+
+\[\begin{align}
+\frac{\partial^2 P}{\partial k_\alpha k_\beta} ={}&amp; \frac{1}{N_s}\sum_{\q}\left(2\frac{n_F'(\xi_{\q})}{(2\xi_{\q})^2} - \frac{n_F"(\xi_{\q})}{2\xi_{\q}} + 2\frac{\tanh(\beta\xi_{\q}/2)}{(2\xi_{\q})^3} \right) v_F^2
+\end{align}\]
+
+<p>where we set \(\partial_\alpha \xi_{\k-\q} = v_F\). We can now change everything to an integral over energies</p>
+
+\[\begin{align}
+\frac{\partial^2 P}{\partial k_\alpha k_\beta} ={}&amp; v_F^2\rho(0) \int_{-\Lambda}^\Lambda \left(\frac{n_F'(\xi)}{2\xi^2} - \frac{n_F"(\xi)}{2\xi} + \frac{\tanh(\beta\xi/2)}{4\xi^3} \right)\d\xi \\
+={}&amp; v_F^2\rho(0) \int_0^\Lambda \left(\frac{n_F'(\xi)}{\xi^2} - \frac{n_F"(\xi)}{\xi} + \frac{\tanh(\beta\xi/2)}{2\xi^3} \right)\d\xi \\
+={}&amp; v_F^2\rho(0) \int_0^{\beta\Lambda/2} \left(-\frac{\beta^3}{16x^2\cosh^2 x} - \frac{\beta^3\sinh x}{8x\cosh^3 x} + \frac{\beta^3\tanh x}{16x^3} \right)\frac{2}{\beta}\d x \\
+\sim &amp; \frac{\beta^2 v_F^2\rho(0)}{8} \int_0^{\infty} \left(-\frac{1}{x^2\cosh^2 x} - \frac{2\sinh x}{x\cosh^3 x} + \frac{\tanh x}{x^3} \right) \d x
+\end{align}\]
+
+<p>Now, we can rewrite some of this:</p>
+
+\[\begin{align}
+\frac{\partial^2 P}{\partial k_\alpha k_\beta} ={}&amp; \frac{\beta^2 v_F^2\rho(0)}{8} \left[\int_0^{\infty} \left(\frac{\d}{\d x}\frac{1}{x\cosh^2 x} + \frac{1}{2x^2\cosh^2 x} \right) \d x - \frac{\tanh x}{2x^2}\bigg|_0^\infty \right] \\
+={}&amp; \frac{\beta^2 v_F^2\rho(0)}{8} \left[\int_0^{\infty} \frac{1}{2x^2\cosh^2 x} \d x + \left(\frac{1}{x\cosh^2 x} - \frac{\tanh x}{2x^2}\right)\bigg|_0^\infty \right] \\
+={}&amp; \frac{\beta^2 v_F^2\rho(0)}{8}\left[-\int_0^\infty \frac{\sinh x}{x\cosh^3 x} \d x + \left(\frac{1}{2x\cosh^2 x} - \frac{\tanh x}{2x^2}\right)\bigg|_0^\infty \right] \\
+={}&amp; -\frac{\beta^2 v_F^2\rho(0)}{8}\int_0^\infty \frac{\sinh x}{x\cosh^3 x} \d x \\
+\end{align}\]
+
+<p>Finally, we use the integral</p>
+
+\[\int_0^\infty \frac{\sinh x}{x\cosh^3 x} \d x = \frac{7\zeta(3)}{\pi^2}\]
+
+<p>to get that</p>
+
+\[\begin{align}
+\frac{\partial^2 P}{\partial k_\alpha k_\beta} ={}&amp; -\frac{7\beta^2 v_F^2\rho(0)\zeta(3)}{8\pi^2}
+\end{align}\]
+
+<p>Finally, we get that</p>
+
+\[P(ik_0,\k) \sim \rho(0)\left[\log\left(\frac{2 e^\gamma \beta\Lambda}{\pi}\right) - \frac{\beta\pi|k_0|}{8} - \frac{7\beta^2 v_F^2 \zeta(3)}{16\pi^2}\k^2\right]\]
+
+<p>We need to calculate \(u\) and check that it is positive. Since the contributions which have powers of \(k\) will be irrelevant, let us simply plug in \(k_1=k_2=k_3 = 0\). Doing this, we find</p>
+
+\[\begin{align}
+u(0,0,0) ={}&amp; \frac{1}{2\beta N_s}\sum_q \mathcal{G}_0(q) \mathcal{G}_0(-q) \mathcal{G}_0(q)\mathcal{G}_0(-q) \\
+={}&amp; \frac{1}{2\beta N_s} \sum_q \frac{1}{(iq_0 - \xi_{\q})^2} \frac{1}{(-iq_0 - \xi_{-\q})^2} \\
+={}&amp; \frac{1}{2\beta N_s} \sum_q \frac{1}{(q^2 + \xi_{\q}^2)^2}
+\end{align}\]
+
+<p>We first integrate over the energies. This gives us</p>
+
+\[\begin{align}
+u(0,0,0) ={}&amp; \frac{1}{2\beta}\sum_{iq_0}  \int_{-\infty}^\infty \rho(\xi) \frac{1}{(q^2 + \xi^2)^2} \d\xi \\
+\sim &amp; \frac{\rho(0)}{2\beta}\sum_{iq_0}  \int_{-\infty}^\infty \frac{1}{(q^2 + \xi^2)^2} \d\xi \\
+={}&amp; \frac{\rho(0)}{4\beta}\sum_{iq_0} \frac{1}{q_0^3}\left(\arctan\left(\frac{\xi}{q_0}\right) + \frac{\xi/q_0}{1+(\xi/q_0)^2}\right)\bigg|_{-\infty}^\infty \\
+={}&amp; \frac{\rho(0)}{4\beta}\sum_{iq_0} \frac{1}{q_0^3}\pi \\
+={}&amp; \frac{\rho(0)\pi}{4\beta}\frac{\beta^3}{\pi^3}\sum_{n=-\infty}^\infty \frac{1}{(2n-1)^3} \\
+={}&amp; \frac{\rho(0)\beta^2}{4\pi^2}2\sum_{n=1}^\infty \frac{1}{(2n-1)^3} 
+\end{align}\]
+
+<p>We note that</p>
+
+\[\sum_{n=1}^\infty \frac{1}{(2n-1)^3} + \sum_{n=1}^\infty \frac{1}{(2n)^3} = \zeta(3) = \sum_{n=1}^\infty \frac{1}{(2n-1)^3} + \frac{1}{8}\zeta(3)\]
+
+<p>which gives us</p>
+
+\[\sum_{n=1}^\infty \frac{1}{(2n-1)^3}  = \frac{7}{8}\zeta(3)\]
+
+<p>which finally tells us that</p>
+
+\[\begin{align}
+u(0,0,0) ={}&amp; \frac{\rho(0) \beta^2}{2\pi^2}\frac{7}{8}\zeta(3) \\
+={}&amp; \frac{7\rho(0)\beta^2 \zeta(3)}{16\pi^2}
+\end{align}\]
+
+<p>Now, the Ginzburg-Landau action is given by</p>
+
+\[S_\text{eff}[\Delta,\Delta^*] = \frac{1}{\beta N_s}\sum_k |\Delta_k|^2\left(r + s|k_0| + g\k^2\right) + \frac{u}{(\beta N_s)^3} \sum_{k_1k_2k_3}\Delta_{k_1} \Delta^*_{k_2} \Delta_{k_3} \Delta^*_{k_1-k_2+k_3}\]
+
+<p>whereby \(r = \frac{1}{U} - \rho(0)\log\left(\frac{2e^\gamma \beta\Lambda}{\pi}\right)\), \(s = \frac{\beta\pi\rho(0)}{8}\), \(g = \frac{7\beta^2 v_F^2\zeta(3)\rho(0)}{16\pi^2}\), and \(u = \frac{7\rho(0)\beta^2 \zeta(3)}{16\pi^2}\). We have neglected the irrelevant dependence of \(u\) on the Matsubara frequencies and momenta, and also the higher order terms in the kinetic energy. The observant reader may recognize this as (almost) the same action which appears in a 3-dimensional itinerant antiferromagnet, the difference being that the order parameter field is the magnetization instead of the superconducting gap.</p>
+
+<ol>
+<li> <div class="exercise">  Show that
+$$\begin{equation}
+\int_{0}^{\infty} \frac{\log x}{\cosh^2 x} \d x = \log\left(\frac{\pi}{4e^\gamma}\right)
+\end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer315')" class="answerButton">Show Answer</button> 
+ <div id="answer315" class="answer">
+To evaluate this, consider computing 
+
+$$\begin{equation}
+I(s) = \int_0^\infty \frac{x^{s}}{\cosh^2 x}\d x
+\end{equation}$$
+
+For this, consider the following identity for the \href{https://en.wikipedia.org/wiki/Dirichlet_eta_function}{Dirichlet eta function}:
+
+$$\begin{equation}
+2^{1-s}\Gamma(s+1)\eta(s) = \int_0^\infty \frac{t^s}{\cosh^2 t} \d t
+\end{equation}$$
+
+We want to compute \(I'(0)\). This gives us 
+
+$$\begin{equation}
+I'(s) = -\log(2)2^{1-s}\Gamma(s+1)\eta(s) + 2^{1-s}\Gamma'(s+1)\eta(s) + 2^{1-s}\Gamma(s+1)\eta'(s)
+\end{equation}$$
+
+We know that the derivative of the \(\Gamma\)-function \(\Gamma'(z) = \Gamma(z)\psi(z)\), where \(\psi\) is the digamma function. Since \(\Gamma(1) = 1\) and \(\psi(1) = -\gamma\), where \(\gamma\) is the Euler-Mascheroni constant, the second term is also solved. For the third term, we need that \(\eta(0) = 1/2\). 
+
+$$\begin{equation}
+\eta '(s)=2^{1-s}\log(2)\zeta (s)+(1-2^{1-s})\zeta'(s)
+\end{equation}$$
+
+Since \(\zeta'(0) = -\frac{1}{2}\log(2\pi)\) and \(\zeta(0) = -1/2\), we have that 
+
+$$\begin{equation}
+\eta'(0) = -\log 2 +\frac{1}{2}\log(2\pi) = \frac{1}{2}\log\frac{\pi}{2}
+\end{equation}$$
+
+
+Thus, we have that 
+
+$$\begin{align}
+I'(0) ={}&amp; -2\log 2\Gamma(1)\eta(0) + 2\Gamma'(1)\eta(0) + 2\Gamma(1)\eta'(0) \\
+={}&amp; -\log2 - \gamma + \log\frac{\pi}{2} \\
+={}&amp; \log\left(\frac{\pi}{4e^\gamma}\right)
+\end{align}$$
+
+Thus,
+
+$$\begin{equation}
+\int_{0}^{\infty} \frac{\log x}{\cosh^2 x} \d x = \log\left(\frac{\pi}{4e^\gamma}\right)
+\end{equation}$$
+
+</div> 
+ </div>
+
+</div> </li>
+<li> <div class="exercise">  Show that the following integral
+
+$$\begin{equation}
+\int_0^\infty \frac{\sinh x}{x \cosh^3 x} \d x = \frac{7\zeta(3)}{\pi^2}
+\end{equation}$$
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer369')" class="answerButton">Show Answer</button> 
+ <div id="answer369" class="answer">
+Let us call the desired integral
+
+$$\begin{equation}
+J = \int_0^\infty \frac{\sinh x}{x \cosh^3 x} \d x
+\end{equation}$$
+
+First, we use the following identity for the Dirichlet eta function (see Wikipedia):
+
+$$\begin{equation}
+2^{1-s}\Gamma(s+1)\eta(s) = \int_0^\infty \frac{t^s}{\cosh^2 t} \d t
+\end{equation}$$
+
+Let us then define 
+
+$$\begin{equation}
+I(a,s) = \int_0^\infty \frac{t^s}{\cosh^2(at)} \d t = \frac{1}{a^{s+1}}\int_0^\infty \frac{t^s}{\cosh^2 t} \d t = \frac{2^{1-s}\Gamma(s+1)\eta(s)}{a^{s+1}}
+\end{equation}$$
+
+Then, we note that the derivative of \(I\) with respect to \(a\) is related to the original integral \(J\). We can see this as
+
+$$\begin{equation}
+\partial_a I(a,s) = -2\int_0^\infty \frac{t^{s+1}\sinh(at)}{\cosh^3(at)} \d t
+\end{equation}$$
+
+Finally, we define that \(J = J(1,-2)\), whereby
+
+$$\begin{equation}
+J(a,s) = -\frac{1}{2}\partial_a I(a,s)
+\end{equation}$$
+
+Taking the derivative of \(I\), we have that 
+
+$$\begin{equation}
+\partial_a I = -\frac{2^{1-s}(s+1)\Gamma(s+1)\eta(s)}{a^{s+2}}
+\end{equation}$$
+
+and using the identity \(\eta(s) = (1-2^{1-s})\zeta(s)\), we get 
+
+$$\begin{equation}
+\partial_a I = -\frac{2^{1-s}(s+1)\Gamma(s+1)(1-2^{1-s})\zeta(s)}{a^{s+2}}
+\end{equation}$$
+
+We cannot substitute in \(\zeta(-2)\) because it is infinite, but we can use the identity \(\zeta(s) = 2^s \pi^{s-1}\sin(\pi s/2)\Gamma(1-s)\zeta(1-s)\). Then we get 
+
+$$\begin{equation}
+\partial_a I = -\frac{2^{1-s}(s+1)\Gamma(s+1)(1-2^{1-s}) 2^s \pi^{s-1}\sin(\pi s/2)\Gamma(1-s)\zeta(1-s)}{a^{s+2}}
+\end{equation}$$
+
+so that 
+
+$$\begin{equation}
+J(a,s) = \frac{(s+1)\Gamma(s+1)(1-2^{1-s})\pi^{s-1}\sin(\pi s/2)\Gamma(1-s)\zeta(1-s)}{a^{s+2}}
+\end{equation}$$
+
+Then, using \(\Gamma(s+1) = s\Gamma(s)\), and then \(\Gamma(s)\Gamma(1-s) = \pi/\sin(\pi s)\), we get
+
+$$\begin{equation}
+J(a,s) = \frac{(s+1)s(1-2^{1-s})\pi^s\sin(\pi s/2)\zeta(1-s)}{\sin(\pi s)a^{s+2}}
+\end{equation}$$
+
+Finally, setting \(a = 1\), and taking the limit 
+
+$$\begin{equation}
+\lim_{s\to -2} \frac{\sin(\pi s/2)}{\sin(\pi s)} = -\frac{1}{2}
+\end{equation}$$
+
+we get 
+
+$$\begin{equation}
+J(1,-2) = (-1)(-2)(1-2^{3})\pi^{-2}\zeta(3)\left(-\frac{1}{2}\right) = \frac{7\zeta(3)}{\pi^2}
+\end{equation}$$
+
+Thus, we find that 
+
+$$\begin{equation}
+\int_0^\infty \frac{\sinh t}{t\cosh^3 t} \d t = \frac{7\zeta(3)}{\pi^2}
+\end{equation}$$
+
+</div> 
+ </div>
+
+</div> </li>
+<li> <div class="exercise">  SOMETHNIG ABOUT TURNING THIS BACK INTO REAL TIME AND POSITION SPACE
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer452')" class="answerButton">Show Answer</button> 
+ <div id="answer452" class="answer">
+<ol type="a">
+<li> First, let's evaluate the Fourier transform of the \(s\) term. This gives us 
+
+$$\begin{align}
+\frac{1}{\beta}\sum_{ik_0} \int_0^\beta\int_0^\beta |k_0|e^{-ik_0\tau} e^{ik_0\tau'} \Delta^*_{\k\tau} \Delta_{\k\tau'} \d\tau \d\tau' ={}&amp; \int_0^\beta\int_0^\beta \Delta^*_{\k\tau} \Delta_{\k\tau'} \left(\frac{1}{\beta}\sum_{ik_0}|k_0| e^{ik_0(\tau'-\tau)} \right) \d\tau\d\tau'
+\end{align}$$
+
+We have 
+
+$$\begin{align}
+\frac{1}{\beta}\sum_{k_0} |k_0| e^{ik_0(\tau'-\tau)} ={}&amp; \frac{1}{\beta}\sum_{k_0 &gt; 0} k_0 e^{ik_0(\tau'-\tau)} - \frac{1}{\beta}\sum_{k_0&lt;0} k_0e^{ik_0(\tau'-\tau)} \\
+={}&amp; \frac{1}{i\beta}\partial_{\tau'}\sum_{k_0 &gt; 0} e^{ik_0(\tau'-\tau)} - \frac{1}{i\beta} \partial_{\tau'} \sum_{k_0&lt;0} e^{ik_0(\tau'-\tau)}
+\end{align}$$
+
+To evaluate either of these two sums, we have 
+
+$$\begin{align}
+\lim_{\eta\to0^+} \sum_{k_0&gt;0} e^{ik_0(\tau'-\tau)} e^{-\eta k_0} ={}&amp; \lim_{\eta\to0^+} \sum_{n=0}^\infty e^{i(\tau'-\tau)2\pi(n+1/2)/\beta} e^{-\eta 2\pi(n+1/2)/\beta} \\
+={}&amp; \lim_{\eta\to 0^+} \sum_{n=0}^\infty [e^{i(\tau'-\tau)2\pi/\beta} e^{-2\pi\eta/\beta}]^n e^{i(\tau'-\tau)\pi/\beta} e^{-\eta\pi/\beta} \\
+={}&amp; \lim_{\eta\to 0^+}\frac{1}{1 - e^{i(\tau'-\tau)2\pi/\beta} e^{-2\pi\eta/\beta}} e^{i(\tau'-\tau)\pi/\beta} e^{-\eta\pi/\beta} \\
+={}&amp; \lim_{\eta\to 0^+}\frac{1}{e^{-i(\tau'-\tau)\pi/\beta} e^{\pi\eta/\beta} - e^{i(\tau'-\tau)\pi/\beta} e^{-\pi\eta/\beta}} \\
+={}&amp; \frac{i}{2\sin[(\tau'-\tau)\pi/\beta]}
+\end{align}$$
+
+The other sum is 
+
+$$\begin{align}
+\sum_{k_0&lt;0} e^{ik_0(\tau'-\tau)} ={}&amp; \left[\sum_{k_0&gt;0} e^{ik_0(\tau'-\tau)}\right]^* \\
+={}&amp; \frac{-i}{2\sin[(\tau'-\tau)\pi/\beta]}
+\end{align}$$
+
+Then plugging this in, we get 
+
+$$\begin{align}
+\frac{1}{\beta}\sum_{k_0} |k_0| e^{ik_0(\tau'-\tau)} ={}&amp; \frac{1}{i\beta}\partial_{\tau'}\frac{i}{2\sin[(\tau'-\tau)\pi/\beta]} - \frac{1}{i\beta} \partial_{\tau'} \frac{-i}{2\sin[(\tau'-\tau)\pi/\beta]} \\
+={}&amp; \frac{1}{\beta}\partial_{\tau'}\frac{1}{\sin[(\tau'-\tau)\pi/\beta]} 
+\end{align}$$
+
+Then, we plug this in to get 
+
+$$\begin{align}
+\frac{1}{\beta}\sum_{ik_0} \int_0^\beta\int_0^\beta |k_0|e^{-ik_0\tau} e^{ik_0\tau'} \Delta^*_{\k\tau} \Delta_{\k\tau'} \d\tau \d\tau' ={}&amp; \int_0^\beta\int_0^\beta \Delta^*_{\k\tau} \Delta_{\k\tau'} \frac{1}{\beta}\partial_{\tau'}\frac{1}{\sin[(\tau'-\tau)\pi/\beta]}  \d\tau\d\tau'
+\end{align}$$
+
+Now, integrating by parts in \(\tau'\), we get 
+
+$$\begin{align}
+\frac{1}{\beta}\sum_{ik_0} \int_0^\beta\int_0^\beta |k_0|e^{-ik_0\tau} e^{ik_0\tau'} \Delta^*_{\k\tau} \Delta_{\k\tau'} \d\tau \d\tau' ={}&amp; \int_0^\beta\Delta^*_{\k\tau} \left[ \frac{\Delta_{\k\tau'}}{\beta}\frac{1}{\sin[\frac{\pi}{\beta}(\tau'-\tau)]}\bigg|_0^\beta - \int_0^\beta \frac{1}{\beta}\frac{\partial_{\tau'}\Delta_{\k\tau'}}{\sin[\frac{\pi}{\beta}(\tau'-\tau)]}\d\tau' \right] \d\tau \\
+={}&amp; -\int_0^\beta\Delta^*_{\k\tau} \int_0^\beta \frac{1}{\beta}\frac{\partial_{\tau'}\Delta_{\k\tau'}}{\sin[\frac{\pi}{\beta}(\tau'-\tau)]}\d\tau' \d\tau
+\end{align}$$
+
+We see that if \(\tau = \tau'\) then the denominator diverges. If \(\tau\neq\tau'\), then we do not get zero, as we would if there were no \(|k_0|\) and it was instead \(k_0\). For very low temperatures, we let \(\beta\to\infty\). We have that 
+
+$$\begin{align}
+\lim_{\beta\to\infty} \beta \sin\left[\frac{\pi}{\beta}(\tau'-\tau)\right] ={}&amp; \lim_{\beta\to\infty} \beta \sin\left[\frac{\pi}{\beta}(\tau'-\tau)\right] \\
+={}&amp; \lim_{x\to 0} \frac{1}{x} \sin\left[x\pi(\tau'-\tau)\right] \\
+={}&amp; \pi(\tau'-\tau)
+\end{align}$$
+</li></ol>
+
+</div> 
+ </div>
+</div> </li></ol>
+
+<p>\subsection{Ginzburg-Landau Theory in a Magnetic Field}
+One could simply change derivatives, but we can also do this microscopically. This is instructive to do! We consider the Peierls phase</p>
+
+<p>\subsection{Project: Ginzburg-Landau superconductivity in the Repulsive Hubbard Model}</p>
+
+<p>In this section, we will analyze the repulsive Hubbard model and look for a superconducting instability. We will explore different Hubbard-Stratonovich transformations, and see which of them may give a superconductor. The Hubbard model is given by</p>
+
+\[\Hhat = -t\sum_{\langle i,j\rangle,\sigma} (\chat^\dagger_{i\sigma} \chat_{j\sigma}  + \hc)  - \mu\sum_{i\sigma} \nhat_{i\sigma} + U\sum_i \chat^\dagger_{i\uparrow} \chat^\dagger_{i\downarrow} \chat_{i\downarrow} \chat_{i\uparrow}\]
+
+<p>As a first step, show that the partition function can be written as</p>
+
+\[\mathcal{Z} = \int e^{-S} \D\bar{c}\D c \D\Delta^* \D\Delta\]
+
+<p>where</p>
+
+\[S = \int_0^\beta \left[\sum_{\k\sigma} \bar{c}_{\k\tau\sigma}(\partial_\tau + \xi_{\k})c_{\k\tau\sigma} + \sum_i\left(\frac{|\Delta_{i\tau}|^2}{2U} + i(\Delta_{i\tau}\bar{c}_{i\tau\uparrow} \bar{c}_{i\tau\downarrow} + \Delta^*_{i\tau} c_{i\tau\downarrow} c_{i\tau\uparrow})\right)\right]\d\tau\]
+
+<p>Now, let us consider a more general Hubbard-Stratonovich transformation. We want to allow for the possibility of spin triplet pairing. To allow for this in the Hubbard model, we need a general</p>
+
+<p>\subsection{Gap as a wave function}</p>
+
+<p>\url{https://physics.stackexchange.com/questions/143815/to-what-extent-can-the-superconducting-order-parameter-be-thought-of-as-a-macros/144026#144026}</p>
+
+
+  </div>
+
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- Footer -->
+<ins class="adsbygoogle"
+    style="display:block"
+    data-ad-client="ca-pub-7447253757666293"
+    data-ad-slot="6075791093"
+    data-ad-format="auto"
+    data-full-width-responsive="true"></ins>
+<script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+</article>
+
+      </div>
+    </div>
+
+    <footer class="site-footer" >
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Physicsturtle</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>Physicsturtle</li>
+          <li><a href="mailto:nanoturtle2@gmail.com">nanoturtle2@gmail.com</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/physicsturtle"><span class="icon icon--github"><svg viewBox="0 0 16 16"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">physicsturtle</span></a>
+
+          </li>
+          
+          
+           
+           
+           <li>
+               This site updated 2025-01-05 15:48
+           </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Welcome to Physicsturtle! Please use the e-mail contact to let me know if you find any mistakes or omissions, you feel an explanation could be improved, or you have a suggestion for content. 
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

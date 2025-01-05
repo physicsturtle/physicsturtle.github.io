@@ -75,12 +75,12 @@
 \newcommand{\Torus}{\mathbb{T}}
 
 %Useful notations for electromagnetism
-\newcommand{\E}{\textbf{E}}
-\newcommand{\B}{\textbf{B}}
-\newcommand{\A}{\textbf{A}}
+\newcommand{\E}{\mathbf{E}}
+\newcommand{\B}{\mathbf{B}}
+\newcommand{\A}{\mathbf{A}}
 \newcommand{\F}{\mathbb{F}}
-\newcommand{\J}{\textbf{J}}
-\newcommand{\R}{\bm{R}}
+\newcommand{\J}{\mathbf{J}}
+\newcommand{\R}{\boldsymbol{R}}
 
 %Useful symbols for vector notation
 \newcommand{\x}{\boldsymbol{x}}
@@ -259,13 +259,11 @@
     \(\require{simpler-wick}\)
     \(\require{braket}\)
 </div>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-                                                  google_ad_client: "ca-pub-7447253757666293",
-                                                  enable_page_level_ads: true
-                                                  });
-    </script>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7447253757666293"
+     crossorigin="anonymous"></script>
+
+
 
   <link rel="stylesheet" href="/css/main.css">
   <link rel="shortcut icon" type="image/png" href="favicon.png">
@@ -492,9 +490,7 @@ $$\begin{equation}
 \int_{-\infty}^\infty f(x)\phi(x) \d x = \phi(0)
 \end{equation}\]
 
-<p>for any test function \(\phi(x)\).</p>
-
-<p>Note: Defining \(\delta(x)\) by the above equation allows us to show that Dirac’s formal definition that \(\delta(x) = 0\) for \(x\not=0\) and \(\int_{-\infty}^\infty \delta(x) \d x = 1\) holds.</p>
+<p>for any test function \(\phi(x)\). Note: Defining \(\delta(x)\) by the above equation allows us to show that Dirac’s formal definition that \(\delta(x) = 0\) for \(x\not=0\) and \(\int_{-\infty}^\infty \delta(x) \d x = 1\) holds.</p>
 
 <p>Claim 1: If this holds for all \(\phi(x)\) test functions, then \(f(x) = 0\) for \(x\not = 0\).</p>
 
@@ -541,7 +537,7 @@ for any test function \(\phi(x)\).
 Let \(f_k(x)\) be a sequence of generalized functions. We say that 
 
 $$\begin{equation}
-f_k(x)\to f(x),\text{as} k\to\infty
+f_k(x)\to f(x),\text{as}\, k\to\infty
 \end{equation}$$
 
 weakly, if 
@@ -592,16 +588,16 @@ so \(f_k\to\delta\) weakly.
 <p>We can this derive the following identities using the test function idea</p>
 
 <ol>
-<li> 
+<li> The first identity allows us to take constants out of a delta function:
 $$\begin{equation}
 \delta(cx) = \frac{1}{|c|}\delta(x)
 \end{equation}$$
-	
+Note that this may appear slightly unintuitive, but an easy way to remember it is that the delta function \(\delta(cx)\) has units \([\delta(cx)] = 1/[cx]\). Thus to maintain this property the \(c\) should come out and go to the denominator.
 </li>
-<li> \(\delta(x) = H'(x)\) where \(H\) is the Heaviside function.
+<li> The next one says that the derivative of the Heaviside function \(H(x)\) is the delta function: \(H'(x) = \delta(x)\).
 
 </li>
-<li> 
+<li> Generally, if \(f(x)\) has multiple simple zeros, then the delta function should peak at each of these zeros. We can therefore write the expansion
 $$\begin{equation}
 \delta(f(x)) = \sum_{k=1}^n \frac{\delta(x-x_k)}{|f'(x_k)|}
 \end{equation}$$
@@ -613,30 +609,31 @@ where \(f(x_k) = 0\) for \(k = 1,\dots, n\), and \(f'(x_k)\not=0\). Note that we
 <p>The derivations of these are the following.</p>
 
 <ol>
-	<li> $$\begin{equation}
-	(\delta(cx),\phi(x)) = \int_{-\infty}^\infty \delta(cx)\phi(x) \d x
-	\end{equation}$$
-	let \(y = cx\) so that \(\d x = dy/c\). If \(c &gt; 0\), we don't have to swap the integral bounds, and if \(c &lt; 0\) we do. We can capture both cases by introducing an absolute value. 
-	$$\begin{equation}
-	\int_{-\infty}^\infty \frac{1}{|c|}\delta(y)\phi\left(\frac{y}{c}\right) dy = \frac{1}{|c|}\phi(0) = \left(\frac{1}{|c|}\delta(x),\phi(x)\right)
-	\end{equation}$$
+<li> To derive the first identity, we can do a direct computation. We have that the inner product is 
+$$\begin{equation}
+(\delta(cx),\phi(x)) = \int_{-\infty}^\infty \delta(cx)\phi(x) \d x
+\end{equation}$$
+Now we do a variable substitution, and let \(y = cx\) so that \(\d x = \d y/c\). If \(c &gt; 0\), we don't have to swap the integral bounds, and if \(c &lt; 0\) we do. We can capture both cases by introducing an absolute value. 
+$$\begin{equation}
+\int_{-\infty}^\infty \frac{1}{|c|}\delta(y)\phi\left(\frac{y}{c}\right) dy = \frac{1}{|c|}\phi(0) = \left(\frac{1}{|c|}\delta(x),\phi(x)\right)
+\end{equation}$$
 	
-	thus, \(\delta(cx) = \frac{\delta(x)}{|c|}\).
+thus, \(\delta(cx) = \frac{\delta(x)}{|c|}\).
 </li>
 <li> For the second identity, we consider 
-$$\begin{equation}H(x) = \begin{cases}
+$$\begin{equation}
+H(x) = \begin{cases}
 0 &amp; x &lt; 0 \\ 
 1 &amp; x \geq 0
 \end{cases}
 \end{equation}$$
-	Then, 
-	
+Then, 	
 $$\begin{equation}
 \int_{-\infty}^\infty H'(x) \phi(x) = -\int_{-\infty}^\infty H(x) \phi'(x) = -\int_0^\infty \phi'(x) \d x = \phi(0)
 \end{equation}$$
-	
+
 Thus, 
-	
+
 $$\begin{equation}
 \int_{-\infty}^\infty H'(x) \phi(x) \d x = \int_{-\infty}^\infty \delta(x) \phi(x) \d x
 \end{equation}$$
@@ -716,7 +713,7 @@ $$\begin{align}
            
            
            <li>
-               This site updated 2024-11-16 19:53
+               This site updated 2025-01-05 15:48
            </li>
         </ul>
       </div>

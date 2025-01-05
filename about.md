@@ -6,12 +6,12 @@ permalink: /about/
 
 
 ### Goal of this website
-My vision for the website is a set of notes that provide a comprehensive overview of undergraduate physics and mathematics, as well as selected graduate physics topics, all from the point of view of condensed matter (or, solid state) physics. There are many resources online to learn math and physics, and I hope to differentiate this site from them in the following ways: 
+My vision for the website is a set of notes that provide a comprehensive overview of undergraduate physics and mathematics, as well as selected graduate physics topics, all from the point of view of a condensed matter theorist. There are many resources online to learn math and physics, and I hope to differentiate this site from them in the following ways: 
 
 <ol>
 <li> Many online resources stop after first year undergraduate physics, and second year undergraduate math. I will try to provide resources on the whole range of undergraduate physics and math, and some selected graduate physics topics. </li>
-<li> Many textbooks are expensive, and also do not show many details regarding complicated calculations. I want to provide these details in a self-contained and free resource. </li>
-<li> Many mathematics courses focus on theorems and proofs and either do not have enough examples, or the examples are not easy to visualize and appear unrelated to applications. One of my goals is to write the math notes with the physicist in mind, and provide relationships between abstract math and concrete physical examples. </li>
+<li> Many textbooks or research papers do not show many details regarding complicated calculations.  I want to provide these details in a self-contained resource. Furthermore, there are a variety of notations and conventions scattered through the literature. I aim to write everything here with consistent notation and conventions. For example, I will only use SI units, and never CGS units. </li>
+<li> Many mathematics courses focus on theorems and proofs and either do not have enough examples, or the examples are not easy to visualize and the geometric or physical relationships are very opaque. One of my goals is to write the math notes as if they all come with the subtitle "with physical applications". </li>
 </ol>
 
 <!--- Much of these notes have grown out of lecture notes that I took as a student of these courses. There are few original thoughts here, as all of this has been known for many years and is published in well-known textbooks. I will try to continually update as my perspective shifts, clarifies, and evolves throughout my academic journey. --->
@@ -19,7 +19,7 @@ My vision for the website is a set of notes that provide a comprehensive overvie
 The website was last updated on {{ "now" | date: "%Y-%m-%d %H:%M" }}
 
 ### About the author
-I am a lifelong enjoyer of teaching, especially of math and physics. I have a bachelor's degree, where I majored in engineering physics and minored in mathematics. I also have a PhD in theoretical physics. In particular, I studied theoretical condensed matter physics, which is the study of exotic phases of matter. 
+I am a lifelong enjoyer of teaching, especially of math and physics. I have a bachelor's degree, in which I majored in engineering physics and minored in mathematics. I also have a PhD in theoretical condensed matter physics. I am currently a postdoctoral researcher working on superconductivity and strongly correlated electron systems.
 
 <!---  ### How to use this website
 There are numerous "courses", each of which includes the text, examples, and exercises. One day I hope to include accompanying videos. If there are any topics you are interested in, or errors on the website, please email me! --->
@@ -58,7 +58,7 @@ Here is a rough trajectory of the order in which I think topics should be studie
    </td>
 <td> <a class = "page-link" href = "/calculus-I/"> Calculus I </a> <br>
     <a class = "page-link" href = "/linear-algebra-I/">Linear Algebra I</a> <br>
-    <!--- <a class = "page-link" href = "/math-proof/"> Mathematical Proof </a> --->
+    <!--- <a class = "page-link" href = "/math-proof/">Mathematical Proof</a> --->
  </td>
 </tr>
 <tr> <!--- Semester 2 --->
@@ -100,7 +100,7 @@ Here is a rough trajectory of the order in which I think topics should be studie
 </tr>
 <tr> <!--- Semester 5 --->
 <td>Year 3 Term 1</td>
-<td> <!--- <a class = "page-link" href = "/cm-IV/">Classical Mechanics IV</a> --->  <br>
+<td><a class = "page-link" href = "/cm-IV/">Classical Mechanics IV</a> <br>
     <a class = "page-link" href = "/qm-I/"> Quantum Mechanics II </a> <br> 
     <!--- <a class = "page-link" href = "/fluids-II/"> Fluid Mechanics II  </a> ---><br>
      <!--- <a class = "page-link" href = "/heat-transfer/">Heat Transfer</a> ---><br>
@@ -125,7 +125,7 @@ Here is a rough trajectory of the order in which I think topics should be studie
 </tr>
 <tr> <!--- Semester 7 --->
 <td>Year 4 Term 1</td>
-<td> <!--- <a class = "page-link" href = "/classical_fields/"> Classical Field Theory  </a> ---><br> 
+<td><a class = "page-link" href = "/classical_fields/"> Classical Field Theory  </a><br> 
      <a class = "page-link" href = "/solid_state-I/"> Solid State Physics I </a> <br>
     <!--- <a class = "page-link" href = "/optics-II/"> Optics II </a> ---><br> 
     <!--- <a class = "page-link" href = "/gr-I/"> Relativity I </a> --->

@@ -34,7 +34,7 @@ $$\begin{equation}
 There are other properties of the delta function that we will find useful.
 
 <u>Sifting Property</u>
-If \\(f(x)\\) is a continuous function for \\(x \in[x_1,x_2]\\), and if \\(x_0\in(x_1,x_2)\\), then
+If \\(f(x)\\) is a continuous function for \\(x \in[x\_1,x\_2]\\), and if \\(x\_0\in(x\_1,x\_2)\\), then
 
 $$\begin{equation}
 \int_{x_1}^{x_2}f(x)\delta(x-x_0) \d x = f(x_0).
@@ -157,13 +157,11 @@ $$\begin{equation}
 \int_{-\infty}^\infty f(x)\phi(x) \d x = \phi(0)
 \end{equation}$$
 
-for any test function \\(\phi(x)\\). 
-
-Note: Defining \\(\delta(x)\\) by the above equation allows us to show that Dirac's formal definition that \\(\delta(x) = 0\\) for \\(x\not=0\\) and \\(\int_{-\infty}^\infty \delta(x) \d x = 1\\) holds. 
+for any test function \\(\phi(x)\\). Note: Defining \\(\delta(x)\\) by the above equation allows us to show that Dirac's formal definition that \\(\delta(x) = 0\\) for \\(x\not=0\\) and \\(\int\_{-\infty}^\infty \delta(x) \d x = 1\\) holds. 
 
 Claim 1: If this holds for all \\(\phi(x)\\) test functions, then \\(f(x) = 0\\) for \\(x\not = 0\\). 
 
-The idea of the proof is, suppose that \\(f(x_0) \not=0\\) for \\(x_0\not=0\\); without loss of generality set \\(x_0 > 0\\). Thus, 
+The idea of the proof is, suppose that \\(f(x\_0) \not=0\\) for \\(x\_0\not=0\\); without loss of generality set \\(x\_0 > 0\\). Thus, 
 
 $$\begin{equation}
 \phi(0) = 0 \not= \int \phi f
@@ -171,7 +169,7 @@ $$\begin{equation}
 
 so it cannot hold. 
 
-Claim 2: \\(\int_{-\infty}^\infty f(x) \d x = 1\\) if \\(f(x) = 0\\) for \\(x\not=0\\). 
+Claim 2: \\(\int\_{-\infty}^\infty f(x) \d x = 1\\) if \\(f(x) = 0\\) for \\(x\not=0\\). 
 
 Thus
 
@@ -179,7 +177,7 @@ $$\begin{equation}
 \int_{-\infty}^\infty f(x)\phi(x) \d x = \phi(0) \int_{-\infty}^\infty f(x) \d x
 \end{equation}$$
 
-holds if \\(\int_{-\infty}^\infty f(x) \d x = 1\\). 
+holds if \\(\int\_{-\infty}^\infty f(x) \d x = 1\\). 
 
 <div class="definition">
 <b>Definition:</b>
@@ -195,7 +193,7 @@ for any test function \(\phi(x)\).
 
 Recall that we defined test functions \\(\phi(x)\\) as infinitely smooth (\\(C^\infty\\)), with compact support (vanish outside some finite interval). 
 
-Recall that we defined \\(\delta(x-x_0)\\) via the sifting property, 
+Recall that we defined \\(\delta(x-x\_0)\\) via the sifting property, 
 
 $$\begin{equation}
 \inf_{-\infty}^\infty \delta(x-x_0) \phi(x) \d x = \phi(x_0).
@@ -206,7 +204,7 @@ $$\begin{equation}
 Let \(f_k(x)\) be a sequence of generalized functions. We say that 
 
 $$\begin{equation}
-f_k(x)\to f(x),\text{as} k\to\infty
+f_k(x)\to f(x),\text{as}\, k\to\infty
 \end{equation}$$
 
 weakly, if 
@@ -257,16 +255,16 @@ so \(f_k\to\delta\) weakly.
 We can this derive the following identities using the test function idea
 
 <ol>
-<li> 
+<li> The first identity allows us to take constants out of a delta function:
 $$\begin{equation}
 \delta(cx) = \frac{1}{|c|}\delta(x)
 \end{equation}$$
-	
+Note that this may appear slightly unintuitive, but an easy way to remember it is that the delta function \(\delta(cx)\) has units \([\delta(cx)] = 1/[cx]\). Thus to maintain this property the \(c\) should come out and go to the denominator.
 </li>
-<li> \(\delta(x) = H'(x)\) where \(H\) is the Heaviside function.
+<li> The next one says that the derivative of the Heaviside function \(H(x)\) is the delta function: \(H'(x) = \delta(x)\).
 
 </li>
-<li> 
+<li> Generally, if \(f(x)\) has multiple simple zeros, then the delta function should peak at each of these zeros. We can therefore write the expansion
 $$\begin{equation}
 \delta(f(x)) = \sum_{k=1}^n \frac{\delta(x-x_k)}{|f'(x_k)|}
 \end{equation}$$
@@ -278,30 +276,31 @@ where \(f(x_k) = 0\) for \(k = 1,\dots, n\), and \(f'(x_k)\not=0\). Note that we
 The derivations of these are the following. 
 
 <ol>
-	<li> $$\begin{equation}
-	(\delta(cx),\phi(x)) = \int_{-\infty}^\infty \delta(cx)\phi(x) \d x
-	\end{equation}$$
-	let \(y = cx\) so that \(\d x = dy/c\). If \(c > 0\), we don't have to swap the integral bounds, and if \(c < 0\) we do. We can capture both cases by introducing an absolute value. 
-	$$\begin{equation}
-	\int_{-\infty}^\infty \frac{1}{|c|}\delta(y)\phi\left(\frac{y}{c}\right) dy = \frac{1}{|c|}\phi(0) = \left(\frac{1}{|c|}\delta(x),\phi(x)\right)
-	\end{equation}$$
+<li> To derive the first identity, we can do a direct computation. We have that the inner product is 
+$$\begin{equation}
+(\delta(cx),\phi(x)) = \int_{-\infty}^\infty \delta(cx)\phi(x) \d x
+\end{equation}$$
+Now we do a variable substitution, and let \(y = cx\) so that \(\d x = \d y/c\). If \(c > 0\), we don't have to swap the integral bounds, and if \(c < 0\) we do. We can capture both cases by introducing an absolute value. 
+$$\begin{equation}
+\int_{-\infty}^\infty \frac{1}{|c|}\delta(y)\phi\left(\frac{y}{c}\right) dy = \frac{1}{|c|}\phi(0) = \left(\frac{1}{|c|}\delta(x),\phi(x)\right)
+\end{equation}$$
 	
-	thus, \(\delta(cx) = \frac{\delta(x)}{|c|}\).
+thus, \(\delta(cx) = \frac{\delta(x)}{|c|}\).
 </li>
 <li> For the second identity, we consider 
-$$\begin{equation}H(x) = \begin{cases}
+$$\begin{equation}
+H(x) = \begin{cases}
 0 & x < 0 \\ 
 1 & x \geq 0
 \end{cases}
 \end{equation}$$
-	Then, 
-	
+Then, 	
 $$\begin{equation}
 \int_{-\infty}^\infty H'(x) \phi(x) = -\int_{-\infty}^\infty H(x) \phi'(x) = -\int_0^\infty \phi'(x) \d x = \phi(0)
 \end{equation}$$
-	
+
 Thus, 
-	
+
 $$\begin{equation}
 \int_{-\infty}^\infty H'(x) \phi(x) \d x = \int_{-\infty}^\infty \delta(x) \phi(x) \d x
 \end{equation}$$
