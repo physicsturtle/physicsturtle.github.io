@@ -1,125 +1,8 @@
-I"9)<p>The Dirac delta function \(\delta(x)\) is a function which is extremely sharply peaked at \(x = 0\). Strictly speaking, it is not a function at all, but rather a distribution. We will not delve into the theory of distributions in these notes, but rather treat it as a function that has some unusual properties.</p>
+I"�"<p>We are able to give meaning to certain expressions involving delta functions. Examples are \(x\delta(x)\), \(f(x)\delta’(x)\), and \(\delta(f(x))\). The rigorous approach was due to Laurent Schwartz. In order to do this, one has to introduce the notion of a <i>test function</i>.</p>
 
 <div class="definition">
 <b>Definition:</b>
-The <i>Dirac delta function</i> is defined to satisfy the following properties:
-
-<ol>
-<li> The area under \(\delta(x)\) is 1: 
-$$\begin{equation}
-\int_{-\infty}^\infty \delta(x) \d x = 1
-\end{equation}$$ \\
-</li>
-<li> The delta function is zero everywhere except at \(x = 0\): 
-$$\begin{equation}
-\delta(x)  = \begin{cases}
-0, &amp; x \neq 0\\
-\text{undefined} &amp; x = 0
-\end{cases}
-\end{equation}$$
-</li></ol>
-
-</div>
-
-<p>There are other properties of the delta function that we will find useful.</p>
-
-<p><u>Sifting Property</u>
-If \(f(x)\) is a continuous function for \(x \in[x_1,x_2]\), and if \(x_0\in(x_1,x_2)\), then</p>
-
-\[\begin{equation}
-\int_{x_1}^{x_2}f(x)\delta(x-x_0) \d x = f(x_0).
-\end{equation}\]
-
-<p>There is another definition of the Dirac delta function.</p>
-
-<div class="definition">
-<b>Definition:</b>
-Consider a sequence of functions \(\{f_k(x)\}\), which satisfy the properties
-
-$$\begin{equation}
-\lim_{k\to\infty}\int_{-\infty}^\infty f_k(x) \d x = 1
-\end{equation}$$
-
-and 
-
-$$\begin{equation}
-\lim_{k\to\infty,x\not= 0} f_k(x) = 0
-\end{equation}$$
-
-If the above two properties hold, then \(\{f_k(x)\}\) is called a delta sequence. 
-
-</div>
-
-<p>A delta sequence looks like in the following plot:</p>
-
-<figure class="center">
-<p><img src="figures/gaussian_delta_sequence.pdf" alt="Function" class="center" style="width:125.64px;height:114.149px;" /> </p><figcaption class="center">A delta sequence constructed out of Gaussian functions, \(f_k = \sqrt{\frac{k</figcaption>{\pi&lt;/figcaption&gt;&lt;/figcaption&gt;e^{-kx^2&lt;/figcaption&gt;\), where we have plotted \(k=1,2,3,4,5\).&lt;/figcaption&gt;
-</figure>
-
-<p>There are many examples of delta sequences.</p>
-
-<div class="example">
-<b>Example:</b>
-The following sequences of functions are \(\delta\) sequences as \(k\to\infty\).
-
-<ul>
-<li> The box function sequence:
-
-$$\begin{equation}
-f_k(x) = \begin{cases}
-k &amp; |x| &lt; 1/2k \\ 
-0 &amp; |x| \geq 1/2k
-\end{cases}
-\end{equation}$$
-
-</li>
-<li> The tent function sequence: 
-
-$$\begin{equation}
-f_k(x) = \begin{cases}
-A - k|x| &amp; |x| &lt; 1/k \\
-0 &amp; |x| &gt; 1/k
-\end{cases}
-\end{equation}$$
-
-</li>
-<li> Gaussian function sequence:
-
-$$\begin{equation}
-f_k(x) = \sqrt{\frac{k}{\pi}}e^{-kx^2}
-\end{equation}$$
-
-</li>
-<li> Lorentzian function sequence:
-
-$$\begin{equation}
-f_k(x) = \frac{1}{\pi}\frac{k}{1+k^2x^2}
-\end{equation}$$
-</li></ul>
-
-</div>
-
-<div class="example">
-<b>Example:</b>
-Find \(M\) such that the following sequence of functions is a delta sequence as \(\epsilon\to 0\).
-$$\begin{equation}
-f_k(x) = \frac{M}{\epsilon}\sech^2\frac{x}{\epsilon}
-\end{equation}$$
-
-<b>Solution:</b>
-
-(\(M = 1/2\)).
-
-
-</div>
-
-<p>We are able to give meaning to certain expressions involving delta functions. Examples are \(x\delta(x)\), \(f(x)\delta’(x)\), and \(\delta(f(x))\).</p>
-
-<p>The rigorous approach was due to Laurent Schwartz.</p>
-
-<div class="definition">
-<b>Definition:</b>
-A function \(\phi(x)\) is called a test function if \(\phi(x)\) is infinitely differentiable and vanishes outside some finite interval. (i.e., it has compact support)
+A function \(\phi(x)\) is called a test function if \(\phi(x)\) is infinitely differentiable and vanishes outside some finite interval. (i.e. it has compact support)
 
 </div>
 
@@ -135,13 +18,27 @@ $$\begin{equation}
 
 </div>
 
-<p>We will look at generalized functions \(f(x)\) (such as expressions involving delta functions) only through their actions on test functions \(\phi(x)\) via the functional</p>
+<p>Test functions are mostly useful when they are acted upon by some object. This object could be a derivative, or they could be inside an integral. We care about functions inside an integral because of the following generalization of the dot product from linear algebra. In particular, we will look at generalized functions \(f(x)\) (by generalized function, we also mean distribution or some expression involving Dirac delta functions) through their actions on test functions \(\phi(x)\) via the functional known as the <i>inner product</i>.</p>
+
+<div class="definition">
+<b>Definition:</b>
+The <i>inner product</i> between (generalized) functions \(f\) and \(g\) is defined by
+
+$$\begin{equation}
+\left&lt; f,\phi\right&gt; = \int_{-\infty}^\infty f(x)\phi(x) \d x
+\end{equation}$$
+
+</div>
+
+<p>This definition generalizes the dot product from linear algebra. In linear algebra, if we have two vectors \(\mathbf{u}\) and \(\mathbf{v}\), then their dot product is given by</p>
 
 \[\begin{equation}
-\left&lt; f,\phi\right&gt; = \int_{-\infty}^\infty f(x)\phi(x) \d x
+\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u}\cdot\mathbf{v} = \sum_{i=1}^d u_i v_i
 \end{equation}\]
 
-<p>The delta function \(f(x) = \delta(x)\) is defined by the sifting property such that</p>
+<p>In this analogy, the discrete index \(i\) is replaced by the continuous index \(x\), and the sum over \(i\) is replaced by an integral over \(x\). In this way, we have generalized the notion of inner product to vector spaces consisting of functions.</p>
+
+<p>It is now possible to reframe the Dirac delta function’s sifting property in terms of the inner product. We recall that, setting \(f(x) = \delta(x)\), it satisfies the sifting property</p>
 
 \[\begin{equation}
 \int_{-\infty}^\infty f(x)\phi(x) \d x = \phi(0)
@@ -186,7 +83,7 @@ for any test function \(\phi(x)\).
 <p>Recall that we defined \(\delta(x-x_0)\) via the sifting property,</p>
 
 \[\begin{equation}
-\inf_{-\infty}^\infty \delta(x-x_0) \phi(x) \d x = \phi(x_0).
+\int_{-\infty}^\infty \delta(x-x_0) \phi(x) \d x = \phi(x_0).
 \end{equation}\]
 
 <div class="definition">
@@ -244,6 +141,8 @@ so \(f_k\to\delta\) weakly.
 
 <p>We can this derive the following identities using the test function idea</p>
 
+<div class="result">
+<b>Result:</b>
 <ol>
 <li> The first identity allows us to take constants out of a delta function:
 $$\begin{equation}
@@ -263,6 +162,8 @@ where \(f(x_k) = 0\) for \(k = 1,\dots, n\), and \(f'(x_k)\not=0\). Note that we
 <li> \(\delta\left(\sin\frac{\pi x}{a}\right) = \frac{|a|}{\pi}\sum_{k=-\infty}^\infty \delta(x-ka)\)
 </li></ol>
 
+</div>
+
 <p>The derivations of these are the following.</p>
 
 <ol>
@@ -270,29 +171,34 @@ where \(f(x_k) = 0\) for \(k = 1,\dots, n\), and \(f'(x_k)\not=0\). Note that we
 $$\begin{equation}
 (\delta(cx),\phi(x)) = \int_{-\infty}^\infty \delta(cx)\phi(x) \d x
 \end{equation}$$
-Now we do a variable substitution, and let \(y = cx\) so that \(\d x = \d y/c\). If \(c &gt; 0\), we don't have to swap the integral bounds, and if \(c &lt; 0\) we do. We can capture both cases by introducing an absolute value. 
+Now we do a variable substitution, and let \(y = cx\) so that \(\d x = \d y/c\). If \(c &gt; 0\), we don't have to swap the integral bounds, and if \(c &lt; 0\) we do. We can capture both cases by introducing an absolute value.
+
 $$\begin{equation}
 \int_{-\infty}^\infty \frac{1}{|c|}\delta(y)\phi\left(\frac{y}{c}\right) dy = \frac{1}{|c|}\phi(0) = \left(\frac{1}{|c|}\delta(x),\phi(x)\right)
 \end{equation}$$
-	
+
 thus, \(\delta(cx) = \frac{\delta(x)}{|c|}\).
+
 </li>
-<li> For the second identity, we consider 
+<li> For the second identity, we consider the <i>Heaviside function</i>, (also called \(\theta\)-function or step function), defined by
+
 $$\begin{equation}
-H(x) = \begin{cases}
+\theta(x) = \begin{cases}
 0 &amp; x &lt; 0 \\ 
 1 &amp; x \geq 0
 \end{cases}
 \end{equation}$$
-Then, 	
+
+Then,
+
 $$\begin{equation}
-\int_{-\infty}^\infty H'(x) \phi(x) = -\int_{-\infty}^\infty H(x) \phi'(x) = -\int_0^\infty \phi'(x) \d x = \phi(0)
+\int_{-\infty}^\infty \theta'(x) \phi(x) = -\int_{-\infty}^\infty H(x) \phi'(x) = -\int_0^\infty \phi'(x) \d x = \phi(0)
 \end{equation}$$
 
 Thus, 
 
 $$\begin{equation}
-\int_{-\infty}^\infty H'(x) \phi(x) \d x = \int_{-\infty}^\infty \delta(x) \phi(x) \d x
+\int_{-\infty}^\infty \theta'(x) \phi(x) \d x = \int_{-\infty}^\infty \delta(x) \phi(x) \d x
 \end{equation}$$
 
 </li>

@@ -8,7 +8,7 @@ deptDisplay: Math
 courseDisplay: Green functions
 unitDisplay: Unit 1
 ---
-{% assign lessonNames = "Dirac Delta Function , " | split: ', ' %}
+{% assign lessonNames = "Dirac delta Function , Test functions , " | split: ', ' %}
 
 <ol>
 {% for lessonName in lessonNames %}

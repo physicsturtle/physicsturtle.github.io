@@ -1,0 +1,15 @@
+I"Ý<p>Another example which you have probably seen before is the second order equation with constant coefficients. There are countless physical realizations of this equation, but the two most common are the damped harmonic oscillator, and the RLC circuit. For simplicity, let us work with the damped harmonic oscillator since the interpretation is easier. Newtonâ€™s second law for this system is</p>
+
+\[m\ddot{x} = -b\dot{x} - kx + F(t)\]
+
+<p>whereby \(F(t)\) is an external driving force. The system is subject to initial conditions \(x(0) = x_0\) and \(\dot{x}(0) = v_0\). How can we determine \(x(t)\) in terms of an integral over some <i>Green function</i>, and \(F(t)\)? Well, we can use the Laplace transform. We recall that the Laplace transform of a function \(x(t)\) is given by</p>
+
+\[x(s) = \int_0^\infty e^{-st} x(t) \d t\]
+
+<p>Then, if we do this to both sides of the equation we find</p>
+
+\[\begin{align}
+ms^2 x(s) + bs x(s) + kx(s) - smx_0 - mv_0 - bx_0 = F(s)
+\end{align}\]
+
+:ET

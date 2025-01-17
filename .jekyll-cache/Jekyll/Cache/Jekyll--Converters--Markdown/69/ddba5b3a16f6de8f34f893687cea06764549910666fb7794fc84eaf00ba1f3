@@ -1,4 +1,4 @@
-I"¿%<ol>
+I"w*<ol>
 <li> <div class="exercise">  Suppose \(f(x)\) is continuous at \(x_0\). Using the two defining properties of the delta function, prove the sifting property
 
 $$\begin{equation}\int_{-\infty}^\infty f(x) \delta(x-x_0) \d x = f(x_0).\end{equation}$$
@@ -27,11 +27,19 @@ as \(\epsilon \to 0\). Also determine the constant \(C\) as you go.
 <div class="answerBox"> 
  <button onclick="myFunction('answer22')" class="answerButton">Show Answer</button> 
  <div id="answer22" class="answer">
+First, we check that, if \(x\neq 0\), then as \(\epsilon\to 0\), \(f_\epsilon(x) \to 0\). Second, we compute the integral 
 
+$$\begin{align}
+\int_{-\infty}^\infty f_\epsilon(x) \d x ={}&amp; C\arctan\left(\frac{x}{\epsilon}\right)\bigg|_{-\infty}^\infty \\
+={}&amp; C\left(\frac{\pi}{2} - \frac{-\pi}{2}\right) \\
+={}&amp; C\pi
+\end{align}$$
 
-We find 
+Thus \(f_\epsilon\) is a delta sequence if we set \(C = 1/\pi\). 
 
-\(\)\lim_{\epsilon\to 0} f_\epsilon(x) = C\pi\delta(x)\(\)
+$$\begin{equation}
+\lim_{\epsilon\to 0} \frac{1}{\pi} \frac{\epsilon}{x^2 + \epsilon^2} = \delta(x)
+\end{equation}$$
 </div> 
  </div>
 
@@ -39,12 +47,14 @@ We find
 <li> <div class="exercise">  By introducing a regularization factor \(e^{-\epsilon|n|}\) on the left hand side, prove the identity
 
 $$\begin{equation}
-\sum_{n\in\ZZ} e^{inx} = 2\pi\sum_{\bar{n}\in\ZZ} \delta(x-2\pi\bar{n})
+\sum_{n\in\ZZ} e^{inx} = 2\pi\sum_{\bar{n}\in\ZZ} \delta(x-2\pi\bar{n}).
 \end{equation}$$
 
+At the end of the problem, send \(\epsilon\) to zero, and identify your results as a delta sequence.
+
 <div class="answerBox"> 
- <button onclick="myFunction('answer36')" class="answerButton">Show Answer</button> 
- <div id="answer36" class="answer">
+ <button onclick="myFunction('answer46')" class="answerButton">Show Answer</button> 
+ <div id="answer46" class="answer">
 The first thing we do is evaluate
 
 $$\begin{align}
@@ -96,8 +106,8 @@ Thus, we have proven the result.
 This problem underlies the so-called <i>Sommerfeld expansion</i> in statistical physics, which is useful to compute low-temperature properties of weakly interacting fermion systems.
 
 <div class="answerBox"> 
- <button onclick="myFunction('answer81')" class="answerButton">Show Answer</button> 
- <div id="answer81" class="answer">
+ <button onclick="myFunction('answer91')" class="answerButton">Show Answer</button> 
+ <div id="answer91" class="answer">
 <ol type="a">
 <li> We see right away that, as \(a\to 0^+\), \(f_a(x) \to \delta(x)\), by the result of an earlier exercise. 
 <ol type="i">
@@ -226,6 +236,26 @@ f_a(x) \approx \delta(x) + \frac{\pi^2a^2}{6}\delta"(x)
 </div> 
  </div>
 
+</div> </li>
+<li> <div class="exercise">  We have shown above that \(\delta(x-a)f(x) = \delta(x-a)f(a)\). Is it true that \(\delta'(x-a)f(x) = \delta'(x-a)f(a)\)? 
+
+<div class="answerBox"> 
+ <button onclick="myFunction('answer223')" class="answerButton">Show Answer</button> 
+ <div id="answer223" class="answer">
+This is not true! To see this, consider computing the derivative of the equation
+
+\(\)\delta(x-a)f(x) = \delta(x-a)f(a)\(\)
+
+Taking the derivative of both sides, we get 
+
+$$\begin{align}
+\delta'(x-a)f(x) + \delta(x-a)f'(x) = \delta'(x-a)f(a)
+\end{align}$$
+
+Thus, we see that \(\delta'(x-a)f(x) \neq \delta'(x-a)f(a)\). 
+
+</div> 
+ </div>
 
 </div> </li></ol>
 

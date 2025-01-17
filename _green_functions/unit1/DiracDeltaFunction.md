@@ -1,6 +1,6 @@
 ---
 layout: lesson
-title: Dirac Delta Function 
+title: Dirac delta Function 
 dept: math
 course: green_functions
 unit: unit1
@@ -8,7 +8,9 @@ deptDisplay: Math
 courseDisplay: Green functions
 unitDisplay: Unit 1
 ---
-The Dirac delta function \\(\delta(x)\\) is a function which is extremely sharply peaked at \\(x = 0\\). Strictly speaking, it is not a function at all, but rather a distribution. We will not delve into the theory of distributions in these notes, but rather treat it as a function that has some unusual properties.
+In the previous section, we discussed the notion of a matrix inverse. As we know, a matrix \\(A\\) times its inverse equals the identity \\(\sum\_j A\_{ij}(A^{-1})\_{jk} = \delta\_{ik}\\). However, matrices have a finite number of elements in them, and their indices \\(i,j\\) in \\(A\_{ij}\\) are integers. If we have an operator \\(\int \mathcal{O}(x,x')u(x')\d x' = f(x)\\), and we want to find out what \\(u\\) is, the inverse of \\(\mathcal{O}\\) is defined by the same condition, namely \\(\int \mathcal{O}(x,x')\mathcal{O}(x',x") \d x' = \delta(x-x")\\). This continuous analogue requires us to study the properties of the Dirac delta function, which is the continuous analogue of the Kronecker delta.
+
+The Dirac delta function \\(\delta(x)\\) is a function which is extremely sharply peaked at \\(x = 0\\). Strictly speaking, it is not a function at all, but rather a distribution. We will not delve into the theory of distributions in these notes, but rather treat it as a function that has some unusual properties. The defining properties of the delta function are the following.
 
 <div class="definition">
 <b>Definition:</b>
@@ -31,16 +33,21 @@ $$\begin{equation}
 
 </div>
 
-There are other properties of the delta function that we will find useful.
+From these defining properties, one can derive the most useful property of the delta function. This most useful property is called the <i>sifting property</i>. 
 
-<u>Sifting Property</u>
-If \\(f(x)\\) is a continuous function for \\(x \in[x\_1,x\_2]\\), and if \\(x\_0\in(x\_1,x\_2)\\), then
+<div class="result">
+<b>Result:</b>
+The <i>sifting property</i> of the Dirac delta function is the following. If \(f(x)\) is a continuous function for \(x \in[x_1,x_2]\), and if \(x_0\in(x_1,x_2)\), then
 
 $$\begin{equation}
 \int_{x_1}^{x_2}f(x)\delta(x-x_0) \d x = f(x_0).
 \end{equation}$$
 
-There is another definition of the Dirac delta function. 
+</div>
+
+The reason it is called the sifting property is that, if we imagine a strainer, but one which only has one hole, then the water could only flow out at that one point. This is essentially what the sifting property encodes. The role of the strainer vs. a sifter is not important, but one could equally imagine sifting flour, but only having one hole in the sieve, so that the flour can only come out of one hole.
+
+Although the above definition of the Dirac delta function certainly suffices, it is not very useful when one is interested in constructing a Dirac delta function more practically. The other definition of a Dirac delta function is given by the following. 
 
 <div class="definition">
 <b>Definition:</b>
@@ -60,13 +67,13 @@ If the above two properties hold, then \(\{f_k(x)\}\) is called a delta sequence
 
 </div>
 
-A delta sequence looks like in the following plot:
+A delta sequence can be visualized as a sequence of functions which grow increasingly sharply peaked, but also increasingly narrow. They become narrower because their value needs to be zero outside of a very small interval, but they become increasingly sharply peaked in order to maintain the property of having area 1 underneath the curve. A simple example of a delta sequence is constructed out of Gaussian functions, as shown in Fig.~\ref{fig:gaussian_delta_sequence}
 
 <figure class="center">
-<p><img src="figures/gaussian_delta_sequence.pdf" alt="Function" class="center" style="width:125.64px;height:114.149px;"> </p><figcaption class="center">A delta sequence constructed out of Gaussian functions, \(f_k = \sqrt{\frac{k</figcaption>{\pi</figcaption></figcaption>e^{-kx^2</figcaption>\), where we have plotted \(k=1,2,3,4,5\).</figcaption>
+<p><img src="figures/gaussian_delta_sequence.pdf" alt="Function" class="center" style="width:125.64px;height:114.149px;"> </p><figcaption class="center">A delta sequence constructed out of Gaussian functions, \(f_k = \sqrt{\frac{k</figcaption>{\pi</figcaption></figcaption>e^{-kx^2</figcaption>\), where we have plotted \(k=1,2,3,4,5\).</figcaption> \label{fig:gaussian_delta_sequence</figcaption>
 </figure>
 
-There are many examples of delta sequences. 
+Although we have pictured a Gaussian delta sequence, there are numerous examples of function sequences which become increasingly narrow, and increasingly sharply peaked. We note that a delta sequence need not be comprised of continuous functions! Some examples are:
 
 <div class="example">
 <b>Example:</b>
@@ -109,227 +116,30 @@ f_k(x) = \frac{1}{\pi}\frac{k}{1+k^2x^2}
 
 </div>
 
+Sometimes, one also encounters the situation where they know a sequence of sharply peaked functions, but it is not clear exactly if the sequence approaches a delta function, or a scalar multiple of one. Consider the following example:
+
 <div class="example">
 <b>Example:</b>
 Find \(M\) such that the following sequence of functions is a delta sequence as \(\epsilon\to 0\).
 $$\begin{equation}
-f_k(x) = \frac{M}{\epsilon}\sech^2\frac{x}{\epsilon}
+f_\epsilon(x) = \frac{M}{\epsilon}\sech^2\frac{x}{\epsilon}
 \end{equation}$$
 
-<b>Solution:</b>
 
-(\(M = 1/2\)).
+<b>Solution:</b> We already know that, for \(x\neq 0\), as \(\epsilon \to 0\) \(f_\epsilon(x) \to 0\). On the other hand, what is the area under the curve? Well, we know that 
 
-
-</div>
-
-We are able to give meaning to certain expressions involving delta functions. Examples are \\(x\delta(x)\\), \\(f(x)\delta'(x)\\), and \\(\delta(f(x))\\). 
-
-The rigorous approach was due to Laurent Schwartz. 
-
-<div class="definition">
-<b>Definition:</b>
-A function \(\phi(x)\) is called a test function if \(\phi(x)\) is infinitely differentiable and vanishes outside some finite interval. (i.e., it has compact support)
-
-</div>
-
-<div class="example">
-<b>Example:</b>
-An example of a test function is 
-
-$$\begin{equation}
-\phi(x) = \begin{cases}
-	\exp\left(-\frac{a^2}{a^2-x^2}\right) & |x| < a\\ 0 & |x| \geq a
-\end{cases}
-\end{equation}$$
-
-</div>
-
-We will look at generalized functions \\(f(x)\\) (such as expressions involving delta functions) only through their actions on test functions \\(\phi(x)\\) via the functional
-
-$$\begin{equation}
-\left< f,\phi\right> = \int_{-\infty}^\infty f(x)\phi(x) \d x
-\end{equation}$$
-
-The delta function \\(f(x) = \delta(x)\\) is defined by the sifting property such that
-
-$$\begin{equation}
-\int_{-\infty}^\infty f(x)\phi(x) \d x = \phi(0)
-\end{equation}$$
-
-for any test function \\(\phi(x)\\). Note: Defining \\(\delta(x)\\) by the above equation allows us to show that Dirac's formal definition that \\(\delta(x) = 0\\) for \\(x\not=0\\) and \\(\int\_{-\infty}^\infty \delta(x) \d x = 1\\) holds. 
-
-Claim 1: If this holds for all \\(\phi(x)\\) test functions, then \\(f(x) = 0\\) for \\(x\not = 0\\). 
-
-The idea of the proof is, suppose that \\(f(x\_0) \not=0\\) for \\(x\_0\not=0\\); without loss of generality set \\(x\_0 > 0\\). Thus, 
-
-$$\begin{equation}
-\phi(0) = 0 \not= \int \phi f
-\end{equation}$$
-
-so it cannot hold. 
-
-Claim 2: \\(\int\_{-\infty}^\infty f(x) \d x = 1\\) if \\(f(x) = 0\\) for \\(x\not=0\\). 
-
-Thus
-
-$$\begin{equation}
-\int_{-\infty}^\infty f(x)\phi(x) \d x = \phi(0) \int_{-\infty}^\infty f(x) \d x
-\end{equation}$$
-
-holds if \\(\int\_{-\infty}^\infty f(x) \d x = 1\\). 
-
-<div class="definition">
-<b>Definition:</b>
-Let \(f_k(x)\) be a sequence of functions (possibly a delta sequence). We say that \(f_k(x)\to f(x)\) as \(k\to\infty\) <i>weakly</i> if 
-
-$$\begin{equation}
-\lim_{k\to\infty}(f_k,\phi) = \left<f,\phi\right>
-\end{equation}$$
-
-for any test function \(\phi(x)\).
-
-</div>
-
-Recall that we defined test functions \\(\phi(x)\\) as infinitely smooth (\\(C^\infty\\)), with compact support (vanish outside some finite interval). 
-
-Recall that we defined \\(\delta(x-x\_0)\\) via the sifting property, 
-
-$$\begin{equation}
-\inf_{-\infty}^\infty \delta(x-x_0) \phi(x) \d x = \phi(x_0).
-\end{equation}$$
-
-<div class="definition">
-<b>Definition:</b>
-Let \(f_k(x)\) be a sequence of generalized functions. We say that 
-
-$$\begin{equation}
-f_k(x)\to f(x),\text{as}\, k\to\infty
-\end{equation}$$
-
-weakly, if 
-
-$$\begin{equation}
-\lim_{k\to\infty}(f_k,\phi) = (f,\phi)
-\end{equation}$$
-
-for all \(\phi\)
-
-
-</div>
-
-<div class="example">
-<b>Example:</b>
-Illustration of weak convergence for a delta sequence. Let 
-
-$$\begin{equation}
-f_k(x) = \begin{cases}
-	k & |x| < 1/2k \\ 0 & |x| \geq 1/2k
-\end{cases}
-\end{equation}$$
-
-Non rigorously, last class, we wrote \(\lim_{k\to\infty}f_k(x) = \delta(x)\).
-
-A better way is via weak convergence. Let \(\phi(x)\) be any test function. Then, 
-
-$$\begin{equation}
-\left< f_k,\phi\right> = \int_{-\infty}^\infty f_k(x)\phi(x) \d x = k\int_{-1/2k}^{1/2k}\phi(x) \d x 
-\end{equation}$$
-
-By the mean value theory for integrals, we can rewrite this as
-
-$$\begin{equation}
-\left<f_k,\phi \right> = k\phi(\bar{x})\left(\frac{1}{2k} - \frac{-1}{2k}\right) = \phi(\bar{x})
-\end{equation}$$
-
-Let \(k\to\infty\), and \(\bar{x}\), so that
-
-$$\begin{equation}
-\lim_{k\to\infty} \left< f_k,\phi \right> = \phi(0) = \int_{-\infty}^\infty \phi(x) \delta(x) \d x
-\end{equation}$$
-
-so \(f_k\to\delta\) weakly. 
-
-</div>
-
-We can this derive the following identities using the test function idea
-
-<ol>
-<li> The first identity allows us to take constants out of a delta function:
-$$\begin{equation}
-\delta(cx) = \frac{1}{|c|}\delta(x)
-\end{equation}$$
-Note that this may appear slightly unintuitive, but an easy way to remember it is that the delta function \(\delta(cx)\) has units \([\delta(cx)] = 1/[cx]\). Thus to maintain this property the \(c\) should come out and go to the denominator.
-</li>
-<li> The next one says that the derivative of the Heaviside function \(H(x)\) is the delta function: \(H'(x) = \delta(x)\).
-
-</li>
-<li> Generally, if \(f(x)\) has multiple simple zeros, then the delta function should peak at each of these zeros. We can therefore write the expansion
-$$\begin{equation}
-\delta(f(x)) = \sum_{k=1}^n \frac{\delta(x-x_k)}{|f'(x_k)|}
-\end{equation}$$
-where \(f(x_k) = 0\) for \(k = 1,\dots, n\), and \(f'(x_k)\not=0\). Note that we can only have simple zeros.
-</li>
-<li> \(\delta\left(\sin\frac{\pi x}{a}\right) = \frac{|a|}{\pi}\sum_{k=-\infty}^\infty \delta(x-ka)\)
-</li></ol>
-
-The derivations of these are the following. 
-
-<ol>
-<li> To derive the first identity, we can do a direct computation. We have that the inner product is 
-$$\begin{equation}
-(\delta(cx),\phi(x)) = \int_{-\infty}^\infty \delta(cx)\phi(x) \d x
-\end{equation}$$
-Now we do a variable substitution, and let \(y = cx\) so that \(\d x = \d y/c\). If \(c > 0\), we don't have to swap the integral bounds, and if \(c < 0\) we do. We can capture both cases by introducing an absolute value. 
-$$\begin{equation}
-\int_{-\infty}^\infty \frac{1}{|c|}\delta(y)\phi\left(\frac{y}{c}\right) dy = \frac{1}{|c|}\phi(0) = \left(\frac{1}{|c|}\delta(x),\phi(x)\right)
-\end{equation}$$
-	
-thus, \(\delta(cx) = \frac{\delta(x)}{|c|}\).
-</li>
-<li> For the second identity, we consider 
-$$\begin{equation}
-H(x) = \begin{cases}
-0 & x < 0 \\ 
-1 & x \geq 0
-\end{cases}
-\end{equation}$$
-Then, 	
-$$\begin{equation}
-\int_{-\infty}^\infty H'(x) \phi(x) = -\int_{-\infty}^\infty H(x) \phi'(x) = -\int_0^\infty \phi'(x) \d x = \phi(0)
-\end{equation}$$
-
-Thus, 
-
-$$\begin{equation}
-\int_{-\infty}^\infty H'(x) \phi(x) \d x = \int_{-\infty}^\infty \delta(x) \phi(x) \d x
-\end{equation}$$
-
-</li>
-<li> For this one, we let \(f(x_k) = 0\), for \(k = 1,\dots,n\), and \(f'(x_k)\not=0\). Choose \(a_k,b_k\) such that \(a_k < x_k < b_k\), and \(f(x)\) is monotonic on \([a_k,b_k]\). Then, 
-$$\begin{equation}
-(\delta(f(x)),\phi(x)) = \sum_{k=1}^n \int_{a_k}^{b_k}\delta(f(x))\phi(x) \d x
-\end{equation}$$
-	
-On each subinterval, since monotonicity holds, let \(\sigma = f(x)\) so that
-	
-$$\begin{equation}
-\frac{\d x}{d\sigma} = \frac{1}{f'(x)}
-\end{equation}$$
-	
-Thus, when \(\sigma = 0\), \(x = x_k\). Thus, 
-	
 $$\begin{align}
-\left<\phi(x),\delta(f(x))\right> ={}& \sum_{k=1}^n \int_{f(a_k)}^{f(b_k)} \frac{\phi(x(\sigma))}{f'(x(\sigma))}\delta(\sigma) d\sigma \\
-={}& \sum_{k=1}^n \frac{\phi(x(0))}{|f'(x(0))|} \\
-={}& \sum_{k=1}^n \frac{\phi(x_k)}{|f'(x_k)|} \\
-={}& \int_{-\infty}^\infty \sum_{k=1}^n \frac{\delta(x-x_k)}{|f'(x_k)|}\phi(x) \d x
+\int_{-\infty}^\infty f_\epsilon(x) \d x ={}& \frac{M}{\epsilon}\int_{-\infty}^\infty \sech^2\frac{x}{\epsilon} \d x \\
+={}& \frac{M}{\epsilon}\int_{-\infty}^\infty \frac{1}{\cosh^2(x/\epsilon)} \d x \\
+={}& M\int_{-\infty}^\infty \frac{1}{\cosh^2(x)} \d x \\
+={}& M\int_{-\infty}^\infty \frac{4}{(e^x + e^{-x})^2} \d x \\
+={}& M\int_{-\infty}^\infty \frac{4e^{2x}}{(1 + e^{2x})^2} \d x \\
+={}& 2M\int_0^\infty \frac{1}{(1+z)^2} \d z \\
+={}& 2M\frac{-1}{1+z}\bigg|_0^\infty \\
+={}& 2M
 \end{align}$$
-	</li>
-<li> Lastly, let's prove the expansion of the sine identity. For thiso one, we apply the previous result with \(f(x) = \sin(\pi x/a)\). Thus \(f(x_k) = 0\) for \(x_k = ak\), where \(k\in \ZZ\). Thus \(f'(x_k) = \frac{\pi}{a}\cos\left(\frac{\pi x_k}{a}\right) = (-1)^k\frac{\pi}{a}\). Using the previous result, we find that
-	$$\begin{equation}
-	\delta\left(\sin\frac{\pi x}{a}\right) = \frac{|a|}{\pi}\sum_{k=-\infty}^\infty \delta(x-ak)
-	\end{equation}$$
-</li></ol>
 
+where we have set \(z = e^{2x}\) to perform the integral. In order to have area 1, we set \(M = 1/2\).
+
+</div>
 
